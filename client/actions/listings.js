@@ -1,4 +1,4 @@
-import api from '../api/listings'
+import * as api from '../api/listings'
 
 export const GET_LISTINGS_PENDING = 'GET_LISTING_PENDING'
 export const GET_LISTINGS_SUCCESS = 'GET_LISTINGS_SUCCESS'
@@ -13,5 +13,13 @@ export function getListingsSuccess (listings) {
   return {
     type: GET_LISTINGS_SUCCESS,
     listings
+  }
+}
+
+export function getListings () {
+  return dispatch => {
+    dispatch(getListingsPending())
+    return api.getListings()
+      .then(listings => dispatch(getListingsSuccess(listings)))
   }
 }
