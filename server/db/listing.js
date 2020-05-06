@@ -1,7 +1,7 @@
 const connection = require('./connection')
 
-function getListings (db = connection){
-  return('')
+function getListings (db = connection) {
+  return db('categories')
 }
 
 module.exports = {
