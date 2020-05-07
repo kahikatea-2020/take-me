@@ -12,16 +12,16 @@ jest.mock('../db/categories', () => {
         { id: 5, name: 'Automotive' }
       ])
     }
-   }}
-  )
+  }
+}
+)
 
-  test('Get /api/v1/categories returns an array of categories', () => {
-    return request(server)
+test('Get /api/v1/categories returns an array of categories', () => {
+  return request(server)
     .get('/api/v1/categories')
     .then(res => {
       expect(res.body.length).toBe(5)
       expect(res.body[1].id).toBe(2)
       expect(res.body[1].name).toBe('Electronics')
-
     })
-  })
+})
