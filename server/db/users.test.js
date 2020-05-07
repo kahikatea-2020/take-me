@@ -54,7 +54,7 @@ test('test get user by email function', () => {
     })
 })
 
-test('test get user by email function', () => {
+test('test get user by email with a bad email', () => {
   const email = 'NapTime@gmail.com'
 
   return db.getUserById(email, testDb)
