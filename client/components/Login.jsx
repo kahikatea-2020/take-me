@@ -5,8 +5,7 @@ import { Form } from 'semantic-ui-react'
 class Login extends React.Component {
   state = {
     emailAddress: '',
-    password: '',
-    confirmPassword: ''
+    password: ''
   }
 
   updateEmailAddress = e => {
@@ -21,19 +20,9 @@ class Login extends React.Component {
     })
   }
 
-  updateConfirmPassword = e => {
-    this.setState({
-      confirmPassword: e.target.value
-    })
-  }
-
   submitHandler = e => {
     console.log(this.state)
-    if (this.state.password === this.state.confirmPassword) {
-      console.log('Submitted!')
-    } else {
-      console.log('Passwords do not match!')
-    }
+    console.log('Submitted!')
   }
 
   render () {
@@ -55,14 +44,6 @@ class Login extends React.Component {
             width={6}
             name='Password'
             placeholder='Password'
-            type='password'
-          />
-          <Form.Input
-            onKeyUp={this.updateConfirmPassword}
-            fluid
-            width={6}
-            name='Confirm password'
-            placeholder='Confirm password'
             type='password'
           />
           <Form.Group>
