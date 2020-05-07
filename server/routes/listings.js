@@ -22,13 +22,20 @@ router.get('/', (req, res) => {
 
 // GET /api/v1/listings/id
 
-// PUT api/v1/listing/:id
-router.put('/:id', getTokenDecoder(), (req, res) => {
+// PUT api/v1/listings/:id
+router.put('/:id', (req, res) => {
   const id = req.params.id
   const newListing = req.body
   db.updateListingById(id, newListing)
     .then(dbRes => {
-      console.log(dbRes)
+      if (dbRes) {
+        res.status(200).json({ ok: true })
+      } else {
+        res.status(500).json({ ok: false })
+      }
+    })
+    .catch(err => {
+      res.status(500).json({ ok: false, error: err.message })
     })
 })
 
