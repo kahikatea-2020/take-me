@@ -4,7 +4,7 @@ import { Form } from 'semantic-ui-react'
 
 class Login extends React.Component {
   state = {
-    emailAddress: '',
+    username: '',
     password: ''
   }
 
@@ -28,8 +28,8 @@ class Login extends React.Component {
             onKeyUp={this.updateField}
             fluid
             width={6}
-            name='emailAddress'
-            placeholder='Email address'
+            name='username'
+            placeholder='Username'
             type='text'
           />
           <Form.Input
