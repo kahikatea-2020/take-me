@@ -14,7 +14,8 @@
     "start": "run-s build server",
     "build": "webpack",
     "server": "node server",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "knex": "knex --knexfile server/db/knexfile.js"
   },
   "babel": {
     "presets": [
@@ -61,6 +62,7 @@
     "redux-thunk": "^2.3.0",
     "semantic-ui-css": "^2.4.1",
     "semantic-ui-react": "^0.88.2",
+    "supertest": "^4.0.2",
     "webpack": "^4.42.1",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
