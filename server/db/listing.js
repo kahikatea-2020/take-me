@@ -8,7 +8,7 @@ function getListings (db = connection) {
 function getListingsById (id, db = connection) {
   return db('listings')
     .join('users', 'listings.user_id', 'users.id')
-    .where('id', id)
+    .where('listings.id', id)
     .select('listings.id as id',
     'listings.name as name',
     'listings.description as description',
