@@ -56,7 +56,7 @@ class SignUp extends React.Component {
   }
 
   submitHandler = e => {
-    console.log(this.state)
+    // console.log(this.state)
     if (this.state.password === this.state.confirmPassword) {
       console.log('Submitted!')
     } else {
@@ -73,6 +73,7 @@ class SignUp extends React.Component {
           <Form.Input
             onKeyUp={this.updateFirstName}
             fluid
+            width={6}
             name='First name'
             placeholder='First name'
             type='text'
@@ -80,6 +81,7 @@ class SignUp extends React.Component {
           <Form.Input
             onKeyUp={this.updateLastName}
             fluid
+            width={6}
             name='Last name'
             placeholder='Last name'
             type='text'
@@ -87,6 +89,7 @@ class SignUp extends React.Component {
           <Form.Input
             onKeyUp={this.updateEmailAddress}
             fluid
+            width={6}
             name='Email address'
             placeholder='Email address'
             type='text'
@@ -94,6 +97,7 @@ class SignUp extends React.Component {
           <Form.Input
             onKeyUp={this.updatePhoneNumber}
             fluid
+            width={6}
             name='Phone number'
             placeholder='Phone number'
             type='number'
@@ -101,6 +105,7 @@ class SignUp extends React.Component {
           <Form.Input
             onKeyUp={this.updateLocation}
             fluid
+            width={6}
             name='Location'
             placeholder='Location'
             type='text'
@@ -108,6 +113,7 @@ class SignUp extends React.Component {
           <Form.Input
             onKeyUp={this.updatePassword}
             fluid
+            width={6}
             name='Password'
             placeholder='Password'
             type='password'
@@ -115,6 +121,7 @@ class SignUp extends React.Component {
           <Form.Input
             onKeyUp={this.updateConfirmPassword}
             fluid
+            width={6}
             name='Confirm password'
             placeholder='Confirm password'
             type='password'
