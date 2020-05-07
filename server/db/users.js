@@ -4,7 +4,8 @@ const { generageHash } = require('authenticare/server')
 
 module.exports = {
   createUser,
-  userExists
+  userExists,
+  getUserById
 }
 
 function createUser (user, db = connection) {
@@ -28,4 +29,10 @@ function userExists (email, db = connection) {
     .then(count => {
       return count[0].n > 0
     })
+}
+
+function getUserById (email, db = connection) {
+  return db('users')
+    .where('email', email)
+    .first()
 }
