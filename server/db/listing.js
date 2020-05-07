@@ -1,8 +1,6 @@
 const connection = require('./connection')
 
-function getListings (db = connection) {
-  return db('listings')
-}
+const getListings = (db = connection) => (db('listings'))
 
 module.exports = {
   getListings
