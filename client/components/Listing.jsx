@@ -26,7 +26,7 @@ class Listing extends React.Component {
       <div className="listingWrapper">
         <h2>{listing.name}</h2>
         <img style={{ maxWidth: '400px' }} src={listing.imageUrl} alt={listing.name} />
-        {this.state.description.map(sentence => <p>{sentence}</p>)}
+        {this.state.description.map(sentence => <p key={sentence.substr(0, 10)}>{sentence}</p>)}
       </div>
       <div className='contactInfo'>
         <h4>Location: {listing.location}</h4>
