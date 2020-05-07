@@ -13,8 +13,10 @@ router.get('/', (req, res) => {
 
 // GET /api/v1/listings/id
 router.get('/:id', (req, res) => {
-  db.getListingsById(req.params.id)
+  const { id } = req.params
+  db.getListingsById(id)
     .then(dbRes => {
+      dbRes[0].description = JSON.parse(dbRes[0].description)
       res.send(dbRes)
     })
 })
