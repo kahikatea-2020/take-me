@@ -1,0 +1,4 @@
+.ListingWrapper {
+  display: flex;
+  flex-direction: row;
+}
