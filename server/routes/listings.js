@@ -6,6 +6,7 @@ const db = require('../db/listing')
 router.get('/:id', (req, res) => {
   db.getListingsById(req.params.id)
     .then(dbRes => {
+      dbRes[0].description = JSON.parse(dbRes[0].description)
       res.send(dbRes)
     })
 })
