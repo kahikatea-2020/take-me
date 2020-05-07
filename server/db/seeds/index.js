@@ -16,8 +16,8 @@ exports.seed = (knex) =>
       ]))
     .then(() =>
       knex('users').insert([
-        { id: 1, first_name: 'John', last_name: 'Sengson', email: 'john@gmail.com', phone_number: '021-435-1234', image_url: 'john.jpg', hashed_password: '5F4DCC3B5AA765D61D8327DEB882CF99', location: 'Auckland' },
-        { id: 2, first_name: 'Mathias', last_name: 'Bast', email: 'mathias@gmail.com', phone_number: '021-352-1234', image_url: 'mathias.jpg', hashed_password: '5F4DCC3B5AA765D61D8327DEB882CF99', location: 'Gisborne' }
+        { id: 1, username: 'johnS', first_name: 'John', last_name: 'Sengson', email: 'john@gmail.com', phone_number: '021-435-1234', image_url: 'john.jpg', hashed_password: '5F4DCC3B5AA765D61D8327DEB882CF99', location: 'Auckland' },
+        { id: 2, username: 'm-dog', first_name: 'Mathias', last_name: 'Bast', email: 'mathias@gmail.com', phone_number: '021-352-1234', image_url: 'mathias.jpg', hashed_password: '5F4DCC3B5AA765D61D8327DEB882CF99', location: 'Gisborne' }
       ]))
     .then(() =>
       knex('listings').insert([
