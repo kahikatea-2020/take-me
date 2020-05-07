@@ -56,7 +56,12 @@ class SignUp extends React.Component {
   }
 
   submitHandler = e => {
-    // sends info to DB?s
+    console.log(this.state)
+    if (this.state.password === this.state.confirmPassword) {
+      console.log('Submitted!')
+    } else {
+      console.log('Passwords do not match!')
+    }
   }
 
   render () {
@@ -92,6 +97,13 @@ class SignUp extends React.Component {
             name='Phone number'
             placeholder='Phone number'
             type='number'
+          />
+          <Form.Input
+            onKeyUp={this.updateLocation}
+            fluid
+            name='Location'
+            placeholder='Location'
+            type='text'
           />
           <Form.Input
             onKeyUp={this.updatePassword}
