@@ -63,3 +63,10 @@ test('GET route getting correct listing', () => {
     })
 })
 
+test('Put route update listing works', () => {
+  return request(server)
+    .put('/api/v1/listings/2')
+    .then(res => {
+      expect(res.status).toBe(200)
+    })
+})
