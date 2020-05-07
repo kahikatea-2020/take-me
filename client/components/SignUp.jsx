@@ -126,17 +126,19 @@ class SignUp extends React.Component {
             placeholder='Confirm password'
             type='password'
           />
-          <Form.Button
-            type='submit'
-            onClick={this.submitHandler}
-          >
-            Submit
-          </Form.Button>
-          <Link to='/'>
-            <Form.Button>
+          <Form.Group>
+            <Link to='/'>
+              <Form.Button>
               Cancel
+              </Form.Button>
+            </Link>
+            <Form.Button
+              type='submit'
+              onClick={this.submitHandler}
+            >
+            Submit
             </Form.Button>
-          </Link>
+          </Form.Group>
         </Form>
       </>
     )
