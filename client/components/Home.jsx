@@ -1,14 +1,34 @@
 import React from 'react'
-import Navbar from 'Navbar'
-import Footer from 'Footer'
-import CategoryList from 'CategoryList'
+import { connect } from 'react-redux'
+
+import { getListings } from '../actions/listings'
+//redux
+
+// import CategoryList from 'CategoryList'
+// import Search from './Search'
+import ListItem from './ListItem'
 
 class Home extends React.Component {
+  componentDidMount () {
+    this.props.dispatch(getListings())
+  }
   render() {
-    <Navbar />
-    return <h1>Homepage</h1>;
-    <Footer />
+    return (
+    <>
+    <h1>hello</h1>
+    {/* <Search /> */}
+    <div className="ListingWrapper">
+    {this.props.listings.map(item => <ListItem key={item.id} listing={item} />)}
+    </div>
+    </>
+    )
   }
 }
 
-export default Home 
+const mapStateToProps = state => {
+  return {
+    listings: state.listings
+  }
+}
+
+export default connect(mapStateToProps)(Home)
