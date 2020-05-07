@@ -12,7 +12,6 @@ function createUser (user, db = connection) {
   return userExists(user.emailAddress, db)
     .then(exists => {
       if (exists) {
-        console.log('hithere')
         return Promise.reject(new Error('Email Taken'))
       }
     })
