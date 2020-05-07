@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Form } from 'semantic-ui-react'
 
+import { isAuthenticated, register } from 'authenticare/client'
+
 class SignUp extends React.Component {
   state = {
     firstName: '',
@@ -9,6 +11,7 @@ class SignUp extends React.Component {
     emailAddress: '',
     phoneNumber: null,
     location: '',
+    username: '',
     password: '',
     confirmPassword: ''
   }
@@ -21,9 +24,14 @@ class SignUp extends React.Component {
 
   submitHandler = e => {
     if (this.state.password !== this.state.confirmPassword) {
-      console.log('Submitted!')
+      // throw some kind of error (may need other error handling if required fields not filled out)
     } else {
-      console.log('Passwords do not match!')
+      register(this.state, { baseUrl: process.env.BASE_API_URL })
+        .then((token) => {
+          if (isAuthenticated()) {
+            this.props.history.push('/')
+          }
+        })
     }
   }
 
@@ -76,6 +84,15 @@ class SignUp extends React.Component {
             width={6}
             name='location'
             placeholder='Location'
+            type='text'
+          />
+          <Form.Input
+            onKeyUp={this.updateField}
+            fluid
+            required
+            width={6}
+            name='username'
+            placeholder='Username'
             type='text'
           />
           <Form.Input
