@@ -1,39 +1,30 @@
 import React from 'react'
+import { Form } from 'semantic-ui-react'
 
 class NewListing extends React.Component {
-  state = {
-    listingName: '',
-    description: [],
-    category: '',
-    location: '',
-    image: ''
+  constructor () {
+    super()
+    this.state = {
+      email: '',
+      password: ''
+    }
+    this.handleChange = this.handleChange.bind(this)
   }
 
-  updateListingName = e => {
-    this.setState({
-      listingName: e.target.value
-    })
+  handleChange (evt) {
+    this.setState({ [evt.target.name]: evt.target.value })
   }
-
-  updateDescription = e => {
-    this.setState({
-      description: e.target.value
-    })
-  }
-
-  updateLocation = e => {
-    this.setState({
-      location: e.target.value
-    })
-  }
-
-  // image function
-
-  // dropdown cat function meow
 
   render () {
     return (
-      <div>
+      <>
+        <Form>
+
+          <label>Email</label>
+          <input type="text" name="email" onChange={this.handleChange} />
+
+        </Form>
+
         <select className="ui search dropdown">
           <option value="">Category</option>
           <option value="Auto">Automotive</option>
@@ -41,7 +32,7 @@ class NewListing extends React.Component {
           <option value="Elec">Electrical</option>
           <option value="Homeware">Homeware</option>
         </select>
-      </div>
+      </>
     )
   }
 }
