@@ -5,6 +5,7 @@ exports.up = knex =>
     table.string('last_name')
     table.string('email')
     table.string('phone_number')
+    table.binary('image')
     table.string('hashed_password')
   })
 
