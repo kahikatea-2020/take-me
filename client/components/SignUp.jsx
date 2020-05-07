@@ -17,44 +17,7 @@ class SignUp extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     })
-    console.log(this.state)
   }
-
-  // updateLastName = e => {
-  //   this.setState({
-  //     lastName: e.target.value
-  //   })
-  // }
-
-  // updateEmailAddress = e => {
-  //   this.setState({
-  //     emailAddress: e.target.value
-  //   })
-  // }
-
-  // updatePhoneNumber = e => {
-  //   this.setState({
-  //     phoneNumber: e.target.value
-  //   })
-  // }
-
-  // updateLocation = e => {
-  //   this.setState({
-  //     location: e.target.value
-  //   })
-  // }
-
-  // updatePassword = e => {
-  //   this.setState({
-  //     password: e.target.value
-  //   })
-  // }
-
-  // updateConfirmPassword = e => {
-  //   this.setState({
-  //     confirmPassword: e.target.value
-  //   })
-  // }
 
   submitHandler = e => {
     // password needs to be hashed before coming in here?
