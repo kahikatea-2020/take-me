@@ -6,6 +6,7 @@ import SignUp from './SignUp'
 import Login from './Login'
 import Home from './Home'
 import Listing from './Listing'
+import NewListing from './NewListing'
 // import Footer from './Footer'
 
 const App = () => {
@@ -15,6 +16,7 @@ const App = () => {
       <Route exact path='/' component={Home} />
       <Route path='/sign-up' component={SignUp} />
       <Route path='/login' component={Login} />
+      <Route path='/new-listing' component={NewListing} />
       <Route exact path='/listings/:id' component={Listing} />
       {/* <Route path='/' component={Footer} /> */}
     </Router>
