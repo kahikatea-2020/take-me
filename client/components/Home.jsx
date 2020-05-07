@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 //redux
 
 // import CategoryList from 'CategoryList'
@@ -6,17 +7,25 @@ import React from 'react'
 import ListItem from './ListItem'
 
 class Home extends React.Component {
-  // componentDidMount => dispatch getListings
+  componentDidMount () {
+    dispatchEvent()
+  }
   render() {
     return (
     <>
     <h1>hello</h1>
     {/* <Search /> */}
     <div className="ListingWrapper">
-    {/* {this.props.listings.map(item => <ListItem listing={item} />)} */}
+    {this.props.listings.map(item => <ListItem listing={item} />)}
     </div>
     </>
     )
+  }
+}
+
+const mapStateToProps = state => {
+  return {
+    listings: state.listings
   }
 }
 
