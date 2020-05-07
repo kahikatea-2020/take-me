@@ -29,7 +29,7 @@ class Listing extends React.Component {
         {this.state.description.map(sentence => <p key={sentence.substr(0, 10)}>{sentence}</p>)}
       </div>
       <div className='contactInfo'>
-        <h4>Location: {listing.location}</h4>
+        <h4>Location: {listing.userLocation}</h4>
         <h3>Contact {listing.userFirstName}</h3>
         <p>{listing.userPhoneNumber}</p>
         <button className='emailButton'>
@@ -42,19 +42,3 @@ class Listing extends React.Component {
 }
 
 export default Listing
-
-// https://tylermcginnis.com/react-router-cannot-get-url-refresh/
-
-// // [{
-//   "id":1,
-//   "name":"Soccer Ball",
-//   "description":"[\"Moving house and we don't use this ball anymore\",\"Free to a good home!\"]",
-//   "imageUrl":"/soccer_ball.jpg",
-//   "userId":1,
-//   "categoryId":7,
-//   "userFirstName":"John",
-//   "userLastName":"Sengson",
-//   "userImage":"john.jpg",
-//   "userPhoneNumber":"021-435-1234",
-//   "userEmail":"john@gmail.com",
-//   "userLocation":"Auckland"}]

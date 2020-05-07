@@ -20,6 +20,8 @@ export function getListings () {
   return dispatch => {
     dispatch(getListingsPending())
     return api.getListings()
-      .then(listings => dispatch(getListingsSuccess(listings)))
+      .then(listings => {
+        dispatch(getListingsSuccess(listings))
+      })
   }
 }

@@ -7,12 +7,13 @@ const listings = require('././routes/listings')
 
 server.use(express.json())
 server.use(express.static(path.join(__dirname, './public')))
-server.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, './public/index.html'))
-})
 
 // Routes
 server.use('/api/v1/listings', listings)
 server.use('/api/v1/categories', categories)
+
+server.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'))
+})
 
 module.exports = server

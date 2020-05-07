@@ -7,7 +7,7 @@ class ListItem extends React.Component {
     return (
       <>
         <img style={{maxWidth: '200px'}} src={listing.imageUrl} alt={listing.name}/>
-        <h3><Link to={`/listing/${listing.id}`}>{listing.name}</Link></h3>
+        <h3><Link to={`/listings/${listing.id}`}>{listing.name}</Link></h3>
       </>
     )
   }
