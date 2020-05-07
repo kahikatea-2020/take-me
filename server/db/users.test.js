@@ -22,7 +22,25 @@ test('test create user function', () => {
 
   return db.createUser(newUser, testDb)
     .then(users => {
-      console.log('users')
       expect(users[0]).toBe(3)
+    })
+})
+
+test('test user exists function', () => {
+  const email = 'mathias@gmail.com'
+
+  return db.userExists(email, testDb)
+    .then(res => {
+      expect(res).toBeTruthy()
+    })
+})
+
+test('test get user by email function', () => {
+  const email = 'mathias@gmail.com'
+
+  return db.getUserById(email, testDb)
+    .then(res => {
+      expect(res.first_name).toBe('Mathias')
+      expect(res.location).toBe('Gisborne')
     })
 })
