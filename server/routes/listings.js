@@ -3,11 +3,11 @@ const router = express.Router()
 
 const db = require('../db/listing')
 
-// GET api/v1/listings
+// GET /api/v1/listings
 router.get('/', (req, res) => {
-  db.getListings
+  db.getListings()
     .then(dbRes => {
-      res.json(dbRes)
+      res.send(dbRes)
     })
 })
 
