@@ -16,18 +16,28 @@ exports.seed = (knex) =>
       ]))
     .then(() =>
       knex('users').insert([
-        { id: 1, first_name: 'John', last_name: 'Sengson', email: 'john@gmail.com', phone_number: '021-435-1234', image_url: 'john.jpg', hashed_password: '5F4DCC3B5AA765D61D8327DEB882CF99' },
-        { id: 2, first_name: 'Mathias', last_name: 'Bast', email: 'mathias@gmail.com', phone_number: '021-352-1234', image_url: 'mathias.jpg', hashed_password: '5F4DCC3B5AA765D61D8327DEB882CF99' }
+        { id: 1, first_name: 'John', last_name: 'Sengson', email: 'john@gmail.com', phone_number: '021-435-1234', image_url: 'john.jpg', hashed_password: '5F4DCC3B5AA765D61D8327DEB882CF99', location: 'Auckland' },
+        { id: 2, first_name: 'Mathias', last_name: 'Bast', email: 'mathias@gmail.com', phone_number: '021-352-1234', image_url: 'mathias.jpg', hashed_password: '5F4DCC3B5AA765D61D8327DEB882CF99', location: 'Gisborne' }
       ]))
     .then(() =>
       knex('listings').insert([
-        { id: 1, name: 'Soccer Ball', description: JSON.stringify([
-          'Moving house and we don\'t use this ball anymore',
-          'Free to a good home!'
-        ]), image_url: 'soccer_ball.jpg', user_id: 1, category_id: 7},
-        { id: 2, name: 'Ladder', description: JSON.stringify([
-          '5 step ladder',
-          'I\'ve only used it like twice',
-          'Perfect working condition, contact me for pick up times'
-        ]), image_url: 'ladder.jpg', user_id: 2, category_id: 2}
+        { id: 1,
+          name: 'Soccer Ball',
+          description: JSON.stringify([
+            'Moving house and we don\'t use this ball anymore',
+            'Free to a good home!'
+          ]),
+          image_url: '/soccer_ball.jpg',
+          user_id: 1,
+          category_id: 7 },
+        { id: 2,
+          name: 'Ladder',
+          description: JSON.stringify([
+            '5 step ladder',
+            'I\'ve only used it like twice',
+            'Perfect working condition, contact me for pick up times'
+          ]),
+          image_url: '/ladder.jpg',
+          user_id: 2,
+          category_id: 2 }
       ]))

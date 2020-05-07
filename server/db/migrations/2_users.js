@@ -7,6 +7,7 @@ exports.up = knex =>
     table.string('phone_number')
     table.string('image_url')
     table.string('hashed_password')
+    table.string('location')
   })
 
 exports.down = knex => knex.schema.dropTable('users')
