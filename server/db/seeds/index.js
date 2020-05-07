@@ -1,5 +1,6 @@
 exports.seed = (knex) =>
   knex('categories').del()
+    .then(() => knex('users').del())
     .then(() => knex('listings').del())
     .then(() =>
       knex('categories').insert([
@@ -20,11 +21,11 @@ exports.seed = (knex) =>
       ]))
     .then(() =>
       knex('listings').insert([
-        { id: 1, name: 'Soccer Ball', despcription: JSON.stringify([
+        { id: 1, name: 'Soccer Ball', description: JSON.stringify([
           'Moving house and we don\'t use this ball anymore',
           'Free to a good home!'
         ]), image: 'Auckland', user_id: 1, category_id: 7},
-        { id: 1, name: 'Ladder', despcription: JSON.stringify([
+        { id: 2, name: 'Ladder', description: JSON.stringify([
           '5 step ladder',
           'I\'ve only used it like twice',
           'Perfect working condition, contact me for pick up times'
