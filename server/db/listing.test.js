@@ -13,19 +13,46 @@ afterEach(() => env.cleanup(testDb))
 test('test getListings function return test database', () => {
   const expected = 2
 
-  return db.getListings(testDb)
-    .then(listings => {
-      const actual = listings.length
-      expect(actual).toBe(expected)
-    })
+  return db.getListings(testDb).then((listings) => {
+    const actual = listings.length
+    expect(actual).toBe(expected)
+  })
 })
 
 test('test getListings function return with the name we want', () => {
   const expected = 'Soccer Ball'
 
-  return db.getListings(testDb)
-    .then(listings => {
-      const actual = listings[0].name
+  return db.getListings(testDb).then((listings) => {
+    const actual = listings[0].name
+    expect(actual).toBe(expected)
+  })
+})
+
+describe('getListingById tests', () => {
+  test('test getListingsById function return with the correct user email', () => {
+    const expected = 'john@gmail.com'
+
+    return db.getListingsById(1, testDb).then((listing) => {
+      const actual = listing[0].userEmail
       expect(actual).toBe(expected)
     })
+  })
+
+  test('test getListingsById function return with the correct user email', () => {
+    const expected = 'Mathias'
+
+    return db.getListingsById(2, testDb).then((listing) => {
+      const actual = listing[0].userFirstName
+      expect(actual).toBe(expected)
+    })
+  })
+
+  test('test getListingsById function return with the correct user listing name', () => {
+    const expected = 'Ladder'
+
+    return db.getListingsById(2, testDb).then((listing) => {
+      const actual = listing[0].name
+      expect(actual).toBe(expected)
+    })
+  })
 })

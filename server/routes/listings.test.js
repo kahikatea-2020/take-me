@@ -22,6 +22,15 @@ jest.mock('../db/listing', () => {
           listing: 'Annoying Child'
         }
       ])
+    },
+    getListingsById: () => {
+      return Promise.resolve([
+        {
+          id: 1,
+          name: 'test listing',
+          userFirstName: 'user name'
+        }
+      ])
     }
   }
 })
@@ -33,5 +42,15 @@ test('GET route getting all listings', () => {
       expect(res.body.length).toBe(4)
       expect(res.body[0].listing).toBe('Banana')
       expect(res.body[2].id).toBe(3)
+    })
+})
+
+test('GET route getting correct listing', () => {
+  return request(server)
+    .get('/api/v1/listings/1')
+    .then(res => {
+      expect(res.body.length).toBe(1)
+      expect(res.body[0].name).toBe('test listing')
+      expect(res.body[0].userFirstName).toBe('user name')
     })
 })

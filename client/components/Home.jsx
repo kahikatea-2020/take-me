@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 
 import { getListings } from '../actions/listings'
-//redux
+// redux
 
 // import CategoryList from 'CategoryList'
 // import Search from './Search'
@@ -12,13 +12,13 @@ class Home extends React.Component {
   componentDidMount () {
     this.props.dispatch(getListings())
   }
-  render() {
+  render () {
     return (
     <>
     <h1>hello</h1>
     {/* <Search /> */}
     <div className="ListingWrapper">
-    {this.props.listings.map(item => <ListItem key={item.id} listing={item} />)}
+      {this.props.listings.map(item => <ListItem key={item.id} listing={item} />)}
     </div>
     </>
     )
