@@ -14,7 +14,8 @@
     "start": "run-s build server",
     "build": "webpack",
     "server": "node server",
-    "test": "jest --watchAll"
+    "test": "jest --watchAll",
+    "knex": "knex --knexfile server/db/knexfile.js"
   },
   "babel": {
     "presets": [
