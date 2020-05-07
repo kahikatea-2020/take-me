@@ -24,10 +24,10 @@ exports.seed = (knex) =>
         { id: 1, name: 'Soccer Ball', description: JSON.stringify([
           'Moving house and we don\'t use this ball anymore',
           'Free to a good home!'
-        ]), image_url: 'soccer_ball', user_id: 1, category_id: 7},
+        ]), image_url: 'soccer_ball.jpg', user_id: 1, category_id: 7},
         { id: 2, name: 'Ladder', description: JSON.stringify([
           '5 step ladder',
           'I\'ve only used it like twice',
           'Perfect working condition, contact me for pick up times'
-        ]), image_url: 'ladder', user_id: 2, category_id: 2}
+        ]), image_url: 'ladder.jpg', user_id: 2, category_id: 2}
       ]))
