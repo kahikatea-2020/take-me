@@ -5,11 +5,11 @@ const { generateHash } = require('authenticare/server')
 module.exports = {
   createUser,
   userExists,
-  getUserById
+  getUserByName
 }
 
 function createUser (user, db = connection) {
-  return userExists(user.emailAddress, db)
+  return userExists(user.username, db)
     .then(exists => {
       if (exists) {
         return Promise.reject(new Error('Email Taken'))
@@ -17,22 +17,22 @@ function createUser (user, db = connection) {
     })
     .then(() => generateHash(user.password))
     .then(passwordHash => {
-      const { firstName, lastName, emailAddress, phoneNumber, location } = user
-      return db('users').insert({ first_name: firstName, last_name: lastName, email: emailAddress, phone_number: phoneNumber, hashed_password: passwordHash, location: location, image_url: 'pat.jpg' })
+      const { firstName, lastName, emailAddress, phoneNumber, location, username } = user
+      return db('users').insert({ first_name: firstName, last_name: lastName, email: emailAddress, phone_number: phoneNumber, username: username, hashed_password: passwordHash, location: location, image_url: 'pat.jpg' })
     })
 }
 
-function userExists (email, db = connection) {
+function userExists (username, db = connection) {
   return db('users')
     .count('id as n')
-    .where('email', email)
+    .where('username', username)
     .then(count => {
       return count[0].n > 0
     })
 }
 
-function getUserById (email, db = connection) {
+function getUserByName (username, db = connection) {
   return db('users')
-    .where('email', email)
+    .where('username', username)
     .first()
 }
