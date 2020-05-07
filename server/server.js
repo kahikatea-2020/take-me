@@ -14,4 +14,8 @@ server.use('/api/v1/listings', listings)
 server.use('/api/v1/categories', categories)
 server.use('/api/v1/user', authRoutes)
 
+server.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, './public/index.html'))
+})
+
 module.exports = server
