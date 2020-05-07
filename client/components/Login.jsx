@@ -8,15 +8,9 @@ class Login extends React.Component {
     password: ''
   }
 
-  updateEmailAddress = e => {
+  updateField = e => {
     this.setState({
-      emailAddress: e.target.value
-    })
-  }
-
-  updatePassword = e => {
-    this.setState({
-      password: e.target.value
+      [e.target.name]: e.target.value
     })
   }
 
@@ -31,18 +25,18 @@ class Login extends React.Component {
         <h1>Login</h1>
         <Form>
           <Form.Input
-            onKeyUp={this.updateEmailAddress}
+            onKeyUp={this.updateField}
             fluid
             width={6}
-            name='Email address'
+            name='emailAddress'
             placeholder='Email address'
             type='text'
           />
           <Form.Input
-            onKeyUp={this.updatePassword}
+            onKeyUp={this.updateField}
             fluid
             width={6}
-            name='Password'
+            name='password'
             placeholder='Password'
             type='password'
           />
