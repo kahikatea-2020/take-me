@@ -10,5 +10,6 @@ server.use(express.static(path.join(__dirname, './public')))
 
 // Routes
 server.use('/api/v1/listings', listings)
+server.use('/api/v1/user')
 
 module.exports = server
