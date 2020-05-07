@@ -1,35 +1,32 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Container, Menu, Header } from 'semantic-ui-react'
 
 class Navbar extends React.Component {
   render () {
     return (
-      <>
-        <Link to='/'>
-          TakeMe
-        </Link>
-        {this.props.loggedIn
-          ? <>
-          <Link to='/profile'>
-            <button className='profile'>
-              Profile name
-            </button>
-          </Link>
-          </>
-          : <>
-          <Link to='/login'>
-            <button className='login-button'>
+      <Menu>
+        <Container>
+          <Menu.Item as={Link} to='/' header>
+            <Header>TakeMe</Header>
+          </Menu.Item>
+          {this.props.loggedIn
+            ? <>
+              <Menu.Item as={Link} to='/profile'>
+                Profile name
+              </Menu.Item>
+            </>
+            : <>
+            <Menu.Item as={Link} to='/login'>
               Login
-            </button>
-          </Link>
-          <Link to='/sign-up'>
-            <button className='sign-up-button'>
+            </Menu.Item>
+            <Menu.Item as={Link} to='/sign-up'>
               Sign Up
-            </button>
-          </Link>
+            </Menu.Item>
           </>
-        }
-      </>
+          }
+        </Container>
+      </Menu>
     )
   }
 }
