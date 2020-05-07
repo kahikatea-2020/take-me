@@ -12,7 +12,9 @@ class Navbar extends React.Component {
         {this.props.loggedIn
           ? <>
           <Link to='/profile'>
-            Profile name
+            <button className='profile'>
+              Profile name
+            </button>
           </Link>
           </>
           // if loggedIn is false:
