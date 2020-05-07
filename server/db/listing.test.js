@@ -29,3 +29,13 @@ test('test getListings function return with the name we want', () => {
       expect(actual).toBe(expected)
     })
 })
+
+test('test getListingsById function return with the correct user email', () => {
+  const expected = 'john@gmail.com'
+
+  return db.getListingsById(1, testDb)
+    .then(listing => {
+      const actual = listing.userEmail
+      expect(actual).toBe(expected)
+    })
+})
