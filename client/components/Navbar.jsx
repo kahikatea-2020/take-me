@@ -2,10 +2,6 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 
 class Navbar extends React.Component {
-  state = {
-    loggedIn: false
-  }
-
   render () {
     return (
       <>
@@ -13,7 +9,7 @@ class Navbar extends React.Component {
           TakeMe
         </Link>
         {/* if loggedIn is true: */}
-        {this.state.loggedIn
+        {this.props.loggedIn
           ? <>
           <Link to='/profile'>
             Profile name
