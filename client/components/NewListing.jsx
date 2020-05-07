@@ -21,6 +21,8 @@ class NewListing extends React.Component {
   render () {
     return (
       <>
+        <h1>Create a listing</h1>
+        <p>Please fill in the following</p>
         <Form>
 
           <label>Listing Name</label>
@@ -29,9 +31,11 @@ class NewListing extends React.Component {
           <label>Description</label>
           <input type="text" name="text" onChange={this.handleChange} />
 
+          {/* maybe make it a dropdown */}
           <label>Location</label>
           <input type="text" name="text" onChange={this.handleChange} />
 
+          {/* need to update category list lol */}
           <select className="ui search dropdown">
             <option value="">Category</option>
             <option value="Auto">Automotive</option>
