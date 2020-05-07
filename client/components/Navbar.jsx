@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Menu, Header } from 'semantic-ui-react'
 
+import { isAuthenticated } from 'authenticare/client'
+
 class Navbar extends React.Component {
   render () {
     return (
@@ -10,7 +12,7 @@ class Navbar extends React.Component {
           <Menu.Item as={Link} to='/' header>
             <Header>TakeMe</Header>
           </Menu.Item>
-          {this.props.loggedIn
+          {isAuthenticated()
             ? <>
               <Menu.Item as={Link} to='/profile'>
                 Profile name
