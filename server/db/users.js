@@ -4,8 +4,7 @@ const { generageHash } = require('authenticare/server')
 
 module.exports = {
   createUser,
-  userExists,
-  getUserByName
+  userExists
 }
 
 function createUser (user, db = connection) {
