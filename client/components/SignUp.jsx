@@ -20,8 +20,7 @@ class SignUp extends React.Component {
   }
 
   submitHandler = e => {
-    // password needs to be hashed before coming in here?
-    if (this.state.password === this.state.confirmPassword) {
+    if (this.state.password !== this.state.confirmPassword) {
       console.log('Submitted!')
     } else {
       console.log('Passwords do not match!')
@@ -37,6 +36,7 @@ class SignUp extends React.Component {
           <Form.Input
             onKeyUp={this.updateField}
             fluid
+            required
             width={6}
             name='firstName'
             placeholder='First name'
@@ -45,6 +45,7 @@ class SignUp extends React.Component {
           <Form.Input
             onKeyUp={this.updateField}
             fluid
+            required
             width={6}
             name='lastName'
             placeholder='Last name'
@@ -53,6 +54,7 @@ class SignUp extends React.Component {
           <Form.Input
             onKeyUp={this.updateField}
             fluid
+            required
             width={6}
             name='emailAddress'
             placeholder='Email address'
@@ -61,6 +63,7 @@ class SignUp extends React.Component {
           <Form.Input
             onKeyUp={this.updateField}
             fluid
+            required
             width={6}
             name='phoneNumber'
             placeholder='Phone number'
@@ -69,6 +72,7 @@ class SignUp extends React.Component {
           <Form.Input
             onKeyUp={this.updateField}
             fluid
+            required
             width={6}
             name='location'
             placeholder='Location'
@@ -77,6 +81,7 @@ class SignUp extends React.Component {
           <Form.Input
             onKeyUp={this.updateField}
             fluid
+            required
             width={6}
             name='password'
             placeholder='Password'
@@ -85,6 +90,7 @@ class SignUp extends React.Component {
           <Form.Input
             onKeyUp={this.updateField}
             fluid
+            required
             width={6}
             name='confirmPassword'
             placeholder='Confirm password'
