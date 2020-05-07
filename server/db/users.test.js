@@ -53,3 +53,12 @@ test('test get user by email function', () => {
       expect(res.location).toBe('Gisborne')
     })
 })
+
+test('test get user by email function', () => {
+  const email = 'NapTime@gmail.com'
+
+  return db.getUserById(email, testDb)
+    .then(res => {
+      expect(res).toBe(undefined)
+    })
+})
