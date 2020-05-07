@@ -44,6 +44,7 @@ class SignUp extends React.Component {
           <Form.Input
             onKeyUp={this.updateEmailAddress}
             fluid
+            width={6}
             name='Email address'
             placeholder='Email address'
             type='text'
@@ -51,6 +52,7 @@ class SignUp extends React.Component {
           <Form.Input
             onKeyUp={this.updatePassword}
             fluid
+            width={6}
             name='Password'
             placeholder='Password'
             type='password'
@@ -58,21 +60,24 @@ class SignUp extends React.Component {
           <Form.Input
             onKeyUp={this.updateConfirmPassword}
             fluid
+            width={6}
             name='Confirm password'
             placeholder='Confirm password'
             type='password'
           />
-          <Form.Button
-            type='submit'
-            onClick={this.submitHandler}
-          >
-            Submit
-          </Form.Button>
-          <Link to='/'>
-            <Form.Button>
+          <Form.Group>
+            <Link to='/'>
+              <Form.Button>
               Cancel
+              </Form.Button>
+            </Link>
+            <Form.Button
+              type='submit'
+              onClick={this.submitHandler}
+            >
+              Submit
             </Form.Button>
-          </Link>
+          </Form.Group>
         </Form>
       </>
     )
