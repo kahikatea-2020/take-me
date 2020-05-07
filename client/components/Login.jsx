@@ -2,7 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Form } from 'semantic-ui-react'
 
-class SignUp extends React.Component {
+class Login extends React.Component {
   state = {
     emailAddress: '',
     password: '',
@@ -84,4 +84,4 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp
+export default Login
