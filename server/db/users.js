@@ -22,4 +22,11 @@ function createUser (user, db = connection) {
     })
 }
 
-
+function userExists (email, db = connection) {
+  return db('users')
+    .count('id as n')
+    .where('email', email)
+    .then(count => {
+      return count[0].n > 0
+    })
+}
