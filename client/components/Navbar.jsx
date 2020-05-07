@@ -8,7 +8,6 @@ class Navbar extends React.Component {
         <Link to='/'>
           TakeMe
         </Link>
-        {/* if loggedIn is true: */}
         {this.props.loggedIn
           ? <>
           <Link to='/profile'>
@@ -17,7 +16,6 @@ class Navbar extends React.Component {
             </button>
           </Link>
           </>
-          // if loggedIn is false:
           : <>
           <Link to='/login'>
             <button className='login-button'>
