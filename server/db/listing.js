@@ -23,7 +23,18 @@ function getListingsById (id, db = connection) {
       'users.location as userLocation')
 }
 
+function addListing (data, db = connection) {
+  return db('listings').insert({
+    name: data.name,
+    description: data.description,
+    image_url: data.imageUrl,
+    user_id: data.userId,
+    category_id: data.categoryId
+  })
+}
+
 module.exports = {
   getListings,
-  getListingsById
+  getListingsById,
+  addListing
 }
