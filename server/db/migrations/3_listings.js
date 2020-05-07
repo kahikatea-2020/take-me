@@ -3,7 +3,7 @@ exports.up = knex =>
     table.increments('id').primary()
     table.string('name')
     table.string('description')
-    table.binary('image')
+    table.string('image_url')
     table.integer('user_id').references('users.id')
     table.integer('category_id').references('categories.id')
   })
