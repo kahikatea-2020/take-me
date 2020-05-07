@@ -11,4 +11,12 @@ router.get('/', (req, res) => {
     })
 })
 
+// GET /api/v1/listings/id
+router.get('/:id', (req, res) => {
+  db.getListingsById(req.params.id)
+    .then(dbRes => {
+      res.send(dbRes)
+    })
+})
+
 module.exports = router
