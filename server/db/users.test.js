@@ -35,6 +35,15 @@ test('test user exists function', () => {
     })
 })
 
+test('test user exists function with a new email', () => {
+  const email = 'NewEmail@gmail.com'
+
+  return db.userExists(email, testDb)
+    .then(res => {
+      expect(res).toBeFalsy()
+    })
+})
+
 test('test get user by email function', () => {
   const email = 'mathias@gmail.com'
 
