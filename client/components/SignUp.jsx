@@ -13,50 +13,51 @@ class SignUp extends React.Component {
     confirmPassword: ''
   }
 
-  updateFirstName = e => {
+  updateField = e => {
     this.setState({
-      firstName: e.target.value
+      [e.target.name]: e.target.value
     })
+    console.log(this.state)
   }
 
-  updateLastName = e => {
-    this.setState({
-      lastName: e.target.value
-    })
-  }
+  // updateLastName = e => {
+  //   this.setState({
+  //     lastName: e.target.value
+  //   })
+  // }
 
-  updateEmailAddress = e => {
-    this.setState({
-      emailAddress: e.target.value
-    })
-  }
+  // updateEmailAddress = e => {
+  //   this.setState({
+  //     emailAddress: e.target.value
+  //   })
+  // }
 
-  updatePhoneNumber = e => {
-    this.setState({
-      phoneNumber: e.target.value
-    })
-  }
+  // updatePhoneNumber = e => {
+  //   this.setState({
+  //     phoneNumber: e.target.value
+  //   })
+  // }
 
-  updateLocation = e => {
-    this.setState({
-      location: e.target.value
-    })
-  }
+  // updateLocation = e => {
+  //   this.setState({
+  //     location: e.target.value
+  //   })
+  // }
 
-  updatePassword = e => {
-    this.setState({
-      password: e.target.value
-    })
-  }
+  // updatePassword = e => {
+  //   this.setState({
+  //     password: e.target.value
+  //   })
+  // }
 
-  updateConfirmPassword = e => {
-    this.setState({
-      confirmPassword: e.target.value
-    })
-  }
+  // updateConfirmPassword = e => {
+  //   this.setState({
+  //     confirmPassword: e.target.value
+  //   })
+  // }
 
   submitHandler = e => {
-    // console.log(this.state)
+    // password needs to be hashed before coming in here?
     if (this.state.password === this.state.confirmPassword) {
       console.log('Submitted!')
     } else {
@@ -71,58 +72,58 @@ class SignUp extends React.Component {
         <p>Please fill in the following details:</p>
         <Form>
           <Form.Input
-            onKeyUp={this.updateFirstName}
+            onKeyUp={this.updateField}
             fluid
             width={6}
-            name='First name'
+            name='firstName'
             placeholder='First name'
             type='text'
           />
           <Form.Input
-            onKeyUp={this.updateLastName}
+            onKeyUp={this.updateField}
             fluid
             width={6}
-            name='Last name'
+            name='lastName'
             placeholder='Last name'
             type='text'
           />
           <Form.Input
-            onKeyUp={this.updateEmailAddress}
+            onKeyUp={this.updateField}
             fluid
             width={6}
-            name='Email address'
+            name='emailAddress'
             placeholder='Email address'
             type='text'
           />
           <Form.Input
-            onKeyUp={this.updatePhoneNumber}
+            onKeyUp={this.updateField}
             fluid
             width={6}
-            name='Phone number'
+            name='phoneNumber'
             placeholder='Phone number'
             type='number'
           />
           <Form.Input
-            onKeyUp={this.updateLocation}
+            onKeyUp={this.updateField}
             fluid
             width={6}
-            name='Location'
+            name='location'
             placeholder='Location'
             type='text'
           />
           <Form.Input
-            onKeyUp={this.updatePassword}
+            onKeyUp={this.updateField}
             fluid
             width={6}
-            name='Password'
+            name='password'
             placeholder='Password'
             type='password'
           />
           <Form.Input
-            onKeyUp={this.updateConfirmPassword}
+            onKeyUp={this.updateField}
             fluid
             width={6}
-            name='Confirm password'
+            name='confirmPassword'
             placeholder='Confirm password'
             type='password'
           />
