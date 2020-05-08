@@ -1,8 +1,9 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Form } from 'semantic-ui-react'
-
 import { isAuthenticated, register } from 'authenticare/client'
+
+import { BASE_API_URL } from '../base-api.js'
 
 class SignUp extends React.Component {
   state = {
@@ -27,7 +28,7 @@ class SignUp extends React.Component {
       // throw some kind of error (may need other error handling if required fields not filled out)
       console.log('Error ohhh noooooo')
     } else {
-      register(this.state, { baseUrl: process.env.BASE_API_URL })
+      register(this.state, { baseUrl: BASE_API_URL })
         .then((token) => {
           if (isAuthenticated()) {
             this.props.history.push('/')
