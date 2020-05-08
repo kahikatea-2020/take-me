@@ -4,7 +4,6 @@ import { Form } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 
 import { isAuthenticated, signIn } from 'authenticare/client'
-import WaitIndicator from './WaitIndicator'
 
 class Login extends React.Component {
   state = {
