@@ -29,7 +29,7 @@ function addListing (data, db = connection) {
   return db('listings').insert({
     name: data.name,
     description: JSON.stringify(data.description),
-    image_url: data.imageUrl,
+    image_url: JSON.stringify(data.imageUrl),
     user_id: data.userId,
     category_id: data.categoryId
   })
