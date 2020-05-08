@@ -2,3 +2,19 @@
   display: flex;
   flex-direction: row;
 }
+
+.imagesPreview {
+  display: flex;
+  flex-direction: row;
+}
+
+.imagesPreview div {
+  width: 150px;
+  height: 150px;
+  border: grey 1px solid;
+}
+
+.imagesPreview div img {
+  max-width: 100%;
+  max-height: 100%;
+}

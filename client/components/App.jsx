@@ -1,5 +1,6 @@
 import React from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { CloudinaryContext } from 'cloudinary-react'
 
 import Navbar from './Navbar'
 import SignUp from './SignUp'
@@ -11,15 +12,17 @@ import NewListing from './NewListing'
 
 const App = () => {
   return (
-    <Router>
-      <Route path='/' component={Navbar} />
-      <Route exact path='/' component={Home} />
-      <Route path='/sign-up' component={SignUp} />
-      <Route path='/login' component={Login} />
-      <Route path='/new-listing' component={NewListing} />
-      <Route exact path='/listings/:id' component={Listing} />
-      {/* <Route path='/' component={Footer} /> */}
-    </Router>
+    <CloudinaryContext cloudName='takemenz'>
+      <Router>
+        <Route path='/' component={Navbar} />
+        <Route exact path='/' component={Home} />
+        <Route path='/sign-up' component={SignUp} />
+        <Route path='/login' component={Login} />
+        <Route path='/new-listing' component={NewListing} />
+        <Route exact path='/listings/:id' component={Listing} />
+        {/* <Route path='/' component={Footer} /> */}
+      </Router>
+    </CloudinaryContext>
   )
 }
 
