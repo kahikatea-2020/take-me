@@ -21,8 +21,11 @@ router.get('/', (req, res) => {
 
 // DELETE /api/v1/listings/id
 router.delete('/:id', (req, res) => {
-  db.deleteListingsById(req.params.id)
-    .then(res.redirect('/'))
+  db.deleteListingsById(Number(req.params.id))
+    .then(dbRes => {
+      if (dbRes) res.redirect('/')
+      else res.sendStatus(500)
+    })
 })
 
 module.exports = router

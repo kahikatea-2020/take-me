@@ -32,6 +32,14 @@ jest.mock('../db/listing', () => {
           description: JSON.stringify(['hello', 'I\'m a description'])
         }
       ])
+    },
+    deleteListingsById: (id) => {
+      if (id === 2) {
+        return Promise.resolve(1)
+      }
+      if (id !== 2) {
+        return Promise.resolve(0)
+      }
     }
   }
 })
@@ -56,12 +64,10 @@ test('GET route getting correct listing', () => {
     })
 })
 
-test('Delete route deleting successfully', done => {
+test('Delete route deleting successfully', () => {
   return request(server)
-    .delete('/api/v1/listings/1')
-    .expect('Content-type', /json/)
-    .expect(200)
-    .end((err, res) => {
-      if (err) throw err
+    .delete('/api/v1/listings/2')
+    .then((res) => {
+      expect(res.status).toBe(302)
     })
 })
