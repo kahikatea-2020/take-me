@@ -38,7 +38,7 @@ describe('getListingById tests', () => {
     })
   })
 
-  test('test getListingsById function return with the correct user email', () => {
+  test('test getListingsById function return with the correct user first name', () => {
     const expected = 'Mathias'
 
     return db.getListingsById(2, testDb).then((listing) => {
