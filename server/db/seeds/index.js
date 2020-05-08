@@ -27,6 +27,7 @@ exports.seed = (knex) =>
             'Moving house and we don\'t use this ball anymore',
             'Free to a good home!'
           ]),
+          location: 'Auckland',
           image_url: '/soccer_ball.jpg',
           user_id: 1,
           category_id: 7 },
@@ -37,6 +38,7 @@ exports.seed = (knex) =>
             'I\'ve only used it like twice',
             'Perfect working condition, contact me for pick up times'
           ]),
+          location: 'Auckland',
           image_url: '/ladder.jpg',
           user_id: 2,
           category_id: 2 }
