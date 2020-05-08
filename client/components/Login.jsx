@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Form } from 'semantic-ui-react'
 
+import { isAuthenticated, signIn } from 'authenticare/client'
+
 class Login extends React.Component {
   state = {
     username: '',
@@ -15,8 +17,17 @@ class Login extends React.Component {
   }
 
   submitHandler = e => {
-    console.log(this.state)
-    console.log('Submitted!')
+    signIn({
+      username: this.state.username,
+      password: this.state.password
+    }, {
+      baseUrl: process.env.BASE_API_URL
+    })
+      .then((token) => {
+        if (isAuthenticated()) {
+          this.props.history.push('/')
+        }
+      })
   }
 
   render () {
