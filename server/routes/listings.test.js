@@ -28,7 +28,8 @@ jest.mock('../db/listing', () => {
         {
           id: 1,
           name: 'test listing',
-          userFirstName: 'user name'
+          userFirstName: 'user name',
+          description: JSON.stringify(['hello', 'I\'m a description'])
         }
       ])
     }
