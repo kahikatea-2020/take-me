@@ -50,6 +50,7 @@ class Login extends React.Component {
             name='password'
             placeholder='Password'
             type='password'
+            autoComplete='off'
           />
           <Form.Group>
             <Link to='/'>

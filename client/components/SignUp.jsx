@@ -104,6 +104,7 @@ class SignUp extends React.Component {
             name='password'
             placeholder='Password'
             type='password'
+            autoComplete='off'
           />
           <Form.Input
             onKeyUp={this.updateField}
@@ -113,6 +114,7 @@ class SignUp extends React.Component {
             name='confirmPassword'
             placeholder='Confirm password'
             type='password'
+            autoComplete='off'
           />
           <Form.Group>
             <Link to='/'>
