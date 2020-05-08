@@ -67,7 +67,6 @@ class Login extends React.Component {
               Submit
             </Form.Button>
           </Form.Group>
-          <WaitIndicator />
         </Form>
       </>
     )
