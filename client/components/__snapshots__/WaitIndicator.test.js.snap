@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test the WaitIndicator 1`] = `
+<img
+  alt="loading indicator"
+  data-testid="wait-indicator"
+  src="/loadIndicator.gif"
+  style="width: 50px;"
+/>
+`;
