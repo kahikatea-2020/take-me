@@ -1,5 +1,6 @@
 import React from 'react'
 import { Form } from 'semantic-ui-react'
+import { getAllCategory } from '../api/category'
 
 class NewListing extends React.Component {
   constructor () {
@@ -18,6 +19,11 @@ class NewListing extends React.Component {
     this.setState({ [evt.target.name]: evt.target.value })
   }
 
+  componentDidMount () {
+    getAllCategory()
+      .then()
+  }
+
   render () {
     return (
       <>
@@ -31,21 +37,29 @@ class NewListing extends React.Component {
           <label>Description</label>
           <input type="text" name="text" onChange={this.handleChange} />
 
-          {/* maybe make it a dropdown */}
-          <label>Location</label>
+          {/* maybe make it a dropdown? */}
+          <label>Location (maybe make a drop down as well?) </label>
           <input type="text" name="text" onChange={this.handleChange} />
 
-          {/* need to update category list lol */}
+          {/* need to update category list */}
           <select className="ui search dropdown">
-            <option value="">Category</option>
-            <option value="Auto">Automotive</option>
-            <option value="Clothes">Clothing</option>
-            <option value="Elec">Electrical</option>
-            <option value="Homeware">Homeware</option>
+            { this.state.categories.map(category => {
+              return (
+                <option key={category.id} value={category.name}></option>
+              )
+            })
+            }
           </select>
 
           <label>Insert Image component hereee</label>
           <input type="text" name="text" onChange={this.handleChange} />
+
+          <Form.Button
+            type='submit'
+            onClick={this.submitHandler}
+          >
+            Submit
+          </Form.Button>
 
         </Form>
 

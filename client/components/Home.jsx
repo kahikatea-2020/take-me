@@ -12,15 +12,16 @@ class Home extends React.Component {
   componentDidMount () {
     this.props.dispatch(getListings())
   }
+
   render () {
     return (
-    <>
-    <h1>hello</h1>
-    {/* <Search /> */}
-    <div className="ListingWrapper">
-      {this.props.listings.map(item => <ListItem key={item.id} listing={item} />)}
-    </div>
-    </>
+      <>
+        <h1>hello</h1>
+        {/* <Search /> */}
+        <div className="ListingWrapper">
+          {this.props.listings.map(item => <ListItem key={item.id} listing={item} />)}
+        </div>
+      </>
     )
   }
 }
