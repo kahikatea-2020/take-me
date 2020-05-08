@@ -1,6 +1,5 @@
 const server = require('../server')
 const request = require('supertest')
-const authTesting = require('authenticare/testing/server')
 
 jest.mock('../db/listing', () => {
   return {
