@@ -25,6 +25,7 @@ class SignUp extends React.Component {
   submitHandler = e => {
     if (this.state.password !== this.state.confirmPassword) {
       // throw some kind of error (may need other error handling if required fields not filled out)
+      console.log('Error ohhh noooooo')
     } else {
       register(this.state, { baseUrl: process.env.BASE_API_URL })
         .then((token) => {

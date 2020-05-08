@@ -4,6 +4,7 @@ const { getTokenDecoder } = require('authenticare/server')
 
 const db = require('../db/listing')
 
+// GET /api/v1/listings/id
 router.get('/:id', (req, res) => {
   db.getListingsById(req.params.id)
     .then(dbRes => {
@@ -19,9 +20,6 @@ router.get('/', (req, res) => {
       res.send(dbRes)
     })
 })
-
-// GET /api/v1/listings/id
-
 
 // PUT api/v1/listings/:id
 router.put('/:id', getTokenDecoder(), (req, res) => {
