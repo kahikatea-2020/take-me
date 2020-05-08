@@ -1,0 +1,373 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Sign up component renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <h1>
+        Sign Up
+      </h1>
+      <p>
+        Please fill in the following details:
+      </p>
+      <form
+        class="ui form"
+      >
+        <div
+          class="required six wide field"
+        >
+          <div
+            class="ui fluid input"
+          >
+            <input
+              name="firstName"
+              placeholder="First name"
+              required=""
+              type="text"
+            />
+          </div>
+        </div>
+        <div
+          class="required six wide field"
+        >
+          <div
+            class="ui fluid input"
+          >
+            <input
+              name="lastName"
+              placeholder="Last name"
+              required=""
+              type="text"
+            />
+          </div>
+        </div>
+        <div
+          class="required six wide field"
+        >
+          <div
+            class="ui fluid input"
+          >
+            <input
+              name="emailAddress"
+              placeholder="Email address"
+              required=""
+              type="text"
+            />
+          </div>
+        </div>
+        <div
+          class="required six wide field"
+        >
+          <div
+            class="ui fluid input"
+          >
+            <input
+              name="phoneNumber"
+              placeholder="Phone number"
+              required=""
+              type="number"
+            />
+          </div>
+        </div>
+        <div
+          class="required six wide field"
+        >
+          <div
+            class="ui fluid input"
+          >
+            <input
+              name="location"
+              placeholder="Location"
+              required=""
+              type="text"
+            />
+          </div>
+        </div>
+        <div
+          class="required six wide field"
+        >
+          <div
+            class="ui fluid input"
+          >
+            <input
+              name="username"
+              placeholder="Username"
+              required=""
+              type="text"
+            />
+          </div>
+        </div>
+        <div
+          class="required six wide field"
+        >
+          <div
+            class="ui fluid input"
+          >
+            <input
+              autocomplete="off"
+              name="password"
+              placeholder="Password"
+              required=""
+              type="password"
+            />
+          </div>
+        </div>
+        <div
+          class="required six wide field"
+        >
+          <div
+            class="ui fluid input"
+          >
+            <input
+              autocomplete="off"
+              name="confirmPassword"
+              placeholder="Confirm password"
+              required=""
+              type="password"
+            />
+          </div>
+        </div>
+        <div
+          class="fields"
+        >
+          <a
+            href="/"
+          >
+            <div
+              class="field"
+            >
+              <button
+                class="ui button"
+              >
+                Cancel
+              </button>
+            </div>
+          </a>
+          <div
+            class="field"
+          >
+            <button
+              class="ui button"
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </body>,
+  "container": <div>
+    <h1>
+      Sign Up
+    </h1>
+    <p>
+      Please fill in the following details:
+    </p>
+    <form
+      class="ui form"
+    >
+      <div
+        class="required six wide field"
+      >
+        <div
+          class="ui fluid input"
+        >
+          <input
+            name="firstName"
+            placeholder="First name"
+            required=""
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        class="required six wide field"
+      >
+        <div
+          class="ui fluid input"
+        >
+          <input
+            name="lastName"
+            placeholder="Last name"
+            required=""
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        class="required six wide field"
+      >
+        <div
+          class="ui fluid input"
+        >
+          <input
+            name="emailAddress"
+            placeholder="Email address"
+            required=""
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        class="required six wide field"
+      >
+        <div
+          class="ui fluid input"
+        >
+          <input
+            name="phoneNumber"
+            placeholder="Phone number"
+            required=""
+            type="number"
+          />
+        </div>
+      </div>
+      <div
+        class="required six wide field"
+      >
+        <div
+          class="ui fluid input"
+        >
+          <input
+            name="location"
+            placeholder="Location"
+            required=""
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        class="required six wide field"
+      >
+        <div
+          class="ui fluid input"
+        >
+          <input
+            name="username"
+            placeholder="Username"
+            required=""
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        class="required six wide field"
+      >
+        <div
+          class="ui fluid input"
+        >
+          <input
+            autocomplete="off"
+            name="password"
+            placeholder="Password"
+            required=""
+            type="password"
+          />
+        </div>
+      </div>
+      <div
+        class="required six wide field"
+      >
+        <div
+          class="ui fluid input"
+        >
+          <input
+            autocomplete="off"
+            name="confirmPassword"
+            placeholder="Confirm password"
+            required=""
+            type="password"
+          />
+        </div>
+      </div>
+      <div
+        class="fields"
+      >
+        <a
+          href="/"
+        >
+          <div
+            class="field"
+          >
+            <button
+              class="ui button"
+            >
+              Cancel
+            </button>
+          </div>
+        </a>
+        <div
+          class="field"
+        >
+          <button
+            class="ui button"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "store": Object {
+    "dispatch": [Function],
+    "getState": [Function],
+    "replaceReducer": [Function],
+    "subscribe": [Function],
+    Symbol(observable): [Function],
+  },
+  "unmount": [Function],
+}
+`;
