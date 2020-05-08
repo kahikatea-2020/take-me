@@ -4,19 +4,14 @@ import { getUserById } from '../api/users'
 
 class Profile extends React.Component {
   state = {
-    first_name: '',
-    last_name: '',
-    email: '',
-    image_url: '',
-    location: ''
+    user: {}
   }
 
   componentDidMount () {
     getUserById(this.props.match.params.id)
       .then(user => {
         this.setState({
-          user,
-
+          user
         })
       })
   }
@@ -27,8 +22,9 @@ class Profile extends React.Component {
     return (
       <>
         <div className="profileWrapper">
-          <h2>{user.first_name} {user.last_name}</h2>
-          <img src={`https://res.cloudinary.com/takemenz/image/upload/${image_url}`} alt=""/>
+          <h2>{user.firstName} {user.lastName}</h2>
+          <h3>{user.username}</h3>
+          <img src={`https://res.cloudinary.com/takemenz/image/upload/${user.imageUrl}`} alt=""/>
           <p>{user.location}</p>
         </div>
       </>
