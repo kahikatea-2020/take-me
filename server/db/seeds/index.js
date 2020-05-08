@@ -59,5 +59,5 @@ exports.seed = (knex) =>
           image_url: '/infantshoes.jpg',
           user_id: 1,
           category_id: 1
-        },
+        }
       ]))
