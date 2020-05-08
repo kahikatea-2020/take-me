@@ -12,7 +12,7 @@
     "dev:client": "webpack --watch",
     "dev:server": "nodemon server",
     "start": "run-s build server",
-    "build": "webpack",
+    "build": "webpack --config webpack.config.js",
     "server": "node server",
     "test": "jest --watchAll",
     "test:watch": "npm test -- --watchAll",
