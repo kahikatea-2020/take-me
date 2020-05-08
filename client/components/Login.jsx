@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Form } from 'semantic-ui-react'
+import { connect } from 'react-redux'
 
 import { isAuthenticated, signIn } from 'authenticare/client'
+import WaitIndicator from './WaitIndicator'
 
 class Login extends React.Component {
   state = {
@@ -65,10 +67,17 @@ class Login extends React.Component {
               Submit
             </Form.Button>
           </Form.Group>
+          <WaitIndicator />
         </Form>
       </>
     )
   }
 }
 
-export default Login
+const mapStateToProps = state => {
+  return {
+    state
+  }
+}
+
+export default connect(mapStateToProps)(Login)
