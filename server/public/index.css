@@ -12,6 +12,9 @@
   width: 150px;
   height: 150px;
   border: grey 1px solid;
+  margin: 1px;
+  display: flex;
+  justify-content: center;
 }
 
 .imagesPreview div img {

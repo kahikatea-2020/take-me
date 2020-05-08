@@ -1,7 +1,8 @@
 import React from 'react'
 import { Form } from 'semantic-ui-react'
 // import UploadWidget from './uploadWidget'
-import { fetchPhotos, openUploadWidget } from './CloudinaryService'
+import { openUploadWidget } from './CloudinaryService'
+import { addListing } from '../api/listings'
 
 // import { getAllCategory } from '../api/category'
 
@@ -13,7 +14,7 @@ class NewListing extends React.Component {
       description: [],
       category: '',
       location: '',
-      images: []
+      imageUrls: []
     }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -34,13 +35,20 @@ class NewListing extends React.Component {
         console.log(photos)
         if (photos.event === 'success') {
           this.setState({
-            images: [...this.state.images, photos.info.path]
+            imageUrls: [...this.state.imageUrls, photos.info.path]
           })
         }
       } else {
         console.log(error)
       }
     })
+  }
+
+  submitHandler = () => {
+    addListing(this.state)
+      .then(listing => {
+        this.props.history.push(`/listings/${listing.id}`)
+      })
   }
 
   render () {
@@ -62,7 +70,7 @@ class NewListing extends React.Component {
           {/* need to update category list */}
           <Form.Button onClick={() => this.imageUpload()}>Upload Image</Form.Button>
           <div className='imagesPreview'>
-            {this.state.images.map(image => <div><img src={`https://res.cloudinary.com/takemenz/image/upload/${image}`}/></div>)}
+            {this.state.imageUrls.map(image => <div><img src={`https://res.cloudinary.com/takemenz/image/upload/${image}`}/></div>)}
           </div>
           <Form.Button
             type='submit'
@@ -78,9 +86,3 @@ class NewListing extends React.Component {
 }
 
 export default NewListing
-
-// https://cloudinary.com/documentation/upload_widget
-
-// https://github.com/cloudinary/cloudinary-react
-
-// https://dev.to/emkaydauda/uploading-images-to-cloudinary-with-a-react-app-4h47
