@@ -21,7 +21,7 @@ function getListingsById (id, db = connection) {
       'users.last_name as userLastName',
       'users.image_url as userImage',
       'users.phone_number as userPhoneNumber',
-      'users.email as userEmail',
+      'users.email as userEmail'
     )
 }
 
