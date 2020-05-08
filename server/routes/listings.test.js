@@ -40,6 +40,14 @@ jest.mock('../db/listing', () => {
       if (id !== 2) {
         return Promise.resolve(0)
       }
+    },
+    updateListingById: (id, listing) => {
+      if (id === '2') {
+        return Promise.resolve(1)
+      }
+      if (id === '7') {
+        return Promise.resolve(0)
+      }
     }
   }
 })
@@ -70,4 +78,11 @@ test('Delete route deleting successfully', () => {
     .then((res) => {
       expect(res.status).toBe(302)
     })
+})
+
+test('POST /new adds and redirects', () => {
+  request(server)
+    .post('/api/v1/listings/new')
+    .send({ name: 'testname', description: ['hello'], imageUrl: 'this is a URL', userID: 2, categoryId: 2 })
+    .expect(200)
 })
