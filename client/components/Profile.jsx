@@ -27,7 +27,9 @@ class Profile extends React.Component {
     return (
       <>
         <div className="profileWrapper">
-          <h2>{user}</h2>
+          <h2>{user.first_name} {user.last_name}</h2>
+          <img src={`https://res.cloudinary.com/takemenz/image/upload/${image_url}`} alt=""/>
+          <p>{user.location}</p>
         </div>
       </>
     )
