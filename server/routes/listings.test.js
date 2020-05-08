@@ -31,6 +31,14 @@ jest.mock('../db/listing', () => {
           userFirstName: 'user name'
         }
       ])
+    },
+    updateListingById: (id, listing) => {
+      if (id === '2') {
+        return Promise.resolve(1)
+      }
+      if (id === '7') {
+        return Promise.resolve(0)
+      }
     }
   }
 })

@@ -21,7 +21,8 @@ exports.seed = (knex) =>
       ]))
     .then(() =>
       knex('listings').insert([
-        { id: 1,
+        {
+          id: 1,
           name: 'Soccer Ball',
           description: JSON.stringify([
             'Moving house and we don\'t use this ball anymore',
@@ -30,8 +31,10 @@ exports.seed = (knex) =>
           location: 'Auckland',
           image_url: '/soccer_ball.jpg',
           user_id: 1,
-          category_id: 7 },
-        { id: 2,
+          category_id: 7
+        },
+        {
+          id: 2,
           name: 'Ladder',
           description: JSON.stringify([
             '5 step ladder',
@@ -41,5 +44,6 @@ exports.seed = (knex) =>
           location: 'Auckland',
           image_url: '/ladder.jpg',
           user_id: 2,
-          category_id: 2 }
+          category_id: 2
+        }
       ]))

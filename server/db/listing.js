@@ -23,7 +23,14 @@ function getListingsById (id, db = connection) {
       'users.location as userLocation')
 }
 
+function updateListingById (id, listing, db = connection) {
+  return db('listings')
+    .where('id', id)
+    .update(listing)
+}
+
 module.exports = {
   getListings,
-  getListingsById
+  getListingsById,
+  updateListingById
 }
