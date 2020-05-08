@@ -7,7 +7,7 @@ exports.up = knex =>
     table.string('email')
     table.string('phone_number')
     table.string('image_url')
-    table.string('hashed_password')
+    table.string('hash')
     table.string('location')
   })
 

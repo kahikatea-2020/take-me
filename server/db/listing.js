@@ -2,7 +2,7 @@ const connection = require('./connection')
 
 function getListings (db = connection) {
   return db('listings')
-    .select('listings.id as id', 'listings.name as name', 'listings.image_url as imageUrl', 'listings.user_id as userId', 'listings.category_id as categoryId')
+    .select('listings.id as id', 'listings.name as name', 'listings.image_url as imageUrl', 'listings.location as location', 'listings.user_id as userId', 'listings.category_id as categoryId')
 }
 
 function getListingsById (id, db = connection) {
@@ -36,8 +36,15 @@ function addListing (data, db = connection) {
     .then(id => id)
 }
 
+function updateListingById (id, listing, db = connection) {
+  return db('listings')
+    .where('id', id)
+    .update(listing)
+}
+
 module.exports = {
   getListings,
   getListingsById,
-  addListing
+  addListing,
+  updateListingById
 }

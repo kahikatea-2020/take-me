@@ -2,27 +2,32 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Form } from 'semantic-ui-react'
 
+import { isAuthenticated, signIn } from 'authenticare/client'
+
 class Login extends React.Component {
   state = {
-    emailAddress: '',
+    username: '',
     password: ''
   }
 
-  updateEmailAddress = e => {
+  updateField = e => {
     this.setState({
-      emailAddress: e.target.value
-    })
-  }
-
-  updatePassword = e => {
-    this.setState({
-      password: e.target.value
+      [e.target.name]: e.target.value
     })
   }
 
   submitHandler = e => {
-    console.log(this.state)
-    console.log('Submitted!')
+    signIn({
+      username: this.state.username,
+      password: this.state.password
+    }, {
+      baseUrl: process.env.BASE_API_URL
+    })
+      .then((token) => {
+        if (isAuthenticated()) {
+          this.props.history.push('/')
+        }
+      })
   }
 
   render () {
@@ -31,18 +36,18 @@ class Login extends React.Component {
         <h1>Login</h1>
         <Form>
           <Form.Input
-            onKeyUp={this.updateEmailAddress}
+            onKeyUp={this.updateField}
             fluid
             width={6}
-            name='Email address'
-            placeholder='Email address'
+            name='username'
+            placeholder='Username'
             type='text'
           />
           <Form.Input
-            onKeyUp={this.updatePassword}
+            onKeyUp={this.updateField}
             fluid
             width={6}
-            name='Password'
+            name='password'
             placeholder='Password'
             type='password'
           />

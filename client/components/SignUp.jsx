@@ -2,6 +2,8 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Form } from 'semantic-ui-react'
 
+import { isAuthenticated, register } from 'authenticare/client'
+
 class SignUp extends React.Component {
   state = {
     firstName: '',
@@ -9,58 +11,28 @@ class SignUp extends React.Component {
     emailAddress: '',
     phoneNumber: null,
     location: '',
+    username: '',
     password: '',
     confirmPassword: ''
   }
 
-  updateFirstName = e => {
+  updateField = e => {
     this.setState({
-      firstName: e.target.value
-    })
-  }
-
-  updateLastName = e => {
-    this.setState({
-      lastName: e.target.value
-    })
-  }
-
-  updateEmailAddress = e => {
-    this.setState({
-      emailAddress: e.target.value
-    })
-  }
-
-  updatePhoneNumber = e => {
-    this.setState({
-      phoneNumber: e.target.value
-    })
-  }
-
-  updateLocation = e => {
-    this.setState({
-      location: e.target.value
-    })
-  }
-
-  updatePassword = e => {
-    this.setState({
-      password: e.target.value
-    })
-  }
-
-  updateConfirmPassword = e => {
-    this.setState({
-      confirmPassword: e.target.value
+      [e.target.name]: e.target.value
     })
   }
 
   submitHandler = e => {
-    // console.log(this.state)
-    if (this.state.password === this.state.confirmPassword) {
-      console.log('Submitted!')
+    if (this.state.password !== this.state.confirmPassword) {
+      // throw some kind of error (may need other error handling if required fields not filled out)
+      console.log('Error ohhh noooooo')
     } else {
-      console.log('Passwords do not match!')
+      register(this.state, { baseUrl: process.env.BASE_API_URL })
+        .then((token) => {
+          if (isAuthenticated()) {
+            this.props.history.push('/')
+          }
+        })
     }
   }
 
@@ -71,58 +43,74 @@ class SignUp extends React.Component {
         <p>Please fill in the following details:</p>
         <Form>
           <Form.Input
-            onKeyUp={this.updateFirstName}
+            onKeyUp={this.updateField}
             fluid
+            required
             width={6}
-            name='First name'
+            name='firstName'
             placeholder='First name'
             type='text'
           />
           <Form.Input
-            onKeyUp={this.updateLastName}
+            onKeyUp={this.updateField}
             fluid
+            required
             width={6}
-            name='Last name'
+            name='lastName'
             placeholder='Last name'
             type='text'
           />
           <Form.Input
-            onKeyUp={this.updateEmailAddress}
+            onKeyUp={this.updateField}
             fluid
+            required
             width={6}
-            name='Email address'
+            name='emailAddress'
             placeholder='Email address'
             type='text'
           />
           <Form.Input
-            onKeyUp={this.updatePhoneNumber}
+            onKeyUp={this.updateField}
             fluid
+            required
             width={6}
-            name='Phone number'
+            name='phoneNumber'
             placeholder='Phone number'
             type='number'
           />
           <Form.Input
-            onKeyUp={this.updateLocation}
+            onKeyUp={this.updateField}
             fluid
+            required
             width={6}
-            name='Location'
+            name='location'
             placeholder='Location'
             type='text'
           />
           <Form.Input
-            onKeyUp={this.updatePassword}
+            onKeyUp={this.updateField}
             fluid
+            required
             width={6}
-            name='Password'
+            name='username'
+            placeholder='Username'
+            type='text'
+          />
+          <Form.Input
+            onKeyUp={this.updateField}
+            fluid
+            required
+            width={6}
+            name='password'
             placeholder='Password'
             type='password'
           />
           <Form.Input
-            onKeyUp={this.updateConfirmPassword}
+            onKeyUp={this.updateField}
             fluid
+            required
             width={6}
-            name='Confirm password'
+            name='confirmPassword'
             placeholder='Confirm password'
             type='password'
           />
