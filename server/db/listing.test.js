@@ -69,7 +69,7 @@ describe('deleteListingsById tests', () => {
       .then(() => {
         return db.getListings(testDb).then(listings => {
         const actual = listings
-        expect(actual).toHaveLength(1)
+        expect(actual).toHaveLength(2)
       })
     })
   })

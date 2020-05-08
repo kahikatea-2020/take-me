@@ -50,8 +50,7 @@ function updateListingById (id, listing, db = connection) {
 module.exports = {
   getListings,
   getListingsById,
-  deleteListingsById
-  getListingsById,
+  deleteListingsById,
   addListing,
   updateListingById
 }

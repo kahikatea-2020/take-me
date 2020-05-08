@@ -16,9 +16,9 @@ exports.seed = (knex) =>
       ]))
     .then(() =>
       knex('users').insert([
-        { id: 1, username: 'johnS', first_name: 'John', last_name: 'Sengson', email: 'john@gmail.com', phone_number: '021-435-1234', image_url: 'john.jpg', hash: '5F4DCC3B5AA765D61D8327DEB882CF99', location: 'Auckland' },
-        { id: 2, username: 'm-dog', first_name: 'Mathias', last_name: 'Bast', email: 'mathias@gmail.com', phone_number: '021-352-1234', image_url: 'mathias.jpg', hash: '5F4DCC3B5AA765D61D8327DEB882CF99', location: 'Gisborne' },
-        { id: 3, username: 'p-man', first_name: 'Pat', last_name: 'Lim', email: 'pat@gmail.com', phone_number: '021-352-6789', image_url: 'mathias.jpg', hash: '5F4DCC3B5AA765D61D8327DEB8826KL8', location: 'Auckland' }
+        { id: 1, username: 'johnS', first_name: 'John', last_name: 'Sengson', email: 'john@gmail.com', phone_number: '021-435-1234', image_url: JSON.stringify(['john.jpg']), hash: '5F4DCC3B5AA765D61D8327DEB882CF99', location: 'Auckland' },
+        { id: 2, username: 'm-dog', first_name: 'Mathias', last_name: 'Bast', email: 'mathias@gmail.com', phone_number: '021-352-1234', image_url: JSON.stringify(['mathias.jpg']), hash: '5F4DCC3B5AA765D61D8327DEB882CF99', location: 'Gisborne' },
+        { id: 3, username: 'p-man', first_name: 'Pat', last_name: 'Lim', email: 'pat@gmail.com', phone_number: '021-352-6789', image_url: JSON.stringify(['mathias.jpg']), hash: '5F4DCC3B5AA765D61D8327DEB8826KL8', location: 'Auckland' }
       ]))
     .then(() =>
       knex('listings').insert([
@@ -30,7 +30,7 @@ exports.seed = (knex) =>
             'Free to a good home!'
           ]),
           location: 'Auckland',
-          image_url: '/soccer_ball.jpg',
+          image_url: JSON.stringify(['/soccer_ball.jpg']),
           user_id: 1,
           category_id: 7
         },
@@ -43,7 +43,7 @@ exports.seed = (knex) =>
             'Perfect working condition, contact me for pick up times'
           ]),
           location: 'Auckland',
-          image_url: '/ladder.jpg',
+          image_url: JSON.stringify(['/ladder.jpg']),
           user_id: 2,
           category_id: 2
         },
@@ -56,7 +56,7 @@ exports.seed = (knex) =>
             'Contact me below if interested'
           ]),
           location: 'Auckland',
-          image_url: '/infantshoes.jpg',
+          image_url: JSON.stringify(['/infantshoes.jpg']),
           user_id: 1,
           category_id: 1
         }
