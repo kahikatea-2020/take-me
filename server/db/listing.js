@@ -26,11 +26,12 @@ function getListingsById (id, db = connection) {
 function addListing (data, db = connection) {
   return db('listings').insert({
     name: data.name,
-    description: data.description,
+    description: JSON.stringify(data.description),
     image_url: data.imageUrl,
     user_id: data.userId,
     category_id: data.categoryId
   })
+    .then(id => id)
 }
 
 module.exports = {

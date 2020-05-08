@@ -20,10 +20,9 @@ router.get('/', (req, res) => {
 })
 
 // GET /api/v1/listings/new
-router.post('/api/v1/listing/new', (req, res) => {
-  const { name, description, imageUrl, userId, categoryId } = req.body
-  db.addListing({ name, description, imageUrl, userId, categoryId })
-    .then((id) => res.redirect('/api/v1/listings/id'))
+router.post('/new', (req, res) => {
+  db.addListing(req.body)
+    .then(id => res.redirect(`/api/v1/listings/${id}`))
 })
 
 module.exports = router
