@@ -1,7 +1,7 @@
 exports.seed = (knex) =>
-  knex('categories').del()
+  knex('listings').del()
     .then(() => knex('users').del())
-    .then(() => knex('listings').del())
+    .then(() => knex('categories').del())
     .then(() =>
       knex('categories').insert([
         { id: 1, name: 'Clothing' },
