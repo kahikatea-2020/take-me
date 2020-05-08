@@ -16,7 +16,7 @@ class Home extends React.Component {
   render () {
     return (
       <>
-        <h1>hello</h1>
+        <h1>Latest Listings</h1>
         {/* <Search /> */}
         <div className="ListingWrapper">
           {this.props.listings.map(item => <ListItem key={item.id} listing={item} />)}
