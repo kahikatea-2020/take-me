@@ -41,7 +41,14 @@
   },
   "dependencies": {
     "authenticare": "^0.4.6",
+<<<<<<< HEAD
     "dotenv": "^8.2.0",
+||||||| merged common ancestors
+=======
+    "cloudinary": "^1.21.0",
+    "cloudinary-core": "^2.8.2",
+    "cloudinary-react": "^1.5.0",
+>>>>>>> 97763721a7df5d225819db3c19631328e79d0931
     "express": "^4.17.1",
     "knex": "^0.21.1",
     "npm-run-all": "^4.1.5",
