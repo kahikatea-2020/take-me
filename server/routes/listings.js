@@ -21,6 +21,11 @@ router.get('/', (req, res) => {
     })
 })
 
+// GET /api/v1/listings/new
+router.post('/new', (req, res) => {
+  db.addListing(req.body)
+    .then(id => res.redirect(`/api/v1/listings/${id}`))
+})
 // PUT api/v1/listings/:id
 router.put('/:id', getTokenDecoder(), (req, res) => {
   const id = req.params.id

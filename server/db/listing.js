@@ -21,8 +21,19 @@ function getListingsById (id, db = connection) {
       'users.last_name as userLastName',
       'users.image_url as userImage',
       'users.phone_number as userPhoneNumber',
-      'users.email as userEmail',
+      'users.email as userEmail'
     )
+}
+
+function addListing (data, db = connection) {
+  return db('listings').insert({
+    name: data.name,
+    description: JSON.stringify(data.description),
+    image_url: JSON.stringify(data.imageUrl),
+    user_id: data.userId,
+    category_id: data.categoryId
+  })
+    .then(id => id)
 }
 
 function updateListingById (id, listing, db = connection) {
@@ -34,5 +45,6 @@ function updateListingById (id, listing, db = connection) {
 module.exports = {
   getListings,
   getListingsById,
+  addListing,
   updateListingById
 }

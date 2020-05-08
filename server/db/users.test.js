@@ -12,6 +12,7 @@ afterEach(() => env.cleanup(testDb))
 
 test('test create user function', () => {
   const newUser = {
+    username: 'KingKong',
     firstName: 'Mathias',
     lastName: 'Bast',
     emailAddress: 'mathsias@gmail.com',
@@ -22,42 +23,42 @@ test('test create user function', () => {
 
   return db.createUser(newUser, testDb)
     .then(users => {
-      expect(users[0]).toBe(3)
+      expect(users[0]).toBe(4)
     })
 })
 
 test('test user exists function', () => {
-  const email = 'mathias@gmail.com'
+  const username = 'm-dog'
 
-  return db.userExists(email, testDb)
+  return db.userExists(username, testDb)
     .then(res => {
       expect(res).toBeTruthy()
     })
 })
 
-test('test user exists function with a new email', () => {
-  const email = 'NewEmail@gmail.com'
+test('test user exists function with a new username', () => {
+  const username = 'The lord Mathias The Great The II, Humble OverLord Forsure'
 
-  return db.userExists(email, testDb)
+  return db.userExists(username, testDb)
     .then(res => {
       expect(res).toBeFalsy()
     })
 })
 
-test('test get user by email function', () => {
-  const email = 'mathias@gmail.com'
+test('test get user by username function', () => {
+  const username = 'm-dog'
 
-  return db.getUserById(email, testDb)
+  return db.getUserByName(username, testDb)
     .then(res => {
       expect(res.first_name).toBe('Mathias')
       expect(res.location).toBe('Gisborne')
     })
 })
 
-test('test get user by email with a bad email', () => {
-  const email = 'NapTime@gmail.com'
+test('test get user by username with a bad username', () => {
+  const username = 'm-dsog'
 
-  return db.getUserById(email, testDb)
+  return db.getUserByName(username, testDb)
     .then(res => {
       expect(res).toBe(undefined)
     })

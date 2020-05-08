@@ -11,7 +11,7 @@ beforeEach(() => {
 afterEach(() => env.cleanup(testDb))
 
 test('test getListings function return test database', () => {
-  const expected = 2
+  const expected = 3
 
   return db.getListings(testDb).then((listings) => {
     const actual = listings.length

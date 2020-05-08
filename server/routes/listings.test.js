@@ -63,3 +63,10 @@ test('GET route getting correct listing', () => {
       expect(res.body[0].userFirstName).toBe('user name')
     })
 })
+
+test('POST /new adds and redirects', () => {
+  request(server)
+    .post('/api/v1/listings/new')
+    .send({ name: 'testname', description: ['hello'], imageUrl: 'this is a URL', userID: 2, categoryId: 2 })
+    .expect(200)
+})
