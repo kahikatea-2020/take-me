@@ -14,8 +14,11 @@ class Navbar extends React.Component {
           </Menu.Item>
           {isAuthenticated()
             ? <>
+              <Menu.Item as={Link} to='/new-listing'>
+                Create a Listing
+              </Menu.Item>
               <Menu.Item as={Link} to='/profile'>
-                Profile name
+                Profile name (needs to link to id)
               </Menu.Item>
               <Menu.Item
                 as={Link}
