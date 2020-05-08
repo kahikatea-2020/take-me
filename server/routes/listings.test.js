@@ -29,9 +29,18 @@ jest.mock('../db/listing', () => {
           id: 1,
           name: 'test listing',
           userFirstName: 'user name',
-          description: JSON.stringify(['hello', 'I\'m a description'])
+          description: JSON.stringify(['hello', 'I\'m a description']),
+          imageUrl: JSON.stringify(['hello', 'I\'m an imageUrl array'])
         }
       ])
+    },
+    deleteListingsById: (id) => {
+      if (id === 2) {
+        return Promise.resolve(1)
+      }
+      if (id !== 2) {
+        return Promise.resolve(0)
+      }
     },
     updateListingById: (id, listing) => {
       if (id === '2') {
@@ -61,6 +70,14 @@ test('GET route getting correct listing', () => {
       expect(res.body.length).toBe(1)
       expect(res.body[0].name).toBe('test listing')
       expect(res.body[0].userFirstName).toBe('user name')
+    })
+})
+
+test('Delete route deleting successfully', () => {
+  return request(server)
+    .delete('/api/v1/listings/2')
+    .then((res) => {
+      expect(res.status).toBe(302)
     })
 })
 
