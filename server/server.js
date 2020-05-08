@@ -5,12 +5,14 @@ const server = express()
 const categories = require('./routes/categories')
 const listings = require('./routes/listings')
 const authRoutes = require('./routes/auth')
+const userRoutes = require('./routes/users')
 
 server.use(express.json())
 server.use(express.static(path.join(__dirname, './public')))
 
 // Routes
 server.use('/api/v1', authRoutes)
+server.use('/api/v1/users', userRoutes)
 server.use('/api/v1/listings', listings)
 server.use('/api/v1/categories', categories)
 

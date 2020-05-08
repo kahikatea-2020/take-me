@@ -11,7 +11,7 @@ beforeEach(() => {
 afterEach(() => env.cleanup(testDb))
 
 test('test getListings function return test database', () => {
-  const expected = 2
+  const expected = 3
 
   return db.getListings(testDb).then((listings) => {
     const actual = listings.length
@@ -54,5 +54,23 @@ describe('getListingById tests', () => {
       const actual = listing[0].name
       expect(actual).toBe(expected)
     })
+  })
+})
+
+describe('deleteListingsById tests', () => {
+  test('test that delete was successful', () => {
+    return db.deleteListingsById(1, testDb).then(result => {
+      expect(result).toBeTruthy()
+    })
+  })
+
+  test('test that a listing was deleted', () => {
+    return db.deleteListingsById(1, testDb)
+      .then(() => {
+        return db.getListings(testDb).then(listings => {
+          const actual = listings
+          expect(actual).toHaveLength(2)
+        })
+      })
   })
 })
