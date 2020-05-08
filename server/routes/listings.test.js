@@ -1,5 +1,6 @@
 const server = require('../server')
 const request = require('supertest')
+const authTesting = require('authenticare/testing/server')
 
 jest.mock('../db/listing', () => {
   return {
@@ -60,13 +61,5 @@ test('GET route getting correct listing', () => {
       expect(res.body.length).toBe(1)
       expect(res.body[0].name).toBe('test listing')
       expect(res.body[0].userFirstName).toBe('user name')
-    })
-})
-
-test('Put route update listing works', () => {
-  return request(server)
-    .put('/api/v1/listings/2')
-    .then(res => {
-      expect(res.status).toBe(200)
     })
 })

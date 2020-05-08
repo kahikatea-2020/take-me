@@ -22,8 +22,9 @@ router.get('/', (req, res) => {
 
 // GET /api/v1/listings/id
 
+
 // PUT api/v1/listings/:id
-router.put('/:id', (req, res) => {
+router.put('/:id', getTokenDecoder(), (req, res) => {
   const id = req.params.id
   const newListing = req.body
   db.updateListingById(id, newListing)
