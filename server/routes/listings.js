@@ -9,6 +9,7 @@ router.get('/:id', (req, res) => {
   db.getListingsById(req.params.id)
     .then(dbRes => {
       dbRes[0].description = JSON.parse(dbRes[0].description)
+      dbRes[0].imageUrl = JSON.parse(dbRes[0].imageUrl)
       res.send(dbRes)
     })
 })
@@ -21,11 +22,21 @@ router.get('/', (req, res) => {
     })
 })
 
-// GET /api/v1/listings/new
+// DELETE /api/v1/listings/id
+router.delete('/:id', (req, res) => {
+  db.deleteListingsById(Number(req.params.id))
+    .then(dbRes => {
+      if (dbRes) res.redirect('/')
+      else res.sendStatus(500)
+    })
+})
+
+// POST /api/v1/listings/new
 router.post('/new', (req, res) => {
   db.addListing(req.body)
     .then(id => res.redirect(`/api/v1/listings/${id}`))
 })
+
 // PUT api/v1/listings/:id
 router.put('/:id', getTokenDecoder(), (req, res) => {
   const id = req.params.id

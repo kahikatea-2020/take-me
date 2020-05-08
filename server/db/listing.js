@@ -25,6 +25,11 @@ function getListingsById (id, db = connection) {
     )
 }
 
+function deleteListingsById (id, db = connection) {
+  return db('listings').where('id', id)
+    .del()
+}
+
 function addListing (data, db = connection) {
   return db('listings').insert({
     name: data.name,
@@ -45,6 +50,7 @@ function updateListingById (id, listing, db = connection) {
 module.exports = {
   getListings,
   getListingsById,
+  deleteListingsById,
   addListing,
   updateListingById
 }
