@@ -1,24 +1,19 @@
 import React from 'react'
+import { connect } from 'react-redux'
 import { Form } from 'semantic-ui-react'
-
-const categoryList = [
-  { id: 1, name: 'Clothing' },
-  { id: 2, name: 'Electronics' },
-  { id: 3, name: 'Furniture' },
-  { id: 4, name: 'Homeware & Applicances' },
-  { id: 5, name: 'Automotive' },
-  { id: 6, name: 'Garden' },
-  { id: 7, name: 'Sports' },
-  { id: 8, name: 'Health & Beauty' },
-  { id: 9, name: 'Music & Instruments' }
-]
+import { getCategories, selectedCategoryChange } from '../actions/categories'
 
 class CategoryList extends React.Component {
   state = {
     selectedCategory: {}
   }
 
+  componentDidMount () {
+    this.props.dispatch(getCategories())
+  }
+
   handleChange = (e, data) => {
+    const id = data.options.find(category => data.value === category.value).key
     const text = data.options.find(category => data.value === category.value).text
     this.setState({
       selectedCategory: {
@@ -26,14 +21,15 @@ class CategoryList extends React.Component {
         name: data.value
       }
     })
+    this.props.dispatch(selectedCategoryChange({
+      id: id,
+      name: data.value
+    }))
   }
 
-  // submitHandler = () => {
-  //   console.log(this.state)
-  // }
-
   render () {
-    const categories = categoryList.map(category => ({
+    const categories = this.props.categories.map(category => ({
+      key: category.id,
       text: category.name,
       value: category.name
     }))
@@ -54,4 +50,10 @@ class CategoryList extends React.Component {
   }
 }
 
-export default CategoryList
+const mapStateToProps = (state) => {
+  return {
+    categories: state.categories
+  }
+}
+
+export default connect(mapStateToProps)(CategoryList)
