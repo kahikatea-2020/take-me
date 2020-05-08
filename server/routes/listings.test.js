@@ -55,3 +55,13 @@ test('GET route getting correct listing', () => {
       expect(res.body[0].userFirstName).toBe('user name')
     })
 })
+
+test('Delete route deleting successfully', done => {
+  return request(server)
+    .delete('/api/v1/listings/1')
+    .expect('Content-type', /json/)
+    .expect(200)
+    .end((err, res) => {
+      if (err) throw err
+    })
+})

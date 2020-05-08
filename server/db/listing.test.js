@@ -56,3 +56,13 @@ describe('getListingById tests', () => {
     })
   })
 })
+
+describe('deleteListingsById tests', () => {
+  test('test deleteListingsById function deletes the correct listing', () => {
+    db.deleteListingsById(1, testDb)
+    return db.getListings(testDb).then(listings => {
+      const actual = listings
+      expect(actual).toHaveLength(1)
+    })
+  })
+})
