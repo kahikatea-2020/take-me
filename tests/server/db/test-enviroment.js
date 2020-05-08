@@ -1,6 +1,6 @@
 const knex = require('knex')
 
-const testConfig = require('../server/db/knexfile').test
+const testConfig = require('../../../server/db/knexfile').test
 
 module.exports = {
   // Test database connection

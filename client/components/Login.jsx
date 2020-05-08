@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 
 import { isAuthenticated, signIn } from 'authenticare/client'
 
+import { BASE_API_URL } from '../base-api.js'
+
 class Login extends React.Component {
   state = {
     username: '',
@@ -22,7 +24,7 @@ class Login extends React.Component {
       username: this.state.username,
       password: this.state.password
     }, {
-      baseUrl: process.env.BASE_API_URL
+      baseUrl: BASE_API_URL
     })
       .then((token) => {
         if (isAuthenticated()) {

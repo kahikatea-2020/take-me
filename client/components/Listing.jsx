@@ -28,7 +28,11 @@ class Listing extends React.Component {
       <>
       <div className="listingWrapper">
         <h2>{listing.name}</h2>
-        <img style={{ maxWidth: '400px' }} src={`https://res.cloudinary.com/takemenz/image/upload/${this.state.imageUrl[0]}`} alt={listing.name} />
+        <img
+          style={{ maxWidth: '400px' }}
+          src={`https://res.cloudinary.com/takemenz/image/upload/${this.state.imageUrl[0]}`}
+          alt={listing.name} 
+        /> {/* currently just using the first picture link in the array, needs to be a carousel :) */}
         {this.state.description.map(sentence => <p key={sentence.substr(0, 10)}>{sentence}</p>)}
       </div>
       <div className='contactInfo'>
