@@ -65,15 +65,170 @@ exports.seed = (knex) =>
         },
         {
           id: 4,
-          name: '',
+          name: 'Broken Galaxy s3',
           description: JSON.stringify([
-            'Infant shoes in great condition',
-            'My child has outgrown already',
-            'Contact me below if interested'
+            'Broken - screen cracked',
+            'Got a new phone and dont want to spend for fixing',
+            'Good for parts'
           ]),
           location: 'Auckland',
-          image_url: '/infantshoes.jpg',
-          user_id: 4,
+          image_url: '/brokenphone.jpg',
+          user_id: 3,
           category_id: 1
+        },
+        {
+          id: 5,
+          name: 'Old Couch',
+          description: JSON.stringify([
+            'Moving house and no space for this couch',
+            'Still in good condition',
+            'Hit me up asap, currently sitting outside'
+          ]),
+          location: 'Auckland',
+          image_url: '/couch.jpg',
+          user_id: 5,
+          category_id: 3
+        },
+        {
+          id: 6,
+          name: 'Ukulele',
+          description: JSON.stringify([
+            'Purchased so I can learn but gave up',
+            'Not for me but could be for you',
+            'Please contact me if interested'
+          ]),
+          location: 'Auckland',
+          image_url: '/ukulele.jpg',
+          user_id: 6,
+          category_id: 9
+        },
+        {
+          id: 7,
+          name: 'Tire',
+          description: JSON.stringify([
+            'Was cleaning the garage and found this',
+            'Sold my car so no need for this',
+            'Not sure about the size but we can organise for you to check'
+          ]),
+          location: 'Auckland',
+          image_url: '/tire.jpg',
+          user_id: 3,
+          category_id: 5
+        },
+        {
+          id: 8,
+          name: 'Old garden tools',
+          description: JSON.stringify([
+            'Got new ones so these are surplus to requirement',
+            'Bit rusty but they still do the job'
+          ]),
+          location: 'Auckland',
+          image_url: '/rake.jpg',
+          user_id: 5,
+          category_id: 6
+        },
+        {
+          id: 9,
+          name: 'Nokia Charger',
+          description: JSON.stringify([
+            'No phone to use this with',
+            'Free to someone who still has nokia phones',
+            'Contact me if interested'
+          ]),
+          location: 'Auckland',
+          image_url: '/charger.jpg',
+          user_id: 4,
+          category_id: 2
+        },
+        {
+          id: 10,
+          name: 'Basketball board',
+          description: JSON.stringify([
+            'Some idiot dunked and broke the basket',
+            'The rim is still in good condition but I cant be bothered to fix it',
+            'Just need new screws and you will need to take it off the wall if interested'
+          ]),
+          location: 'Auckland',
+          image_url: '/hoops.jpg',
+          user_id: 2,
+          category_id: 2
+        },
+        {
+          id: 11,
+          name: 'Cup set',
+          description: JSON.stringify([
+            'Listed on trade me as I am going back home overseas',
+            'Still not sold so they are now free to a good home ',
+            'Good quality cups and hardly used all as I live by myself'
+          ]),
+          location: 'Auckland',
+          image_url: '/cups.jpg',
+          user_id: 6,
+          category_id: 4
+        },
+        {
+          id: 12,
+          name: 'Chair-old',
+          description: JSON.stringify([
+            'Chair in ok condition free for pick up',
+            'Got a new set and this is now an extra',
+            'Made from good quality wood so it will last a while'
+          ]),
+          location: 'Auckland',
+          image_url: '/chair.jpg',
+          user_id: 1,
+          category_id: 3
+        },
+        {
+          id: 13,
+          name: 'Best shirt ever',
+          description: JSON.stringify([
+            'Had this really cool shirt when I was young.',
+            'Sad to let it go but it wont fit me anymore',
+            'Free to someone who wants to spread the Don Energy'
+          ]),
+          location: 'Auckland',
+          image_url: '/bigdonshirt.jpg',
+          user_id: 2,
+          category_id: 1
+        },
+        {
+          id: 14,
+          name: 'Harmonica for kids',
+          description: JSON.stringify([
+            'Bought from the warehouse for the kids',
+            'Instant regret as the kids wont stop using it',
+            'Its free to anyone who can tolerate it'
+          ]),
+          location: 'Auckland',
+          image_url: '/harmonica.jpg',
+          user_id: 1,
+          category_id: 9
+        },
+        {
+          id: 15,
+          name: 'Jumper Cables',
+          description: JSON.stringify([
+            'Got a battery starter so no need for this',
+            'Has helped me multiple times and hope it does for you too',
+            'Contact me if interested'
+          ]),
+          location: 'Auckland',
+          image_url: '/jumperleads.jpg',
+          user_id: 3,
+          category_id: 5
+        },
+        {
+          id: 16,
+          name: 'Pot',
+          description: JSON.stringify([
+            'Pot is bit old but still in good condition',
+            'Will look good in your garden',
+            'Needs 2 person lift when picking up'
+          ]),
+          location: 'Auckland',
+          image_url: '/pot.jpg',
+          user_id: 4,
+          category_id: 6
         }
       ]))
