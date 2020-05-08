@@ -25,7 +25,13 @@ function getListingsById (id, db = connection) {
     )
 }
 
+function deleteListingsById (id, db = connection) {
+  return db('listings').where('id', id)
+    .del()
+}
+
 module.exports = {
   getListings,
-  getListingsById
+  getListingsById,
+  deleteListingsById
 }

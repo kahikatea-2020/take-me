@@ -19,6 +19,10 @@ router.get('/', (req, res) => {
     })
 })
 
-// GET /api/v1/listings/id
+// DELETE /api/v1/listings/id
+router.delete('/:id', (req, res) => {
+  db.deleteListingsById(req.params.id)
+    .then(res.redirect('/'))
+})
 
 module.exports = router
