@@ -9,4 +9,11 @@ router.get('/', (req, res) => {
     .then(categories => res.status(200).json(categories))
 })
 
+// GET api/v1/categories/:id
+router.get('/:id', (req, res) => {
+  const { id } = req.params.id
+  return db.getListingsByCategoryId(id)
+    .then(listings => res.status(200).json(listings))
+})
+
 module.exports = router
