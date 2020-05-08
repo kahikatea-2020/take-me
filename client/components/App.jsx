@@ -8,6 +8,7 @@ import Login from './Login'
 import Home from './Home'
 import Listing from './Listing'
 import NewListing from './NewListing'
+import Profile from './Profile'
 // import Footer from './Footer'
 
 const App = () => {
@@ -20,6 +21,7 @@ const App = () => {
         <Route path='/login' component={Login} />
         <Route path='/new-listing' component={NewListing} />
         <Route exact path='/listings/:id' component={Listing} />
+        <Route path='/profile/:id' component={Profile} />
         {/* <Route path='/' component={Footer} /> */}
       </Router>
     </CloudinaryContext>
