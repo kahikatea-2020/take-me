@@ -60,7 +60,20 @@ exports.seed = (knex) =>
           ]),
           location: 'Auckland',
           image_url: '/infantshoes.jpg',
-          user_id: 1,
+          user_id: 4,
+          category_id: 1
+        },
+        {
+          id: 4,
+          name: '',
+          description: JSON.stringify([
+            'Infant shoes in great condition',
+            'My child has outgrown already',
+            'Contact me below if interested'
+          ]),
+          location: 'Auckland',
+          image_url: '/infantshoes.jpg',
+          user_id: 4,
           category_id: 1
         }
       ]))
