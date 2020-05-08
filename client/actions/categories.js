@@ -21,6 +21,5 @@ export function getCategories () {
   return dispatch => {
     api.getCategories()
       .then(categories => dispatch(getCategoriesSuccess(categories)))
-      .catch(err => console.log(err.message))
   }
 }
