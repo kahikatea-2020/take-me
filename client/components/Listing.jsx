@@ -6,15 +6,18 @@ class Listing extends React.Component {
   state = {
     listing: {},
     emailSubject: '',
-    description: []
+    description: [],
+    imageUrl: []
   }
   componentDidMount () {
     getListingById(this.props.match.params.id)
       .then(listing => {
+        console.log(listing)
         this.setState({
           listing,
           emailSubject: listing.name.split(' ').join('%20'),
-          description: listing.description
+          description: listing.description,
+          imageUrl: listing.imageUrl
         })
       })
   }
@@ -25,7 +28,7 @@ class Listing extends React.Component {
       <>
       <div className="listingWrapper">
         <h2>{listing.name}</h2>
-        <img style={{ maxWidth: '400px' }} src={listing.imageUrl} alt={listing.name} />
+        <img style={{ maxWidth: '400px' }} src={`https://res.cloudinary.com/takemenz/image/upload/${this.state.imageUrl[0]}`} alt={listing.name} />
         {this.state.description.map(sentence => <p key={sentence.substr(0, 10)}>{sentence}</p>)}
       </div>
       <div className='contactInfo'>

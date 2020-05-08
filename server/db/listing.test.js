@@ -56,3 +56,21 @@ describe('getListingById tests', () => {
     })
   })
 })
+
+describe('deleteListingsById tests', () => {
+  test('test that delete was successful', () => {
+    return db.deleteListingsById(1, testDb).then(result => {
+      expect(result).toBeTruthy()
+    })
+  })
+
+  test('test that a listing was deleted', () => {
+    return db.deleteListingsById(1, testDb)
+      .then(() => {
+        return db.getListings(testDb).then(listings => {
+          const actual = listings
+          expect(actual).toHaveLength(2)
+        })
+      })
+  })
+})
