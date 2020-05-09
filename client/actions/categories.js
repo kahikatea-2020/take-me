@@ -27,7 +27,8 @@ export function selectedCategoryChange (category) {
 
 export function getCategories () {
   return dispatch => {
-    api.getCategories()
+    dispatch(getCategoriesPending())
+    return api.getCategories()
       .then(categories => dispatch(getCategoriesSuccess(categories)))
       .catch(err => dispatch(showError(err.message)))
   }
