@@ -1,6 +1,8 @@
 import React from 'react'
 
 import { getListingById } from '../api/listings'
+import updateListing from './updateListing'
+import { Link } from 'react-router-dom'
 
 class Listing extends React.Component {
   state = {
@@ -40,6 +42,9 @@ class Listing extends React.Component {
         <p>{listing.userPhoneNumber}</p>
         <button className='emailButton'>
           <a href={`mailto:${listing.userEmail}?subject=#${listing.id}:%20${this.state.emailSubject}`}>Email Dealer</a>
+        </button>
+        <button className='updateListing'>
+          <Link to={`/update-listing/${listing.id}`}>Edit Listing</Link>
         </button>
       </div>
       </>
