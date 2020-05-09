@@ -15,3 +15,7 @@ export function addListing (listing) {
     .send(listing)
     .then(res => res.body.id)
 }
+
+export function getUsersListings (id){
+  return request.get(``)
+}
