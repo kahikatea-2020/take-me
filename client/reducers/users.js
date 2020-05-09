@@ -1,4 +1,4 @@
-import { GET_USER_SUCCESS } from '../actions/categories'
+import { GET_USER_SUCCESS } from '../actions/users'
 
 export default function categoriesReducer (state = {}, action) {
   switch (action.type) {
