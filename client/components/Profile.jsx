@@ -9,10 +9,14 @@ class Profile extends React.Component {
 
   componentDidMount () {
     getUserById(this.props.match.params.id)
-      .then(user => {
-        this.setState({
-          user
-        })
+    .then(user => {
+        if(user !== null){
+          this.setState({
+            user
+          })
+        } else {
+          this.props.history.push(`/404`)
+        }
       })
   }
 
@@ -32,8 +36,6 @@ class Profile extends React.Component {
             </div>
           </div>
         </div>
-        
-        
       </>
     )
   }

@@ -12,6 +12,9 @@ class Listing extends React.Component {
   componentDidMount () {
     getListingById(this.props.match.params.id)
       .then(listing => {
+        if(listing === undefined) {
+          this.props.history.push(`/404`)
+        }
         this.setState({
           listing,
           emailSubject: listing.name.split(' ').join('%20'),
