@@ -1,20 +1,22 @@
 import React from 'react'
 import { Form } from 'semantic-ui-react'
-// import UploadWidget from './uploadWidget'
+import { connect } from 'react-redux'
+import { isAuthenticated } from 'authenticare/client'
+
 import { openUploadWidget } from './CloudinaryService'
 import { addListing } from '../api/listings'
 
-// import { getAllCategory } from '../api/category'
 
 class NewListing extends React.Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = {
-      listingName: '',
+      name: '',
       description: [],
-      category: '',
+      categoryId: '',
       location: '',
-      imageUrls: []
+      imageUrl: [],
+      userId: this.props.user.id
     }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -35,7 +37,7 @@ class NewListing extends React.Component {
         console.log(photos)
         if (photos.event === 'success') {
           this.setState({
-            imageUrls: [...this.state.imageUrls, photos.info.path]
+            imageUrl: [...this.state.imageUrl, photos.info.path]
           })
         }
       } else {
@@ -54,35 +56,46 @@ class NewListing extends React.Component {
   render () {
     return (
       <>
-        <h1>Create a listing</h1>
-        <p>Please fill in the following</p>
-        <Form>
+      {/* this is a pretty shit solution lets make this better at some point*/}
+        {(isAuthenticated() && (this.props.user.username !== undefined))
+        ?<>
+          <h1>Create a listing</h1>
+          <p>Please fill in the following</p>
+          <Form>
 
-          <label>Listing Name</label>
-          <input type="text" name="text" onChange={this.handleChange} />
+            <label>Listing Name</label>
+            <input type="text" name="name" onChange={this.handleChange} />
 
-          <label>Description</label>
-          <input type="text" name="text" onChange={this.handleChange} />
+            <label>Description</label>
+            <input type="text" name="description" onChange={this.handleChange} />
 
-          {/* maybe make it a dropdown? */}
-          <label>Location (maybe make a drop down as well?) </label>
-          <input type="text" name="text" onChange={this.handleChange} />
-          {/* need to update category list */}
-          <Form.Button onClick={() => this.imageUpload()}>Upload Image</Form.Button>
-          <div className='imagesPreview'>
-            {this.state.imageUrls.map(image => <div><img src={`https://res.cloudinary.com/takemenz/image/upload/${image}`}/></div>)}
-          </div>
-          <Form.Button
-            type='submit'
-            onClick={this.submitHandler}
-          >
-            Submit
-          </Form.Button>
-          
-        </Form>
+            {/* maybe make it a dropdown? */}
+            <label>Location (maybe make a drop down as well?) </label>
+            <input type="text" name="location" onChange={this.handleChange} />
+            {/* need to update category list */}
+            <Form.Button onClick={() => this.imageUpload()}>Upload Image</Form.Button>
+            <div className='imagesPreview'>
+              {this.state.imageUrl.map(image => <div><img src={`https://res.cloudinary.com/takemenz/image/upload/${image}`}/></div>)}
+            </div>
+            <Form.Button
+              type='submit'
+              onClick={this.submitHandler}
+            >
+              Submit
+            </Form.Button>
+            
+          </Form>
+        </>
+        :<p>Log in to create a listing</p>}
       </>
     )
   }
 }
 
-export default NewListing
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(NewListing)
