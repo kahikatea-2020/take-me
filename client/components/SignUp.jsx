@@ -36,11 +36,11 @@ class SignUp extends React.Component {
     }
   }
 
-  imageUpload = tag => {
+  imageUpload = (tag, preset) => {
     const uploadOptions = {
       cloudName: 'takemenz',
       tags: [tag],
-      uploadPreset: 'nxxqgset'
+      uploadPreset: preset
     }
 
     openUploadWidget(uploadOptions, (error, photo) => {
@@ -166,7 +166,11 @@ class SignUp extends React.Component {
             type='password'
             autoComplete='off'
           />
-          <Form.Button onClick={() => this.imageUpload()}>Upload Image</Form.Button>
+          <Form.Button
+          onClick={e => {
+            e.preventDefault()
+            return this.imageUpload(undefined, 'brmcwkea')}
+          }>Upload Image</Form.Button>
           {(this.state.imageUrl !== '') &&
             <div className='imagesPreview'>
               <div><img src={`https://res.cloudinary.com/takemenz/image/upload/${this.state.imageUrl}`}/></div>
