@@ -1,5 +1,5 @@
-import * as api from '../api/listings'
 import { showError } from './error'
+import * as api from '../api/users'
 
 export const GET_USER_SUCCESS = 'GET_USER_SUCCESS'
 
@@ -10,9 +10,9 @@ export function getUserSuccess (details) {
   }
 }
 
-export function getUsersDetails (username) {
+export function getUserDetails (username) {
   return dispatch => {
-    return api.getUser(username)
+    return api.getUserDetails(username)
       .then(details => {
         dispatch(getUserSuccess(details))
       })

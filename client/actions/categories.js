@@ -29,6 +29,11 @@ export function getCategories () {
   return dispatch => {
     api.getCategories()
       .then(categories => dispatch(getCategoriesSuccess(categories)))
+<<<<<<< HEAD
       .catch(err => dispatch(showError(err.message)))
+||||||| 370a29e
+      .catch(err => console.log(err.message))
+=======
+>>>>>>> be754fa76d0eba44fa35c83eb2449d0fb8d96f5f
   }
 }

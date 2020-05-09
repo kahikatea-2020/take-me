@@ -2,7 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Form } from 'semantic-ui-react'
 import { isAuthenticated, register } from 'authenticare/client'
+import { connect } from 'react-redux'
 
+import { showError } from '../actions/error'
 import { BASE_API_URL } from '../base-api.js'
 
 class SignUp extends React.Component {
@@ -25,15 +27,16 @@ class SignUp extends React.Component {
 
   submitHandler = e => {
     if (this.state.password !== this.state.confirmPassword) {
-      // throw some kind of error (may need other error handling if required fields not filled out)
-      console.log('Error ohhh noooooo')
+      this.props.dispatch(showError('Passwords do not match'))
     } else {
       register(this.state, { baseUrl: BASE_API_URL })
         .then((token) => {
           if (isAuthenticated()) {
             this.props.history.push('/')
           }
+          console.log(token)
         })
+        .catch(() => this.props.dispatch(showError('Username already taken')))
     }
   }
 
@@ -136,4 +139,4 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp
+export default connect()(SignUp)
