@@ -52,10 +52,23 @@ function updateListingById (id, listing, db = connection) {
     .update(listing)
 }
 
+function getUsersListingsById (id, db = connection) {
+  return db('users')
+    .join('listings', 'users.id', 'listings.user_id')
+    .where('users.id', id)
+    .select('users.id', 'listings.description', 'listings.name', 'listings.location', 'listings.id', 'listings.image_url as imageUrl')
+    // .select('users.id', 'listings.name, listings.description, listings.location, listings.id, listings.image_url as imageUrl')
+}
+
+// return db('listings')
+// .join('users', 'listings.user_id', 'users.id')
+// .where('listings.id', id)
+
 module.exports = {
   getListings,
   getListingsById,
   deleteListingsById,
   addListing,
-  updateListingById
+  updateListingById,
+  getUsersListingsById
 }

@@ -61,4 +61,21 @@ router.put('/:id', getTokenDecoder(), (req, res) => {
     })
 })
 
+// api/v1/listings/user/:id
+router.get('/user/:id', (req, res) => {
+  const id = req.params.id
+  db.getUsersListingsById(id)
+    .then((dbRes) => {
+      dbRes.map(obj => {
+        obj.description = JSON.parse(obj.description)
+        obj.imageUrl = JSON.parse(obj.imageUrl)
+      })
+      res.status(200).json(dbRes)
+    })
+    .catch(err => {
+      console.log(err.message)
+      res.sendStatus(500)
+    })
+})
+
 module.exports = router
