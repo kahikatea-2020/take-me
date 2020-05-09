@@ -48,6 +48,14 @@ class NewListing extends React.Component {
     })
   }
 
+  deleteImage = (idx) => {
+    const newImgUrl = [...this.state.imageUrl]
+    newImgUrl.splice(idx, 1)
+    this.setState({
+      imageUrl: newImgUrl
+    })
+  }
+
   submitHandler = () => {
     if (!this.state.imageUrl[0]) {
       this.setState({
@@ -86,9 +94,30 @@ class NewListing extends React.Component {
             <input type="text" name="location" onChange={this.handleChange} />
             {/* need to update category list */}
             <Form.Button onClick={() => this.imageUpload()}>Upload Image</Form.Button>
+            {this.state.imageUrl[0] &&
             <div className='imagesPreview'>
-              {this.state.imageUrl.map(image => <div><img src={`https://res.cloudinary.com/takemenz/image/upload/${image}`}/></div>)}
+              {this.state.imageUrl.map((img, idx) => {
+              return (
+                <div className='singleImagePreview'>
+                  <div style={{height: '40px', width: '40px', marginLeft: '110px'}}>
+                    <button onClick={e => {
+                      e.preventDefault()
+                      return this.deleteImage(idx)
+                    }}>
+                      <img
+                        src='/trash-can.png'
+                        alt='delete button'
+                        className='deleteButton'
+                      />
+                    </button>
+                  </div>
+                  <div>
+                    <img className='theImage' src={`https://res.cloudinary.com/takemenz/image/upload/${img}`}/>
+                  </div>
+                </div>
+              )})}
             </div>
+            }
             <Form.Button
               type='submit'
               onClick={this.submitHandler}
