@@ -1,6 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Menu, Header } from 'semantic-ui-react'
+import { connect } from 'react-redux'
 
 import { isAuthenticated, logOff } from 'authenticare/client'
 
@@ -17,9 +18,16 @@ class Navbar extends React.Component {
               <Menu.Item as={Link} to='/new-listing'>
                 Create a Listing
               </Menu.Item>
-              <Menu.Item as={Link} to='/profile'>
-                Profile name (needs to link to id)
-              </Menu.Item>
+                {(this.props.user.username !== undefined)
+                  ?<Menu.Item as={Link} to={`/profile/${this.props.user.id}`}>
+                    <div className='profile-button'>
+                      <p>{this.props.user.username}</p>
+                      <img
+                      style={{ borderRadius: '50%', maxHeight: '50px' }}
+                      src={`https://res.cloudinary.com/takemenz/image/upload/${this.props.user.image_url}`}/>
+                    </div>
+                    </Menu.Item>
+                  : <p>Profile</p>}
               <Menu.Item
                 as={Link}
                 to='#'
@@ -43,4 +51,10 @@ class Navbar extends React.Component {
   }
 }
 
-export default Navbar
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  }
+}
+
+export default connect(mapStateToProps)(Navbar)
