@@ -31,7 +31,7 @@ class Navbar extends React.Component {
                   {this.props.user.username}
                   <img
                   style={{ borderRadius: '50%', maxHeight: '50px' }}
-                  src={`https://res.cloudinary.com/takemenz/image/upload/${this.props.user.image_url}`}/>
+                  src={`https://res.cloudinary.com/takemenz/image/upload/${this.props.user.imageUrl}`}/>
                 </div>
               </Menu.Item>
               <Menu.Item
