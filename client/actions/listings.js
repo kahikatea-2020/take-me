@@ -45,6 +45,11 @@ export function getListings () {
 
 export function getUsersListings (id) {
   return dispatch => {
-
+    dispatch(getUsersListingsPending())
+    return api.getUsersListings()
+      .then(listings => {
+        dispatch(getUsersListingsSuccess(listings))
+      })
+      .catch(err => dispatch(showError(err.message)))
   }
 }
