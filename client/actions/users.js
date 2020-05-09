@@ -1,4 +1,5 @@
 import * as api from '../api/listings'
+import { showError } from './error'
 
 export const GET_USER_SUCCESS = 'GET_USER_SUCCESS'
 
@@ -15,5 +16,6 @@ export function getUsersDetails (username) {
       .then(details => {
         dispatch(getUserSuccess(details))
       })
+      .catch(err => dispatch(showError(err.message)))
   }
 }
