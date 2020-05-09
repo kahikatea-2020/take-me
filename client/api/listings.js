@@ -12,5 +12,8 @@ export function getListingById (id) {
 
 export function addListing (listing) {
   return request.post('/api/v1/listings/new')
-    .then(res => res.body)
+    .send(listing)
+    .then(res => {
+      return res.body
+    })
 }

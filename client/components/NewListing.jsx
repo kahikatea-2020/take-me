@@ -21,6 +21,7 @@ class NewListing extends React.Component {
 
   handleChange (evt) {
     this.setState({ [evt.target.name]: evt.target.value })
+    console.log()
   }
 
   imageUpload = tag => {
@@ -45,12 +46,13 @@ class NewListing extends React.Component {
   }
 
   submitHandler = () => {
+    console.log(this.state)
     addListing(this.state)
-      .then(listing => {
-        this.props.history.push(`/listings/${listing.id}`)
+      .then(id => {
+        this.props.history.push(`/`)
+        // this.props.history.push(`/listings/${id}`)
       })
   }
-
   render () {
     return (
       <>
@@ -59,14 +61,14 @@ class NewListing extends React.Component {
         <Form>
 
           <label>Listing Name</label>
-          <input type="text" name="text" onChange={this.handleChange} />
+          <input type="text" name="listingName" onChange={this.handleChange} />
 
           <label>Description</label>
-          <input type="text" name="text" onChange={this.handleChange} />
+          <input type="text" name="description" onChange={this.handleChange} />
 
           {/* maybe make it a dropdown? */}
           <label>Location (maybe make a drop down as well?) </label>
-          <input type="text" name="text" onChange={this.handleChange} />
+          <input type="text" name="location" onChange={this.handleChange} />
           {/* need to update category list */}
           <Form.Button onClick={() => this.imageUpload()}>Upload Image</Form.Button>
           <div className='imagesPreview'>

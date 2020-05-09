@@ -32,13 +32,16 @@ function deleteListingsById (id, db = connection) {
 
 function addListing (data, db = connection) {
   return db('listings').insert({
-    name: data.name,
+    name: data.listingName,
     description: JSON.stringify(data.description),
-    image_url: JSON.stringify(data.imageUrl),
+    image_url: JSON.stringify(data.imageUrls),
     user_id: data.userId,
-    category_id: data.categoryId
+    category_id: data.categoryId,
+    location: data.location
   })
-    .then(id => console.log(id))
+    .then(id => {
+      return id
+    })
 }
 
 function updateListingById (id, listing, db = connection) {
