@@ -17,6 +17,6 @@ export function addListing (listing) {
 }
 
 export function getUsersListings (id) {
-  return request.get(`api/v1/listings/user/${id}`)
+  return request.get(`/api/v1/listings/user/${id}`)
     .then(res => res.body)
 }

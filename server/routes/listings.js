@@ -64,6 +64,7 @@ router.put('/:id', getTokenDecoder(), (req, res) => {
 // api/v1/listings/user/:id
 router.get('/user/:id', (req, res) => {
   const id = req.params.id
+  console.log(id)
   db.getUsersListingsById(id)
     .then((dbRes) => {
       dbRes.map(obj => {

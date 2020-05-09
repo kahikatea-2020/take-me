@@ -46,7 +46,7 @@ export function getListings () {
 export function getUsersListings (id) {
   return dispatch => {
     dispatch(getUsersListingsPending())
-    return api.getUsersListings()
+    return api.getUsersListings(id)
       .then(listings => {
         dispatch(getUsersListingsSuccess(listings))
       })
