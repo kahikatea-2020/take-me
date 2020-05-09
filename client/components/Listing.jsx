@@ -12,7 +12,6 @@ class Listing extends React.Component {
   componentDidMount () {
     getListingById(this.props.match.params.id)
       .then(listing => {
-        console.log(listing)
         this.setState({
           listing,
           emailSubject: listing.name.split(' ').join('%20'),
@@ -36,7 +35,7 @@ class Listing extends React.Component {
         {this.state.description.map(sentence => <p key={sentence.substr(0, 10)}>{sentence}</p>)}
       </div>
       <div className='contactInfo'>
-        <h4>Location: {listing.userLocation}</h4>
+        <h4>Location: {listing.location}</h4>
         <h3>Contact {listing.userFirstName}</h3>
         <p>{listing.userPhoneNumber}</p>
         <button className='emailButton'>
