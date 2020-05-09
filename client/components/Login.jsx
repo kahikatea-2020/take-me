@@ -30,8 +30,10 @@ class Login extends React.Component {
       .then((token) => {
         if (isAuthenticated()) {
           this.props.dispatch(getUserDetails(this.state.username))
-          this.props.history.push('/')
         }
+      })
+      .then(() => {
+        this.props.history.push('/')
       })
   }
 
@@ -78,7 +80,7 @@ class Login extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    state
+    user: state.user
   }
 }
 
