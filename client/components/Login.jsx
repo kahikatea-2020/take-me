@@ -7,7 +7,7 @@ import { isAuthenticated, signIn } from 'authenticare/client'
 
 import { getUserDetails, userPending, userSuccess } from '../actions/users'
 import { BASE_API_URL } from '../base-api.js'
-import { showError } from '../actions/error'
+import { showError, hideError } from '../actions/error'
 import WaitIndicator from './WaitIndicator'
 
 class Login extends React.Component {
@@ -23,6 +23,7 @@ class Login extends React.Component {
   }
 
   submitHandler = e => {
+    this.props.dispatch(hideError())
     this.props.dispatch(userPending())
     signIn({
       username: this.state.username,

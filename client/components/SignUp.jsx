@@ -4,7 +4,7 @@ import { Form } from 'semantic-ui-react'
 import { isAuthenticated, register } from 'authenticare/client'
 import { connect } from 'react-redux'
 
-import { showError } from '../actions/error'
+import { showError, hideError } from '../actions/error'
 import { BASE_API_URL } from '../base-api.js'
 import { userPending, userSuccess } from '../actions/users'
 import WaitIndicator from './WaitIndicator'
@@ -41,6 +41,7 @@ class SignUp extends React.Component {
   }
 
   submitHandler = e => {
+    this.props.dispatch(hideError())
     if (this.state.password !== this.state.confirmPassword) {
       this.props.dispatch(showError('Password does not match'))
     } else if (this.inputChecker()) {

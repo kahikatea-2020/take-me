@@ -6,7 +6,7 @@ export default function (state = null, action) {
       return action.message
 
     case HIDE_ERROR:
-      return state
+      return null
 
     default:
       return state
