@@ -84,14 +84,14 @@ class NewListing extends React.Component {
           <Form>
 
             <label>Listing Name</label>
-            <input type="text" name="name" onChange={this.handleChange} />
+            <input type="text" name="name" required onChange={this.handleChange} />
 
             <label>Description</label>
-            <input type="text" name="description" onChange={this.handleDescriptionChange} />
+            <input type="text" name="description" required onChange={this.handleDescriptionChange} />
 
             {/* maybe make it a dropdown? */}
             <label>Location (maybe make a drop down as well?) </label>
-            <input type="text" name="location" onChange={this.handleChange} />
+            <input type="text" name="location" required onChange={this.handleChange} />
             {/* need to update category list */}
             <Form.Button onClick={() => this.imageUpload()}>Upload Image</Form.Button>
             {this.state.imageUrl[0] &&
