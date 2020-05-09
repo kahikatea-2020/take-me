@@ -51,7 +51,7 @@ jest.mock('../db/listing', () => {
       }
     },
     addListing: () => {
-      return Promise.resolve(1)
+      return Promise.resolve([3])
     }
   }
 })
@@ -89,6 +89,7 @@ test('POST /new adds and redirects', () => {
     .post('/api/v1/listings/new')
     .send({ name: 'testname', description: JSON.stringify(['hello']), imageUrl: JSON.stringify(['this is a URL']), userID: 2, categoryId: 2 })
     .then((res) => {
-      expect(res.status).toBe(302)
+      expect(res.status).toBe(200)
+      expect(res.body.id).toBe(3)
     })
 })
