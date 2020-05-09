@@ -21,7 +21,7 @@ test('db.getAllCategory to return an array 0f 9 categories', () => {
 })
 
 test('db.getListingByCategoryId returns an array of objects containing listing by category_id with right length', () => {
-  const expected = 3
+  const expected = 1
   const id = 1
 
   return db.getListingsByCategoryId(id, testDb)
