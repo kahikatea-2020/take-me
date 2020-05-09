@@ -41,6 +41,7 @@
   },
   "dependencies": {
     "authenticare": "^0.4.6",
+    "axios": "^0.19.2",
     "cloudinary": "^1.21.0",
     "cloudinary-core": "^2.8.2",
     "cloudinary-react": "^1.5.0",
