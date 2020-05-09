@@ -8,9 +8,14 @@ const db = require('../db/listing')
 router.get('/:id', (req, res) => {
   db.getListingsById(req.params.id)
     .then(dbRes => {
-      dbRes[0].description = JSON.parse(dbRes[0].description)
-      dbRes[0].imageUrl = JSON.parse(dbRes[0].imageUrl)
-      res.send(dbRes)
+      if (dbRes.length === 0) {
+        res.send(dbRes)
+      } else {
+        console.log(dbRes.length === 0)
+        dbRes[0].description = JSON.parse(dbRes[0].description)
+        dbRes[0].imageUrl = JSON.parse(dbRes[0].imageUrl)
+        res.send(dbRes)
+      }
     })
 })
 
