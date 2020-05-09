@@ -1,7 +1,7 @@
 export const ERROR = 'ERROR'
 
 export function showError (message) {
-  reutrn {
+  return {
     type: ERROR,
     message
   }
