@@ -13,21 +13,27 @@ class Navbar extends React.Component {
           <Menu.Item as={Link} to='/' header>
             <Header>TakeMe</Header>
           </Menu.Item>
-          {isAuthenticated()
+          {/* So this next part basically is saying
+              if its logged in and there is a username in the store show it
+              else they need to log in
+              That's not great bc when you reload the page there is not username
+              in the store so it looks like you need to log in again even though
+              you don't
+              This is a temporary fix but if there is a way to use the token then
+              we should definitely do that */}
+          {(isAuthenticated() && (this.props.user.username !== undefined))
             ? <>
               <Menu.Item as={Link} to='/new-listing'>
                 Create a Listing
               </Menu.Item>
-                {(this.props.user.username !== undefined)
-                  ?<Menu.Item as={Link} to={`/profile/${this.props.user.id}`}>
-                    <div className='profile-button'>
-                      <p>{this.props.user.username}</p>
-                      <img
-                      style={{ borderRadius: '50%', maxHeight: '50px' }}
-                      src={`https://res.cloudinary.com/takemenz/image/upload/${this.props.user.image_url}`}/>
-                    </div>
-                    </Menu.Item>
-                  : <p>Profile</p>}
+              <Menu.Item as={Link} to={`/profile/${this.props.user.id}`}>
+                <div className='profile-button'>
+                  {this.props.user.username}
+                  <img
+                  style={{ borderRadius: '50%', maxHeight: '50px' }}
+                  src={`https://res.cloudinary.com/takemenz/image/upload/${this.props.user.image_url}`}/>
+                </div>
+              </Menu.Item>
               <Menu.Item
                 as={Link}
                 to='#'
