@@ -7,7 +7,7 @@ test('a get error success adds listing to the state', () => {
 
   const action = {
     type: ERROR,
-    error
+    message: error
   }
 
   const newState = errorReducer(currentState, action)
