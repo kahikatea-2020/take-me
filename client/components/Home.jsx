@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import WaitIndicator from './WaitIndicator'
 
+import WaitIndicator from './WaitIndicator'
 import { getListings } from '../actions/listings'
 // redux
 

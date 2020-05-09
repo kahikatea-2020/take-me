@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 
 import { isAuthenticated, signIn } from 'authenticare/client'
 
+import { getUserDetails } from '../actions/users'
 import { BASE_API_URL } from '../base-api.js'
 
 class Login extends React.Component {
@@ -28,6 +29,7 @@ class Login extends React.Component {
     })
       .then((token) => {
         if (isAuthenticated()) {
+          this.props.dispatch(getUserDetails(this.state.username))
           this.props.history.push('/')
         }
       })
