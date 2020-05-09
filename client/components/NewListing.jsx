@@ -23,6 +23,7 @@ class NewListing extends React.Component {
 
   handleChange (evt) {
     this.setState({ [evt.target.name]: evt.target.value })
+    console.log()
   }
 
   handleDescriptionChange = (evt) => {
@@ -49,12 +50,12 @@ class NewListing extends React.Component {
   }
 
   submitHandler = () => {
+    console.log(this.state)
     addListing(this.state)
       .then(id => {
         this.props.history.push(`/listings/${id}`)
       })
   }
-
   render () {
     return (
       <>

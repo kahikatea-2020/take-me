@@ -4,8 +4,10 @@ import { Form } from 'semantic-ui-react'
 import { isAuthenticated, register } from 'authenticare/client'
 import { connect } from 'react-redux'
 
-import { getUserDetails } from '../actions/users'
+import { showError, hideError } from '../actions/error'
 import { BASE_API_URL } from '../base-api.js'
+import { userPending, userSuccess, getUserDetails } from '../actions/users'
+import WaitIndicator from './WaitIndicator'
 
 class SignUp extends React.Component {
   state = {
@@ -19,6 +21,19 @@ class SignUp extends React.Component {
     confirmPassword: ''
   }
 
+  inputChecker = event => {
+    const { firstName, lastName, emailAddress, location, username, password, phoneNumber } = this.state
+    if (firstName !== '' && lastName !== '' && location !== '' && username !== '' && password !== '' && emailAddress !== '') {
+      if (phoneNumber !== null || phoneNumber !== '') {
+        return false
+      } else {
+        return false
+      }
+    } else {
+      return true
+    }
+  }
+
   updateField = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -26,15 +41,24 @@ class SignUp extends React.Component {
   }
 
   submitHandler = e => {
+    this.props.dispatch(hideError())
     if (this.state.password !== this.state.confirmPassword) {
-      // throw some kind of error (may need other error handling if required fields not filled out)
-      console.log('Error ohhh noooooo')
+      this.props.dispatch(showError('Password does not match'))
+    } else if (this.inputChecker()) {
+      this.props.dispatch(showError('Please fill out all the fields'))
     } else {
+      this.props.dispatch(userPending())
       register(this.state, { baseUrl: BASE_API_URL })
         .then((token) => {
+          this.props.dispatch(userSuccess())
           if (isAuthenticated()) {
             this.props.dispatch(getUserDetails())
           }
+          console.log(token)
+        })
+        .catch(() => {
+          this.props.dispatch(userSuccess())
+          this.props.dispatch(showError('Username already taken'))
         })
         .then(() => {
           this.props.history.push('/')
@@ -47,6 +71,7 @@ class SignUp extends React.Component {
       <>
         <h1>Sign Up</h1>
         <p>Please fill in the following details:</p>
+        {this.props.error && <div>{this.props.error}</div>}
         <Form>
           <Form.Input
             onKeyUp={this.updateField}
@@ -136,9 +161,16 @@ class SignUp extends React.Component {
             </Form.Button>
           </Form.Group>
         </Form>
+        <WaitIndicator />
       </>
     )
   }
 }
 
-export default connect()(SignUp)
+const mapStateToProps = state => {
+  return {
+    error: state.error
+  }
+}
+
+export default connect(mapStateToProps)(SignUp)

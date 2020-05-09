@@ -41,7 +41,9 @@ function addListing (data, db = connection) {
     category_id: data.categoryId,
     location: data.location
   })
-    .then(id => id)
+    .then(id => {
+      return id
+    })
 }
 
 function updateListingById (id, listing, db = connection) {

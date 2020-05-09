@@ -8,6 +8,7 @@ const db = require('../db/listing')
 router.get('/:id', (req, res) => {
   db.getListingsById(req.params.id)
     .then(dbRes => {
+      console.log(dbRes)
       dbRes[0].description = JSON.parse(dbRes[0].description)
       dbRes[0].imageUrl = JSON.parse(dbRes[0].imageUrl)
       res.send(dbRes)
@@ -37,6 +38,7 @@ router.post('/new', (req, res) => {
     .then(id => {
       res.send({ id: id[0] })
     })
+    .catch(err => console.log(err.message))
 })
 
 // PUT api/v1/listings/:id

@@ -4,7 +4,6 @@ import { CloudinaryContext } from 'cloudinary-react'
 import { connect } from 'react-redux'
 import { isAuthenticated } from 'authenticare/client'
 
-
 import Navbar from './Navbar'
 import SignUp from './SignUp'
 import Login from './Login'
@@ -13,6 +12,7 @@ import Listing from './Listing'
 import NewListing from './NewListing'
 import Profile from './Profile'
 import { getUserDetails } from '../actions/users'
+import Error404 from './Error404'
 // import Footer from './Footer'
 
 class App extends React.Component {
@@ -33,6 +33,7 @@ class App extends React.Component {
           <Route path='/new-listing' component={NewListing} />
           <Route exact path='/listings/:id' component={Listing} />
           <Route path='/profile/:id' component={Profile} />
+          <Route exact path='/error/404' component={Error404} />
           {/* <Route path='/' component={Footer} /> */}
         </Router>
       </CloudinaryContext>
