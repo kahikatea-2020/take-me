@@ -39,3 +39,8 @@ test('getCategories has getCategoriesSuccess function that dispatches success', 
   expect(action.categories[2].name).toMatch('Popsicles')
   expect(action.categories).toHaveLength(3)
 })
+
+test('getCategories has getCategoriesPending function that dispatches pending', () => {
+  const action = getCategoriesPending()
+  expect(action.type).toBe(GET_CATEGORIES_PENDING)
+})
