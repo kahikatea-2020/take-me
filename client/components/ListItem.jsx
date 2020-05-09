@@ -7,13 +7,13 @@ class ListItem extends React.Component {
     const listing = this.props.listing
     return (
       <>
-        <div class="ui card">
-          <a class="image" href={`/listings/${listing.id}`}>
+        <div className="ui card">
+          <a className="image" href={`/listings/${listing.id}`}>
             <img style={{maxWidth: '200px'}} src={`https://res.cloudinary.com/takemenz/image/upload/${JSON.parse(listing.imageUrl)[0]}`} alt={listing.name}/>
           </a>
-          <div class="content">
+          <div className="content">
             <h3><Link to={`/listings/${listing.id}`}>{listing.name}</Link></h3>
-            <div class="meta">
+            <div className="meta">
               <a>{listing.location}</a>
             </div>
           </div>
