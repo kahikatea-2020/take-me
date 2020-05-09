@@ -23,7 +23,6 @@ class NewListing extends React.Component {
 
   handleChange (evt) {
     this.setState({ [evt.target.name]: evt.target.value })
-    console.log()
   }
 
   handleDescriptionChange = (evt) => {
@@ -50,11 +49,21 @@ class NewListing extends React.Component {
   }
 
   submitHandler = () => {
-    console.log(this.state)
-    addListing(this.state)
-      .then(id => {
-        this.props.history.push(`/listings/${id}`)
-      })
+    if (!this.state.imageUrl[0]) {
+      this.setState({
+        imageUrl: [...this.state.imageUrl, 'v1589063179/default-listing_pgdcsc.png']
+      }, () => {
+        addListing(this.state)
+          .then(id => {
+            this.props.history.push(`/listings/${id}`)
+          })
+        })
+      } else {
+        addListing(this.state)
+          .then(id => {
+            this.props.history.push(`/listings/${id}`)
+          })
+    }
   }
   render () {
     return (
