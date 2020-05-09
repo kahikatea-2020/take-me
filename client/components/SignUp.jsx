@@ -20,7 +20,8 @@ class SignUp extends React.Component {
     username: '',
     password: '',
     confirmPassword: '',
-    imageUrl: ''
+    imageUrl: 'v1589061239/default-profile_checno.png',
+    uploadedImage: false
   }
 
   inputChecker = event => {
@@ -47,7 +48,8 @@ class SignUp extends React.Component {
       if (!error) {
         if (photo.event === 'success') {
           this.setState({
-            imageUrl: photo.info.path
+            imageUrl: photo.info.path,
+            uploadedImage: true
           })
         }
       }
@@ -171,7 +173,7 @@ class SignUp extends React.Component {
             e.preventDefault()
             return this.imageUpload(undefined, 'brmcwkea')}
           }>Upload Image</Form.Button>
-          {(this.state.imageUrl !== '') &&
+          {(this.state.uploadedImage) &&
             <div className='imagesPreview'>
               <div><img src={`https://res.cloudinary.com/takemenz/image/upload/${this.state.imageUrl}`}/></div>
             </div>
