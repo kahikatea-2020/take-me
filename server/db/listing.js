@@ -38,7 +38,7 @@ function addListing (data, db = connection) {
     user_id: data.userId,
     category_id: data.categoryId
   })
-    .then(id => id)
+    .then(id => console.log(id))
 }
 
 function updateListingById (id, listing, db = connection) {
