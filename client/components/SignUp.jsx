@@ -6,6 +6,8 @@ import { connect } from 'react-redux'
 
 import { showError } from '../actions/error'
 import { BASE_API_URL } from '../base-api.js'
+import { userPending, userSuccess } from '../actions/users'
+import WaitIndicator from './WaitIndicator'
 
 class SignUp extends React.Component {
   state = {
@@ -19,6 +21,19 @@ class SignUp extends React.Component {
     confirmPassword: ''
   }
 
+  inputChecker = event => {
+    const { firstName, lastName, emailAddress, location, username, password, phoneNumber } = this.state
+    if (firstName !== '' && lastName !== '' && location !== '' && username !== '' && password !== '' && emailAddress !== '') {
+      if (phoneNumber !== null || phoneNumber !== '') {
+        return true
+      } else {
+        return false
+      }
+    } else {
+      return false
+    }
+  }
+
   updateField = e => {
     this.setState({
       [e.target.name]: e.target.value
@@ -28,15 +43,22 @@ class SignUp extends React.Component {
   submitHandler = e => {
     if (this.state.password !== this.state.confirmPassword) {
       this.props.dispatch(showError('Password does not match'))
+    } else if (this.state.phoneNumber === null || this.state.phoneNumber === '') {
+      this.props.dispatch(showError('Please fill out all the fields'))
     } else {
+      this.props.dispatch(userPending())
       register(this.state, { baseUrl: BASE_API_URL })
         .then((token) => {
+          this.props.dispatch(userSuccess())
           if (isAuthenticated()) {
             this.props.history.push('/')
           }
           console.log(token)
         })
-        .catch(() => this.props.dispatch(showError('Username already taken')))
+        .catch(() => {
+          this.props.dispatch(userSuccess())
+          this.props.dispatch(showError('Username already taken'))
+        })
     }
   }
 
@@ -135,6 +157,7 @@ class SignUp extends React.Component {
             </Form.Button>
           </Form.Group>
         </Form>
+        <WaitIndicator />
       </>
     )
   }

@@ -5,9 +5,10 @@ import { connect } from 'react-redux'
 
 import { isAuthenticated, signIn } from 'authenticare/client'
 
-import { getUserDetails } from '../actions/users'
+import { getUserDetails, userPending, userSuccess } from '../actions/users'
 import { BASE_API_URL } from '../base-api.js'
 import { showError } from '../actions/error'
+import WaitIndicator from './WaitIndicator'
 
 class Login extends React.Component {
   state = {
@@ -22,6 +23,7 @@ class Login extends React.Component {
   }
 
   submitHandler = e => {
+    this.props.dispatch(userPending())
     signIn({
       username: this.state.username,
       password: this.state.password
@@ -29,6 +31,7 @@ class Login extends React.Component {
       baseUrl: BASE_API_URL
     })
       .then((token) => {
+        this.props.dispatch(userSuccess())
         if (isAuthenticated()) {
           this.props.dispatch(getUserDetails(this.state.username))
           this.props.history.push('/')
@@ -36,13 +39,17 @@ class Login extends React.Component {
           this.props.dispatch(showError('Username or Password Incorrect'))
         }
       })
-      .catch(() => this.props.dispatch(showError('Username or Password Incorrect')))
+      .catch(() => {
+        this.props.dispatch(userSuccess())
+        this.props.dispatch(showError('Username or Password Incorrect'))
+      })
   }
 
   render () {
     return (
       <>
         <h1>Login</h1>
+        {this.props.state.error && <div>{this.props.state.error}</div>}
         <Form>
           <Form.Input
             onKeyUp={this.updateField}
@@ -75,6 +82,7 @@ class Login extends React.Component {
             </Form.Button>
           </Form.Group>
         </Form>
+        <WaitIndicator />
       </>
     )
   }
