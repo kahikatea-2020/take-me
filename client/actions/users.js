@@ -22,3 +22,14 @@ export function getUserDetails (username) {
   }
 }
 
+export function userPending () {
+  return {
+    type: LOGIN_PENDING
+  }
+}
+
+export function userSuccess () {
+  return {
+    type: LOGIN_SUCCESS
+  }
+}
