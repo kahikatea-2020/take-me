@@ -54,7 +54,6 @@ class SignUp extends React.Component {
           if (isAuthenticated()) {
             this.props.dispatch(getUserDetails())
           }
-          console.log(token)
         })
         .catch(() => {
           this.props.dispatch(userSuccess())
