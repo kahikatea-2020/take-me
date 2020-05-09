@@ -12,7 +12,6 @@ class Listing extends React.Component {
   componentDidMount () {
     getListingById(this.props.match.params.id)
       .then(listing => {
-        console.log(listing)
         this.setState({
           listing,
           emailSubject: listing.name.split(' ').join('%20'),

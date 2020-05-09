@@ -1,5 +1,5 @@
 import React from 'react'
-
+// import { Ui, Card } from 'semantic-ui-react'
 import { getUserById } from '../api/users'
 
 class Profile extends React.Component {
@@ -21,12 +21,19 @@ class Profile extends React.Component {
 
     return (
       <>
-        <div className="profileWrapper">
-          <h2>{user.firstName} {user.lastName}</h2>
-          <h3>{user.username}</h3>
+        <div class="ui card">
+          <div class="image">
           <img src={`https://res.cloudinary.com/takemenz/image/upload/${user.imageUrl}`} alt=""/>
-          <p>{user.location}</p>
+          </div>
+          <div class="content">
+            <a class="header" href="#">{user.username}</a>
+            <div class="meta">
+              <a href='#'>{user.location}</a>
+            </div>
+          </div>
         </div>
+        
+        
       </>
     )
   }
