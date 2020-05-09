@@ -50,7 +50,7 @@ class Login extends React.Component {
     return (
       <>
         <h1>Login</h1>
-        {this.props.state.error && <div>{this.props.state.error}</div>}
+        {this.props.error && <div>{this.props.error}</div>}
         <Form>
           <Form.Input
             onKeyUp={this.updateField}
@@ -91,7 +91,8 @@ class Login extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user
+    user: state.user,
+    error: state.error
   }
 }
 
