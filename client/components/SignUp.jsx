@@ -181,24 +181,25 @@ class SignUp extends React.Component {
             return this.imageUpload(undefined, 'brmcwkea')}
           }>Upload Image</Form.Button>
           {(this.state.uploadedImage) &&
-          <div style={{display: 'flex', flexDirection: 'row'}}>
             <div className='imagesPreview'>
-              <div>
-                <img src={`https://res.cloudinary.com/takemenz/image/upload/${this.state.imageUrl}`}/>
+              <div className='singleImagePreview'>
+                <div style={{height: '40px', width: '40px', marginLeft: '110px'}}>
+                  <button onClick={e => {
+                    e.preventDefault()
+                    return this.deleteImage()
+                  }}>
+                    <img
+                      src='/trash-can.png'
+                      alt='delete button'
+                      className='deleteButton'
+                    />
+                  </button>
+                </div>
+                <div>
+                  <img className='theImage' src={`https://res.cloudinary.com/takemenz/image/upload/${this.state.imageUrl}`}/>
+                </div>
               </div>
             </div>
-            <div style={{height: '40px', width: '40px'}}>
-              <button onClick={e => {
-                e.preventDefault()
-                return this.deleteImage()}}>
-                <img
-                  src='/trash-can.png'
-                  alt='delete button'
-                  style={{height: '100%', width: '100%'}}
-                />
-              </button>
-            </div>
-          </div>
           }
           <Form.Group>
             <Link to='/'>
