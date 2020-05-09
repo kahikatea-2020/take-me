@@ -27,7 +27,7 @@ class SignUp extends React.Component {
 
   submitHandler = e => {
     if (this.state.password !== this.state.confirmPassword) {
-      this.props.dispatch(showError('Passwords do not match'))
+      this.props.dispatch(showError('Password does not match'))
     } else {
       register(this.state, { baseUrl: BASE_API_URL })
         .then((token) => {
@@ -45,6 +45,7 @@ class SignUp extends React.Component {
       <>
         <h1>Sign Up</h1>
         <p>Please fill in the following details:</p>
+        {this.props.error && <div>{this.props.error}</div>}
         <Form>
           <Form.Input
             onKeyUp={this.updateField}
@@ -139,4 +140,10 @@ class SignUp extends React.Component {
   }
 }
 
-export default connect()(SignUp)
+const mapStateToProps = state => {
+  return {
+    error: state.error
+  }
+}
+
+export default connect(mapStateToProps)(SignUp)
