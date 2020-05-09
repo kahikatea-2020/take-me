@@ -31,12 +31,15 @@ function deleteListingsById (id, db = connection) {
 }
 
 function addListing (data, db = connection) {
+  const description = JSON.stringify(data.description)
+  const imageUrl = JSON.stringify(data.imageUrl)
   return db('listings').insert({
     name: data.name,
-    description: JSON.stringify(data.description),
-    image_url: JSON.stringify(data.imageUrl),
+    description: description,
+    image_url: imageUrl,
     user_id: data.userId,
-    category_id: data.categoryId
+    category_id: data.categoryId,
+    location: data.location
   })
     .then(id => id)
 }
