@@ -6,6 +6,6 @@ export function getUserById (id) {
 }
 
 export function getUserDetails (username) {
-  return request.get(`/api/v1/user/${username}`)
+  return request.get(`/api/v1/users/getuser/${username}`)
     .then(res => res.body)
 }
