@@ -25,12 +25,12 @@ class SignUp extends React.Component {
     const { firstName, lastName, emailAddress, location, username, password, phoneNumber } = this.state
     if (firstName !== '' && lastName !== '' && location !== '' && username !== '' && password !== '' && emailAddress !== '') {
       if (phoneNumber !== null || phoneNumber !== '') {
-        return true
+        return false
       } else {
         return false
       }
     } else {
-      return false
+      return true
     }
   }
 
@@ -43,7 +43,7 @@ class SignUp extends React.Component {
   submitHandler = e => {
     if (this.state.password !== this.state.confirmPassword) {
       this.props.dispatch(showError('Password does not match'))
-    } else if (this.state.phoneNumber === null || this.state.phoneNumber === '') {
+    } else if (this.inputChecker()) {
       this.props.dispatch(showError('Please fill out all the fields'))
     } else {
       this.props.dispatch(userPending())
