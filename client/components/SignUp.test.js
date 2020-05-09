@@ -1,6 +1,11 @@
 import React from 'react'
 import { shallow } from 'enzyme'
 import { Form } from 'semantic-ui-react'
+import { applyMiddleware, createStore } from 'redux'
+import thunkMiddleware from 'redux-thunk'
+import { Provider } from 'react-redux'
+
+import reducers from '../reducers'
 
 import { renderWithRedux } from '../test-utils'
 import '@testing-library/jest-dom'
@@ -13,7 +18,12 @@ test('<SignUp /> renders correctly', () => {
 })
 
 test('<SignUp /> has the correct number of inputs', () => {
-  const wrapper = shallow(<SignUp />)
+  const store = createStore(
+    reducers,
+    applyMiddleware(thunkMiddleware)
+  )
+  const wrapper = shallow(<Provider store={store}><SignUp /></Provider>)
+  console.log(wrapper)
   expect(wrapper.find(Form.Input).length).toBe(8)
 })
 
