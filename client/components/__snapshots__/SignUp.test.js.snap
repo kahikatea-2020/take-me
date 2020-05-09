@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Sign up component renders correctly 1`] = `
+exports[`<SignUp /> renders correctly 1`] = `
 Object {
   "asFragment": [Function],
   "baseElement": <body>
