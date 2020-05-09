@@ -34,7 +34,9 @@ router.delete('/:id', (req, res) => {
 // POST /api/v1/listings/new
 router.post('/new', (req, res) => {
   db.addListing(req.body)
-    .then(id => res.redirect(`/api/v1/listings/${id}`))
+    .then(id => {
+      res.send({ id: id[0] })
+    })
 })
 
 // PUT api/v1/listings/:id
