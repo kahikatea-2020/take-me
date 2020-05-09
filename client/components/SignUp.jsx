@@ -33,7 +33,7 @@ class SignUp extends React.Component {
       register(this.state, { baseUrl: BASE_API_URL })
         .then((token) => {
           if (isAuthenticated()) {
-            this.props.dispatch(getUserDetails(this.state.username))
+            this.props.dispatch(getUserDetails())
           }
         })
         .then(() => {

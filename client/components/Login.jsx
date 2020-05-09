@@ -29,7 +29,7 @@ class Login extends React.Component {
     })
       .then((token) => {
         if (isAuthenticated()) {
-          this.props.dispatch(getUserDetails(this.state.username))
+          this.props.dispatch(getUserDetails())
         }
       })
       .then(() => {

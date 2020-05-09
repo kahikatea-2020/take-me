@@ -9,9 +9,9 @@ export function getUserSuccess (details) {
   }
 }
 
-export function getUserDetails (username) {
+export function getUserDetails () {
   return dispatch => {
-    return api.getUserDetails(username)
+    return api.getUserDetails()
       .then(details => {
         dispatch(getUserSuccess(details))
       })
