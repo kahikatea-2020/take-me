@@ -9,7 +9,7 @@ export function getUserSuccess (details) {
   }
 }
 
-export function getUsersDetails (username) {
+export function getUserDetails (username) {
   return dispatch => {
     return api.getUserDetails(username)
       .then(details => {
