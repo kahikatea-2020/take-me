@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { Form } from 'semantic-ui-react'
 import { isAuthenticated, register } from 'authenticare/client'
 import { connect } from 'react-redux'
+import SweetAlert from 'sweetalert2-react'
 
 import { openUploadWidget } from './CloudinaryService'
 import { showError, hideError } from '../actions/error'
@@ -66,8 +67,10 @@ class SignUp extends React.Component {
     this.props.dispatch(hideError())
     if (this.state.password !== this.state.confirmPassword) {
       this.props.dispatch(showError('Password does not match'))
+      this.setState({ show: true })
     } else if (this.inputChecker()) {
       this.props.dispatch(showError('Please fill out all the fields'))
+      this.setState({ show: true })
     } else {
       this.props.dispatch(userPending())
       register(this.state, { baseUrl: BASE_API_URL })
@@ -80,6 +83,7 @@ class SignUp extends React.Component {
         .catch(() => {
           this.props.dispatch(userSuccess())
           this.props.dispatch(showError('Username already taken'))
+          this.setState({ show: true })
         })
         .then(() => {
           this.props.history.push('/')
@@ -92,7 +96,6 @@ class SignUp extends React.Component {
       <>
         <h1>Sign Up</h1>
         <p>Please fill in the following details:</p>
-        {this.props.error && <div>{this.props.error}</div>}
         <Form>
           <Form.Input
             onKeyUp={this.updateField}
@@ -192,6 +195,12 @@ class SignUp extends React.Component {
             </Form.Button>
           </Form.Group>
         </Form>
+        <SweetAlert
+          show={this.state.show}
+          title="Oppsie, Something went wrong!"
+          text={this.props.error}
+          onConfirm={() => this.setState({ show: false })}
+        />
         <WaitIndicator />
       </>
     )
