@@ -25,6 +25,11 @@ class NewListing extends React.Component {
     this.setState({ [evt.target.name]: evt.target.value })
   }
 
+  handleDescriptionChange = (evt) => {
+    const arr = new Array(1).fill(evt.target.value)
+    this.setState({description: arr})
+  }
+
   imageUpload = tag => {
     const uploadOptions = {
       cloudName: 'takemenz',
@@ -34,14 +39,11 @@ class NewListing extends React.Component {
 
     openUploadWidget(uploadOptions, (error, photos) => {
       if (!error) {
-        console.log(photos)
         if (photos.event === 'success') {
           this.setState({
             imageUrl: [...this.state.imageUrl, photos.info.path]
           })
         }
-      } else {
-        console.log(error)
       }
     })
   }
@@ -67,7 +69,7 @@ class NewListing extends React.Component {
             <input type="text" name="name" onChange={this.handleChange} />
 
             <label>Description</label>
-            <input type="text" name="description" onChange={this.handleChange} />
+            <input type="text" name="description" onChange={this.handleDescriptionChange} />
 
             {/* maybe make it a dropdown? */}
             <label>Location (maybe make a drop down as well?) </label>
