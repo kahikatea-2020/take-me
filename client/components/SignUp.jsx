@@ -4,6 +4,7 @@ import { Form } from 'semantic-ui-react'
 import { isAuthenticated, register } from 'authenticare/client'
 import { connect } from 'react-redux'
 
+import { openUploadWidget } from './CloudinaryService'
 import { showError, hideError } from '../actions/error'
 import { BASE_API_URL } from '../base-api.js'
 import { userPending, userSuccess, getUserDetails } from '../actions/users'
@@ -18,7 +19,8 @@ class SignUp extends React.Component {
     location: '',
     username: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    imageUrl: ''
   }
 
   inputChecker = event => {
@@ -32,6 +34,24 @@ class SignUp extends React.Component {
     } else {
       return true
     }
+  }
+
+  imageUpload = tag => {
+    const uploadOptions = {
+      cloudName: 'takemenz',
+      tags: [tag],
+      uploadPreset: 'nxxqgset'
+    }
+
+    openUploadWidget(uploadOptions, (error, photo) => {
+      if (!error) {
+        if (photo.event === 'success') {
+          this.setState({
+            imageUrl: photo.info.path
+          })
+        }
+      }
+    })
   }
 
   updateField = e => {
@@ -146,6 +166,12 @@ class SignUp extends React.Component {
             type='password'
             autoComplete='off'
           />
+          <Form.Button onClick={() => this.imageUpload()}>Upload Image</Form.Button>
+          {(this.state.imageUrl !== '') &&
+            <div className='imagesPreview'>
+              <div><img src={`https://res.cloudinary.com/takemenz/image/upload/${this.state.imageUrl}`}/></div>
+            </div>
+          }
           <Form.Group>
             <Link to='/'>
               <Form.Button>
