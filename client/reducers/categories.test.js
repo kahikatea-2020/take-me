@@ -26,4 +26,6 @@ test('categoriesReducer successfully adds category to the state', ()  => {
   const newState = categoriesReducer(state, action)
 
   expect(newState).toHaveLength(3)
+  expect(newState[0].id).toBe(1)
+  expect(newState[2].name).toMatch('Popsicles')
 })
