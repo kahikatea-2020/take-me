@@ -10,4 +10,11 @@ router.get('/:id', (req, res) => {
     })
 })
 
+router.get('/username/:username', (req, res) => {
+  db.getUserDetails(req.params.username)
+    .then(dbRes => {
+      res.send(dbRes)
+    })
+})
+
 module.exports = router

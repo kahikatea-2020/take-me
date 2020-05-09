@@ -1,8 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Form } from 'semantic-ui-react'
+import { connect } from 'react-redux'
 
 import { isAuthenticated, signIn } from 'authenticare/client'
+
+import { getUserDetails } from '../actions/users'
+import { BASE_API_URL } from '../base-api.js'
 
 class Login extends React.Component {
   state = {
@@ -21,10 +25,11 @@ class Login extends React.Component {
       username: this.state.username,
       password: this.state.password
     }, {
-      baseUrl: process.env.BASE_API_URL
+      baseUrl: BASE_API_URL
     })
       .then((token) => {
         if (isAuthenticated()) {
+          this.props.dispatch(getUserDetails(this.state.username))
           this.props.history.push('/')
         }
       })
@@ -71,4 +76,10 @@ class Login extends React.Component {
   }
 }
 
-export default Login
+const mapStateToProps = state => {
+  return {
+    state
+  }
+}
+
+export default connect(mapStateToProps)(Login)
