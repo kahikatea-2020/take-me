@@ -1,4 +1,5 @@
 import React from 'react'
+import { connect } from 'react-redux'
 // import { Ui, Card } from 'semantic-ui-react'
 import { getUserById } from '../api/users'
 
@@ -41,4 +42,10 @@ class Profile extends React.Component {
   }
 }
 
-export default Profile
+const mapStateToProps = state => {
+  return {
+    usersListings: state.userListings
+  }
+}
+
+export default connect(mapStateToProps)(Profile)
