@@ -50,8 +50,8 @@ class NewListing extends React.Component {
 
   submitHandler = () => {
     addListing(this.state)
-      .then(listing => {
-        this.props.history.push(`/listings/${listing.id}`)
+      .then(id => {
+        this.props.history.push(`/listings/${id}`)
       })
   }
 
