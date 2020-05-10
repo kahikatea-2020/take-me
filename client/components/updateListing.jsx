@@ -61,9 +61,7 @@ class updateListing extends React.Component {
   inputChecker = event => {
     const {}
   }
-  // name: '',
-  // description: [],
-  // location: '',
+
   getListingDetails(){
     let listingId = this.props.match.params.id
     getListingById(listingId)
