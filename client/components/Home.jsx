@@ -17,11 +17,13 @@ class Home extends React.Component {
   render () {
     return (
       <>
-        <SearchBar history={this.props.history}/>
-        <CategoryList />
+        <div className='ui two column stackable grid'>
+          <SearchBar className='ten wide column' history={this.props.history}/>
+          <CategoryList className='six wide column'/>
+        </div>
         <h1>Latest Listings</h1>
         <WaitIndicator />
-        <Card.Group>
+        <Card.Group itemsPerRow={4} className='centered'>
           {this.props.listings.map(item => <ListItem key={item.id} listing={item} />)}
         </Card.Group>
       </>
