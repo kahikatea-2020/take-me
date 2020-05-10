@@ -97,7 +97,7 @@ class NewListing extends React.Component {
             <div className='imagesPreview'>
               {this.state.imageUrl.map((img, idx) => {
               return (
-                <div className='singleImagePreview'>
+                <div key={idx} className='singleImagePreview'>
                   <div style={{height: '40px', width: '40px', marginLeft: '110px'}}>
                     <button onClick={e => {
                       e.preventDefault()
