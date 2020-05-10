@@ -6,6 +6,7 @@ import categories from './categories'
 import selectedCategory from './selectedCategory'
 import user from './users'
 import error from './error'
+import userListings from './usersListings'
 
 export default combineReducers({
   pending,
@@ -13,5 +14,6 @@ export default combineReducers({
   categories,
   selectedCategory,
   user,
-  error
+  error,
+  userListings
 })
