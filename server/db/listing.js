@@ -2,7 +2,8 @@ const connection = require('./connection')
 
 function getListings (db = connection) {
   return db('listings')
-    .select('listings.id as id', 'listings.name as name', 'listings.image_url as imageUrl', 'listings.location as location', 'listings.user_id as userId', 'listings.category_id as categoryId')
+    .join('categories', 'listings.category_id', 'categories.id')
+    .select('listings.id as id', 'listings.name as name', 'listings.image_url as imageUrl', 'listings.location as location', 'listings.user_id as userId', 'listings.category_id as categoryId', 'categories.name as category')
 }
 
 function getListingsById (id, db = connection) {
