@@ -48,13 +48,13 @@ router.post('/new', (req, res) => {
 router.post('/:id', (req, res) => {
   const id = req.params.id
   const newListing = req.body
-  const { name, description, location } = newListing
+  const { name, description, location, imageUrl } = newListing
   const data = {
     name,
     description,
-    location
+    location,
+    imageUrl
   }
-  console.log(data)
   db.updateListingById(id, data)
     .then(dbRes => {
       if (dbRes) {

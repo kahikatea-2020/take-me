@@ -2,6 +2,8 @@ import React from 'react'
 import { Form, List } from 'semantic-ui-react'
 import { editListing } from '../api/listings'
 import { getListingById } from '../api/listings'
+import { openUploadWidget } from './CloudinaryService'
+
 
 class updateListing extends React.Component {
   constructor (props) {
@@ -13,7 +15,6 @@ class updateListing extends React.Component {
       location: '',
       imageUrl: [],
     }
-    // this.handleChange = this.handleChange.bind(this)
   }
 
   handleDescriptionChange = (evt) => {
@@ -24,6 +25,32 @@ class updateListing extends React.Component {
   handleChange = evt => {
     console.log('handlechange')
     this.setState({ [evt.target.name]: evt.target.value })
+  }
+
+  imageUpload = tag => {
+    const uploadOptions = {
+      cloudName: 'takemenz',
+      tags: [tag],
+      uploadPreset: 'nxxqgset'
+    }
+
+    openUploadWidget(uploadOptions, (error, photos) => {
+      if (!error) {
+        if (photos.event === 'success') {
+          this.setState({
+            imageUrl: [...this.state.imageUrl, photos.info.path]
+          })
+        }
+      }
+    })
+  }
+
+  deleteImage = (idx) => {
+    const newImgUrl = [...this.state.imageUrl]
+    newImgUrl.splice(idx, 1)
+    this.setState({
+      imageUrl: newImgUrl
+    })
   }
 
   componentWillMount () {
@@ -94,6 +121,31 @@ class updateListing extends React.Component {
               <input type="text" name="location" required onChange={this.handleChange} value={this.state.location} />
             </div>
           </div>
+          <Form.Button onClick={() => this.imageUpload()}>Upload Image</Form.Button>
+            {this.state.imageUrl[0] &&
+            <div className='imagesPreview'>
+              {this.state.imageUrl.map((img, idx) => {
+              return (
+                <div className='singleImagePreview'>
+                  <div style={{height: '40px', width: '40px', marginLeft: '110px'}}>
+                    <button onClick={e => {
+                      e.preventDefault()
+                      return this.deleteImage(idx)
+                    }}>
+                      <img
+                        src='/trash-can.png'
+                        alt='delete button'
+                        className='deleteButton'
+                      />
+                    </button>
+                  </div>
+                  <div>
+                    <img className='theImage' src={`https://res.cloudinary.com/takemenz/image/upload/${img}`}/>
+                  </div>
+                </div>
+              )})}
+            </div>
+            }
           <Form.Button
               type='submit'
               onClick={this.submitHandler}

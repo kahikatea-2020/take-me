@@ -47,11 +47,12 @@ function addListing (data, db = connection) {
 }
 
 function updateListingById (id, listing, db = connection) {
-  const { name, description, location } = listing
+  const { name, description, location, imageUrl } = listing
   const NewDescription = JSON.stringify(description)
+  const NewImageUrl = JSON.stringify(imageUrl)
   return db('listings')
     .where('id', id)
-    .update({ name: name, description: NewDescription, location: location })
+    .update({ name: name, description: NewDescription, location: location, image_url: NewImageUrl })
 }
 
 module.exports = {
