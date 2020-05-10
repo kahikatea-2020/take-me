@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Search, Grid, Header, Segment } from 'semantic-ui-react'
+import { Search } from 'semantic-ui-react'
 
 import { getListings } from '../actions/listings'
 
@@ -38,35 +38,30 @@ class SearchBar extends Component {
     }, 300)
   }
 
+  handleEnter = e => {
+    const result = this.props.listings.find(listing => listing.title === this.state.value)
+    if (e.keyCode === 13) {
+      this.props.history.push(`/listings/${result.id}`)
+    }
+  }
+
   render () {
     const { isLoading, value, results } = this.state
     return (
-      <Grid>
-        <Grid.Column width={6}>
+      <>
           <Search
+            width={10}
             loading={isLoading}
             onResultSelect={this.handleResultSelect}
             onSearchChange={_.debounce(this.handleSearchChange, 500, {
               leading: true
             })}
+            onKeyDown={this.handleEnter}
             results={results}
             value={value}
             {...this.props}
           />
-        </Grid.Column>
-        <Grid.Column width={10}>
-          <Segment>
-            <Header>State</Header>
-            <pre style={{ overflowX: 'auto' }}>
-              {JSON.stringify(this.state, null, 2)}
-            </pre>
-            <Header>Options</Header>
-            <pre style={{ overflowX: 'auto' }}>
-              {JSON.stringify(this.props.listings, null, 2)}
-            </pre>
-          </Segment>
-        </Grid.Column>
-      </Grid>
+      </>
     )
   }
 }
@@ -74,7 +69,8 @@ class SearchBar extends Component {
 const mapStateToProps = state => {
   const listings = state.listings.map(listing => ({
       title: listing.name,
-      image: `https://res.cloudinary.com/takemenz/image/upload/${listing.imageUrl[0]}`
+      image: `https://res.cloudinary.com/takemenz/image/upload/${listing.imageUrl[0]}`,
+      id: listing.id
     })
   )
   return {

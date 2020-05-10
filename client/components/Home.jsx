@@ -6,8 +6,9 @@ import { getListings } from '../actions/listings'
 // redux
 
 // import CategoryList from 'CategoryList'
-// import Search from './Search'
+import SearchBar from './SearchBar'
 import ListItem from './ListItem'
+import CategoryList from './CategoryList'
 
 class Home extends React.Component {
   componentDidMount () {
@@ -17,8 +18,9 @@ class Home extends React.Component {
   render () {
     return (
       <>
+        <SearchBar history={this.props.history}/>
+        <CategoryList />
         <h1>Latest Listings</h1>
-        {/* <Search /> */}
         <WaitIndicator />
         <div className="ListingWrapper">
           {this.props.listings.map(item => <ListItem key={item.id} listing={item} />)}
