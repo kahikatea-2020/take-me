@@ -11,7 +11,7 @@ class SearchBar extends Component {
   state = initialState
 
   componentDidMount () {
-    this.props.dispatch(getListings())
+    getListings()
   }
 
   handleResultSelect = (e, { result }) => this.setState({ value: result.title })
@@ -79,4 +79,10 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps)(SearchBar)
+function mapDispatchToProps (dispatch) {
+  return {
+    getListings: () => dispatch(getListings())
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)
