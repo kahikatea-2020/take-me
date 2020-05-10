@@ -17,6 +17,8 @@ import {
   GET_CATEGORIES_SUCCESS
 } from '../actions/categories'
 
+import { ERROR } from '../actions/error'
+
 export default function pendingReducer (pendingState = false, action) {
   switch (action.type) {
     case LOGIN_PENDING:
@@ -31,6 +33,7 @@ export default function pendingReducer (pendingState = false, action) {
     case GET_LISTINGS_SUCCESS:
     case GET_USER_SUCCESS:
     case GET_CATEGORIES_SUCCESS:
+    case ERROR:
       return false
 
     default:
