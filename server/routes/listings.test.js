@@ -40,10 +40,10 @@ jest.mock('../db/listing', () => {
     },
     deleteListingsById: (id) => {
       if (id === 2) {
-        return Promise.resolve(1)
+        return Promise.resolve(true)
       }
       if (id !== 2) {
-        return Promise.resolve(0)
+        return Promise.resolve(false)
       }
     },
     updateListingById: (id, listing) => {
@@ -56,6 +56,25 @@ jest.mock('../db/listing', () => {
     },
     addListing: () => {
       return Promise.resolve([3])
+    },
+    getUserByListingId: () => {
+      return Promise.resolve({ userId: 2 })
+    }
+  }
+})
+
+jest.mock('authenticare/server', () => {
+  return {
+    getTokenDecoder: () => {
+      return (req, res, next) => {
+        req.user = {
+          id: 2
+        }
+        next()
+      }
+    },
+    applyAuthRoutes: () => {
+      return true
     }
   }
 })
@@ -84,7 +103,7 @@ test('Delete route deleting successfully', () => {
   return request(server)
     .delete('/api/v1/listings/2')
     .then((res) => {
-      expect(res.status).toBe(302)
+      expect(res.status).toBe(200)
     })
 })
 
