@@ -60,7 +60,7 @@ class UpdateListing extends React.Component {
     this.getListingDetails()
   } 
 
-  inputChecker = event => {
+  inputChecker = () => {
     const { name, description, location } = this.state
     if (name !== '' && description !== '' && location !== '') {
       return true
