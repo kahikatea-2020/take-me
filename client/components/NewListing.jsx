@@ -2,9 +2,12 @@ import React from 'react'
 import { Form } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { isAuthenticated } from 'authenticare/client'
+import SweetAlert from 'sweetalert2-react'
 
 import { openUploadWidget } from './CloudinaryService'
 import { addListing } from '../api/listings'
+import { showError, hideError } from '../actions/error'
+import { Link } from 'react-router-dom'
 
 class NewListing extends React.Component {
   constructor (props) {
@@ -15,7 +18,8 @@ class NewListing extends React.Component {
       categoryId: '',
       location: '',
       imageUrl: [],
-      userId: this.props.user.id
+      userId: this.props.user.id,
+      show: false
     }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -55,21 +59,36 @@ class NewListing extends React.Component {
     })
   }
 
+  inputChecker = () => {
+    const { name, description, location } = this.state
+    if(name !== '' && description !== '' && location !== '') {
+      return true
+    } else {
+      return false
+    }
+  }
+
   submitHandler = () => {
-    if (!this.state.imageUrl[0]) {
-      this.setState({
-        imageUrl: [...this.state.imageUrl, 'v1589063179/default-listing_pgdcsc.png']
-      }, () => {
-        addListing(this.state)
-          .then(id => {
-            this.props.history.push(`/listings/${id}`)
+    this.props.dispatch(hideError())
+    if(this.inputChecker()){
+      if (!this.state.imageUrl[0]) {
+        this.setState({
+          imageUrl: [...this.state.imageUrl, 'v1589063179/default-listing_pgdcsc.png']
+        }, () => {
+          addListing(this.state)
+            .then(id => {
+              this.props.history.push(`/listings/${id}`)
+            })
           })
-        })
-      } else {
-        addListing(this.state)
-          .then(id => {
-            this.props.history.push(`/listings/${id}`)
-          })
+        } else {
+          addListing(this.state)
+            .then(id => {
+              this.props.history.push(`/listings/${id}`)
+            })
+      }
+    } else {
+      this.props.dispatch(showError('Please fill out all the fields'))
+      this.setState({ show: true })
     }
   }
   render () {
@@ -83,21 +102,21 @@ class NewListing extends React.Component {
           <Form>
 
             <label>Listing Name</label>
-            <input type="text" name="name" required onChange={this.handleChange} />
+            <input type="text" name="name" onChange={this.handleChange} />
 
             <label>Description</label>
-            <input type="text" name="description" required onChange={this.handleDescriptionChange} />
+            <input type="text" name="description" onChange={this.handleDescriptionChange} />
 
             {/* maybe make it a dropdown? */}
             <label>Location (maybe make a drop down as well?) </label>
-            <input type="text" name="location" required onChange={this.handleChange} />
+            <input type="text" name="location" onChange={this.handleChange} />
             {/* need to update category list */}
             <Form.Button onClick={() => this.imageUpload()}>Upload Image</Form.Button>
             {this.state.imageUrl[0] &&
             <div className='imagesPreview'>
               {this.state.imageUrl.map((img, idx) => {
               return (
-                <div className='singleImagePreview'>
+                <div key={idx} className='singleImagePreview'>
                   <div style={{height: '40px', width: '40px', marginLeft: '110px'}}>
                     <button onClick={e => {
                       e.preventDefault()
@@ -123,8 +142,19 @@ class NewListing extends React.Component {
             >
               Submit
             </Form.Button>
+            <Link to='/'><Form.Button
+              type='button'
+            >
+              Cancel 
+            </Form.Button></Link>
             
           </Form>
+          <SweetAlert
+          show={this.state.show}
+          title="Oppsie, Something went wrong!"
+          text={this.props.error}
+          onConfirm={() => this.setState({ show: false })}
+        />
         </>
         :<p>Log in to create a listing</p>}
       </>
@@ -134,7 +164,8 @@ class NewListing extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user
+    user: state.user,
+    error: state.error
   }
 }
 

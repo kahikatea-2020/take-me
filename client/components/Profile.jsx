@@ -56,7 +56,8 @@ class Profile extends React.Component {
         </div>
         <div>
           <h2>Your Listings</h2>
-          {this.props.usersListings.length !== 0 && <> 
+          {this.props.usersListings.length !== 0 
+          ? <> 
           {this.props.usersListings.map(listing => {
             return <div className="ui card" key={listing.id}>
               <p>name: {listing.name}</p>
@@ -72,6 +73,7 @@ class Profile extends React.Component {
             </div> 
           })}
           </> 
+          : <WaitIndicator />
           }
         </div>
       </>

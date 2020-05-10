@@ -8,7 +8,7 @@ import { isAuthenticated, logOff } from 'authenticare/client'
 class Navbar extends React.Component {
   render () {
     return (
-      <Menu>
+      <Menu size='huge' stackable={true}>
         <Container>
           <Menu.Item as={Link} to='/' header>
             <Header>TakeMe</Header>
@@ -28,7 +28,7 @@ class Navbar extends React.Component {
               </Menu.Item>
               <Menu.Item as={Link} to={`/profile/${this.props.user.id}`}>
                 <div className='profile-button'>
-                  {this.props.user.username}
+                  {this.props.user.firstName}
                   <img
                   style={{ borderRadius: '50%', maxHeight: '50px' }}
                   src={`https://res.cloudinary.com/takemenz/image/upload/${this.props.user.imageUrl}`}/>

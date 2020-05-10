@@ -1,9 +1,11 @@
 import React from 'react'
+import SweetAlert from 'sweetalert2-react'
 import { Form, List } from 'semantic-ui-react'
 import { editListing } from '../api/listings'
 import { getListingById } from '../api/listings'
 import { openUploadWidget } from './CloudinaryService'
-
+import { hideError, showError } from '../actions/error'
+import { connect } from 'react-redux'
 
 class UpdateListing extends React.Component {
   constructor (props) {
@@ -14,6 +16,7 @@ class UpdateListing extends React.Component {
       description: [],
       location: '',
       imageUrl: [],
+      show: false
     }
   }
 
@@ -55,6 +58,15 @@ class UpdateListing extends React.Component {
 
   componentWillMount () {
     this.getListingDetails()
+  } 
+
+  inputChecker = () => {
+    const { name, description, location } = this.state
+    if (name !== '' && description !== '' && location !== '') {
+      return true
+    } else {
+      return false
+    }
   }
 
   getListingDetails(){
@@ -79,22 +91,28 @@ class UpdateListing extends React.Component {
     }
 
     submitHandler = () => {
-      let listingId = this.props.match.params.id
-      if (!this.state.imageUrl[0]) {
-        this.setState({
-          imageUrl: [...this.state.imageUrl, 'v1589063179/default-listing_pgdcsc.png']
-        }, () => {
-          console.log(this.state)
-          editListing(this.props.match.params.id, this.state)
-            .then(id => {
-              this.props.history.push(`/listings/${listingId}`)
+      this.props.dispatch(hideError())
+      if(this.inputChecker()){
+        let listingId = this.props.match.params.id
+        if (!this.state.imageUrl[0]) {
+          this.setState({
+            imageUrl: [...this.state.imageUrl, 'v1589063179/default-listing_pgdcsc.png']
+          }, () => {
+            console.log(this.state)
+            editListing(this.props.match.params.id, this.state)
+              .then(id => {
+                this.props.history.push(`/listings/${listingId}`)
+              })
             })
-          })
-        } else {
-          editListing(this.props.match.params.id, this.state)
-            .then(id => {
-              this.props.history.push(`/listings/${listingId}`)
-            })
+          } else {
+            editListing(this.props.match.params.id, this.state)
+              .then(id => {
+                this.props.history.push(`/listings/${listingId}`)
+              })
+        }
+      } else {
+        this.props.dispatch(showError('Please fill out all the fields'))
+        this.setState({ show: true })
       }
     }
 
@@ -106,19 +124,19 @@ class UpdateListing extends React.Component {
           <div className="ui form">
             <div className="field">
               <label>Listing Name</label>
-              <input type="text" name="name" required onChange={this.handleChange} value={this.state.name} />
+              <input type="text" name="name" onChange={this.handleChange} value={this.state.name} />
             </div>
           </div>
           <div className="ui form">
             <div className="field">
               <label>Description</label>
-              <input type="text" name="description" required onChange={this.handleDescriptionChange} value={this.state.description} />
+              <input type="text" name="description" onChange={this.handleDescriptionChange} value={this.state.description} />
             </div>
           </div>
           <div className="ui form">
             <div className="field">
               <label>Location</label>
-              <input type="text" name="location" required onChange={this.handleChange} value={this.state.location} />
+              <input type="text" name="location" onChange={this.handleChange} value={this.state.location} />
             </div>
           </div>
           <Form.Button onClick={() => this.imageUpload()}>Upload Image</Form.Button>
@@ -153,9 +171,21 @@ class UpdateListing extends React.Component {
               Submit
           </Form.Button>
         </Form>
+        <SweetAlert
+          show={this.state.show}
+          title="Oppsie, Something went wrong!"
+          text={this.props.error}
+          onConfirm={() => this.setState({ show: false })}
+        />
       </>
     )
   }
 }
 
-export default UpdateListing
+const mapStateToProps = state => {
+  return {
+    error: state.error
+  }
+}
+
+export default connect(mapStateToProps)(UpdateListing)
