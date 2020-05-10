@@ -34,7 +34,7 @@ export function deleteListingById (id) {
     }
     
 export function editListing (id, listing) {
-  return request.post(`/api/v1/listings/${id}`)
+  return request.put(`/api/v1/listings/${id}`)
     .set({ 'Authorization': `Bearer ${getEncodedToken()}` })
     .set({ 'Accept': 'application/json' })
     .send(listing)

@@ -57,7 +57,7 @@ router.post('/new', (req, res) => {
 })
 
 // POST api/v1/listings/:id
-router.post('/:id', getTokenDecoder(), (req, res) => {
+router.put('/:id', getTokenDecoder(), (req, res) => {
   const id = Number(req.params.id)
   db.getUserByListingId(id)
     .then(({ userId }) => {
