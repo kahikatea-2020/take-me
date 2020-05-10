@@ -4,6 +4,7 @@ import { Form, List } from 'semantic-ui-react'
 import { editListing } from '../api/listings'
 import { getListingById } from '../api/listings'
 import { openUploadWidget } from './CloudinaryService'
+import { hideError, showError } from '../actions/error'
 
 class updateListing extends React.Component {
   constructor (props) {
@@ -59,7 +60,12 @@ class updateListing extends React.Component {
   } 
 
   inputChecker = event => {
-    const {}
+    const { name, description, location } = this.state
+    if (name !== '' && description !== '' && location !== '') {
+      return true
+    } else {
+      return false
+    }
   }
 
   getListingDetails(){
@@ -84,22 +90,27 @@ class updateListing extends React.Component {
     }
 
     submitHandler = () => {
-      let listingId = this.props.match.params.id
-      if (!this.state.imageUrl[0]) {
-        this.setState({
-          imageUrl: [...this.state.imageUrl, 'v1589063179/default-listing_pgdcsc.png']
-        }, () => {
-          console.log(this.state)
-          editListing(this.props.match.params.id, this.state)
-            .then(id => {
-              this.props.history.push(`/listings/${listingId}`)
+      this.props.dispatch(hideError())
+      if(this.inputChecker()){
+        let listingId = this.props.match.params.id
+        if (!this.state.imageUrl[0]) {
+          this.setState({
+            imageUrl: [...this.state.imageUrl, 'v1589063179/default-listing_pgdcsc.png']
+          }, () => {
+            console.log(this.state)
+            editListing(this.props.match.params.id, this.state)
+              .then(id => {
+                this.props.history.push(`/listings/${listingId}`)
+              })
             })
-          })
-        } else {
-          editListing(this.props.match.params.id, this.state)
-            .then(id => {
-              this.props.history.push(`/listings/${listingId}`)
-            })
+          } else {
+            editListing(this.props.match.params.id, this.state)
+              .then(id => {
+                this.props.history.push(`/listings/${listingId}`)
+              })
+        }
+      } else {
+        this.props.dispatch(showError('Please fill out all the fields'))
       }
     }
 
