@@ -13,6 +13,11 @@ import {
 } from '../actions/users'
 import pending from './pending'
 
+import {
+  GET_CATEGORIES_PENDING,
+  GET_CATEGORIES_SUCCESS
+} from '../actions/categories'
+
 describe('getListings', () => {
   it('should return true when pending action dispatched', () => {
     const action = {
@@ -75,6 +80,23 @@ describe('Ger User Listings', () => {
   it('should return false when success action dispatched', () => {
     const action = {
       type: GET_USERS_LISTINGS_SUCCESS
+    }
+    const newState = pending(true, action)
+    expect(newState).toBeFalsy()
+  })
+})
+
+describe('get categories', () => {
+  it('should return true when pending action dispatched', () => {
+    const action = {
+      type: GET_CATEGORIES_PENDING
+    }
+    const newState = pending(false, action)
+    expect(newState).toBeTruthy()
+  })
+  it('should return false when success action dispatched', () => {
+    const action = {
+      type: GET_CATEGORIES_SUCCESS
     }
     const newState = pending(true, action)
     expect(newState).toBeFalsy()
