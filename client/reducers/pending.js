@@ -5,18 +5,25 @@ import {
   GET_USERS_LISTINGS_PENDING
 } from '../actions/listings'
 
-import { LOGIN_PENDING, LOGIN_SUCCESS } from '../actions/users'
+import {
+  LOGIN_PENDING,
+  LOGIN_SUCCESS,
+  GET_USER_PENDING,
+  GET_USER_SUCCESS
+} from '../actions/users'
 
 export default function pendingReducer (pendingState = false, action) {
   switch (action.type) {
     case LOGIN_PENDING:
     case GET_USERS_LISTINGS_PENDING:
     case GET_LISTINGS_PENDING:
+    case GET_USER_PENDING:
       return true
 
     case LOGIN_SUCCESS:
     case GET_USERS_LISTINGS_SUCCESS:
     case GET_LISTINGS_SUCCESS:
+    case GET_USER_SUCCESS:
       return false
 
     default:
