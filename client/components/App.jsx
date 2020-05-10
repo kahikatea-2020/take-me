@@ -13,8 +13,7 @@ import Listing from './Listing'
 import NewListing from './NewListing'
 import Profile from './Profile'
 import Error404 from './Error404'
-
-// import Footer from './Footer'
+import Footer from './Footer'
 
 import { getUserDetails } from '../actions/users'
 
@@ -38,7 +37,7 @@ class App extends React.Component {
           <Route exact path='/listings/:id' component={Listing} />
           <Route path='/profile/:id' component={Profile} />
           <Route exact path='/error/404' component={Error404} />
-          {/* <Route path='/' component={Footer} /> */}
+          <Route path='/' component={Footer} />
         </Router>
       </CloudinaryContext>
     )

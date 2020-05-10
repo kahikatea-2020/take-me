@@ -4,6 +4,17 @@
   flex-wrap: wrap;
 }
 
+#footer {
+  max-width: 100%;
+  position:fixed;
+  padding: 0;
+  margin: 0;
+  left:0;
+  bottom:0;
+  right:0;
+  height: 10vh;
+}
+
 .imagesPreview {
   display: flex;
   flex-direction: row;
