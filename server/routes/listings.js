@@ -28,9 +28,9 @@ router.get('/', (req, res) => {
 
 // DELETE /api/v1/listings/id
 router.delete('/:id', (req, res) => {
-  db.deleteListingsById(Number(req.params.id))
+  db.deleteListingsById(req.params.id)
     .then(dbRes => {
-      if (dbRes) res.redirect('/')
+      if (dbRes) res.sendStatus(200)
       else res.sendStatus(500)
     })
 })
@@ -64,7 +64,6 @@ router.put('/:id', getTokenDecoder(), (req, res) => {
 // api/v1/listings/user/:id
 router.get('/user/:id', (req, res) => {
   const id = req.params.id
-  console.log(id)
   db.getUsersListingsById(id)
     .then((dbRes) => {
       dbRes.map(obj => {

@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { getUserById } from '../api/users'
 import { getUsersListings } from '../actions/listings'
 import WaitIndicator from './WaitIndicator'
+import { deleteListingById } from '../api/listings'
 
 class Profile extends React.Component {
   state = {
@@ -27,6 +28,12 @@ class Profile extends React.Component {
     })
   }
 
+  handleDelete = event => {
+    const id = event.target.name
+    deleteListingById(id)
+    this.props.dispatch(getUsersListings(this.props.match.params.id))
+  }
+
   render () {
     const { user } = this.state
 
@@ -44,7 +51,6 @@ class Profile extends React.Component {
           </div>
         </div>
         <div>
-          {console.log(this.props)}
           {this.props.usersListings.length !== 0 && <> 
           {this.props.usersListings.map(listing => {
             return <div className="ui card" key={listing.id}>
@@ -54,12 +60,11 @@ class Profile extends React.Component {
               <div className="image">
                 <img src={`https://res.cloudinary.com/takemenz/image/upload/${listing.imageUrl}`} alt={listing.name} />
               </div>
+              <button name={listing.id} onClick={this.handleDelete}>Delete</button>
             </div>
           })}
           </> 
-          
           }
-          
         </div>
       </>
     )

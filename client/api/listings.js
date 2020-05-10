@@ -20,3 +20,8 @@ export function getUsersListings (id) {
   return request.get(`/api/v1/listings/user/${id}`)
     .then(res => res.body)
 }
+
+export function deleteListingById (id) {
+  return request.delete(`/api/v1/listings/${id}`)
+    .then(res => console.log(res))
+}
