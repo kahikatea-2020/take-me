@@ -13,7 +13,6 @@ import Listing from './Listing'
 import NewListing from './NewListing'
 import Profile from './Profile'
 import Error404 from './Error404'
-import WaitIndicator from './WaitIndicator'
 
 // import Footer from './Footer'
 
@@ -28,32 +27,26 @@ class App extends React.Component {
 
   render () {
     return (
-      // (this.props.pending === true)
-      //   ? <WaitIndicator />
-         <CloudinaryContext cloudName='takemenz'>
-          <Router>
-            <Route path='/' component={Navbar} />
-            <Switch>
-              <Route exact path='/' component={Home} />
-              <Route exact path='/sign-up' component={SignUp} />
-              <Route exact path='/login' component={Login} />
-              <Route exact path='/new-listing' component={NewListing} />
-              <Route exact path='/update-listing/:id' component={UpdateListing} />
-              <Route exact path='/listings/:id' component={Listing} />
-              <Route exact path='/profile/:id' component={Profile} />
-              {/* <Route path='/' component={Footer} /> */}
-              <Route exact path='*' component={Error404} />
-            </Switch>
-          </Router>
-        </CloudinaryContext>
+      <CloudinaryContext cloudName='takemenz'>
+        <Router>
+          <Route path='/' component={Navbar} />
+          <Switch>
+            <Route exact path='/' component={Home} />
+            <Route exact path='/sign-up' component={SignUp} />
+            <Route exact path='/login' component={Login} />
+            <Route exact path='/new-listing' component={NewListing} />
+            <Route exact path='/update-listing/:id' component={UpdateListing} />
+            <Route exact path='/listings/:id' component={Listing} />
+            <Route exact path='/profile/:id' component={Profile} />
+            {/* <Route path='/' component={Footer} /> */}
+            <Route exact path='*' component={Error404} />
+          </Switch>
+        </Router>
+      </CloudinaryContext>
     )
   }
 }
 
-const mapStateToProps = state => {
-  return {
-    pending: state.pending
-  }
-}
+//
 
-export default connect(mapStateToProps)(App)
+export default connect()(App)
