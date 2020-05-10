@@ -63,7 +63,7 @@ class Profile extends React.Component {
                 <img src={`https://res.cloudinary.com/takemenz/image/upload/${listing.imageUrl}`} alt={listing.name} />
               </div>
               <button name={listing.id} onClick={this.handleDelete}>Delete</button>
-              <Link to={`/update/listing/${this.props.match.params.id}`}><button>Update</button></Link>
+              <Link to={`/update-listing/${this.props.match.params.id}`}><button>Update</button></Link>
             </div> 
           })}
           </> 
