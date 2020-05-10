@@ -34,11 +34,17 @@ router.get('/', (req, res) => {
 
 // DELETE /api/v1/listings/id
 router.delete('/:id', getTokenDecoder(), (req, res) => {
-  db.deleteListingsById(req.params.id)
-    .then(dbRes => {
-      if (dbRes) res.sendStatus(200)
-      else res.sendStatus(500)
+  db.getUserByListingId(Number(req.params.id))
+    .then(({ userId }) => {
+      if (userId === Number(req.user.id)) {
+        db.deleteListingsById(Number(req.params.id))
+          .then(dbRes => {
+            if (dbRes) res.sendStatus(200)
+            else res.sendStatus(500)
+          })
+      } else res.sendStatus(500)
     })
+    .catch(err => console.log(err))
 })
 
 // POST /api/v1/listings/new
