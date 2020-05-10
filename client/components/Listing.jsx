@@ -33,6 +33,7 @@ class Listing extends React.Component {
     const settings = {
       dots: true,
       infinite: true,
+      adaptiveHeight: true,
       fade: true,
       speed: 500,
       slidesToShow: 1,
