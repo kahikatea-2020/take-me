@@ -8,7 +8,7 @@ import { isAuthenticated, logOff } from 'authenticare/client'
 class Navbar extends React.Component {
   render () {
     return (
-      <Menu>
+      <Menu fixed='top' size='huge' stackable={true}>
         <Container>
           <Menu.Item as={Link} to='/' header>
             <Header>TakeMe</Header>
