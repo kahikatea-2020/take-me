@@ -33,7 +33,9 @@ class Profile extends React.Component {
   handleDelete = event => {
     const id = event.target.name
     deleteListingById(id)
-    this.props.dispatch(getUsersListings(this.props.match.params.id))
+      .then (() => {
+        this.props.dispatch(getUsersListings(this.props.match.params.id))
+      })
   }
 
   render () {
