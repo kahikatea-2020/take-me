@@ -15,3 +15,9 @@ export function addListing (listing) {
     .send(listing)
     .then(res => res.body.id)
 }
+
+export function editListing (id, listing) {
+  return request.post(`/api/v1/listings/${id}`)
+    .send(listing)
+    .then(res => res.body[0])
+}

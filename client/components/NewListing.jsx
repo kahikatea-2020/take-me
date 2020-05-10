@@ -25,7 +25,7 @@ class NewListing extends React.Component {
   }
 
   handleDescriptionChange = (evt) => {
-    const arr = new Array(1).fill(evt.target.value)
+    const arr = evt.target.value.split("\n")
     this.setState({description: arr})
   }
 

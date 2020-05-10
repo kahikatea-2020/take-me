@@ -44,11 +44,18 @@ router.post('/new', (req, res) => {
     .catch(err => console.log(err.message))
 })
 
-// PUT api/v1/listings/:id
-router.put('/:id', getTokenDecoder(), (req, res) => {
+// POST api/v1/listings/:id
+router.post('/:id', (req, res) => {
   const id = req.params.id
   const newListing = req.body
-  db.updateListingById(id, newListing)
+  const { name, description, location } = newListing
+  const data = {
+    name,
+    description,
+    location
+  }
+  console.log(data)
+  db.updateListingById(id, data)
     .then(dbRes => {
       if (dbRes) {
         res.status(200).json({ ok: true })
