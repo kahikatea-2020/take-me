@@ -62,11 +62,19 @@ function getUsersListingsById (id, db = connection) {
     .select('users.id', 'listings.description', 'listings.name', 'listings.location', 'listings.id', 'listings.image_url as imageUrl')
 }
 
+function getUserByListingId (id, db = connection) {
+  return db('listings')
+    .where('id', id)
+    .select('user_id as userId')
+    .first()
+}
+
 module.exports = {
   getListings,
   getListingsById,
   deleteListingsById,
   addListing,
   updateListingById,
-  getUsersListingsById
+  getUsersListingsById,
+  getUserByListingId
 }
