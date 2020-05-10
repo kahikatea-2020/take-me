@@ -20,17 +20,23 @@ router.get('/:id', (req, res) => {
 
 // GET /api/v1/listings
 router.get('/', (req, res) => {
-  db.getListings()
-    .then(dbRes => {
-      res.send(dbRes)
-    })
+  db.getListings().then((dbRes) => {
+    res.send(
+      dbRes.map((listing) => {
+        return {
+          ...listing,
+          imageUrl: JSON.parse(listing.imageUrl)
+        }
+      })
+    )
+  })
 })
 
 // DELETE /api/v1/listings/id
-router.delete('/:id', (req, res) => {
-  db.deleteListingsById(Number(req.params.id))
+router.delete('/:id', getTokenDecoder(), (req, res) => {
+  db.deleteListingsById(req.params.id)
     .then(dbRes => {
-      if (dbRes) res.redirect('/')
+      if (dbRes) res.sendStatus(200)
       else res.sendStatus(500)
     })
 })
@@ -38,10 +44,10 @@ router.delete('/:id', (req, res) => {
 // POST /api/v1/listings/new
 router.post('/new', (req, res) => {
   db.addListing(req.body)
-    .then(id => {
+    .then((id) => {
       res.send({ id: id[0] })
     })
-    .catch(err => console.log(err.message))
+    .catch((err) => console.log(err.message))
 })
 
 // POST api/v1/listings/:id
@@ -63,8 +69,25 @@ router.post('/:id', (req, res) => {
         res.status(500).json({ ok: false })
       }
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).json({ ok: false, error: err.message })
+    })
+})
+
+// api/v1/listings/user/:id
+router.get('/user/:id', getTokenDecoder(), (req, res) => {
+  const id = req.params.id
+  db.getUsersListingsById(id)
+    .then((dbRes) => {
+      dbRes.map(obj => {
+        obj.description = JSON.parse(obj.description)
+        obj.imageUrl = JSON.parse(obj.imageUrl)
+      })
+      res.status(200).json(dbRes)
+    })
+    .catch(err => {
+      console.log(err.message)
+      res.sendStatus(500)
     })
 })
 

@@ -1,4 +1,5 @@
 import request from 'superagent'
+import { getEncodedToken } from 'authenticare/client'
 
 export function getListings () {
   return request.get('/api/v1/listings')
