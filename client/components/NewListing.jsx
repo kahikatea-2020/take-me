@@ -6,7 +6,6 @@ import { isAuthenticated } from 'authenticare/client'
 import { openUploadWidget } from './CloudinaryService'
 import { addListing } from '../api/listings'
 
-
 class NewListing extends React.Component {
   constructor (props) {
     super(props)

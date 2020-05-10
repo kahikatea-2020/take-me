@@ -4,7 +4,6 @@ import { Form, List } from 'semantic-ui-react'
 import { getListingById } from '../api/listings'
 import Listing from './Listing';
 
-
 class updateListing extends React.Component {
   constructor (props) {
     super(props)
@@ -13,7 +12,6 @@ class updateListing extends React.Component {
       description: [],
       location: ''
     }
-
     this.handleInputChange = this.handleInputChange.bind(this)
   }
 
@@ -36,9 +34,10 @@ class updateListing extends React.Component {
     }
 
     editMeetup(newListing){
+      let listingId = this.props.match.params.id
       axios.request({
         method:'put',
-        url:`http://localhost:3000/api/v1/listings/${id}`,
+        url:`http://localhost:3000/api/v1/listings/${listingId}`,
         data: newListing
       }).then(response => {
         this.props.history.push('/');
@@ -69,7 +68,7 @@ class updateListing extends React.Component {
     return (
       <>
         <h1>Update Listing</h1>
-        <Form onSubmit={this.onSubmit.bind(this)}>>
+        <Form onSubmit={this.onSubmit.bind(this)}>
           <div className="ui form">
             <div className="field">
               <label>Listing Name</label>
