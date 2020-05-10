@@ -5,6 +5,7 @@ import { getUserById } from '../api/users'
 import { getUsersListings } from '../actions/listings'
 import WaitIndicator from './WaitIndicator'
 import { deleteListingById } from '../api/listings'
+import { Link } from 'react-router-dom'
 
 class Profile extends React.Component {
   state = {
@@ -62,7 +63,8 @@ class Profile extends React.Component {
                 <img src={`https://res.cloudinary.com/takemenz/image/upload/${listing.imageUrl}`} alt={listing.name} />
               </div>
               <button name={listing.id} onClick={this.handleDelete}>Delete</button>
-            </div>
+              <Link to={`/update/listing/${this.props.match.params.id}`}><button>Update</button></Link>
+            </div> 
           })}
           </> 
           }
@@ -71,7 +73,7 @@ class Profile extends React.Component {
     )
   }
 }
-
+// update/listing/:id
 const mapStateToProps = state => {
   return {
     usersListings: state.userListings,
