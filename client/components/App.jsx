@@ -8,12 +8,15 @@ import Navbar from './Navbar'
 import SignUp from './SignUp'
 import Login from './Login'
 import Home from './Home'
+import UpdateListing from './UpdateListing'
 import Listing from './Listing'
 import NewListing from './NewListing'
 import Profile from './Profile'
-import { getUserDetails } from '../actions/users'
 import Error404 from './Error404'
+
 // import Footer from './Footer'
+
+import { getUserDetails } from '../actions/users'
 
 class App extends React.Component {
   componentDidMount () {
@@ -32,6 +35,7 @@ class App extends React.Component {
             <Route exact path='/sign-up' component={SignUp} />
             <Route exact path='/login' component={Login} />
             <Route exact path='/new-listing' component={NewListing} />
+            <Route exact path='/update-listing/:id' component={UpdateListing} />
             <Route exact path='/listings/:id' component={Listing} />
             <Route exact path='/profile/:id' component={Profile} />
             {/* <Route path='/' component={Footer} /> */}
