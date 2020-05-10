@@ -7,6 +7,7 @@ import SweetAlert from 'sweetalert2-react'
 import { openUploadWidget } from './CloudinaryService'
 import { addListing } from '../api/listings'
 import { showError, hideError } from '../actions/error'
+import { Link } from 'react-router-dom'
 
 class NewListing extends React.Component {
   constructor (props) {
@@ -141,6 +142,11 @@ class NewListing extends React.Component {
             >
               Submit
             </Form.Button>
+            <Link to='/'><Form.Button
+              type='button'
+            >
+              Cancel 
+            </Form.Button></Link>
             
           </Form>
           <SweetAlert
