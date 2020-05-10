@@ -11,9 +11,11 @@ import Home from './Home'
 import Listing from './Listing'
 import NewListing from './NewListing'
 import Profile from './Profile'
-import { getUserDetails } from '../actions/users'
 import Error404 from './Error404'
+
 // import Footer from './Footer'
+
+import { getUserDetails } from '../actions/users'
 
 class App extends React.Component {
   componentDidMount () {
