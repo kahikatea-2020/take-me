@@ -5,6 +5,7 @@ import { isAuthenticated, register } from 'authenticare/client'
 import { connect } from 'react-redux'
 import SweetAlert from 'sweetalert2-react'
 
+import { openUploadWidget } from './CloudinaryService'
 import { showError, hideError } from '../actions/error'
 import { BASE_API_URL } from '../base-api.js'
 import { userPending, userSuccess, getUserDetails } from '../actions/users'
@@ -19,7 +20,9 @@ class SignUp extends React.Component {
     location: '',
     username: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
+    imageUrl: 'v1589061239/default-profile_checno.png',
+    uploadedImage: false
   }
 
   inputChecker = event => {
@@ -33,6 +36,32 @@ class SignUp extends React.Component {
     } else {
       return true
     }
+  }
+
+  imageUpload = (tag, preset) => {
+    const uploadOptions = {
+      cloudName: 'takemenz',
+      tags: [tag],
+      uploadPreset: preset
+    }
+
+    openUploadWidget(uploadOptions, (error, photo) => {
+      if (!error) {
+        if (photo.event === 'success') {
+          this.setState({
+            imageUrl: photo.info.path,
+            uploadedImage: true
+          })
+        }
+      }
+    })
+  }
+
+  deleteImage = () => {
+    this.setState({
+      imageUrl: 'v1589061239/default-profile_checno.png',
+      uploadedImage: false
+    })
   }
 
   updateField = e => {
@@ -149,6 +178,32 @@ class SignUp extends React.Component {
             type='password'
             autoComplete='off'
           />
+          <Form.Button
+          onClick={e => {
+            e.preventDefault()
+            return this.imageUpload(undefined, 'brmcwkea')}
+          }>Upload Image</Form.Button>
+          {(this.state.uploadedImage) &&
+            <div className='imagesPreview'>
+              <div className='singleImagePreview'>
+                <div style={{height: '40px', width: '40px', marginLeft: '110px'}}>
+                  <button onClick={e => {
+                    e.preventDefault()
+                    return this.deleteImage()
+                  }}>
+                    <img
+                      src='/trash-can.png'
+                      alt='delete button'
+                      className='deleteButton'
+                    />
+                  </button>
+                </div>
+                <div>
+                  <img className='theImage' src={`https://res.cloudinary.com/takemenz/image/upload/${this.state.imageUrl}`}/>
+                </div>
+              </div>
+            </div>
+          }
           <Form.Group>
             <Link to='/'>
               <Form.Button>

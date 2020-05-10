@@ -7,19 +7,21 @@
 .imagesPreview {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.imagesPreview div {
+.singleImagePreview {
   width: 150px;
-  height: 150px;
-  border: grey 1px solid;
+  height: 190px;
   margin: 1px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: end;
 }
 
-.imagesPreview div img {
+.theImage {
   max-width: 100%;
+  border: grey 1px solid;
   max-height: 100%;
 }
 
@@ -46,4 +48,12 @@
 /* START LISTING STYLING */
 .listing-description {
   margin-top: 5%;
+  width: auto;
+  height: auto;
+}
+/* END LISTING STYLING*/
+
+.deleteButton {
+  height: 100%; 
+  width: 100%;
 }
