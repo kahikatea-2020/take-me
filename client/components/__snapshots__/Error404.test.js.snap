@@ -8,13 +8,13 @@ Object {
       <h1
         style="color: red;"
       >
-        Page not found
+        Page not found!
       </h1>
       <p>
-        Sorry we can not find the page you requested.
+        Sorry, we can't find the page you requested.
       </p>
       <p>
-        You may have clicked on a broken link or entered a incorrect URL
+        You may have clicked on a broken link or entered an incorrect URL.
       </p>
       <a
         href="/"
@@ -27,13 +27,13 @@ Object {
     <h1
       style="color: red;"
     >
-      Page not found
+      Page not found!
     </h1>
     <p>
-      Sorry we can not find the page you requested.
+      Sorry, we can't find the page you requested.
     </p>
     <p>
-      You may have clicked on a broken link or entered a incorrect URL
+      You may have clicked on a broken link or entered an incorrect URL.
     </p>
     <a
       href="/"
