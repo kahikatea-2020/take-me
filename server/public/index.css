@@ -23,13 +23,9 @@
   max-height: 100%;
 }
 
-.slick-image {
-  max-width: 400px;
-  max-height: auto;
-}
-
+/* START CAROUSEL STYLING */
 .slick-carousel {
-  margin-bottom: 5%;
+  margin-bottom: 10%;
 }
 
 .slick-prev {
@@ -39,5 +35,15 @@
 
 .slick-next {
   margin-right: 40px;
-  z-index: 3;
+}
+
+.slick-slider {
+  width: 50%;
+  margin: 0 auto;
+}
+/* END CAROUSEL STYLING */
+
+/* START LISTING STYLING */
+.listing-description {
+  margin-top: 5%;
 }

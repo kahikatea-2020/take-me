@@ -62,7 +62,9 @@ class Listing extends React.Component {
               )}
             </Slider>
           </div>
-          {this.state.description.map(sentence => <p key={sentence.substr(0, 10)}>{sentence}</p>)}
+          <div className='listing-description'>
+            {this.state.description.map(sentence => <p key={sentence.substr(0, 10)}>{sentence}</p>)}
+          </div>
         </div>
         <div className='contactInfo'>
           <h4>Location: {listing.location}</h4>
