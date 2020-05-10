@@ -2,9 +2,11 @@ import React from 'react'
 import { Form } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { isAuthenticated } from 'authenticare/client'
+import SweetAlert from 'sweetalert2-react'
 
 import { openUploadWidget } from './CloudinaryService'
 import { addListing } from '../api/listings'
+import { showError, hideError } from '../actions/error'
 
 class NewListing extends React.Component {
   constructor (props) {
@@ -15,7 +17,8 @@ class NewListing extends React.Component {
       categoryId: '',
       location: '',
       imageUrl: [],
-      userId: this.props.user.id
+      userId: this.props.user.id,
+      show: false
     }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -56,24 +59,36 @@ class NewListing extends React.Component {
   }
 
   inputChecker = event => {
-    
+    const { name, description, categoryId, location, imageUrl } = this.state
+    if(name !== '' && description !== '' && categoryId !== '' && location !== '' && imageUrl !== '') {
+      console.log(this.state)
+      return true
+    } else {
+      return false
+    }
   }
 
   submitHandler = () => {
-    if (!this.state.imageUrl[0]) {
-      this.setState({
-        imageUrl: [...this.state.imageUrl, 'v1589063179/default-listing_pgdcsc.png']
-      }, () => {
-        addListing(this.state)
-          .then(id => {
-            this.props.history.push(`/listings/${id}`)
+    this.props.dispatch(hideError())
+    if(this.inputChecker()){
+      if (!this.state.imageUrl[0]) {
+        this.setState({
+          imageUrl: [...this.state.imageUrl, 'v1589063179/default-listing_pgdcsc.png']
+        }, () => {
+          addListing(this.state)
+            .then(id => {
+              this.props.history.push(`/listings/${id}`)
+            })
           })
-        })
-      } else {
-        addListing(this.state)
-          .then(id => {
-            this.props.history.push(`/listings/${id}`)
-          })
+        } else {
+          addListing(this.state)
+            .then(id => {
+              this.props.history.push(`/listings/${id}`)
+            })
+      }
+    } else {
+      this.props.dispatch(showError('Please fill out all the fields'))
+      this.setState({ show: true })
     }
   }
   render () {
@@ -129,6 +144,12 @@ class NewListing extends React.Component {
             </Form.Button>
             
           </Form>
+          <SweetAlert
+          show={this.state.show}
+          title="Oppsie, Something went wrong!"
+          text={this.props.error}
+          onConfirm={() => this.setState({ show: false })}
+        />
         </>
         :<p>Log in to create a listing</p>}
       </>
@@ -138,7 +159,8 @@ class NewListing extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user
+    user: state.user,
+    error: state.error
   }
 }
 
