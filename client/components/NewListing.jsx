@@ -55,6 +55,10 @@ class NewListing extends React.Component {
     })
   }
 
+  inputChecker = event => {
+    
+  }
+
   submitHandler = () => {
     if (!this.state.imageUrl[0]) {
       this.setState({
