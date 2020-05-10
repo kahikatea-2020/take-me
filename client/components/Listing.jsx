@@ -71,10 +71,14 @@ class Listing extends React.Component {
             </button>
            }
         </div>
-           <Link to={`/profile/${listing.userId}`} >User</Link>
           <button className='emailButton'>
             <a href={`mailto:${listing.userEmail}?subject=#${listing.id}:%20${this.state.emailSubject}`}>Email Dealer</a>
           </button>
+          <br />
+          {(isAuthenticated() && (this.props.user.id === listing.userId)) 
+            ? <Link to={`/profile/${listing.userId}`} ><button>Your listings</button></Link>
+            : <Link to={`/profile/${listing.userId}`} ><button>{listing.userFirstName} listings</button></Link>
+           }
         </div>
       </>
     )
