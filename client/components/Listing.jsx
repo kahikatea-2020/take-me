@@ -2,6 +2,8 @@ import React from 'react'
 import Slider from 'react-slick'
 
 import { getListingById } from '../api/listings'
+import updateListing from './updateListing'
+import { Link } from 'react-router-dom'
 
 class Listing extends React.Component {
   state = {
@@ -58,11 +60,14 @@ class Listing extends React.Component {
           <div className='listing-description'>
             {this.state.description.map(sentence => <p key={sentence.substr(0, 10)}>{sentence}</p>)}
           </div>
-        </div>
         <div className='contactInfo'>
           <h4>Location: {listing.location}</h4>
           <h3>Contact {listing.userFirstName}</h3>
           <p>{listing.userPhoneNumber}</p>
+          <button className='updateListing'>
+            <Link to={`/update-listing/${listing.id}`}>Edit Listing</Link>
+          </button>
+        </div>
           <button className='emailButton'>
             <a href={`mailto:${listing.userEmail}?subject=#${listing.id}:%20${this.state.emailSubject}`}>Email Dealer</a>
           </button>

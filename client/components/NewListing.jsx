@@ -6,7 +6,6 @@ import { isAuthenticated } from 'authenticare/client'
 import { openUploadWidget } from './CloudinaryService'
 import { addListing } from '../api/listings'
 
-
 class NewListing extends React.Component {
   constructor (props) {
     super(props)
@@ -26,7 +25,7 @@ class NewListing extends React.Component {
   }
 
   handleDescriptionChange = (evt) => {
-    const arr = new Array(1).fill(evt.target.value)
+    const arr = evt.target.value.split("\n")
     this.setState({description: arr})
   }
 
