@@ -51,6 +51,7 @@ class Profile extends React.Component {
           </div>
         </div>
         <div>
+          <h2>Your Listings</h2>
           {this.props.usersListings.length !== 0 && <> 
           {this.props.usersListings.map(listing => {
             return <div className="ui card" key={listing.id}>
@@ -79,9 +80,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(Profile)
-
-{/* {
-            this.props.userListings.map(listing => {
-              return <p>Hi</p>
-            })
-          } */}
