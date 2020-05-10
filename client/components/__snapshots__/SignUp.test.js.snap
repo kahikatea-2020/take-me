@@ -129,6 +129,15 @@ Object {
           </div>
         </div>
         <div
+          class="field"
+        >
+          <button
+            class="ui button"
+          >
+            Upload Image
+          </button>
+        </div>
+        <div
           class="fields"
         >
           <a
@@ -281,6 +290,15 @@ Object {
             type="password"
           />
         </div>
+      </div>
+      <div
+        class="field"
+      >
+        <button
+          class="ui button"
+        >
+          Upload Image
+        </button>
       </div>
       <div
         class="fields"

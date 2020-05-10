@@ -23,7 +23,6 @@ class NewListing extends React.Component {
 
   handleChange (evt) {
     this.setState({ [evt.target.name]: evt.target.value })
-    console.log()
   }
 
   handleDescriptionChange = (evt) => {
@@ -49,12 +48,30 @@ class NewListing extends React.Component {
     })
   }
 
+  deleteImage = (idx) => {
+    const newImgUrl = [...this.state.imageUrl]
+    newImgUrl.splice(idx, 1)
+    this.setState({
+      imageUrl: newImgUrl
+    })
+  }
+
   submitHandler = () => {
-    console.log(this.state)
-    addListing(this.state)
-      .then(id => {
-        this.props.history.push(`/listings/${id}`)
-      })
+    if (!this.state.imageUrl[0]) {
+      this.setState({
+        imageUrl: [...this.state.imageUrl, 'v1589063179/default-listing_pgdcsc.png']
+      }, () => {
+        addListing(this.state)
+          .then(id => {
+            this.props.history.push(`/listings/${id}`)
+          })
+        })
+      } else {
+        addListing(this.state)
+          .then(id => {
+            this.props.history.push(`/listings/${id}`)
+          })
+    }
   }
   render () {
     return (
@@ -67,19 +84,40 @@ class NewListing extends React.Component {
           <Form>
 
             <label>Listing Name</label>
-            <input type="text" name="name" onChange={this.handleChange} />
+            <input type="text" name="name" required onChange={this.handleChange} />
 
             <label>Description</label>
-            <input type="text" name="description" onChange={this.handleDescriptionChange} />
+            <input type="text" name="description" required onChange={this.handleDescriptionChange} />
 
             {/* maybe make it a dropdown? */}
             <label>Location (maybe make a drop down as well?) </label>
-            <input type="text" name="location" onChange={this.handleChange} />
+            <input type="text" name="location" required onChange={this.handleChange} />
             {/* need to update category list */}
             <Form.Button onClick={() => this.imageUpload()}>Upload Image</Form.Button>
+            {this.state.imageUrl[0] &&
             <div className='imagesPreview'>
-              {this.state.imageUrl.map(image => <div><img src={`https://res.cloudinary.com/takemenz/image/upload/${image}`}/></div>)}
+              {this.state.imageUrl.map((img, idx) => {
+              return (
+                <div className='singleImagePreview'>
+                  <div style={{height: '40px', width: '40px', marginLeft: '110px'}}>
+                    <button onClick={e => {
+                      e.preventDefault()
+                      return this.deleteImage(idx)
+                    }}>
+                      <img
+                        src='/trash-can.png'
+                        alt='delete button'
+                        className='deleteButton'
+                      />
+                    </button>
+                  </div>
+                  <div>
+                    <img className='theImage' src={`https://res.cloudinary.com/takemenz/image/upload/${img}`}/>
+                  </div>
+                </div>
+              )})}
             </div>
+            }
             <Form.Button
               type='submit'
               onClick={this.submitHandler}
