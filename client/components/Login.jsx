@@ -2,6 +2,7 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Form } from 'semantic-ui-react'
 import { connect } from 'react-redux'
+import SweetAlert from 'sweetalert2-react'
 
 import { isAuthenticated, signIn } from 'authenticare/client'
 
@@ -13,7 +14,8 @@ import WaitIndicator from './WaitIndicator'
 class Login extends React.Component {
   state = {
     username: '',
-    password: ''
+    password: '',
+    show: false
   }
 
   updateField = e => {
@@ -37,10 +39,12 @@ class Login extends React.Component {
           this.props.dispatch(getUserDetails())
           this.props.history.push('/')
         } else {
+          this.setState({ show: true })
           this.props.dispatch(showError('Username or Password Incorrect'))
         }
       })
       .catch(() => {
+        this.setState({ show: true })
         this.props.dispatch(userSuccess())
         this.props.dispatch(showError('Username or Password Incorrect'))
       })
@@ -50,7 +54,6 @@ class Login extends React.Component {
     return (
       <>
         <h1>Login</h1>
-        {this.props.error && <div>{this.props.error}</div>}
         <Form>
           <Form.Input
             onKeyUp={this.updateField}
@@ -84,6 +87,12 @@ class Login extends React.Component {
           </Form.Group>
         </Form>
         <WaitIndicator />
+        <SweetAlert
+          show={this.state.show}
+          title="Oppsie, Something went wrong!"
+          text={this.props.error}
+          onConfirm={() => this.setState({ show: false })}
+        />
       </>
     )
   }
