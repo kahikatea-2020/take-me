@@ -47,10 +47,9 @@ jest.mock('../db/listing', () => {
       }
     },
     updateListingById: (id, listing) => {
-      if (id === '2') {
+      if (id === 2) {
         return Promise.resolve(1)
-      }
-      if (id === '7') {
+      } else {
         return Promise.resolve(0)
       }
     },
@@ -115,4 +114,21 @@ test('POST /new adds and redirects', () => {
       expect(res.status).toBe(200)
       expect(res.body.id).toBe(3)
     })
+})
+
+describe('PUT route', () => {
+  it('uses token encoder and updates correct listing if authenticated', () => {
+    const newListing = {
+      name: 'testlisting',
+      description: '["a great test]"',
+      location: 'test place',
+      imageUrl: '["test.jpg"]'
+    }
+    return request(server)
+      .put('/api/v1/listings/2')
+      .send(newListing)
+      .then(res => {
+        expect(res.status).toBe(200)
+      })
+  })
 })

@@ -71,7 +71,7 @@ router.put('/:id', getTokenDecoder(), (req, res) => {
           imageUrl
         }
         db.updateListingById(id, data)
-          .then(dbRes => {
+        .then(dbRes => {
             if (dbRes) {
               res.status(200).json({ ok: true })
             } else {
