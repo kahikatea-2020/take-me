@@ -59,7 +59,7 @@ function getUsersListingsById (id, db = connection) {
   return db('users')
     .join('listings', 'users.id', 'listings.user_id')
     .where('users.id', id)
-    .select('users.id', 'listings.description', 'listings.name', 'listings.location', 'listings.id', 'listings.image_url as imageUrl')
+    .select('users.id as userId', 'listings.description', 'listings.name', 'listings.location', 'listings.id', 'listings.image_url as imageUrl')
 }
 
 function getUserByListingId (id, db = connection) {

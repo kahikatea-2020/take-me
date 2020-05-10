@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { isAuthenticated } from 'authenticare/client'
 // import { Ui, Card } from 'semantic-ui-react'
 import { getUserById } from '../api/users'
 import { getUsersListings } from '../actions/listings'
@@ -62,8 +63,10 @@ class Profile extends React.Component {
               <div className="image">
                 <img src={`https://res.cloudinary.com/takemenz/image/upload/${listing.imageUrl[0]}`} alt={listing.name} />
               </div>
+              {(isAuthenticated() && (this.props.user.id === listing.userId)) && <>
               <button name={listing.id} onClick={this.handleDelete}>Delete</button>
               <Link to={`/update-listing/${listing.id}`}><button>Update</button></Link>
+              </>}
             </div> 
           })}
           </> 
@@ -77,7 +80,8 @@ class Profile extends React.Component {
 const mapStateToProps = state => {
   return {
     usersListings: state.userListings,
-    pending: state.pending
+    pending: state.pending,
+    user: state.user
   }
 }
 
