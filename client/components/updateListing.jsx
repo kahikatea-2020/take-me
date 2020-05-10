@@ -1,9 +1,9 @@
 import React from 'react'
+import SweetAlert from 'sweetalert2-react'
 import { Form, List } from 'semantic-ui-react'
 import { editListing } from '../api/listings'
 import { getListingById } from '../api/listings'
 import { openUploadWidget } from './CloudinaryService'
-
 
 class updateListing extends React.Component {
   constructor (props) {
@@ -14,6 +14,7 @@ class updateListing extends React.Component {
       description: [],
       location: '',
       imageUrl: [],
+      show: false
     }
   }
 
@@ -55,8 +56,14 @@ class updateListing extends React.Component {
 
   componentWillMount () {
     this.getListingDetails()
-  }
+  } 
 
+  inputChecker = event => {
+    const {}
+  }
+  // name: '',
+  // description: [],
+  // location: '',
   getListingDetails(){
     let listingId = this.props.match.params.id
     getListingById(listingId)
