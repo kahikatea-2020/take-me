@@ -60,7 +60,7 @@ class NewListing extends React.Component {
   }
 
   inputChecker = event => {
-    const { name, description, categoryId, location, imageUrl } = this.state
+    const { name, description, location } = this.state
     if(name !== '' && description !== '' && location !== '') {
       return true
     } else {
