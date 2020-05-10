@@ -29,7 +29,7 @@ test('test getListings function return with the name we want', () => {
 })
 
 describe('getListingById tests', () => {
-  test('test getListingsById function return with the correct user email', () => {
+  it('test getListingsById function return with the correct user email', () => {
     const expected = 'john@gmail.com'
 
     return db.getListingsById(1, testDb).then((listing) => {
@@ -38,7 +38,7 @@ describe('getListingById tests', () => {
     })
   })
 
-  test('test getListingsById function return with the correct user first name', () => {
+  it('test getListingsById function return with the correct user first name', () => {
     const expected = 'Mathias'
 
     return db.getListingsById(2, testDb).then((listing) => {
@@ -47,7 +47,7 @@ describe('getListingById tests', () => {
     })
   })
 
-  test('test getListingsById function return with the correct user listing name', () => {
+  it('test getListingsById function return with the correct user listing name', () => {
     const expected = 'Ladder'
 
     return db.getListingsById(2, testDb).then((listing) => {
@@ -58,13 +58,13 @@ describe('getListingById tests', () => {
 })
 
 describe('deleteListingsById tests', () => {
-  test('test that delete was successful', () => {
+  it('test that delete was successful', () => {
     return db.deleteListingsById(1, testDb).then(result => {
       expect(result).toBeTruthy()
     })
   })
 
-  test('test that a listing was deleted', () => {
+  it('test that a listing was deleted', () => {
     return db.deleteListingsById(1, testDb)
       .then(() => {
         return db.getListings(testDb).then(listings => {
@@ -73,4 +73,11 @@ describe('deleteListingsById tests', () => {
         })
       })
   })
+})
+
+test('getUserByListingId returns the user id from a listing', () => {
+  return db.getUserByListingId(3, testDb)
+    .then(idObj => {
+      expect(idObj.userId).toBe(1)
+    })
 })

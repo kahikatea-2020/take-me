@@ -40,22 +40,40 @@ jest.mock('../db/listing', () => {
     },
     deleteListingsById: (id) => {
       if (id === 2) {
-        return Promise.resolve(1)
+        return Promise.resolve(true)
       }
       if (id !== 2) {
-        return Promise.resolve(0)
+        return Promise.resolve(false)
       }
     },
     updateListingById: (id, listing) => {
-      if (id === '2') {
+      if (id === 2) {
         return Promise.resolve(1)
-      }
-      if (id === '7') {
+      } else {
         return Promise.resolve(0)
       }
     },
     addListing: () => {
       return Promise.resolve([3])
+    },
+    getUserByListingId: () => {
+      return Promise.resolve({ userId: 2 })
+    }
+  }
+})
+
+jest.mock('authenticare/server', () => {
+  return {
+    getTokenDecoder: () => {
+      return (req, res, next) => {
+        req.user = {
+          id: 2
+        }
+        next()
+      }
+    },
+    applyAuthRoutes: () => {
+      return true
     }
   }
 })
@@ -84,7 +102,7 @@ test('Delete route deleting successfully', () => {
   return request(server)
     .delete('/api/v1/listings/2')
     .then((res) => {
-      expect(res.status).toBe(302)
+      expect(res.status).toBe(200)
     })
 })
 
@@ -96,4 +114,21 @@ test('POST /new adds and redirects', () => {
       expect(res.status).toBe(200)
       expect(res.body.id).toBe(3)
     })
+})
+
+describe('PUT route', () => {
+  it('uses token encoder and updates correct listing if authenticated', () => {
+    const newListing = {
+      name: 'testlisting',
+      description: '["a great test]"',
+      location: 'test place',
+      imageUrl: '["test.jpg"]'
+    }
+    return request(server)
+      .put('/api/v1/listings/2')
+      .send(newListing)
+      .then(res => {
+        expect(res.status).toBe(200)
+      })
+  })
 })

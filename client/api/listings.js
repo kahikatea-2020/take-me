@@ -31,11 +31,14 @@ export function deleteListingById (id) {
       .set({ 'Accept': 'application/json' })
       .set({ 'Authorization': `Bearer ${getEncodedToken()}` })
       .then(res => res.body)
-  }
-
+    }
+    
 export function editListing (id, listing) {
-  return request.post(`/api/v1/listings/${id}`)
+  return request.put(`/api/v1/listings/${id}`)
+    .set({ 'Authorization': `Bearer ${getEncodedToken()}` })
+    .set({ 'Accept': 'application/json' })
     .send(listing)
     .then(res => res.body[0])
+    .catch(err => console.log(err))
 }
 
