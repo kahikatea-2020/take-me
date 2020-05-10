@@ -60,10 +60,10 @@ class Profile extends React.Component {
               <p>decription: {listing.decription}</p>
               <p>location: {listing.location}</p>
               <div className="image">
-                <img src={`https://res.cloudinary.com/takemenz/image/upload/${listing.imageUrl}`} alt={listing.name} />
+                <img src={`https://res.cloudinary.com/takemenz/image/upload/${listing.imageUrl[0]}`} alt={listing.name} />
               </div>
               <button name={listing.id} onClick={this.handleDelete}>Delete</button>
-              <Link to={`/update-listing/${this.props.match.params.id}`}><button>Update</button></Link>
+              <Link to={`/update-listing/${listing.id}`}><button>Update</button></Link>
             </div> 
           })}
           </> 
