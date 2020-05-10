@@ -20,10 +20,16 @@ router.get('/:id', (req, res) => {
 
 // GET /api/v1/listings
 router.get('/', (req, res) => {
-  db.getListings()
-    .then(dbRes => {
-      res.send(dbRes)
-    })
+  db.getListings().then((dbRes) => {
+    res.send(
+      dbRes.map((listing) => {
+        return {
+          ...listing,
+          imageUrl: JSON.parse(listing.imageUrl)
+        }
+      })
+    )
+  })
 })
 
 // DELETE /api/v1/listings/id
@@ -38,17 +44,24 @@ router.delete('/:id', getTokenDecoder(), (req, res) => {
 // POST /api/v1/listings/new
 router.post('/new', (req, res) => {
   db.addListing(req.body)
-    .then(id => {
+    .then((id) => {
       res.send({ id: id[0] })
     })
-    .catch(err => console.log(err.message))
+    .catch((err) => console.log(err.message))
 })
 
-// PUT api/v1/listings/:id
-router.put('/:id', getTokenDecoder(), (req, res) => {
+// POST api/v1/listings/:id
+router.post('/:id', (req, res) => {
   const id = req.params.id
   const newListing = req.body
-  db.updateListingById(id, newListing)
+  const { name, description, location, imageUrl } = newListing
+  const data = {
+    name,
+    description,
+    location,
+    imageUrl
+  }
+  db.updateListingById(id, data)
     .then(dbRes => {
       if (dbRes) {
         res.status(200).json({ ok: true })
@@ -56,7 +69,7 @@ router.put('/:id', getTokenDecoder(), (req, res) => {
         res.status(500).json({ ok: false })
       }
     })
-    .catch(err => {
+    .catch((err) => {
       res.status(500).json({ ok: false, error: err.message })
     })
 })

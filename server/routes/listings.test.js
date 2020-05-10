@@ -7,19 +7,23 @@ jest.mock('../db/listing', () => {
       return Promise.resolve([
         {
           id: 1,
-          listing: 'Banana'
+          listing: 'Banana',
+          imageUrl: JSON.stringify(['hello', 'I\'m an imageUrl of Banana'])
         },
         {
           id: 2,
-          listing: 'Bike'
+          listing: 'Bike',
+          imageUrl: JSON.stringify(['hello', 'I\'m an imageUrl of Bike'])
         },
         {
           id: 3,
-          listing: 'old TV'
+          listing: 'old TV',
+          imageUrl: JSON.stringify(['hello', 'I\'m an imageUrl of old tv'])
         },
         {
           id: 4,
-          listing: 'Annoying Child'
+          listing: 'Annoying Child',
+          imageUrl: JSON.stringify(['hello', 'I\'m an imageUrl of annoying child'])
         }
       ])
     },
