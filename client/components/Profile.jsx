@@ -9,10 +9,14 @@ class Profile extends React.Component {
 
   componentDidMount () {
     getUserById(this.props.match.params.id)
-      .then(user => {
-        this.setState({
-          user
-        })
+    .then(user => {
+        if(user !== null){
+          this.setState({
+            user
+          })
+        } else {
+          this.props.history.push(`/404`)
+        }
       })
   }
 
@@ -21,19 +25,17 @@ class Profile extends React.Component {
 
     return (
       <>
-        <div class="ui card">
-          <div class="image">
+        <div className="ui card">
+          <div className="image">
           <img src={`https://res.cloudinary.com/takemenz/image/upload/${user.imageUrl}`} alt=""/>
           </div>
-          <div class="content">
-            <a class="header" href="#">{user.username}</a>
-            <div class="meta">
+          <div className="content">
+            <a className="header" href="#">{user.username}</a>
+            <div className="meta">
               <a href='#'>{user.location}</a>
             </div>
           </div>
         </div>
-        
-        
       </>
     )
   }
