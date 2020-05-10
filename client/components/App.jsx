@@ -11,9 +11,12 @@ import Home from './Home'
 import Listing from './Listing'
 import NewListing from './NewListing'
 import Profile from './Profile'
-import { getUserDetails } from '../actions/users'
 import Error404 from './Error404'
+import CategoryList from './CategoryList'
 // import Footer from './Footer'
+import SearchBar from './SearchBar'
+
+import { getUserDetails } from '../actions/users'
 
 class App extends React.Component {
   componentDidMount () {
@@ -27,6 +30,8 @@ class App extends React.Component {
       <CloudinaryContext cloudName='takemenz'>
         <Router>
           <Route path='/' component={Navbar} />
+          <Route path='/' component={SearchBar} />
+          <Route path='/' component={CategoryList} />
           <Route exact path='/' component={Home} />
           <Route path='/sign-up' component={SignUp} />
           <Route path='/login' component={Login} />

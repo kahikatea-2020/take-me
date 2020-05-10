@@ -18,6 +18,7 @@ router.get('/:id', (req, res) => {
 router.get('/', (req, res) => {
   db.getListings()
     .then(dbRes => {
+      dbRes[0].imageUrl = JSON.parse(dbRes[0].imageUrl)
       res.send(dbRes)
     })
 })
