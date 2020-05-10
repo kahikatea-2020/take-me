@@ -22,16 +22,15 @@ export function deleteListingById (id) {
     .set({ 'Accept': 'application/json' })
     .set({ 'Authorization': `Bearer ${getEncodedToken()}` })
     .then(res => res.status)
-    .catch(err => console.log(err.message))
-    
+    .catch(err => console.log(err.message)) 
   }
 
-  export function getUsersListings (id) {
-    return request.get(`/api/v1/listings/user/${id}`)
-      .set({ 'Accept': 'application/json' })
-      .set({ 'Authorization': `Bearer ${getEncodedToken()}` })
-      .then(res => res.body)
-    }
+export function getUsersListings (id) {
+  return request.get(`/api/v1/listings/user/${id}`)
+    .set({ 'Accept': 'application/json' })
+    .set({ 'Authorization': `Bearer ${getEncodedToken()}` })
+    .then(res => res.body)
+  }
     
 export function editListing (id, listing) {
   return request.put(`/api/v1/listings/${id}`)
