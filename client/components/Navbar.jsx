@@ -37,7 +37,10 @@ class Navbar extends React.Component {
               <Menu.Item
                 as={Link}
                 to='#'
-                onClick={logOff}
+                onClick={() => {
+                  logOff()
+                  this.props.history.push('/')
+                }}
               >
                 Log Off
               </Menu.Item>
