@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { CloudinaryContext } from 'cloudinary-react'
 import { connect } from 'react-redux'
 import { isAuthenticated } from 'authenticare/client'
@@ -27,16 +27,14 @@ class App extends React.Component {
       <CloudinaryContext cloudName='takemenz'>
         <Router>
           <Route path='/' component={Navbar} />
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/sign-up' component={SignUp} />
-            <Route exact path='/login' component={Login} />
-            <Route exact path='/new-listing' component={NewListing} />
-            <Route exact path='/listings/:id' component={Listing} />
-            <Route exact path='/profile/:id' component={Profile} />
-            {/* <Route path='/' component={Footer} /> */}
-            <Route exact path='*' component={Error404} />
-          </Switch>
+          <Route exact path='/' component={Home} />
+          <Route path='/sign-up' component={SignUp} />
+          <Route path='/login' component={Login} />
+          <Route path='/new-listing' component={NewListing} />
+          <Route exact path='/listings/:id' component={Listing} />
+          <Route path='/profile/:id' component={Profile} />
+          <Route exact path='/error/404' component={Error404} />
+          {/* <Route path='/' component={Footer} /> */}
         </Router>
       </CloudinaryContext>
     )
