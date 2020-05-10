@@ -111,6 +111,7 @@ class updateListing extends React.Component {
         }
       } else {
         this.props.dispatch(showError('Please fill out all the fields'))
+        this.setState({ show: true })
       }
     }
 
