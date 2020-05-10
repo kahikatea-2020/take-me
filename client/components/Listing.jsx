@@ -71,6 +71,7 @@ class Listing extends React.Component {
             </button>
            }
         </div>
+           <Link to={`/profile/${listing.userId}`} >User</Link>
           <button className='emailButton'>
             <a href={`mailto:${listing.userEmail}?subject=#${listing.id}:%20${this.state.emailSubject}`}>Email Dealer</a>
           </button>

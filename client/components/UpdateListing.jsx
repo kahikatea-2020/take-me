@@ -182,7 +182,6 @@ class UpdateListing extends React.Component {
   }
 }
 
-<<<<<<< HEAD:client/components/updateListing.jsx
 const mapStateToProps = state => {
   return {
     error: state.error
@@ -190,8 +189,3 @@ const mapStateToProps = state => {
 }
 
 export default connect(mapStateToProps)(updateListing)
-||||||| d89fc41:client/components/updateListing.jsx
-export default updateListing
-=======
-export default UpdateListing
->>>>>>> 5d4a6f9ae6db813f2d53b0d5f494aeb404d9b22f:client/components/UpdateListing.jsx
