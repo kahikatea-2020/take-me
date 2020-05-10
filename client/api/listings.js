@@ -17,17 +17,18 @@ export function addListing (listing) {
     .then(res => res.body.id)
 }
 
-export function getUsersListings (id) {
-  return request.get(`/api/v1/listings/user/${id}`)
-    .set({ 'Accept': 'application/json' })
-    .set({ 'Authorization': `Bearer ${getEncodedToken()}` })
-    .then(res => res.body)
-}
-
 export function deleteListingById (id) {
   return request.delete(`/api/v1/listings/${id}`)
     .set({ 'Accept': 'application/json' })
     .set({ 'Authorization': `Bearer ${getEncodedToken()}` })
     .then(res => res.status)
     .catch(err => console.log(err.message))
-}
+    
+  }
+
+  export function getUsersListings (id) {
+    return request.get(`/api/v1/listings/user/${id}`)
+      .set({ 'Accept': 'application/json' })
+      .set({ 'Authorization': `Bearer ${getEncodedToken()}` })
+      .then(res => res.body)
+  }
