@@ -57,22 +57,27 @@ router.post('/new', (req, res) => {
 })
 
 // POST api/v1/listings/:id
-router.post('/:id', (req, res) => {
-  const id = req.params.id
-  const newListing = req.body
-  const { name, description, location, imageUrl } = newListing
-  const data = {
-    name,
-    description,
-    location,
-    imageUrl
-  }
-  db.updateListingById(id, data)
-    .then(dbRes => {
-      if (dbRes) {
-        res.status(200).json({ ok: true })
-      } else {
-        res.status(500).json({ ok: false })
+router.post('/:id', getTokenDecoder(), (req, res) => {
+  const id = Number(req.params.id)
+  db.getUserByListingId(id)
+    .then(({ userId }) => {
+      if (userId === Number(req.user.id)) {
+        const newListing = req.body
+        const { name, description, location, imageUrl } = newListing
+        const data = {
+          name,
+          description,
+          location,
+          imageUrl
+        }
+        db.updateListingById(id, data)
+          .then(dbRes => {
+            if (dbRes) {
+              res.status(200).json({ ok: true })
+            } else {
+              res.status(500).json({ ok: false })
+            }
+          })
       }
     })
     .catch((err) => {
