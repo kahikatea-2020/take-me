@@ -5,7 +5,7 @@ import { getListingById } from '../api/listings'
 import { openUploadWidget } from './CloudinaryService'
 
 
-class updateListing extends React.Component {
+class UpdateListing extends React.Component {
   constructor (props) {
     super(props)
     this.state = {
@@ -158,4 +158,4 @@ class updateListing extends React.Component {
   }
 }
 
-export default updateListing
+export default UpdateListing
