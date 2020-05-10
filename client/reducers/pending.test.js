@@ -18,6 +18,8 @@ import {
   GET_CATEGORIES_SUCCESS
 } from '../actions/categories'
 
+import { ERROR } from '../actions/error'
+
 describe('getListings', () => {
   it('should return true when pending action dispatched', () => {
     const action = {
@@ -101,4 +103,12 @@ describe('get categories', () => {
     const newState = pending(true, action)
     expect(newState).toBeFalsy()
   })
+})
+
+test('error action sets pending to false', () => {
+  const action = {
+    type: ERROR
+  }
+  const newState = pending(true, action)
+  expect(newState).toBeFalsy()
 })
