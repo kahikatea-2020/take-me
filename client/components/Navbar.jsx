@@ -20,8 +20,8 @@ class Navbar extends React.Component {
       </Menu.Item>
     )
     return (
-      <Menu borderless size='small' fixed='top' inverted color='green' style={{padding: '0 10vw 0 10vw'}}>
-          <Menu.Item style={{ padding: '10px' }} position='left' as={Link} to='/' header>
+      <Menu borderless size='small' fixed='top' inverted color='blue' style={{padding: '0 10vw 0 10vw'}}>
+          <Menu.Item style={{ padding: '10px' }} as={Link} to='/' header>
             <Image size='small' src={'/logo-white.png'} />
           </Menu.Item>
           {/* So this next part basically is saying
