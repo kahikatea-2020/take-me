@@ -90,21 +90,11 @@
 
 .slick-slider {
   width: 90%;
-  /* margin: 0 auto; */
-  float: left;
 }
 
-.slick-carousel img {
-  /* need to define image height? */
-}
 /* END CAROUSEL STYLING */
 
 /* START LISTING STYLING */
-.listing-images {
-  display: flex;
-  align-items: center;
-}
-
 div.row {
   min-height: 80vh;
 }
@@ -171,6 +161,9 @@ div.meta {
   width: 50%;
 }
 
+.ui.button.update-listing #update {
+  float: right;
+}
 /* END LISTING STYLING*/
 
 .deleteButton {

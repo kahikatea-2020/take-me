@@ -101,12 +101,9 @@ class Listing extends React.Component {
               </Card>
             </div>
             {(isAuthenticated() && (this.props.user.id === listing.userId)) &&
-              <button className='update-listing'>
-                <Link to={`/update-listing/${listing.id}`}>Edit Listing</Link>
-              </button>
-            }
-            {(isAuthenticated() && (this.props.user.id === listing.userId)) &&
-              <Link to={`/profile/${listing.userId}`} ><button>Your listings</button></Link>
+              <Button id='update' style={{ maxHeight: '5vh', maxWidth: '50%' }} as={Link} to={`/update-listing/${listing.id}`} className='update-listing'>
+                Edit Listing
+            </Button>
             }
             <WaitIndicator />
           </Grid.Column>
