@@ -220,6 +220,19 @@ exports.seed = (knex) =>
         },
         {
           id: 16,
+          name: 'Small Chopping Board',
+          description: JSON.stringify([
+            'I have an old chopping board up for grabs if anyone is interested.',
+            'Quite small so only good for a little bit of vegetables or something.',
+            'Could do with a proper clean, has just been sitting in my cupboard.'
+          ]),
+          location: 'Auckland',
+          image_url: JSON.stringify(['v1589171044/lw8xkjgktxnlwneulktg.jpg', 'v1589171043/nspdbsqdqafdy6pjuttm.jpg']),
+          user_id: 5,
+          category_id: 4
+        },
+        {
+          id: 17,
           name: 'Pot',
           description: JSON.stringify([
             'Pot is bit old but still in good condition',
@@ -230,5 +243,44 @@ exports.seed = (knex) =>
           image_url: JSON.stringify(['v1588967373/pot_pejjzr.jpg']),
           user_id: 4,
           category_id: 6
+        },
+        {
+          id: 18,
+          name: 'Yoga Mat',
+          description: JSON.stringify([
+            'I borrowed this yoga mat from Dev Academy.',
+            'Please take it off my hands so I can say that I lost it.',
+            'Dont tell them I gave it to you.'
+          ]),
+          location: 'Auckland',
+          image_url: JSON.stringify(['v1589171042/xnkmr07z4i4dsdm4dutg.jpg', 'v1589171042/e9acjtafwf1ndlnshtjb.jpg']),
+          user_id: 2,
+          category_id: 7
+        },
+        {
+          id: 19,
+          name: 'Nespresso Coffee Machine',
+          description: JSON.stringify([
+            'I recently purchased a new coffee machine so I would love to give this to someone else to try out.',
+            'Please only enquire about this if you dont already have a Nespresso machine.',
+            'The machine itself is in great condition but make sure you give it a good clean first.'
+          ]),
+          location: 'Auckland',
+          image_url: JSON.stringify(['v1589171042/p993ducuperruvcxihlx.jpg', 'v1589171043/gdxlz5teck3qhurigl3w.jpg']),
+          user_id: 5,
+          category_id: 4
+        },
+        {
+          id: 20,
+          name: 'UE Boom! sorta faulty',
+          description: JSON.stringify([
+            'My UE Boom only works when connected via an aux cord so I decided to purchase a new one.',
+            'So since I dont need this anymore I would like to give it to someone else who would be able to use it.',
+            'As you can tell it is pretty beat up but still good for a little speaker!'
+          ]),
+          location: 'Auckland',
+          image_url: JSON.stringify(['v1589171044/xbwldm25g2gelo5gcxdp.jpg', 'v1589171042/kgcrejcopbg7h5lpep4g.jpg']),
+          user_id: 1,
+          category_id: 2
         }
       ]))
