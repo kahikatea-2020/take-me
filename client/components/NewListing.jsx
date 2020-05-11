@@ -90,7 +90,7 @@ class NewListing extends React.Component {
             <label>Description</label>
             <input type="text" name="description" required onChange={this.handleDescriptionChange} />
 
-            <CategoryList />
+            <CategoryList history={this.props.history} />
             {/* maybe make it a dropdown? */}
             <label>Location (maybe make a drop down as well?) </label>
             <input type="text" name="location" required onChange={this.handleChange} />
