@@ -363,5 +363,75 @@ exports.seed = (knex) =>
           image_url: JSON.stringify(['ie6f4acrwylvokqqfcvz.jpg']),
           user_id: 5,
           category_id: 9
+        },
+        {
+          id: 27,
+          name: 'Sebastian Klotz Copy Viola',
+          description: JSON.stringify([
+            'Beautiful viola.',
+            'In as-new condition',
+            'It is approximately 70 cm long and has a beautifully inlaid fingerboard and nice tone woods.',
+            'Viola comes with a shoulder rest and a carbon fibre bow, resin and a good case.'
+          ]),
+          location: 'Nelson',
+          image_url: JSON.stringify(['ie6f4acrwylvokqqfcvz.jpg']),
+          user_id: 4,
+          category_id: 9
+        },
+        {
+          id: 28,
+          name: '2004 Buell XB12S Lightning Motorbike',
+          description: JSON.stringify([
+            'Manual Transmission',
+            'The Buell XB12S Lightning is a very individual motorcycle and hugely enjoyable to ride.',
+            '1202cc Harley-Davidson air cooled V-twin in the Buell XB12S Lightning has been tuned and lays down fat wads of torque from tick over upwards.',
+            'Donating because I\'m rich and want to buy more new bikes but figured I should not put this in the dump because I learned that global warming is happening.'
+          ]),
+          location: 'Greymouth',
+          image_url: JSON.stringify(['ie6f4acrwylvokqqfcvz.jpg']),
+          user_id: 4,
+          category_id: 5
+        },
+        {
+          id: 29,
+          name: 'Pink Jellybean Succulent',
+          description: JSON.stringify([
+            'This fun succulent has bright green leaves whose tips turn pink when in full sun.',
+            'It has a woody stem and displays yellow flowers in the Spring.',
+            'Will make a great addition to someone else\'s collection',
+            'Having to leave this behind as I am moving to Auckland.'
+          ]),
+          location: 'Hornby, Christchurch',
+          image_url: JSON.stringify(['ie6f4acrwylvokqqfcvz.jpg']),
+          user_id: 4,
+          category_id: 6
+        },
+        {
+          id: 30,
+          name: 'MASKS!! 50pack',
+          description: JSON.stringify([
+            'Photos are of a box I opened, your box is sealed and contains 50 masks',
+            'Tri-layer design for maximum protection',
+            'Comes with 100mL bottle of hand sanitiser as well',
+            'Breathable, soft design'
+          ]),
+          location: 'Bluff',
+          image_url: JSON.stringify(['ie6f4acrwylvokqqfcvz.jpg']),
+          user_id: 4,
+          category_id: 8
+        },
+        {
+          id: 31,
+          name: 'Canon 6D + 24-105mm F4 L Lens',
+          description: JSON.stringify([
+            'Camera body itself is in very good condition with no noticeable scuffs or scratches',
+            'Lens has a slight crack in the barrel as shown in the photos. This has been there for as long as I\'ve had the camera, has no impact on image quality or focusing of the lens. It also hasn\'t extended or grown larger in all the time I\'ve had it. Functionally the lens has always worked great.',
+            'Shutter count is 34k so lots of usable life left as these are rated for 100k, and they normally go well beyond that number.',
+            'Comes with the original charger and 2 batteries'
+          ]),
+          location: 'Atawhai, Nelson',
+          image_url: JSON.stringify(['ie6f4acrwylvokqqfcvz.jpg']),
+          user_id: 4,
+          category_id: 2
         }
       ]))
