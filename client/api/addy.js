@@ -4,7 +4,7 @@ import request from 'superagent'
 export function getAddress (address) {
   return request.get(`/api/v1/addy/${address}`)
     .then(res => {
-      console.log(res)
+      return res.body
     })
     .catch(err => console.log(err.message))
 }

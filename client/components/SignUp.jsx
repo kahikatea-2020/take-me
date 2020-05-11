@@ -10,6 +10,7 @@ import { showError, hideError } from '../actions/error'
 import { BASE_API_URL } from '../base-api.js'
 import { userPending, userSuccess, getUserDetails } from '../actions/users'
 import WaitIndicator from './WaitIndicator'
+import Autocomplete from './Autocomplete'
 
 class SignUp extends React.Component {
   state = {
@@ -17,7 +18,6 @@ class SignUp extends React.Component {
     lastName: '',
     emailAddress: '',
     phoneNumber: null,
-    location: '',
     username: '',
     password: '',
     confirmPassword: '',
@@ -26,8 +26,8 @@ class SignUp extends React.Component {
   }
 
   inputChecker = event => {
-    const { firstName, lastName, emailAddress, location, username, password, phoneNumber } = this.state
-    if (firstName !== '' && lastName !== '' && location !== '' && username !== '' && password !== '' && emailAddress !== '') {
+    const { firstName, lastName, emailAddress, username, password, phoneNumber } = this.state
+    if (firstName !== '' && lastName !== '' && username !== '' && password !== '' && emailAddress !== '') {
       if (phoneNumber !== null || phoneNumber !== '') {
         return false
       } else {
@@ -140,15 +140,7 @@ class SignUp extends React.Component {
             placeholder='Phone number'
             type='number'
           />
-          <Form.Input
-            onKeyUp={this.updateField}
-            fluid
-            required
-            width={6}
-            name='location'
-            placeholder='Location'
-            type='text'
-          />
+          <Autocomplete />
           <Form.Input
             onKeyUp={this.updateField}
             fluid

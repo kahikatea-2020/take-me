@@ -5,6 +5,7 @@ import { isAuthenticated } from 'authenticare/client'
 
 import { openUploadWidget } from './CloudinaryService'
 import { addListing } from '../api/listings'
+import Autocomplete from './Autocomplete'
 
 
 class NewListing extends React.Component {
@@ -90,8 +91,8 @@ class NewListing extends React.Component {
             <input type="text" name="description" required onChange={this.handleDescriptionChange} />
 
             {/* maybe make it a dropdown? */}
-            <label>Location (maybe make a drop down as well?) </label>
-            <input type="text" name="location" required onChange={this.handleChange} />
+            <label>Location</label>
+            <Autocomplete />
             {/* need to update category list */}
             <Form.Button onClick={() => this.imageUpload()}>Upload Image</Form.Button>
             {this.state.imageUrl[0] &&

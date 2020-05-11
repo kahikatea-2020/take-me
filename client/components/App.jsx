@@ -13,6 +13,7 @@ import NewListing from './NewListing'
 import Profile from './Profile'
 import { getUserDetails } from '../actions/users'
 import Error404 from './Error404'
+import Autocomplete from './Autocomplete'
 // import Footer from './Footer'
 
 class App extends React.Component {
@@ -27,6 +28,7 @@ class App extends React.Component {
       <CloudinaryContext cloudName='takemenz'>
         <Router>
           <Route path='/' component={Navbar} />
+          <Route path ='/test' component={Autocomplete} />
           <Route exact path='/' component={Home} />
           <Route path='/sign-up' component={SignUp} />
           <Route path='/login' component={Login} />

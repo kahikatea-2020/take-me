@@ -3,7 +3,6 @@ import { connect } from 'react-redux'
 
 import WaitIndicator from './WaitIndicator'
 import { getListings } from '../actions/listings'
-import Location from './Location'
 // redux
 
 // import CategoryList from 'CategoryList'
@@ -18,7 +17,6 @@ class Home extends React.Component {
   render () {
     return (
       <>
-      <Location />
         <h1>Latest Listings</h1>
         <WaitIndicator />
         <div className="ListingWrapper">
