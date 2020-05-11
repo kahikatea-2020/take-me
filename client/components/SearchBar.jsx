@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Search, Form } from 'semantic-ui-react'
+import { Button, Search, Menu, Form } from 'semantic-ui-react'
 
 import { getCategories } from '../actions/categories'
 
@@ -64,29 +64,39 @@ class SearchBar extends Component {
     }))
     const categories = [{ key: 100, text: 'All Categories', value: 'All Categories' }, ...storeCategories]
     return (
-      <>
-        <Form.Select
-          width={6}
-          onChange={this.handleCategoryChange}
-          fluid
-          options={categories}
-          placeholder='Category'
-          name='category'
-          value={this.state.category.name}
-        />
-        <Search
-          width={10}
-          loading={isLoading}
-          onResultSelect={this.handleResultSelect}
-          onSearchChange={_.debounce(this.handleSearchChange, 500, {
-            leading: true
-          })}
-          onKeyDown={this.handleEnter}
-          results={results}
-          value={value}
-          {...this.props}
-        />
-      </>
+      <Menu inverted color='blue'>
+        <Menu.Item style={{ width: '20%' }}>
+          <Form.Select
+            style={{ width: '100%', textAlign: 'center' }}
+            width={6}
+            onChange={this.handleCategoryChange}
+            fluid
+            options={categories}
+            placeholder='Category'
+            name='category'
+            value={this.state.category.name}
+          />
+        </Menu.Item>
+        <Menu.Item style={{ width: '80%' }}>
+          <Search
+            style={{ width: '85%', marginRight: '20px' }}
+            input={{ fluid: true }}
+            loading={isLoading}
+            onResultSelect={this.handleResultSelect}
+            onSearchChange={_.debounce(this.handleSearchChange, 500, {
+              leading: true
+            })}
+            onKeyDown={this.handleEnter}
+            placeholder='Search Listings...'
+            results={results}
+            value={value}
+            {...this.props}
+          />
+        <Button inverted style={{ width: '10%' }}>
+          Search
+        </Button>
+        </Menu.Item>
+      </Menu>
     )
   }
 }

@@ -4,17 +4,15 @@ exports.seed = (knex) =>
     .then(() => knex('categories').del())
     .then(() =>
       knex('categories').insert([
-        { id: 1, name: 'Clothing & Shoes' },
+        { id: 1, name: 'Clothing' },
         { id: 2, name: 'Electronics' },
-        { id: 3, name: 'Furniture & Décor' },
+        { id: 3, name: 'Furniture' },
         { id: 4, name: 'Homeware & Applicances' },
         { id: 5, name: 'Automotive' },
         { id: 6, name: 'Garden' },
-        { id: 7, name: 'Sports' },
+        { id: 7, name: 'Sports, Toys, Hobbies' },
         { id: 8, name: 'Health & Beauty' },
-        { id: 9, name: 'Music & Instruments' },
-        { id: 10, name: 'Entertainment' },
-        { id: 11, name: 'Miscellaneous' }
+        { id: 9, name: 'Music & Instruments' }
       ]))
     .then(() =>
       knex('users').insert([
@@ -438,7 +436,7 @@ exports.seed = (knex) =>
         },
         {
           id: 32,
-          name: 'Beanie',
+          name: 'Beanie ',
           description: JSON.stringify([
             'I was cleaning out my draws and I found this bad boy.',
             'It is a lovely beanie. It is worm and can fend of the cold like the greatest hero.',
@@ -523,7 +521,7 @@ exports.seed = (knex) =>
             'v1589185694/ajqfy3qidophq8cee1ho.jpg'
           ]),
           user_id: 6,
-          category_id: 3
+          category_id: 4
         },
         {
           id: 38,
@@ -540,7 +538,7 @@ exports.seed = (knex) =>
             'v1589185882/wtd6tvlmxyzknfq2oa7d.jpg'
           ]),
           user_id: 6,
-          category_id: 10
+          category_id: 4
         },
         {
           id: 39,
@@ -577,7 +575,7 @@ exports.seed = (knex) =>
             'v1589186356/avdw9i327obntespfm9o.jpg'
           ]),
           user_id: 6,
-          category_id: 3
+          category_id: 6
         },
         {
           id: 41,
@@ -613,7 +611,7 @@ exports.seed = (knex) =>
             'v1589194613/toys1_yf7ox7.jpg'
           ]),
           user_id: 1,
-          category_id: 10
+          category_id: 7
         },
         {
           id: 43,
@@ -668,7 +666,7 @@ exports.seed = (knex) =>
             'v1589195009/card1_ege1xv.jpg'
           ]),
           user_id: 1,
-          category_id: 10
+          category_id: 7
         },
         {
           id: 46,
@@ -688,5 +686,67 @@ exports.seed = (knex) =>
           ]),
           user_id: 1,
           category_id: 7
+        },
+        {
+          id: 47,
+          name: 'US11 mens Nike Running shoes',
+          description: JSON.stringify([
+            ' US 11 Nike gore-tex running shoes',
+            'I would say that they are a good 6/10 condition wise so still a bit of life in them.',
+            'Feel free to take them off my hands because they dont fit me anymore.'
+          ]),
+          location: '  Botany, Auckland 2016',
+          image_url: JSON.stringify([
+            'v1589171043/dgnsu3faavhvxap2olgj.jpg',
+            'v1589171042/nc9ovnx4u0ymqcs5gljk.jpg'
+          ]),
+          user_id: 3,
+          category_id: 1
+        },
+        {
+          id: 48,
+          name: 'Kettle',
+          description: JSON.stringify([
+            'Dont need this kettle anymore so I would love to give it away to someone who needs it.'
+          ]),
+          location: 'Howick, Auckland 2012',
+          image_url: JSON.stringify([
+            'v1589171042/t02sznw9wucqvx30bm7o.jpg',
+            'v1589171043/hakkgr9ok16epum6hwle.jpg'
+          ]),
+          user_id: 5,
+          category_id: 4
+        },
+        {
+          id: 49,
+          name: 'Vacuum',
+          description: JSON.stringify([
+            'Cord is broken on this vacuum, I have implemented a quick solution though but the cord will just be long all the time.',
+            'I decided to buy a new one so I would like to give this away to someone who needs it more than I do!'
+          ]),
+          location: 'Panmure, Auckland 2000',
+          image_url: JSON.stringify([
+            'v1589171042/uxvrfkb5qb9ijqcvjk53.jpg',
+            'v1589171042/x5lixe3zbdijkelngykf.jpg',
+            'v1589171044/wmontfnfoplnq1arzxp6.jpg'
+          ]),
+          user_id: 1,
+          category_id: 4
+        },
+        {
+          id: 50,
+          name: 'Womens Nike Running Shoes, US7',
+          description: JSON.stringify([
+            'Dont really run in these shoes anymore, please feel free to come pick them up if you think you would get better use out of them than me!',
+            'US7 womens :)'
+          ]),
+          location: 'Pakuranga, Auckland 2015',
+          image_url: JSON.stringify([
+            'v1589171044/ii7ake7vrdig2mbuwaig.jpg',
+            'v1589171044/kgklhbxuc5jrrj32kvdz.jpg',
+            'v1589171043/s7jtjul2kv0keai6yrlp.jpg'
+          ]),
+          user_id: 3,
+          category_id: 1
         }
       ]))
