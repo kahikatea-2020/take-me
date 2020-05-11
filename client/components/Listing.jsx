@@ -18,23 +18,19 @@ class Listing extends React.Component {
   }
   componentDidMount() {
     this.props.dispatch(getListingsPending())
-      .then(() => {
-        getListingById(this.props.match.params.id)
-          .then(listing => {
-            this.props.dispatch(getListingSuccess())
-              .then(() => {
-                if (listing === undefined) {
-                      this.props.history.push(`/404`)
-                } else {
-                  this.setState({
-                    listing,
-                    emailSubject: listing.name.split(' ').join('%20'),
-                    description: listing.description,
-                    imageUrl: listing.imageUrl
-                  })
-                }
-              })
+    getListingById(this.props.match.params.id)
+      .then(listing => {
+        this.props.dispatch(getListingSuccess())
+        if (listing === undefined) {
+              this.props.history.push(`/404`)
+        } else {
+          this.setState({
+            listing,
+            emailSubject: listing.name.split(' ').join('%20'),
+            description: listing.description,
+            imageUrl: listing.imageUrl
           })
+        }
       })
   }
 
