@@ -95,11 +95,16 @@
 }
 
 .slick-carousel img {
-  /* need to define image height */
+  /* need to define image height? */
 }
 /* END CAROUSEL STYLING */
 
 /* START LISTING STYLING */
+.listing-images {
+  display: flex;
+  align-items: center;
+}
+
 div.row {
   min-height: 80vh;
 }
