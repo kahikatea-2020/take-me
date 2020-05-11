@@ -2,10 +2,14 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Menu, Header } from 'semantic-ui-react'
 import { connect } from 'react-redux'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 import { isAuthenticated, logOff } from 'authenticare/client'
+const MySwal = withReactContent(Swal)
 
 class Navbar extends React.Component {
+  state={show:false}
   render () {
     return (
       <Menu size='huge' stackable={true}>
@@ -35,12 +39,19 @@ class Navbar extends React.Component {
                 </div>
               </Menu.Item>
               <Menu.Item
-                as={Link}
-                to='#'
-                onClick={() => {
-                  logOff()
-                  this.props.history.push('/')
-                }}
+                onClick={() => Swal.fire({
+                  title: 'Are you sure?',
+                  text: 'Are Yoy sure you want to log out?',
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonText: 'Log Out',
+                  cancelButtonText: 'No, Stay'
+                }).then((result) => {
+                  if (result.value) {
+                    logOff()
+                    this.props.history.push('/')
+                  }
+                })}
               >
                 Log Off
               </Menu.Item>
@@ -55,6 +66,7 @@ class Navbar extends React.Component {
             </>
           }
         </Container>
+        
       </Menu>
     )
   }
