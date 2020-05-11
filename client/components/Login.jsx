@@ -37,7 +37,7 @@ class Login extends React.Component {
         this.props.dispatch(userSuccess())
         if (isAuthenticated()) {
           this.props.dispatch(getUserDetails())
-          this.props.history.push('/')
+          this.props.history.goBack()
         } else {
           this.setState({ show: true })
           this.props.dispatch(showError('Username or Password Incorrect'))

@@ -1,8 +1,9 @@
 import React from 'react'
 import Slider from 'react-slick'
+import { isAuthenticated } from 'authenticare/client'
+import { connect } from 'react-redux'
 
 import { getListingById } from '../api/listings'
-import updateListing from './updateListing'
 import { Link } from 'react-router-dom'
 
 class Listing extends React.Component {
@@ -64,17 +65,31 @@ class Listing extends React.Component {
           <h4>Location: {listing.location}</h4>
           <h3>Contact {listing.userFirstName}</h3>
           <p>{listing.userPhoneNumber}</p>
-          <button className='updateListing'>
-            <Link to={`/update-listing/${listing.id}`}>Edit Listing</Link>
-          </button>
+          {(isAuthenticated() && (this.props.user.id === listing.userId)) &&
+            <button className='updateListing'>
+              <Link to={`/update-listing/${listing.id}`}>Edit Listing</Link>
+            </button>
+           }
         </div>
           <button className='emailButton'>
             <a href={`mailto:${listing.userEmail}?subject=#${listing.id}:%20${this.state.emailSubject}`}>Email Dealer</a>
           </button>
+          <br />
+          {(isAuthenticated() && (this.props.user.id === listing.userId)) 
+            ? <Link to={`/profile/${listing.userId}`} ><button>Your listings</button></Link>
+            : <Link to={`/profile/${listing.userId}`} ><button>{listing.userFirstName} listings</button></Link>
+           }
         </div>
       </>
     )
   }
 }
 
-export default Listing
+const mapStateToProps = state => {
+  return {
+    user: state.user,
+    error: state.error
+  }
+}
+
+export default connect(mapStateToProps)(Listing)

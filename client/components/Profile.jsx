@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { isAuthenticated } from 'authenticare/client'
 // import { Ui, Card } from 'semantic-ui-react'
 import { getUserById } from '../api/users'
 import { getUsersListings } from '../actions/listings'
@@ -32,7 +33,9 @@ class Profile extends React.Component {
   handleDelete = event => {
     const id = event.target.name
     deleteListingById(id)
-    this.props.dispatch(getUsersListings(this.props.match.params.id))
+      .then (() => {
+        this.props.dispatch(getUsersListings(this.props.match.params.id))
+      })
   }
 
   render () {
@@ -53,20 +56,24 @@ class Profile extends React.Component {
         </div>
         <div>
           <h2>Your Listings</h2>
-          {this.props.usersListings.length !== 0 && <> 
+          {this.props.usersListings.length !== 0 
+          ? <> 
           {this.props.usersListings.map(listing => {
             return <div className="ui card" key={listing.id}>
               <p>name: {listing.name}</p>
               <p>decription: {listing.decription}</p>
               <p>location: {listing.location}</p>
               <div className="image">
-                <img src={`https://res.cloudinary.com/takemenz/image/upload/${listing.imageUrl}`} alt={listing.name} />
+                <img src={`https://res.cloudinary.com/takemenz/image/upload/${listing.imageUrl[0]}`} alt={listing.name} />
               </div>
+              {(isAuthenticated() && (this.props.user.id === listing.userId)) && <>
               <button name={listing.id} onClick={this.handleDelete}>Delete</button>
-              <Link to={`/update/listing/${this.props.match.params.id}`}><button>Update</button></Link>
+              <Link to={`/update-listing/${listing.id}`}><button>Update</button></Link>
+              </>}
             </div> 
           })}
           </> 
+          : <WaitIndicator />
           }
         </div>
       </>
@@ -77,7 +84,8 @@ class Profile extends React.Component {
 const mapStateToProps = state => {
   return {
     usersListings: state.userListings,
-    pending: state.pending
+    pending: state.pending,
+    user: state.user
   }
 }
 

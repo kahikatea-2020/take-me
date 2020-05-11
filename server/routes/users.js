@@ -5,7 +5,6 @@ const router = express.Router()
 
 const db = require('../db/profiles')
 
-
 router.get('/getuser', getTokenDecoder(), (req, res) => {
   const u = req.user
   const user = {

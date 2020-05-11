@@ -8,7 +8,7 @@ import Navbar from './Navbar'
 import SignUp from './SignUp'
 import Login from './Login'
 import Home from './Home'
-import updateListing from './updateListing'
+import UpdateListing from './UpdateListing'
 import Listing from './Listing'
 import NewListing from './NewListing'
 import Profile from './Profile'
@@ -33,7 +33,7 @@ class App extends React.Component {
           <Route path='/sign-up' component={SignUp} />
           <Route path='/login' component={Login} />
           <Route path='/new-listing' component={NewListing} />
-          <Route path='/update-listing/:id' component={updateListing} />
+          <Route path='/update-listing/:id' component={UpdateListing} />
           <Route exact path='/listings/:id' component={Listing} />
           <Route path='/profile/:id' component={Profile} />
           <Route exact path='/error/404' component={Error404} />
