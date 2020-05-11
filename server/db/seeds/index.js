@@ -594,5 +594,97 @@ exports.seed = (knex) =>
           ]),
           user_id: 6,
           category_id: 1
+        },
+        {
+          id: 42,
+          name: 'Toys for kids',
+          description: JSON.stringify([
+            'Kids have outgrown this two toys',
+            'Will give your young ones lots of hours of play',
+            'Still in really good condition'
+          ]),
+          location: 'Totara Vale, Auckland 0629',
+          image_url: JSON.stringify([
+            'v1589194588/toys2_xvljld.jpg',
+            'v1589194598/toys3_ib4dzu.jpg',
+            'v1589194605/toys4_bshvgo.jpg',
+            'v1589194613/toys1_yf7ox7.jpg'
+          ]),
+          user_id: 1,
+          category_id: 4
+        },
+        {
+          id: 43,
+          name: 'Weight plates',
+          description: JSON.stringify([
+            'Weight plates from the warehouse',
+            'Lost the bar so no use for them anymore',
+            'Will be good to add to your home gym',
+            'Contact me so can organise pick up'
+          ]),
+          location: ' Unsworth Heights, Auckland 0632',
+          image_url: JSON.stringify([
+            'v1589194765/plates3_ymrv7s.jpg',
+            'v1589194772/plates2_y0iqzp.jpg',
+            'v1589194780/plates1_yomhes.jpg'
+          ]),
+          user_id: 1,
+          category_id: 7
+        },
+        {
+          id: 44,
+          name: 'Iphone x cases',
+          description: JSON.stringify([
+            'Join the android community went I damaged my iphone x',
+            'One is a UAG which is in ok condition',
+            'The other case is a defender I think with normal wear and tear',
+            'Both are my back up cases and still offer good protection'
+          ]),
+          location: '  Newmarket, Auckland 1023',
+          image_url: JSON.stringify([
+            'v1589194846/case1_m1xmxn.jpg',
+            'v1589194853/case2_hleujz.jpg',
+            'v1589194860/case3_b5ifpi.jpg',
+            'v1589194866/case_nkri5z.jpg'
+          ]),
+          user_id: 1,
+          category_id: 2
+        },
+        {
+          id: 45,
+          name: 'Playing cards',
+          description: JSON.stringify([
+            ' 2 x playing cards set from Sky City',
+            'Both have been used only once',
+            'Given a few by a friend and have too many',
+            'Can be a good way to kill some time while in lockdown'
+          ]),
+          location: '  Newmarket, Auckland 1023',
+          image_url: JSON.stringify([
+            'v1589194983/cards_uvvtqo.jpg',
+            'v1589194989/cards2_atddp7.jpg',
+            'v1589195009/card1_ege1xv.jpg'
+          ]),
+          user_id: 1,
+          category_id: 7
+        },
+        {
+          id: 46,
+          name: 'Bmx bike spokes',
+          description: JSON.stringify([
+            ' 2 x Bmx bike spokes',
+            'Came from Redline BMX bike which I sold',
+            'Forgot to install them back when sold and cant get in touch with the buyer',
+            'Some rust but can easliy be cleaned and painted',
+            'Upgraded to a mountain bike so no need for them anymore'
+          ]),
+          location: '  Newmarket, Auckland 1023',
+          image_url: JSON.stringify([
+            'v1589195088/spoke1_c3zwuy.jpg',
+            'v1589195096/spoke2_furyxd.jpg',
+            'v1589195103/spoke3_carewd.jpg'
+          ]),
+          user_id: 1,
+          category_id: 7
         }
       ]))
