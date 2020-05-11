@@ -4,26 +4,24 @@ exports.seed = (knex) =>
     .then(() => knex('categories').del())
     .then(() =>
       knex('categories').insert([
-        { id: 1, name: 'Clothing & Shoes' },
+        { id: 1, name: 'Clothing' },
         { id: 2, name: 'Electronics' },
-        { id: 3, name: 'Furniture & Décor' },
+        { id: 3, name: 'Furniture' },
         { id: 4, name: 'Homeware & Applicances' },
         { id: 5, name: 'Automotive' },
         { id: 6, name: 'Garden' },
-        { id: 7, name: 'Sports' },
+        { id: 7, name: 'Sports, Toys, Hobbies' },
         { id: 8, name: 'Health & Beauty' },
-        { id: 9, name: 'Music & Instruments' },
-        { id: 10, name: 'Entertainment' },
-        { id: 11, name: 'Miscellaneous' }
+        { id: 9, name: 'Music & Instruments' }
       ]))
     .then(() =>
       knex('users').insert([
-        { id: 1, username: 'johnS', first_name: 'John', last_name: 'Sengson', email: 'john@gmail.com', phone_number: '021-435-1234', image_url: 'v1588967373/john_yigtz6.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$BoJmHml8crLn51d00LOhLQ$7NMqsuuJ1C7ZS5+vFyRyQ9P0/QKHtxCNYwrZ+Xzg5wQ', location: 'Auckland' },
+        { id: 1, username: 'johnS', first_name: 'John', last_name: 'Sengson', email: 'john@gmail.com', phone_number: '021-435-1234', image_url: 'v1588967373/john_yigtz6.jpg', hash: '5F4DCC3B5AA765D61D8327DEB882CF99', location: 'Auckland' },
         { id: 2, username: 'BubbleBast', first_name: 'Mathias', last_name: 'Bast', email: 'mathias@gmail.com', phone_number: '021-352-1234', image_url: 'v1588967372/mathias_eos91h.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$t7fDj0UPvYCnLculR3ti2w$hsbmENXcvcQbKGBoj2cBoH0xVBB8OIYfNDSZsatnT8k', location: 'Gisborne' },
-        { id: 3, username: 'hamishT', first_name: 'Hamish', last_name: 'Tana', email: 'hamish@gmail.com', phone_number: '021-665-4287', image_url: 'v1588967348/hamishT_eiqwbd.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$BoJmHml8crLn51d00LOhLQ$7NMqsuuJ1C7ZS5+vFyRyQ9P0/QKHtxCNYwrZ+Xzg5wQ', location: 'Auckland' },
-        { id: 4, username: 'vibes-lache', first_name: 'Lache', last_name: 'Melvin', email: 'lache@gmail.com', phone_number: '021-352-6789', image_url: 'v1588967373/lache_v5blpl.png', hash: '$argon2id$v=19$m=65536,t=2,p=1$BoJmHml8crLn51d00LOhLQ$7NMqsuuJ1C7ZS5+vFyRyQ9P0/QKHtxCNYwrZ+Xzg5wQ', location: 'Nelson' },
-        { id: 5, username: 'p-man', first_name: 'Pat', last_name: 'Lim', email: 'pat@gmail.com', phone_number: '021-352-6789', image_url: 'v1588967373/pat_cevccf.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$BoJmHml8crLn51d00LOhLQ$7NMqsuuJ1C7ZS5+vFyRyQ9P0/QKHtxCNYwrZ+Xzg5wQ', location: 'Auckland' },
-        { id: 6, username: 'ElloraV', first_name: 'Ellora', last_name: 'Virtue', email: 'ellora@gmail.com', phone_number: '022-648-2546', image_url: 'v1588967348/ellora_ze8tgm.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$BoJmHml8crLn51d00LOhLQ$7NMqsuuJ1C7ZS5+vFyRyQ9P0/QKHtxCNYwrZ+Xzg5wQ', location: 'Auckland' }
+        { id: 3, username: 'hamishT', first_name: 'Hamish', last_name: 'Tana', email: 'hamish@gmail.com', phone_number: '021-665-4287', image_url: 'v1588967348/hamishT_eiqwbd.jpg', hash: '5F4DCC3B5AA765D61D8327DEB898PHA7', location: 'Auckland' },
+        { id: 4, username: 'vibes-lache', first_name: 'Lache', last_name: 'Melvin', email: 'lache@gmail.com', phone_number: '021-352-6789', image_url: 'v1588967373/lache_v5blpl.png', hash: '5F4DCC3B5AA7KGA84D8327DEB8826KL8', location: 'Nelson' },
+        { id: 5, username: 'p-man', first_name: 'Pat', last_name: 'Lim', email: 'pat@gmail.com', phone_number: '021-352-6789', image_url: 'v1588967373/pat_cevccf.jpg', hash: '5F4DCC3B5AA765D61D8327DEB8826KL8', location: 'Auckland' },
+        { id: 6, username: 'ElloraV', first_name: 'Ellora', last_name: 'Virtue', email: 'ellora@gmail.com', phone_number: '022-648-2546', image_url: 'v1588967348/ellora_ze8tgm.jpg', hash: '5F4DCC3YH8UJ65D61D8327DEB8826KL8', location: 'Auckland' }
       ]))
     .then(() =>
       knex('listings').insert([
@@ -438,7 +436,7 @@ exports.seed = (knex) =>
         },
         {
           id: 32,
-          name: 'Beanie',
+          name: 'Beanie ',
           description: JSON.stringify([
             'I was cleaning out my draws and I found this bad boy.',
             'It is a lovely beanie. It is worm and can fend of the cold like the greatest hero.',
@@ -523,7 +521,7 @@ exports.seed = (knex) =>
             'v1589185694/ajqfy3qidophq8cee1ho.jpg'
           ]),
           user_id: 6,
-          category_id: 3
+          category_id: 4
         },
         {
           id: 38,
@@ -540,7 +538,7 @@ exports.seed = (knex) =>
             'v1589185882/wtd6tvlmxyzknfq2oa7d.jpg'
           ]),
           user_id: 6,
-          category_id: 10
+          category_id: 4
         },
         {
           id: 39,
@@ -577,7 +575,7 @@ exports.seed = (knex) =>
             'v1589186356/avdw9i327obntespfm9o.jpg'
           ]),
           user_id: 6,
-          category_id: 3
+          category_id: 6
         },
         {
           id: 41,
@@ -613,7 +611,7 @@ exports.seed = (knex) =>
             'v1589194613/toys1_yf7ox7.jpg'
           ]),
           user_id: 1,
-          category_id: 10
+          category_id: 7
         },
         {
           id: 43,
@@ -668,7 +666,7 @@ exports.seed = (knex) =>
             'v1589195009/card1_ege1xv.jpg'
           ]),
           user_id: 1,
-          category_id: 10
+          category_id: 7
         },
         {
           id: 46,
@@ -688,5 +686,67 @@ exports.seed = (knex) =>
           ]),
           user_id: 1,
           category_id: 7
+        },
+        {
+          id: 47,
+          name: 'US11 mens Nike Running shoes',
+          description: JSON.stringify([
+            ' US 11 Nike gore-tex running shoes',
+            'I would say that they are a good 6/10 condition wise so still a bit of life in them.',
+            'Feel free to take them off my hands because they dont fit me anymore.'
+          ]),
+          location: '  Botany, Auckland 2016',
+          image_url: JSON.stringify([
+            'v1589171043/dgnsu3faavhvxap2olgj.jpg',
+            'v1589171042/nc9ovnx4u0ymqcs5gljk.jpg'
+          ]),
+          user_id: 3,
+          category_id: 1
+        },
+        {
+          id: 48,
+          name: 'Kettle',
+          description: JSON.stringify([
+            'Dont need this kettle anymore so I would love to give it away to someone who needs it.'
+          ]),
+          location: 'Howick, Auckland 2012',
+          image_url: JSON.stringify([
+            'v1589171042/t02sznw9wucqvx30bm7o.jpg',
+            'v1589171043/hakkgr9ok16epum6hwle.jpg'
+          ]),
+          user_id: 5,
+          category_id: 4
+        },
+        {
+          id: 49,
+          name: 'Vacuum',
+          description: JSON.stringify([
+            'Cord is broken on this vacuum, I have implemented a quick solution though but the cord will just be long all the time.',
+            'I decided to buy a new one so I would like to give this away to someone who needs it more than I do!'
+          ]),
+          location: 'Panmure, Auckland 2000',
+          image_url: JSON.stringify([
+            'v1589171042/uxvrfkb5qb9ijqcvjk53.jpg',
+            'v1589171042/x5lixe3zbdijkelngykf.jpg',
+            'v1589171044/wmontfnfoplnq1arzxp6.jpg'
+          ]),
+          user_id: 1,
+          category_id: 4
+        },
+        {
+          id: 50,
+          name: 'Womens Nike Running Shoes, US7',
+          description: JSON.stringify([
+            'Dont really run in these shoes anymore, please feel free to come pick them up if you think you would get better use out of them than me!',
+            'US7 womens :)'
+          ]),
+          location: 'Pakuranga, Auckland 2015',
+          image_url: JSON.stringify([
+            'v1589171044/ii7ake7vrdig2mbuwaig.jpg',
+            'v1589171044/kgklhbxuc5jrrj32kvdz.jpg',
+            'v1589171043/s7jtjul2kv0keai6yrlp.jpg'
+          ]),
+          user_id: 3,
+          category_id: 1
         }
       ]))
