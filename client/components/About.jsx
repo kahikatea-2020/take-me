@@ -30,7 +30,7 @@ class About extends React.Component {
           What you do with your rubbish affects the planet and the environment you live in. Because of this, we believe everyone has a personal
           responsibility to look after the planet, so you need to be responsible for how much rubbish you produce and this site can help you reduce it.
         </p>
-
+        <h2>Our Goal?</h2>
       </>
     )
   }
