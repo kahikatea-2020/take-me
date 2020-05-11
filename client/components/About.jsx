@@ -23,6 +23,14 @@ class About extends React.Component {
           <li>Saves you money - if you are getting something free from our site, you are not buying something new. As a result, you are saving money!</li>
         </ul>
         <h2>How Can You Help?</h2>
+        <p>
+          Do not throw stuff out that can find another life. This will keep it out of a landfill.
+          You can sign up for our site and list stuff for other people to take and put to another use or pick something up off the site for free.
+          If you want to clean out your closet, garage, or clutter why waste it when you can give it away.
+          What you do with your rubbish affects the planet and the environment you live in. Because of this, we believe everyone has a personal
+          responsibility to look after the planet, so you need to be responsible for how much rubbish you produce and this site can help you reduce it.
+        </p>
+
       </>
     )
   }
