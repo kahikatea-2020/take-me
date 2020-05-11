@@ -5,5 +5,7 @@ const db = require('../db/comments')
 
 router.get('/:id', (req, res) => {
   db.getCommentsById(Number(req.params.id))
-    .then(dbRes => dbRes)
+    .then(dbRes => res.json(dbRes))
 })
+
+module.exports = router
