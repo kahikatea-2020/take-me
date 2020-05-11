@@ -22,7 +22,7 @@ test('<SignUp /> has the correct number of inputs', () => {
   const store = createStore(reducers, applyMiddleware(thunkMiddleware))
 
   const wrapper = mount(<Provider store={store}><Router><SignUp /></Router></Provider>)
-  expect(wrapper.find(Form.Input).length).toBe(8)
+  expect(wrapper.find(Form.Input).length).toBe(7)
 })
 
 // This test isn't finished and isn't passing, help
