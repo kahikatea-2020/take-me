@@ -1,5 +1,5 @@
 import _ from 'lodash'
-import React, { Component } from 'react'
+import React, { Component, Link } from 'react'
 import { connect } from 'react-redux'
 import { Search } from 'semantic-ui-react'
 
@@ -10,11 +10,7 @@ const initialState = { isLoading: false, results: [], value: '' }
 class SearchBar extends Component {
   state = initialState
 
-  componentDidMount () {
-    getListings()
-  }
-
-  handleResultSelect = (e, { result }) => this.setState({ value: result.title })
+  handleResultSelect = (e, { result }) => this.props.history.push(`/listings/${result.id}`)
 
   handleSearchChange = (e, { value }) => {
     this.setState({ isLoading: true, value })
@@ -46,7 +42,7 @@ class SearchBar extends Component {
   }
 
   render () {
-    const { isLoading, value, results } = this.state
+    const { isLoading, value, results } = this.state   
     return (
       <>
           <Search
@@ -74,15 +70,8 @@ const mapStateToProps = state => {
     })
   )
   return {
-    // selectedCategory: state.selectedCategory,
     listings: listings
   }
 }
 
-function mapDispatchToProps (dispatch) {
-  return {
-    getListings: () => dispatch(getListings())
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)
+export default connect(mapStateToProps)(SearchBar)
