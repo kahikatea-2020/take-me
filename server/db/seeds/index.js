@@ -758,13 +758,13 @@ exports.seed = (knex) =>
           comment: 'Does this come with the case?',
           date: 'Tue May 12 2020 11:03:40 GMT+1200 (New Zealand Standard Time)',
           user_id: 3,
-          listings_id: 27
+          listing_id: 27
         },
         {
           id: 2,
           comment: 'Yes, as per lisitng description.',
           date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
           user_id: 4,
-          listings_id: 27
+          listing_id: 27
         }
       ]))
