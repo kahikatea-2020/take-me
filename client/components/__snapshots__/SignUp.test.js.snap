@@ -73,20 +73,10 @@ Object {
               />
             </div>
           </div>
-          <div
-            class="required six wide field"
-          >
-            <div
-              class="ui fluid input"
-            >
-              <input
-                name="location"
-                placeholder="Location"
-                required=""
-                type="text"
-              />
-            </div>
-          </div>
+          <input
+            type="text"
+            value=""
+          />
           <div
             class="required six wide field"
           >
@@ -240,20 +230,10 @@ Object {
             />
           </div>
         </div>
-        <div
-          class="required six wide field"
-        >
-          <div
-            class="ui fluid input"
-          >
-            <input
-              name="location"
-              placeholder="Location"
-              required=""
-              type="text"
-            />
-          </div>
-        </div>
+        <input
+          type="text"
+          value=""
+        />
         <div
           class="required six wide field"
         >

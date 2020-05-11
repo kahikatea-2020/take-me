@@ -16,7 +16,7 @@ jest.mock('../api/categories', () => {
 })
 
 test('<CategoryList> renders a dropdown menu with categories from the store', () => {
-  const { findAllByRole } = renderWithRedux(<CategoryList />)
+  const { findAllByRole } = renderWithRedux(<CategoryList history={{ location: '/' }} />)
   findAllByRole('option')
     .then(options => {
       expect(options.length).toBe(3)
