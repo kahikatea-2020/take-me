@@ -10,7 +10,7 @@ exports.seed = (knex) =>
         { id: 4, name: 'Homeware & Applicances' },
         { id: 5, name: 'Automotive' },
         { id: 6, name: 'Garden' },
-        { id: 7, name: 'Sports' },
+        { id: 7, name: 'Sports, Toys, Hobbies' },
         { id: 8, name: 'Health & Beauty' },
         { id: 9, name: 'Music & Instruments' }
       ]))
@@ -611,7 +611,7 @@ exports.seed = (knex) =>
             'v1589194613/toys1_yf7ox7.jpg'
           ]),
           user_id: 1,
-          category_id: 4
+          category_id: 7
         },
         {
           id: 43,

@@ -26,7 +26,7 @@ class Footer extends React.Component {
                   <Link className="item" id="footerHeaders" to={`/`}>Home</Link>
                 </div>
                 <Link className="item" id="footerLinks" to={`/about`}>About</Link>
-                <Link className="item" id="footerLinks" to={`/listings/14`}>Guidelines</Link>
+                <Link className="item" id="footerLinks" to={`/guidelines`}>Guidelines</Link>
                 <Link className="item" id="footerLinks" to={`/sign-up`}>Sign Up</Link>
               </div>
             </div>
