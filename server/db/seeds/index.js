@@ -491,5 +491,20 @@ exports.seed = (knex) =>
           image_url: JSON.stringify(['v1589182639/qii0trawmlz36czjkxfs.jpg', 'v1589182641/hyg4277qcshsgd2b5tlo.jpg', 'v1589182641/u0zwtz2znhj7jh0dkwhb.jpg', 'v1589182642/rlcnreudgmobjbhjhaxk.jpg', 'v1589182642/iuace4dbwmjnyl1qd3o5.jpg']),
           user_id: 2,
           category_id: 4
+        },
+        {
+          id: 35,
+          name: 'Car smell good thing',
+          description: JSON.stringify([
+            'I have one left and I don\'t need it.',
+            'The odour is very strong and is hard to handle at first. There are instructions to let it out gradually.',
+            'I have used them and they do work well if you want to block out a bad smell or you don\'t like your current car smell.',
+            'I can be used for other things like in closets that smell.',
+            'Email me for a pick up address.'
+          ]),
+          location: 'Inner Kaiti, Gisborne',
+          image_url: JSON.stringify(['v1589182639/edhjocxxxtcu4xsly0ez.jpg', 'v1589182641/j6xw6hvjcrfpoq5tmnor.jpg', 'v1589182641/sev5lpij8thxbnu45cl3.jpg', 'v1589182642/hruy5wrgpy0xz2jvgrbq.jpg', 'v1589182642/pwrcn9pzvjml4ykd69pf.jpg']),
+          user_id: 2,
+          category_id: 5
         }
       ]))
