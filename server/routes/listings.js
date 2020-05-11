@@ -6,7 +6,7 @@ const db = require('../db/listing')
 
 // GET /api/v1/listings/id
 router.get('/:id', (req, res) => {
-  db.getListingsById(req.params.id)
+  db.getListingsById(Number(req.params.id))
     .then(dbRes => {
       if (dbRes.length === 0) {
         res.send(dbRes)
