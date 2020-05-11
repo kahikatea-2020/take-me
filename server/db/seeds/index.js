@@ -493,7 +493,7 @@ exports.seed = (knex) =>
           category_id: 4
         },
         {
-          id: 35,
+          id: 36,
           name: 'Car smell good thing',
           description: JSON.stringify([
             'I have one left and I don\'t need it.',
