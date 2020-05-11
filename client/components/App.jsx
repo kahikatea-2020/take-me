@@ -14,6 +14,7 @@ import NewListing from './NewListing'
 import Profile from './Profile'
 import Error404 from './Error404'
 import Footer from './Footer'
+import About from './About'
 
 import { getUserDetails } from '../actions/users'
 
@@ -37,6 +38,7 @@ class App extends React.Component {
             <Route exact path='/update-listing/:id' component={UpdateListing} />
             <Route exact path='/listings/:id' component={Listing} />
             <Route exact path='/profile/:id' component={Profile} />
+            <Route exact path='/about' component={About} />
             <Route exact path='*' component={Error404} />
           </Switch>
           <Route path='/' component={Footer} />
