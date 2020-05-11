@@ -2,8 +2,10 @@ import {
   getListings,
   getListingsPending,
   getListingsSuccess,
+  getListingSuccess,
   GET_LISTINGS_PENDING,
-  GET_LISTINGS_SUCCESS
+  GET_LISTINGS_SUCCESS,
+  GET_LISTING_SUCCESS
 } from './listings'
 
 jest.mock('../api/listings', () => {
@@ -64,4 +66,9 @@ describe('getListings functionality', () => {
         expect(dispatch.mock.calls[1][0].listings).toHaveLength(2)
       })
   })
+})
+
+test('getListingSuccess dispatches success correctly', () => {
+  const action = getListingSuccess()
+  expect(action.type).toBe(GET_LISTING_SUCCESS)
 })
