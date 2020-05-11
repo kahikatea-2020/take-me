@@ -461,11 +461,11 @@ exports.seed = (knex) =>
           ]),
           location: 'Inner Kaiti, Gisborne',
           image_url: JSON.stringify(['v1589182639/sbs4shnbmaicwpulxx5q.jpg', 'v1589182641/j7h1ib8mzhlrellm8sf7.jpg', 'v1589182641/zu8me3czjh2cahlqc4ff.jpg']),
-          user_id: 4,
+          user_id: 2,
           category_id: 2
         },
         {
-          id: 31,
+          id: 34,
           name: 'Canon 6D + 24-105mm F4 L Lens',
           description: JSON.stringify([
             'Camera body itself is in very good condition with no noticeable scuffs or scratches',
@@ -475,21 +475,21 @@ exports.seed = (knex) =>
           ]),
           location: 'Atawhai, Nelson',
           image_url: JSON.stringify(['v1589182639/Screen_Shot_2020-05-11_at_7.04.40_PM_tdl2md.png', 'v1589182641/Screen_Shot_2020-05-11_at_7.05.00_PM_zwbo9r.png', 'v1589182641/Screen_Shot_2020-05-11_at_7.04.48_PM_kenm5q.png', 'v1589182642/Screen_Shot_2020-05-11_at_7.05.22_PM_iqoige.png']),
-          user_id: 4,
+          user_id: 2,
           category_id: 2
         },
         {
-          id: 31,
-          name: 'Canon 6D + 24-105mm F4 L Lens',
+          id: 35,
+          name: 'A cuttie as heck dolphin',
           description: JSON.stringify([
-            'Camera body itself is in very good condition with no noticeable scuffs or scratches',
-            'Lens has a slight crack in the barrel as shown in the photos. This has been there for as long as I\'ve had the camera, has no impact on image quality or focusing of the lens. It also hasn\'t extended or grown larger in all the time I\'ve had it. Functionally the lens has always worked great.',
-            'Shutter count is 34k so lots of usable life left as these are rated for 100k, and they normally go well beyond that number.',
-            'Comes with the original charger and 2 batteries'
+            'In short, my sister annoyed me a little too much so I repossessed some property as compensation for emotional damage (and to get back at her).',
+            'It is very cute, white and quite large (fake mustache for scale).',
+            'I am tempted to keep it because I love it but this will hurt her more. Please do the world a favor and take it.',
+            'Email me to arrange pick-up ☻'
           ]),
-          location: 'Atawhai, Nelson',
-          image_url: JSON.stringify(['v1589182639/Screen_Shot_2020-05-11_at_7.04.40_PM_tdl2md.png', 'v1589182641/Screen_Shot_2020-05-11_at_7.05.00_PM_zwbo9r.png', 'v1589182641/Screen_Shot_2020-05-11_at_7.04.48_PM_kenm5q.png', 'v1589182642/Screen_Shot_2020-05-11_at_7.05.22_PM_iqoige.png']),
-          user_id: 4,
-          category_id: 2
+          location: 'Inner Kaiti, Gisborne',
+          image_url: JSON.stringify(['v1589182639/qii0trawmlz36czjkxfs.jpg', 'v1589182641/hyg4277qcshsgd2b5tlo.jpg', 'v1589182641/u0zwtz2znhj7jh0dkwhb.jpg', 'v1589182642/rlcnreudgmobjbhjhaxk.jpg', 'v1589182642/iuace4dbwmjnyl1qd3o5.jpg']),
+          user_id: 2,
+          category_id: 4
         }
       ]))
