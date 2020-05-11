@@ -11,6 +11,10 @@ class About extends React.Component {
         Is how our site works. We aim to make it easy to find someone else who wants something you will throw out and give it a second life.
         </p>
         <h2>Why Recycle?</h2>
+        <p>
+        You have heard of reduce, reuse, recycle right?
+        Well, this is another thing that we are trying to do by making this Website.
+        </p>
 
       </>
     )
