@@ -45,7 +45,7 @@ exports.seed = (knex) =>
             'I\'ve only used it like twice',
             'Perfect working condition, contact me for pick up times'
           ]),
-          location: 'Auckland',
+          location: 'Wellington',
           image_url: JSON.stringify(['v1588967373/ladder_s9wtoj.jpg']),
           user_id: 2,
           category_id: 4
@@ -71,7 +71,7 @@ exports.seed = (knex) =>
             'Got a new phone and dont want to spend for fixing',
             'Good for parts'
           ]),
-          location: 'Auckland',
+          location: 'Queenstown',
           image_url: JSON.stringify(['v1588967332/brokenphone_q5dkym.jpg']),
           user_id: 3,
           category_id: 1
@@ -84,7 +84,7 @@ exports.seed = (knex) =>
             'Still in good condition',
             'Hit me up asap, currently sitting outside'
           ]),
-          location: 'Auckland',
+          location: 'Waiheke Island',
           image_url: JSON.stringify(['v1588967347/couch_z4bqcd.jpg']),
           user_id: 5,
           category_id: 3
@@ -135,7 +135,7 @@ exports.seed = (knex) =>
             'Free to someone who still has nokia phones',
             'Contact me if interested'
           ]),
-          location: 'Auckland',
+          location: 'Rotorua',
           image_url: JSON.stringify(['v1588967347/charger_mhozxk.jpg']),
           user_id: 4,
           category_id: 2
@@ -220,6 +220,19 @@ exports.seed = (knex) =>
         },
         {
           id: 16,
+          name: 'Small Chopping Board',
+          description: JSON.stringify([
+            'I have an old chopping board up for grabs if anyone is interested.',
+            'Quite small so only good for a little bit of vegetables or something.',
+            'Could do with a proper clean, has just been sitting in my cupboard.'
+          ]),
+          location: 'Auckland',
+          image_url: JSON.stringify(['v1589171044/lw8xkjgktxnlwneulktg.jpg', 'v1589171043/nspdbsqdqafdy6pjuttm.jpg']),
+          user_id: 5,
+          category_id: 4
+        },
+        {
+          id: 17,
           name: 'Pot',
           description: JSON.stringify([
             'Pot is bit old but still in good condition',
@@ -230,5 +243,125 @@ exports.seed = (knex) =>
           image_url: JSON.stringify(['v1588967373/pot_pejjzr.jpg']),
           user_id: 4,
           category_id: 6
+        },
+        {
+          id: 18,
+          name: 'Yoga Mat',
+          description: JSON.stringify([
+            'I borrowed this yoga mat from Dev Academy.',
+            'Please take it off my hands so I can say that I lost it.',
+            'Dont tell them I gave it to you.'
+          ]),
+          location: 'Auckland',
+          image_url: JSON.stringify(['v1589171042/xnkmr07z4i4dsdm4dutg.jpg', 'v1589171042/e9acjtafwf1ndlnshtjb.jpg']),
+          user_id: 2,
+          category_id: 7
+        },
+        {
+          id: 19,
+          name: 'Nespresso Coffee Machine',
+          description: JSON.stringify([
+            'I recently purchased a new coffee machine so I would love to give this to someone else to try out.',
+            'Please only enquire about this if you dont already have a Nespresso machine.',
+            'The machine itself is in great condition but make sure you give it a good clean first.'
+          ]),
+          location: 'Wellington',
+          image_url: JSON.stringify(['v1589171042/p993ducuperruvcxihlx.jpg', 'v1589171043/gdxlz5teck3qhurigl3w.jpg']),
+          user_id: 5,
+          category_id: 4
+        },
+        {
+          id: 20,
+          name: 'Yoga Mat',
+          description: JSON.stringify([
+            'I may or may not have borrowed this and forgotten to return it',
+            'It\'s in perfect condition so let me know if you are interested',
+            'Pick ups after work hours ideally'
+          ]),
+          location: 'Wellington',
+          image_url: JSON.stringify(['f3ckqvha48hrejwhoodw.jpg']),
+          user_id: 5,
+          category_id: 7
+        },
+        {
+          id: 21,
+          name: 'Olympia Fields, US Open 2003 cap',
+          description: JSON.stringify([
+            'Old cap of mine',
+            'I\'ve got so many I just need to get rid of some',
+            'I\'ve given it a good wash, so don\'t worry about it'
+          ]),
+          location: 'Wellington',
+          image_url: JSON.stringify(['vosljyixedmr3cfcsyb8.jpg', 'hwazaysffsg26wrzvdiz.jpg']),
+          user_id: 5,
+          category_id: 1
+        },
+        {
+          id: 22,
+          name: 'Apple Trackpad',
+          description: JSON.stringify([
+            'Perfect condition, I want to save the planet!',
+            'Just upgraded to a mouse haha, so let me know if you are keen'
+          ]),
+          location: 'Wellington',
+          image_url: JSON.stringify(['nvidzfpug6yol8bubxmg.jpg', 'g6amwtjedwrrpkgpzj3e.jpg']),
+          user_id: 5,
+          category_id: 2
+        },
+        {
+          id: 23,
+          name: '3kg Medicine Ball',
+          description: JSON.stringify([
+            'In Lockdown?',
+            'Have you exercised?',
+            'Well I haven\'t, so take my medicine ball if you want to make use of it!'
+          ]),
+          location: 'Auckland',
+          image_url: JSON.stringify(['bkyndlxrc8yxyofwkvq3.jpg']),
+          user_id: 5,
+          category_id: 7
+        },
+        {
+          id: 24,
+          name: 'Olympus 35mm mju zoon',
+          description: JSON.stringify([
+            'Good condition',
+            'I can send you some photos if you like',
+            'Unfortunately the battery is flat, so you\'ll need to buy some',
+            'But it\'s free so why wouldn\'t you want it'
+          ]),
+          location: 'Auckland',
+          image_url: JSON.stringify(['i1paunxg4mu5uaeo2ccg.jpg', 'jaa7m8owujmxhd7cizjm.jpg']),
+          user_id: 5,
+          category_id: 2
+        },
+        {
+          id: 25,
+          name: 'Adidas Gazelle shoes',
+          description: JSON.stringify([
+            'Size 10',
+            'Bit worn down, but totally wearable still',
+            'May need a bit of a clean',
+            'I just don\'t really wear then, would love for someone to wear them till they fall apart!'
+          ]),
+          location: 'Auckland',
+          image_url: JSON.stringify(['gnmflabfmfbe1ok5ccml.jpg']),
+          user_id: 5,
+          category_id: 1
+        },
+        {
+          id: 26,
+          name: 'Quick release guitar capo',
+          description: JSON.stringify([
+            'The original One-handed Quick-Change capo',
+            'Strong, lightweight aluminum with steel spring',
+            'Professional quality',
+            "Parks on the guitar's headstock when not in use",
+            'hand_orientation: ambidextrous'
+          ]),
+          location: 'Lake Taupo',
+          image_url: JSON.stringify(['ie6f4acrwylvokqqfcvz.jpg']),
+          user_id: 5,
+          category_id: 9
         }
       ]))
