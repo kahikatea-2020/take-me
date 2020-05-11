@@ -1,6 +1,7 @@
 import {
   GET_LISTINGS_PENDING,
   GET_LISTINGS_SUCCESS,
+  GET_LISTING_SUCCESS,
   GET_USERS_LISTINGS_SUCCESS,
   GET_USERS_LISTINGS_PENDING
 } from '../actions/listings'
@@ -108,6 +109,14 @@ describe('get categories', () => {
 test('error action sets pending to false', () => {
   const action = {
     type: ERROR
+  }
+  const newState = pending(true, action)
+  expect(newState).toBeFalsy()
+})
+
+test('get listing success action sets pending to false', () => {
+  const action = {
+    type: GET_LISTING_SUCCESS
   }
   const newState = pending(true, action)
   expect(newState).toBeFalsy()
