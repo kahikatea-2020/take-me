@@ -1,7 +1,7 @@
 import * as api from '../api/listings'
 import { showError } from './error'
 
-export const GET_LISTINGS_PENDING = 'GET_LISTING_PENDING'
+export const GET_LISTINGS_PENDING = 'GET_LISTINGS_PENDING'
 export const GET_LISTINGS_SUCCESS = 'GET_LISTINGS_SUCCESS'
 export const GET_LISTING_SUCCESS = 'GET_LISTING_SUCCESS'
 export const GET_USERS_LISTINGS_PENDING = 'GET_USERS_LISTINGS_PENDING'
