@@ -1,5 +1,6 @@
 exports.seed = (knex) =>
-  knex('listings').del()
+  knex('q_and_a').del()
+    .then(() => knex('listings').del())
     .then(() => knex('users').del())
     .then(() => knex('categories').del())
     .then(() =>
@@ -748,5 +749,22 @@ exports.seed = (knex) =>
           ]),
           user_id: 3,
           category_id: 1
+        }
+      ]))
+    .then(() =>
+      knex('q_and_a').insert([
+        {
+          id: 1,
+          comment: 'Does this come with the case?',
+          date: 'Tue May 12 2020 11:03:40 GMT+1200 (New Zealand Standard Time)',
+          user_id: 3,
+          listings_id: 27
+        },
+        {
+          id: 2,
+          comment: 'Yes, as per lisitng description.',
+          date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
+          user_id: 4,
+          listings_id: 27
         }
       ]))
