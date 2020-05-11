@@ -3,7 +3,10 @@ import Slider from 'react-slick'
 import { isAuthenticated } from 'authenticare/client'
 import { connect } from 'react-redux'
 
+import WaitIndicator from './WaitIndicator'
+
 import { getListingById } from '../api/listings'
+import { getListingsPending, getListingSuccess } from '../actions/listings'
 import { Link } from 'react-router-dom'
 
 class Listing extends React.Component {
@@ -14,20 +17,27 @@ class Listing extends React.Component {
     imageUrl: []
   }
   componentDidMount() {
-    getListingById(this.props.match.params.id)
-      .then(listing => {
-        if (listing === undefined) {
-          this.props.history.push(`/404`)
-        } else {
-          this.setState({
-            listing,
-            emailSubject: listing.name.split(' ').join('%20'),
-            description: listing.description,
-            imageUrl: listing.imageUrl
+    this.props.dispatch(getListingsPending())
+      .then(() => {
+        getListingById(this.props.match.params.id)
+          .then(listing => {
+            this.props.dispatch(getListingSuccess())
+              .then(() => {
+                if (listing === undefined) {
+                      this.props.history.push(`/404`)
+                } else {
+                  this.setState({
+                    listing,
+                    emailSubject: listing.name.split(' ').join('%20'),
+                    description: listing.description,
+                    imageUrl: listing.imageUrl
+                  })
+                }
+              })
           })
-        }
       })
   }
+
   render() {
     const { listing } = this.state
     const settings = {
@@ -77,9 +87,10 @@ class Listing extends React.Component {
           <br />
           {(isAuthenticated() && (this.props.user.id === listing.userId)) 
             ? <Link to={`/profile/${listing.userId}`} ><button>Your listings</button></Link>
-            : <Link to={`/profile/${listing.userId}`} ><button>{listing.userFirstName} listings</button></Link>
+            : <Link to={`/profile/${listing.userId}`} ><button>{listing.userFirstName}'s listings</button></Link>
            }
         </div>
+        <WaitIndicator />
       </>
     )
   }
