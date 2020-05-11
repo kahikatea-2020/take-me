@@ -22,7 +22,10 @@ class About extends React.Component {
             Reduces landfill conteng - by re-purposing and/or recycle materials and products, we reduce the amount of waste that end up in 
             landfills which altogether contribute to a healthier planet
           </li>
-          <li>Reduces the number of chemicals used - factories use raw materials which create toxic chemicals</li>
+          <li>
+            Less toxic chemicals - factories that produce the products we see on shelves are often made from raw materials which create toxic 
+            chemicals, re-purposing is a simple solution to lowering the demand, therefore, the production of these toxins
+          </li>
           <li>Reduces water pollution - if an item is recycled, it will not end up in the ocean</li>
           <li>Saves you money - if you are getting something free from our site, you are not buying something new. As a result, you are saving money!</li>
         </ul>
