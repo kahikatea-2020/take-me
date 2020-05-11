@@ -438,10 +438,13 @@ exports.seed = (knex) =>
           id: 32,
           name: 'Beanie ',
           description: JSON.stringify([
-            'I was cleaning out my draws and I found this bad boy',
-            'It is a lovely beanie. It is worm and can fend of the cold like the greatest hero'
+            'I was cleaning out my draws and I found this bad boy.',
+            'It is a lovely beanie. It is worm and can fend of the cold like the greatest hero.',
+            'There is no need to fear when the beanie is near. I have worn it through many storms and it has treated me very well.',
+            'I don\'t think it smells but it probably smells like me, I can\'t tell anymore.',
+            'Please E-mail me for more details about it. It is just a nice beanie. It is hard to give it away but it is for the best.'
           ]),
-          location: 'Atawhai, Nelson',
+          location: 'Inner Kaiti, Gisborne',
           image_url: JSON.stringify(['v1589182639/Screen_Shot_2020-05-11_at_7.04.40_PM_tdl2md.png', 'v1589182641/Screen_Shot_2020-05-11_at_7.05.00_PM_zwbo9r.png', 'v1589182641/Screen_Shot_2020-05-11_at_7.04.48_PM_kenm5q.png', 'v1589182642/Screen_Shot_2020-05-11_at_7.05.22_PM_iqoige.png']),
           user_id: 4,
           category_id: 2
