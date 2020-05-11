@@ -15,6 +15,9 @@ class About extends React.Component {
         You have heard of reduce, reuse, recycle right?
         Well, this is another thing that we are trying to do by making this Website.
         </p>
+        <ul>
+          <li>You are saving energy - because the manufacturer does not need to make a new product</li>
+        </ul>
 
       </>
     )
