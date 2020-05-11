@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { CloudinaryContext } from 'cloudinary-react'
 import { connect } from 'react-redux'
 import { isAuthenticated } from 'authenticare/client'
+import { Container } from 'semantic-ui-react'
 
 import Navbar from './Navbar'
 import SignUp from './SignUp'
@@ -14,8 +15,8 @@ import NewListing from './NewListing'
 import Profile from './Profile'
 import Error404 from './Error404'
 import Footer from './Footer'
-import About from './About'
-import Guidelines from './Guidelines'
+// import About from './About'
+// import Guidelines from './Guidelines'
 
 import { getUserDetails } from '../actions/users'
 
@@ -31,18 +32,18 @@ class App extends React.Component {
       <CloudinaryContext cloudName='takemenz'>
         <Router>
           <Route path='/' component={Navbar} />
-          <Switch>
-            <Route exact path='/' component={Home} />
-            <Route exact path='/sign-up' component={SignUp} />
-            <Route exact path='/login' component={Login} />
-            <Route exact path='/new-listing' component={NewListing} />
-            <Route exact path='/update-listing/:id' component={UpdateListing} />
-            <Route exact path='/listings/:id' component={Listing} />
-            <Route exact path='/profile/:id' component={Profile} />
-            <Route exact path='/about' component={About} />
-            <Route exact path='/guidelines' component={Guidelines} />
-            <Route exact path='*' component={Error404} />
-          </Switch>
+          <Container id='main-container' style={{ marginTop: '7em' }}>
+            <Switch>
+              <Route exact path='/' component={Home} />
+              <Route path='/sign-up' component={SignUp} />
+              <Route path='/login' component={Login} />
+              <Route path='/new-listing' component={NewListing} />
+              <Route path='/update-listing/:id' component={UpdateListing} />
+              <Route exact path='/listings/:id' component={Listing} />
+              <Route path='/profile/:id' component={Profile} />
+              <Route exact path='/error/404' component={Error404} />
+            </Switch>
+          </Container>
           <Route path='/' component={Footer} />
         </Router>
       </CloudinaryContext>

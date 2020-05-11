@@ -1,11 +1,11 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Card } from 'semantic-ui-react'
 
 import WaitIndicator from './WaitIndicator'
 import SearchBar from './SearchBar'
 import ListItem from './ListItem'
 import CategoryList from './CategoryList'
-
 import { getListings } from '../actions/listings'
 import { getCategories } from '../actions/categories'
 
@@ -25,13 +25,13 @@ class Home extends React.Component {
 
     return (
       <>
-        <SearchBar history={this.props.history} />
-        <h1>Latest Listings</h1>
-        <CategoryList history={this.props.history} />
+        <SearchBar history={this.props.history}/>
+        <CategoryList history={this.props.history}/>
+        <h1 id='latest-listings'>Latest Listings</h1>
         <WaitIndicator />
-        <div className="ListingWrapper">
+        <Card.Group itemsPerRow={4} className='centered'>
           {selectedListings.map(item => <ListItem key={item.id} listing={item} />)}
-        </div>
+        </Card.Group>
       </>
     )
   }
