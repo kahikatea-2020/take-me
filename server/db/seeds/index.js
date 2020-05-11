@@ -438,7 +438,8 @@ exports.seed = (knex) =>
           id: 32,
           name: 'Beanie ',
           description: JSON.stringify([
-            'I was cleaning out my draws and I found this bad boy'
+            'I was cleaning out my draws and I found this bad boy',
+            'It is a lovely beanie. It is worm and can fend of the cold like the greatest hero'
           ]),
           location: 'Atawhai, Nelson',
           image_url: JSON.stringify(['v1589182639/Screen_Shot_2020-05-11_at_7.04.40_PM_tdl2md.png', 'v1589182641/Screen_Shot_2020-05-11_at_7.05.00_PM_zwbo9r.png', 'v1589182641/Screen_Shot_2020-05-11_at_7.04.48_PM_kenm5q.png', 'v1589182642/Screen_Shot_2020-05-11_at_7.05.22_PM_iqoige.png']),
