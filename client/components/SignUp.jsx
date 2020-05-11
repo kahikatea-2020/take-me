@@ -239,4 +239,6 @@ const mapStateToProps = state => {
   }
 }
 
+export const VanillaSignUp = SignUp
+
 export default connect(mapStateToProps)(SignUp)
