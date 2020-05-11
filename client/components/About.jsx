@@ -22,7 +22,7 @@ class About extends React.Component {
           <li>Reduces water pollution - if an item is recycled, it will not end up in the ocean</li>
           <li>Saves you money - if you are getting something free from our site, you are not buying something new. As a result, you are saving money!</li>
         </ul>
-
+        <h2>How Can You Help?</h2>
       </>
     )
   }
