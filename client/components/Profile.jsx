@@ -65,7 +65,7 @@ class Profile extends React.Component {
           {this.props.usersListings.map(listing => {
             return <div className="ui card" key={listing.id}>
               <p>name: {listing.name}</p>
-              <p>decription: {listing.decription}</p>
+              <p>decription: {listing.description}</p>
               <p>location: {listing.location}</p>
               <div className="image">
                 <img src={`https://res.cloudinary.com/takemenz/image/upload/${listing.imageUrl[0]}`} alt={listing.name} />
