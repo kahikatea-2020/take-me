@@ -50,6 +50,12 @@ class Login extends React.Component {
       })
   }
 
+  handleOnKeyDown = event => {
+    if (event.keyCode === 13) {
+      this.submitHandler()
+    }
+  }
+
   render () {
     return (
       <>
@@ -72,19 +78,20 @@ class Login extends React.Component {
               placeholder='Password'
               type='password'
               autoComplete='off'
+              onKeyDown={this.handleOnKeyDown}
             />
             <Form.Group>
-              <Link to='/'>
-                <Form.Button>
-              Cancel
-                </Form.Button>
-              </Link>
               <Form.Button
                 type='submit'
                 onClick={this.submitHandler}
               >
               Submit
               </Form.Button>
+              <Link to='/'>
+                <Form.Button>
+              Cancel
+                </Form.Button>
+              </Link>
             </Form.Group>
           </Form>
           <WaitIndicator />
