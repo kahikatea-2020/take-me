@@ -35,6 +35,8 @@ class CategoryList extends React.Component {
     }))
     if (this.props.history.location.pathname === '/') {
       categories = [{ key: 100, text: 'All Categories', value: 'All Categories' }, ...categories]
+    } else if (this.props.history.location.pathname === '/new-listing') {
+      categories = [{ key: 100, text: 'No Category (not recommended)', value: 'No Category (not recommended)' }, ...categories]
     }
 
     return (
