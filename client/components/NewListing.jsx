@@ -99,6 +99,8 @@ class NewListing extends React.Component {
     return (
       <>
       {/* this is a pretty shit solution lets make this better at some point*/}
+        <div id="wrapper">
+
         {(isAuthenticated() && (this.props.user.username !== undefined))
         ?<>
           <h1>Create a listing</h1>
@@ -161,6 +163,7 @@ class NewListing extends React.Component {
         />
         </>
         :<p>Log in to create a listing</p>}
+        </div>
       </>
     )
   }

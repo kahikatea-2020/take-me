@@ -46,6 +46,7 @@ class Profile extends React.Component {
 
     return (
       <>
+      <div id="wrapper">
         <div className="ui card">
           <div className="image">
             <img src={`https://res.cloudinary.com/takemenz/image/upload/${user.imageUrl}`} alt=""/>
@@ -79,6 +80,7 @@ class Profile extends React.Component {
           : <WaitIndicator />
           }
         </div>
+      </div>
         <WaitIndicator />
       </>
     )

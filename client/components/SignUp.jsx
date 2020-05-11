@@ -101,6 +101,8 @@ class SignUp extends React.Component {
   render () {
     return (
       <>
+      <div id="wrapper">
+
         <h1>Sign Up</h1>
         <p>Please fill in the following details:</p>
         <Form>
@@ -225,6 +227,7 @@ class SignUp extends React.Component {
           onConfirm={() => this.setState({ show: false })}
         />
         <WaitIndicator />
+      </div>
       </>
     )
   }
