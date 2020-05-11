@@ -14,6 +14,13 @@ class Home extends React.Component {
   }
 
   render () {
+    let selectedListings = this.props.listings
+    if (this.props.selectedCategory.id) {
+      if (this.props.selectedCategory.id !== 100) {
+        selectedListings = selectedListings.filter(listing => listing.categoryId === this.props.selectedCategory.id)
+      }
+    }
+
     return (
       <>
         <SearchBar history={this.props.history} />
@@ -21,7 +28,7 @@ class Home extends React.Component {
         <CategoryList history={this.props.history} />
         <WaitIndicator />
         <div className="ListingWrapper">
-          {this.props.listings.map(item => <ListItem key={item.id} listing={item} />)}
+          {selectedListings.map(item => <ListItem key={item.id} listing={item} />)}
         </div>
       </>
     )
@@ -30,7 +37,8 @@ class Home extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    listings: state.listings
+    listings: state.listings,
+    selectedCategory: state.selectedCategory
   }
 }
 
