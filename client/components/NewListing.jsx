@@ -6,7 +6,7 @@ import { isAuthenticated } from 'authenticare/client'
 import CategoryList from './CategoryList'
 import { openUploadWidget } from './CloudinaryService'
 import { addListing } from '../api/listings'
-
+import { selectedCategoryChange } from '../actions/categories'
 
 class NewListing extends React.Component {
   constructor (props) {
@@ -57,23 +57,32 @@ class NewListing extends React.Component {
     })
   }
 
-  submitHandler = () => {
-    if (!this.state.imageUrl[0]) {
+  submitHandler = e => {
+    e.preventDefault()
+    if (this.props.selectedCategory.id && this.props.selectedCategory.id !== 100) {
       this.setState({
-        imageUrl: [...this.state.imageUrl, 'v1589063179/default-listing_pgdcsc.png']
+        categoryId: this.props.selectedCategory.id
       }, () => {
-        addListing(this.state)
-          .then(id => {
-            this.props.history.push(`/listings/${id}`)
-          })
-        })
-      } else {
-        addListing(this.state)
-          .then(id => {
-            this.props.history.push(`/listings/${id}`)
-          })
+        this.props.dispatch(selectedCategoryChange({ id: undefined, name: undefined }))
+        if (!this.state.imageUrl[0]) {
+          this.setState({
+            imageUrl: [...this.state.imageUrl, 'v1589063179/default-listing_pgdcsc.png']
+          }, () => {
+            addListing(this.state)
+              .then(id => {
+                this.props.history.push(`/listings/${id}`)
+              })
+            })
+          } else {
+            addListing(this.state)
+              .then(id => {
+                this.props.history.push(`/listings/${id}`)
+              })
+        }
+      })
     }
   }
+
   render () {
     return (
       <>
@@ -90,12 +99,13 @@ class NewListing extends React.Component {
             <label>Description</label>
             <input type="text" name="description" required onChange={this.handleDescriptionChange} />
 
+            <label>Category</label>
             <CategoryList history={this.props.history} />
             {/* maybe make it a dropdown? */}
             <label>Location (maybe make a drop down as well?) </label>
             <input type="text" name="location" required onChange={this.handleChange} />
             {/* need to update category list */}
-            <Form.Button onClick={() => this.imageUpload()}>Upload Image</Form.Button>
+            <Form.Button type='button' onClick={() => this.imageUpload()}>Upload Image</Form.Button>
             {this.state.imageUrl[0] &&
             <div className='imagesPreview'>
               {this.state.imageUrl.map((img, idx) => {
@@ -137,7 +147,8 @@ class NewListing extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    user: state.user
+    user: state.user,
+    selectedCategory: state.selectedCategory
   }
 }
 
