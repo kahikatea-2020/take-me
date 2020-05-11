@@ -35,7 +35,7 @@ class App extends React.Component {
           <Route path='/new-listing' component={NewListing} />
           <Route path='/update-listing/:id' component={UpdateListing} />
           <Route exact path='/listings/:id' component={Listing} />
-          <Route path='/profile/:id' component={Profile} />
+          <Route exact path='/profile/:id' component={Profile} />
           <Route exact path='/error/404' component={Error404} />
           <Route path='/' component={Footer} />
         </Router>

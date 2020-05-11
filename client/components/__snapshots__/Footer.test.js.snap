@@ -1,0 +1,433 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Test New Listing component renders correctly 1`] = `
+Object {
+  "asFragment": [Function],
+  "baseElement": <body>
+    <div>
+      <div
+        class="ui container"
+        id="footer"
+      >
+        <div
+          class="ui grid container"
+          id="footerWrapper"
+        >
+          <div
+            class="four wide column"
+            id="footerColumn"
+          >
+            <div
+              class="ui list"
+              id="listWrapper"
+            >
+              <a
+                href="/"
+              >
+                <div
+                  class="item"
+                >
+                  <img
+                    alt="logo"
+                    id="footerLogo"
+                    src="takeme-green.png"
+                  />
+                </div>
+              </a>
+              <div
+                class="item"
+              >
+                <p
+                  id="tagLine"
+                >
+                  Doing our part for a more sustainable 
+                  <br />
+                  New Zealand.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div
+            class="four wide column"
+          >
+            <div
+              class="ui link list"
+              id="footerLinks"
+            >
+              <div
+                class="active item"
+                id="footerHeaders"
+              >
+                <a
+                  class="item"
+                  href="/"
+                  id="footerHeaders"
+                >
+                  Home
+                </a>
+              </div>
+              <a
+                class="item"
+                href="/listings/14"
+                id="footerLinks"
+              >
+                About
+              </a>
+              <a
+                class="item"
+                href="/listings/14"
+                id="footerLinks"
+              >
+                Guidelines
+              </a>
+              <a
+                class="item"
+                href="/sign-up"
+                id="footerLinks"
+              >
+                Sign Up
+              </a>
+            </div>
+          </div>
+          <div
+            class="four wide column"
+          >
+            <div
+              class="ui link list"
+              id="footerLinks"
+            >
+              <div
+                class="active item"
+                id="footerHeaders"
+              >
+                <a
+                  class="item"
+                  href="/"
+                  id="footerHeaders"
+                >
+                  Categories
+                </a>
+              </div>
+              <a
+                class="item"
+                href="/listings/14"
+                id="footerLinks"
+              >
+                Latest Listings
+              </a>
+              <a
+                class="item"
+                href="/listings/14"
+                id="footerLinks"
+              >
+                By Location
+              </a>
+              <a
+                class="item"
+                href="/new-listing"
+                id="footerLinks"
+              >
+                List an Item
+              </a>
+            </div>
+          </div>
+          <div
+            class="four wide column"
+          >
+            <div
+              class="ui list"
+              id="listWrapper"
+            >
+              <div
+                class="item"
+              >
+                <i
+                  class="marker icon"
+                />
+                <div
+                  class="content"
+                >
+                  New Zealand
+                </div>
+              </div>
+              <div
+                class="item"
+              >
+                <i
+                  class="mail icon"
+                />
+                <div
+                  class="content"
+                >
+                  <a
+                    href="mailto:hello@takemenz.com"
+                  >
+                    hello@takemenz.com
+                  </a>
+                </div>
+              </div>
+              <div
+                class="item"
+              >
+                <i
+                  class="linkify icon"
+                />
+                <div
+                  class="content"
+                >
+                  <a
+                    href="https://take-me-nz.herokuapp.com"
+                  >
+                    takemenz.com
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      class="ui container"
+      id="footer"
+    >
+      <div
+        class="ui grid container"
+        id="footerWrapper"
+      >
+        <div
+          class="four wide column"
+          id="footerColumn"
+        >
+          <div
+            class="ui list"
+            id="listWrapper"
+          >
+            <a
+              href="/"
+            >
+              <div
+                class="item"
+              >
+                <img
+                  alt="logo"
+                  id="footerLogo"
+                  src="takeme-green.png"
+                />
+              </div>
+            </a>
+            <div
+              class="item"
+            >
+              <p
+                id="tagLine"
+              >
+                Doing our part for a more sustainable 
+                <br />
+                New Zealand.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div
+          class="four wide column"
+        >
+          <div
+            class="ui link list"
+            id="footerLinks"
+          >
+            <div
+              class="active item"
+              id="footerHeaders"
+            >
+              <a
+                class="item"
+                href="/"
+                id="footerHeaders"
+              >
+                Home
+              </a>
+            </div>
+            <a
+              class="item"
+              href="/listings/14"
+              id="footerLinks"
+            >
+              About
+            </a>
+            <a
+              class="item"
+              href="/listings/14"
+              id="footerLinks"
+            >
+              Guidelines
+            </a>
+            <a
+              class="item"
+              href="/sign-up"
+              id="footerLinks"
+            >
+              Sign Up
+            </a>
+          </div>
+        </div>
+        <div
+          class="four wide column"
+        >
+          <div
+            class="ui link list"
+            id="footerLinks"
+          >
+            <div
+              class="active item"
+              id="footerHeaders"
+            >
+              <a
+                class="item"
+                href="/"
+                id="footerHeaders"
+              >
+                Categories
+              </a>
+            </div>
+            <a
+              class="item"
+              href="/listings/14"
+              id="footerLinks"
+            >
+              Latest Listings
+            </a>
+            <a
+              class="item"
+              href="/listings/14"
+              id="footerLinks"
+            >
+              By Location
+            </a>
+            <a
+              class="item"
+              href="/new-listing"
+              id="footerLinks"
+            >
+              List an Item
+            </a>
+          </div>
+        </div>
+        <div
+          class="four wide column"
+        >
+          <div
+            class="ui list"
+            id="listWrapper"
+          >
+            <div
+              class="item"
+            >
+              <i
+                class="marker icon"
+              />
+              <div
+                class="content"
+              >
+                New Zealand
+              </div>
+            </div>
+            <div
+              class="item"
+            >
+              <i
+                class="mail icon"
+              />
+              <div
+                class="content"
+              >
+                <a
+                  href="mailto:hello@takemenz.com"
+                >
+                  hello@takemenz.com
+                </a>
+              </div>
+            </div>
+            <div
+              class="item"
+            >
+              <i
+                class="linkify icon"
+              />
+              <div
+                class="content"
+              >
+                <a
+                  href="https://take-me-nz.herokuapp.com"
+                >
+                  takemenz.com
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>,
+  "debug": [Function],
+  "findAllByAltText": [Function],
+  "findAllByDisplayValue": [Function],
+  "findAllByLabelText": [Function],
+  "findAllByPlaceholderText": [Function],
+  "findAllByRole": [Function],
+  "findAllByTestId": [Function],
+  "findAllByText": [Function],
+  "findAllByTitle": [Function],
+  "findByAltText": [Function],
+  "findByDisplayValue": [Function],
+  "findByLabelText": [Function],
+  "findByPlaceholderText": [Function],
+  "findByRole": [Function],
+  "findByTestId": [Function],
+  "findByText": [Function],
+  "findByTitle": [Function],
+  "getAllByAltText": [Function],
+  "getAllByDisplayValue": [Function],
+  "getAllByLabelText": [Function],
+  "getAllByPlaceholderText": [Function],
+  "getAllByRole": [Function],
+  "getAllByTestId": [Function],
+  "getAllByText": [Function],
+  "getAllByTitle": [Function],
+  "getByAltText": [Function],
+  "getByDisplayValue": [Function],
+  "getByLabelText": [Function],
+  "getByPlaceholderText": [Function],
+  "getByRole": [Function],
+  "getByTestId": [Function],
+  "getByText": [Function],
+  "getByTitle": [Function],
+  "queryAllByAltText": [Function],
+  "queryAllByDisplayValue": [Function],
+  "queryAllByLabelText": [Function],
+  "queryAllByPlaceholderText": [Function],
+  "queryAllByRole": [Function],
+  "queryAllByTestId": [Function],
+  "queryAllByText": [Function],
+  "queryAllByTitle": [Function],
+  "queryByAltText": [Function],
+  "queryByDisplayValue": [Function],
+  "queryByLabelText": [Function],
+  "queryByPlaceholderText": [Function],
+  "queryByRole": [Function],
+  "queryByTestId": [Function],
+  "queryByText": [Function],
+  "queryByTitle": [Function],
+  "rerender": [Function],
+  "store": Object {
+    "dispatch": [Function],
+    "getState": [Function],
+    "replaceReducer": [Function],
+    "subscribe": [Function],
+    Symbol(observable): [Function],
+  },
+  "unmount": [Function],
+}
+`;
