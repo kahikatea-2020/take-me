@@ -14,7 +14,7 @@ class Home extends React.Component {
   }
 
   render () {
-    let selectedListings = this.props.listings
+    let selectedListings = this.props.listings.sort((a, b) => b.id - a.id)
     if (this.props.selectedCategory.id) {
       if (this.props.selectedCategory.id !== 100) {
         selectedListings = selectedListings.filter(listing => listing.categoryId === this.props.selectedCategory.id)
