@@ -20,7 +20,7 @@ class About extends React.Component {
           <li>Reduces landfill use - if we can reduce the amount of waste in a landfill, we will be better off as a planet</li>
           <li>Reduces the number of chemicals used - factories use raw materials which create toxic chemicals</li>
           <li>Reduces water pollution - if an item is recycled, it will not end up in the ocean</li>
-          
+          <li>Saves you money - if you are getting something free from our site, you are not buying something new. As a result, you are saving money!</li>
         </ul>
 
       </>
