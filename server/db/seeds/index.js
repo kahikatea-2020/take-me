@@ -450,16 +450,17 @@ exports.seed = (knex) =>
           category_id: 1
         },
         {
-          id: 31,
-          name: 'Canon 6D + 24-105mm F4 L Lens',
+          id: 33,
+          name: 'Smoke Alarm',
           description: JSON.stringify([
-            'Camera body itself is in very good condition with no noticeable scuffs or scratches',
-            'Lens has a slight crack in the barrel as shown in the photos. This has been there for as long as I\'ve had the camera, has no impact on image quality or focusing of the lens. It also hasn\'t extended or grown larger in all the time I\'ve had it. Functionally the lens has always worked great.',
-            'Shutter count is 34k so lots of usable life left as these are rated for 100k, and they normally go well beyond that number.',
-            'Comes with the original charger and 2 batteries'
+            'I don\'t need it anymore. I have a newer version that works better.',
+            'If you do not want to die a painful death or you care about your family give them smoke alarms. This one is free and it works.',
+            'There is a radiation warning on it, I recommend you ignore it. It is a cool device to have in your house. It can save your life.',
+            'It does not have any batteries so you will have to get them yourself.',
+            'Please take this if you need it and Email me for more details.'
           ]),
-          location: 'Atawhai, Nelson',
-          image_url: JSON.stringify(['v1589182639/Screen_Shot_2020-05-11_at_7.04.40_PM_tdl2md.png', 'v1589182641/Screen_Shot_2020-05-11_at_7.05.00_PM_zwbo9r.png', 'v1589182641/Screen_Shot_2020-05-11_at_7.04.48_PM_kenm5q.png', 'v1589182642/Screen_Shot_2020-05-11_at_7.05.22_PM_iqoige.png']),
+          location: 'Inner Kaiti, Gisborne',
+          image_url: JSON.stringify(['v1589182639/sbs4shnbmaicwpulxx5q.jpg', 'v1589182641/j7h1ib8mzhlrellm8sf7.jpg', 'v1589182641/zu8me3czjh2cahlqc4ff.jpg']),
           user_id: 4,
           category_id: 2
         },
