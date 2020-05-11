@@ -48,7 +48,7 @@ class Listing extends React.Component {
 
     return (
       <>
-        <div className="listingWrapper" id="wrapper">
+        <div className="listingWrapper">
             <h2>{listing.name}</h2>
             {(this.state.imageUrl[0] !== undefined ) &&
             <div className='slick-carousel'>
