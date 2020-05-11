@@ -31,6 +31,12 @@ class About extends React.Component {
           responsibility to look after the planet, so you need to be responsible for how much rubbish you produce and this site can help you reduce it.
         </p>
         <h2>Our Goal?</h2>
+        <p>
+          We do want to reduce the amount of rubbish we produce by encouraging putting things to another user with someone else.
+          We do want to make it as accessible and as easy as possible to do this by making the Website user friendly and easy to navigate and
+          easy on the eyes.
+        </p>
+
       </>
     )
   }
