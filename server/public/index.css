@@ -4,13 +4,17 @@
   flex-wrap: wrap;
 }
 
+#main-container {
+  padding-bottom: 15vh;
+}
+
 #footer {
   width: 100vw;
   position: relative;
-  left:0;
   bottom: 0;
-  right:0;
+  width: 100%;
   height: 15vh;
+  margin-top: 5vh;
   background-color: rgb(29, 29, 29);
   color: white;
 }
@@ -70,6 +74,10 @@
   max-height: 100%;
 }
 
+#latest-listings {
+  margin-bottom: 20px;
+}
+
 /* START CAROUSEL STYLING */
 .slick-carousel {
   margin-bottom: 10%;
@@ -85,16 +93,80 @@
 }
 
 .slick-slider {
-  width: 50%;
-  margin: 0 auto;
+  width: 90%;
 }
+
 /* END CAROUSEL STYLING */
 
 /* START LISTING STYLING */
+div.row {
+  min-height: 80vh;
+}
+
+.listing-details {
+  padding-left: 100px;
+}
+
 .listing-description {
-  margin-top: 5%;
-  width: auto;
+  margin-left: 4vw;
+  padding-top: 2vh;
+}
+
+.listing-description h1 {
+  margin-bottom: none;
+}
+
+.listing-description h4 {
+  margin-bottom: 5vh;
+  margin-top: none;
+}
+
+.listing-description p {
+  font-size: 1.2em;
+}
+
+.contact-info {
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 5vh;
+}
+
+.contact-info div.ui.card {
+  width: 30vw;
+  height: 30vh;
+  font-size: 1.2em;
+  margin-left: 4vw;
+}
+
+.contact-info div.ui.card div.content {
+  padding: 3vh;
+}
+
+div.header {
+  margin-top: 1vh;
+}
+
+div.meta {
+  margin-top: 3vh;
+}
+
+.contact-info div.ui.card img {
+  width: 5vw;
   height: auto;
+}
+
+.ui-two-buttons #email {
+  float: left;
+  width: 45%;
+}
+
+.ui-two-buttons #profile {
+  float: right;
+  width: 50%;
+}
+
+.ui.button.update-listing #update {
+  float: right;
 }
 /* END LISTING STYLING*/
 

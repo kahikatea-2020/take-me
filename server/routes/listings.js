@@ -25,7 +25,8 @@ router.get('/', (req, res) => {
       dbRes.map((listing) => {
         return {
           ...listing,
-          imageUrl: JSON.parse(listing.imageUrl)
+          imageUrl: JSON.parse(listing.imageUrl),
+          userImage: listing.userImage
         }
       })
     )
