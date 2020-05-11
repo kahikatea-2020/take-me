@@ -34,7 +34,7 @@ class CategoryList extends React.Component {
       value: category.name
     }))
     if (this.props.history.location.pathname === '/') {
-      categories = [{ id: 100, text: 'All Categories', value: 'All Categories' }, ...categories]
+      categories = [{ key: 100, text: 'All Categories', value: 'All Categories' }, ...categories]
     }
 
     return (
