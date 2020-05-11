@@ -64,7 +64,7 @@ class Profile extends React.Component {
           ? <> 
           {this.props.usersListings.map(listing => {
             return <div className="ui card" key={listing.id}>
-              <p>name: {listing.name}</p>
+              <p><Link to={`/listings/${listing.id}`}>name: {listing.name}</Link></p>
               {/* <p>decription: {listing.description}</p> */}
               <p>location: {listing.location}</p>
               <div className="image">
