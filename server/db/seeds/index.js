@@ -446,8 +446,8 @@ exports.seed = (knex) =>
           ]),
           location: 'Inner Kaiti, Gisborne',
           image_url: JSON.stringify(['v1589182639/ueszm7j3qi3yrantl05t.jpg', 'v1589182641/ir6zwiw7h3gyx6w9cluy.jpg', 'v1589182641/dcit4b8msok5dwrot8vf.jpg']),
-          user_id: 4,
-          category_id: 2
+          user_id: 2,
+          category_id: 1
         },
         {
           id: 31,
