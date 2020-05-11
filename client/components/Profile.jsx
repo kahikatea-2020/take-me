@@ -64,12 +64,12 @@ class Profile extends React.Component {
           ? <> 
           {this.props.usersListings.map(listing => {
             return <div className="ui card" key={listing.id}>
-              <p>name: {listing.name}</p>
-              <p>decription: {listing.decription}</p>
-              <p>location: {listing.location}</p>
-              <div className="image">
-                <img src={`https://res.cloudinary.com/takemenz/image/upload/${listing.imageUrl[0]}`} alt={listing.name} />
-              </div>
+                <h4><Link to={`/listings/${listing.id}`}>{listing.name}</Link></h4>
+                <p>decription: {listing.decription}</p>
+                <p>location: {listing.location}</p>
+                <div className="image">
+                  <img src={`https://res.cloudinary.com/takemenz/image/upload/${listing.imageUrl[0]}`} alt={listing.name} />
+                </div>
               {(isAuthenticated() && (this.props.user.id === listing.userId)) && <>
               <button name={listing.id} onClick={this.handleDelete}>Delete</button>
               <Link to={`/update-listing/${listing.id}`}><button>Update</button></Link>
