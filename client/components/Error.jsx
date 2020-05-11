@@ -2,9 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import Swal from 'sweetalert2'
 
-import { clearError, showError } from '../actions/error'
+import { hideError } from '../actions/error'
 
-const Error = (props) => {
+class Error extends React.Component {
   // if (props.error) {
   //   return Swal.fire({
   //     icon: 'error',
@@ -16,32 +16,34 @@ const Error = (props) => {
   //     this.props.dispatch(clearError())
   //   })
   // }
-  const handleClick = () => {
-    props.showError(null)
+  handleClick = () => {
+    this.props.dispatch(hideError())
   }
 
-  if (props.error) {
-    return (
-      <div className="errorPage">
-        <div className="errorContainer">
-          <div className="errorMessageBox">
-            <div className="errorSymbolDiv">
-              <span className="errorSymbol"><Icon name="exclamation triangle" /></span>
-            </div>
+  render () {
+    if (this.props.error) {
+      return (
+        <div className="errorPage">
+          <div className="errorContainer">
+            <div className="errorMessageBox">
+              <div className="errorSymbolDiv">
+                <span className="errorSymbol"><Icon name="exclamation triangle" /></span>
+              </div>
 
-            <div className="errorMessage">
-              <div><h2>An Error has Occured</h2></div>
-              <p>{props.error}</p>
-              <div className="errButton" onClick={handleClick}><div className="closeErr" unselectable="on">x</div></div>
-              <div className="errAnimate"></div>
+              <div className="errorMessage">
+                <div><h2>An Error has Occured</h2></div>
+                <p>{this.props.error}</p>
+                <div className="errButton" onClick={this.handleClick}><div className="closeErr" unselectable="on">x</div></div>
+                <div className="errAnimate"></div>
+              </div>
             </div>
           </div>
         </div>
-      </div>
 
-    )
+      )
+    }
+    return null
   }
-  return null
 }
 
 function mapStateToProps (state) {

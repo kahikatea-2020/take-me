@@ -5,6 +5,77 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <div
+        id="wrapper"
+      >
+        <h1>
+          Login
+        </h1>
+        <form
+          class="ui form"
+        >
+          <div
+            class="six wide field"
+          >
+            <div
+              class="ui fluid input"
+            >
+              <input
+                name="username"
+                placeholder="Username"
+                type="text"
+              />
+            </div>
+          </div>
+          <div
+            class="six wide field"
+          >
+            <div
+              class="ui fluid input"
+            >
+              <input
+                autocomplete="off"
+                name="password"
+                placeholder="Password"
+                type="password"
+              />
+            </div>
+          </div>
+          <div
+            class="fields"
+          >
+            <a
+              href="/"
+            >
+              <div
+                class="field"
+              >
+                <button
+                  class="ui button"
+                >
+                  Cancel
+                </button>
+              </div>
+            </a>
+            <div
+              class="field"
+            >
+              <button
+                class="ui button"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      id="wrapper"
+    >
       <h1>
         Login
       </h1>
@@ -67,69 +138,6 @@ Object {
         </div>
       </form>
     </div>
-  </body>,
-  "container": <div>
-    <h1>
-      Login
-    </h1>
-    <form
-      class="ui form"
-    >
-      <div
-        class="six wide field"
-      >
-        <div
-          class="ui fluid input"
-        >
-          <input
-            name="username"
-            placeholder="Username"
-            type="text"
-          />
-        </div>
-      </div>
-      <div
-        class="six wide field"
-      >
-        <div
-          class="ui fluid input"
-        >
-          <input
-            autocomplete="off"
-            name="password"
-            placeholder="Password"
-            type="password"
-          />
-        </div>
-      </div>
-      <div
-        class="fields"
-      >
-        <a
-          href="/"
-        >
-          <div
-            class="field"
-          >
-            <button
-              class="ui button"
-            >
-              Cancel
-            </button>
-          </div>
-        </a>
-        <div
-          class="field"
-        >
-          <button
-            class="ui button"
-            type="submit"
-          >
-            Submit
-          </button>
-        </div>
-      </div>
-    </form>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

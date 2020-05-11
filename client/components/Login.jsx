@@ -37,7 +37,7 @@ class Login extends React.Component {
         this.props.dispatch(userSuccess())
         if (isAuthenticated()) {
           this.props.dispatch(getUserDetails())
-          this.props.history.push('/')
+          this.props.history.goBack()
         } else {
           this.setState({ show: true })
           this.props.dispatch(showError('Username or Password Incorrect'))
@@ -53,46 +53,48 @@ class Login extends React.Component {
   render () {
     return (
       <>
-        <h1>Login</h1>
-        <Form>
-          <Form.Input
-            onKeyUp={this.updateField}
-            fluid
-            width={6}
-            name='username'
-            placeholder='Username'
-            type='text'
-          />
-          <Form.Input
-            onKeyUp={this.updateField}
-            fluid
-            width={6}
-            name='password'
-            placeholder='Password'
-            type='password'
-            autoComplete='off'
-          />
-          <Form.Group>
-            <Link to='/'>
-              <Form.Button>
+        <div id="wrapper">
+          <h1>Login</h1>
+          <Form>
+            <Form.Input
+              onKeyUp={this.updateField}
+              fluid
+              width={6}
+              name='username'
+              placeholder='Username'
+              type='text'
+            />
+            <Form.Input
+              onKeyUp={this.updateField}
+              fluid
+              width={6}
+              name='password'
+              placeholder='Password'
+              type='password'
+              autoComplete='off'
+            />
+            <Form.Group>
+              <Link to='/'>
+                <Form.Button>
               Cancel
-              </Form.Button>
-            </Link>
-            <Form.Button
-              type='submit'
-              onClick={this.submitHandler}
-            >
+                </Form.Button>
+              </Link>
+              <Form.Button
+                type='submit'
+                onClick={this.submitHandler}
+              >
               Submit
-            </Form.Button>
-          </Form.Group>
-        </Form>
-        <WaitIndicator />
-        <SweetAlert
-          show={this.state.show}
-          title="Oppsie, Something went wrong!"
-          text={this.props.error}
-          onConfirm={() => this.setState({ show: false })}
-        />
+              </Form.Button>
+            </Form.Group>
+          </Form>
+          <WaitIndicator />
+          <SweetAlert
+            show={this.state.show}
+            title="Oppsie, Something went wrong!"
+            text={this.props.error}
+            onConfirm={() => this.setState({ show: false })}
+          />
+        </div>
       </>
     )
   }

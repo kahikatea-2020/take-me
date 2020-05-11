@@ -25,7 +25,7 @@ class SignUp extends React.Component {
     uploadedImage: false
   }
 
-  inputChecker = event => {
+  inputChecker = () => {
     const { firstName, lastName, emailAddress, location, username, password, phoneNumber } = this.state
     if (firstName !== '' && lastName !== '' && location !== '' && username !== '' && password !== '' && emailAddress !== '') {
       if (phoneNumber !== null || phoneNumber !== '') {
@@ -101,6 +101,8 @@ class SignUp extends React.Component {
   render () {
     return (
       <>
+      <div id="wrapper">
+
         <h1>Sign Up</h1>
         <p>Please fill in the following details:</p>
         <Form>
@@ -225,6 +227,7 @@ class SignUp extends React.Component {
           onConfirm={() => this.setState({ show: false })}
         />
         <WaitIndicator />
+      </div>
       </>
     )
   }
@@ -235,5 +238,7 @@ const mapStateToProps = state => {
     error: state.error
   }
 }
+
+export const VanillaSignUp = SignUp
 
 export default connect(mapStateToProps)(SignUp)
