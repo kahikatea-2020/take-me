@@ -48,7 +48,7 @@ exports.seed = (knex) =>
           location: 'Wellington',
           image_url: JSON.stringify(['v1588967373/ladder_s9wtoj.jpg']),
           user_id: 2,
-          category_id: 4
+          category_id: 6
         },
         {
           id: 3,
@@ -74,7 +74,7 @@ exports.seed = (knex) =>
           location: 'Queenstown',
           image_url: JSON.stringify(['v1588967332/brokenphone_q5dkym.jpg']),
           user_id: 3,
-          category_id: 1
+          category_id: 2
         },
         {
           id: 5,
@@ -151,7 +151,7 @@ exports.seed = (knex) =>
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967348/hoops_jbmdbg.jpg']),
           user_id: 2,
-          category_id: 2
+          category_id: 7
         },
         {
           id: 11,
@@ -374,7 +374,7 @@ exports.seed = (knex) =>
             'Viola comes with a shoulder rest and a carbon fibre bow, resin and a good case.'
           ]),
           location: 'Nelson',
-          image_url: JSON.stringify(['ie6f4acrwylvokqqfcvz.jpg']),
+          image_url: JSON.stringify(['v1589182637/Screen_Shot_2020-05-11_at_6.54.34_PM_xgolqz.png', 'v1589182631/Screen_Shot_2020-05-11_at_6.55.06_PM_rz4uyt.png', 'v1589182626/Screen_Shot_2020-05-11_at_6.54.55_PM_o6fnsq.png', 'v1589182624/Screen_Shot_2020-05-11_at_6.55.16_PM_cl8dm2.png', 'v1589182633/Screen_Shot_2020-05-11_at_6.54.24_PM_et2lhj.png']),
           user_id: 4,
           category_id: 9
         },
