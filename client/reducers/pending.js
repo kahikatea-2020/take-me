@@ -18,6 +18,11 @@ import {
   GET_CATEGORIES_SUCCESS
 } from '../actions/categories'
 
+import {
+  GET_COMMENTS_PENDING,
+  GET_COMMENTS_SUCCESS
+} from '../actions/q-and-a'
+
 import { ERROR } from '../actions/error'
 
 export default function pendingReducer (pendingState = false, action) {
@@ -27,6 +32,7 @@ export default function pendingReducer (pendingState = false, action) {
     case GET_LISTINGS_PENDING:
     case GET_USER_PENDING:
     case GET_CATEGORIES_PENDING:
+    case GET_COMMENTS_PENDING:
       return true
 
     case LOGIN_SUCCESS:
@@ -35,6 +41,7 @@ export default function pendingReducer (pendingState = false, action) {
     case GET_LISTING_SUCCESS:
     case GET_USER_SUCCESS:
     case GET_CATEGORIES_SUCCESS:
+    case GET_COMMENTS_SUCCESS:
     case ERROR:
       return false
 
