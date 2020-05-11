@@ -4,6 +4,43 @@
   flex-wrap: wrap;
 }
 
+#footer {
+  width: 100vw;
+  position: relative;
+  left:0;
+  bottom: 0;
+  right:0;
+  height: 15vh;
+  background-color: rgb(29, 29, 29);
+  color: white;
+}
+
+#footerLogo {
+  width: 130px;
+}
+
+#footerWrapper {
+  width: 90%;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#footerLinks {
+  color: #f3f3f3a1;
+}
+
+#footerLinks :hover {
+  color: #ffffff;
+}
+
+#footerHeaders {
+  color: white;
+  font-weight: bold;
+}
+
 .imagesPreview {
   display: flex;
   flex-direction: row;
