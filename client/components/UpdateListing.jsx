@@ -7,6 +7,7 @@ import { openUploadWidget } from './CloudinaryService'
 import { userPending, userSuccess } from '../actions/users'
 import { hideError, showError } from '../actions/error'
 import { connect } from 'react-redux'
+import WaitIndicator from './WaitIndicator'
 
 class UpdateListing extends React.Component {
   constructor (props) {
@@ -119,6 +120,7 @@ class UpdateListing extends React.Component {
     return (
       <>
         <h1>Update Listing</h1>
+        <WaitIndicator />
         <Form>
           <div className="ui form">
             <div className="field">
