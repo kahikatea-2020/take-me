@@ -2,7 +2,7 @@ import React from 'react'
 import Slider from 'react-slick'
 import { isAuthenticated } from 'authenticare/client'
 import { connect } from 'react-redux'
-import { Grid } from 'semantic-ui-react'
+import { Button, Image, Card, Grid } from 'semantic-ui-react'
 
 import WaitIndicator from './WaitIndicator'
 
@@ -74,22 +74,42 @@ class Listing extends React.Component {
           </div>
         <div className='contact-info'>
           <h4>Location: {listing.location}</h4>
-          <h3>Contact {listing.userFirstName}</h3>
-          <p>{listing.userPhoneNumber}</p>
+              <Card>
+                <Card.Content>
+                  <Image
+                    circular
+                    floated='right'
+                    size='mini'
+                    src={`https://res.cloudinary.com/takemenz/image/upload/${listing.userImage}`}
+                  />
+                  <Card.Header>Contact {listing.userFirstName}</Card.Header>
+                  <Card.Description>
+                    Phone: {listing.userPhoneNumber}
+                  </Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                  <div className='ui two buttons'>
+                    <Button className='email-button'>
+                      <a href={`mailto:${listing.userEmail}?subject=#${listing.id}:%20${this.state.emailSubject}`}>Email</a>
+                    </Button>
+                    {/* <Link to={`/profile/${listing.userId}`} > */}
+                      <Button as={Link} to={`/profile/${listing.userId}`}>
+                        View Profile
+                      </Button>
+                    {/* </Link> */}
+                  </div>
+                </Card.Content>
+              </Card>
           {(isAuthenticated() && (this.props.user.id === listing.userId)) &&
             <button className='updateListing'>
               <Link to={`/update-listing/${listing.id}`}>Edit Listing</Link>
             </button>
            }
         </div>
-          <button className='email-button'>
-            <a href={`mailto:${listing.userEmail}?subject=#${listing.id}:%20${this.state.emailSubject}`}>Email Dealer</a>
-          </button>
           <br />
-          {(isAuthenticated() && (this.props.user.id === listing.userId)) 
-            ? <Link to={`/profile/${listing.userId}`} ><button>Your listings</button></Link>
-            : <Link to={`/profile/${listing.userId}`} ><button>{listing.userFirstName}'s listings</button></Link>
-           }
+          {(isAuthenticated() && (this.props.user.id === listing.userId)) &&
+            <Link to={`/profile/${listing.userId}`} ><button>Your listings</button></Link>
+          }
         <WaitIndicator />
           </Grid.Column>
         </Grid.Row>

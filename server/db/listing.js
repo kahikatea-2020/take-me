@@ -3,7 +3,8 @@ const connection = require('./connection')
 function getListings (db = connection) {
   return db('listings')
     .join('categories', 'listings.category_id', 'categories.id')
-    .select('listings.id as id', 'listings.name as name', 'listings.image_url as imageUrl', 'listings.location as location', 'listings.user_id as userId', 'listings.category_id as categoryId', 'categories.name as category')
+    .join('users', 'listings.user_id', 'users.id')
+    .select('listings.id as id', 'listings.name as name', 'listings.image_url as imageUrl', 'listings.location as location', 'listings.user_id as userId', 'listings.category_id as categoryId', 'categories.name as category', 'users.image_url as userImage')
 }
 
 function getListingsById (id, db = connection) {

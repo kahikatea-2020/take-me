@@ -30,7 +30,7 @@ class App extends React.Component {
       <CloudinaryContext cloudName='takemenz'>
         <Router>
           <Route path='/' component={Navbar} />
-          <Container style={{ marginTop: '7em' }}>
+          <Container id='main-container' style={{ marginTop: '7em' }}>
             <Switch>
               <Route exact path='/' component={Home} />
               <Route path='/sign-up' component={SignUp} />

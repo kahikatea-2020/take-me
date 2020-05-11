@@ -16,12 +16,11 @@ class ListItem extends React.Component {
           </Card.Header>
           <Card.Meta>{listing.location}</Card.Meta>
           <Card.Description>{listing.category}</Card.Description>
-          {/* <div className="content">
-            <h3><Link to={`/listings/${listing.id}`}>{listing.name}</Link></h3>
-            <div className="meta">
-              <a>{listing.location}</a>
+          <div className="extra content">
+            <div className="right floated author">
+              <img className="ui avatar image" src={`https://res.cloudinary.com/takemenz/image/upload/${listing.userImage}`} />
             </div>
-          </div> */}
+          </div>
         </Card.Content>
       </Card>
     )

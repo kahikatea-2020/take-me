@@ -12,7 +12,7 @@ class Footer extends React.Component {
               <div className="ui list" id="listWrapper">
                 <Link to={'/'}>
                   <div className="item">
-                    <img src="takeme-green.png" alt="logo" id="footerLogo"/>
+                    <img src="/takeme-green.png" alt="logo" id="footerLogo"/>
                   </div>
                 </Link>
                 <div className="item">

@@ -4,13 +4,17 @@
   flex-wrap: wrap;
 }
 
+#main-container {
+  padding-bottom: 15vh;
+}
+
 #footer {
   width: 100vw;
   position: relative;
-  left:0;
   bottom: 0;
-  right:0;
+  width: 100%;
   height: 15vh;
+  margin-top: 5vh;
   background-color: rgb(29, 29, 29);
   color: white;
 }
@@ -85,7 +89,7 @@
 }
 
 .slick-slider {
-  width: 50%;
+  width: 90%;
 }
 /* END CAROUSEL STYLING */
 
