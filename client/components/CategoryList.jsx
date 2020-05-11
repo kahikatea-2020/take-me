@@ -28,11 +28,14 @@ class CategoryList extends React.Component {
   }
 
   render () {
-    const categories = this.props.categories.map(category => ({
+    let categories = this.props.categories.map(category => ({
       key: category.id,
       text: category.name,
       value: category.name
     }))
+    if (this.props.history.location.pathname === '/') {
+      categories = [{ id: 100, text: 'All Categories', value: 'All Categories' }, ...categories]
+    }
 
     return (
       <>
