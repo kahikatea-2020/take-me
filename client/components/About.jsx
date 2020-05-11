@@ -17,6 +17,8 @@ class About extends React.Component {
         </p>
         <ul>
           <li>You are saving energy - because the manufacturer does not need to make a new product</li>
+          <li>Reduces landfill use - if we can reduce the amount of waste in a landfill, we will be better off as a planet</li>
+
         </ul>
 
       </>
