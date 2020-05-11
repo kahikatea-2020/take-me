@@ -466,17 +466,17 @@ exports.seed = (knex) =>
         },
         {
           id: 34,
-          name: 'Canon 6D + 24-105mm F4 L Lens',
+          name: 'Old coffee thing',
           description: JSON.stringify([
-            'Camera body itself is in very good condition with no noticeable scuffs or scratches',
-            'Lens has a slight crack in the barrel as shown in the photos. This has been there for as long as I\'ve had the camera, has no impact on image quality or focusing of the lens. It also hasn\'t extended or grown larger in all the time I\'ve had it. Functionally the lens has always worked great.',
-            'Shutter count is 34k so lots of usable life left as these are rated for 100k, and they normally go well beyond that number.',
-            'Comes with the original charger and 2 batteries'
+            'This does make coffee. It does work well and taste nice. I do recommend you do pick it up.',
+            'It works really really well and I think you can pick it up and try making yourself a coffee.',
+            'I have only used this one a few times due to its low capacity but is ideal for someone who is just making coffee for one or two. ',
+            'It still has a coffee smell that I can not get to leave but it is not overpowering.'
           ]),
-          location: 'Atawhai, Nelson',
-          image_url: JSON.stringify(['v1589182639/Screen_Shot_2020-05-11_at_7.04.40_PM_tdl2md.png', 'v1589182641/Screen_Shot_2020-05-11_at_7.05.00_PM_zwbo9r.png', 'v1589182641/Screen_Shot_2020-05-11_at_7.04.48_PM_kenm5q.png', 'v1589182642/Screen_Shot_2020-05-11_at_7.05.22_PM_iqoige.png']),
+          location: 'Inner Kaiti, Gisborne',
+          image_url: JSON.stringify(['v1589182639/txhyyjcftdfbxfahm697.jpg', 'v1589182641/xjsvrfiwfje6mnenk8td.jpg']),
           user_id: 2,
-          category_id: 2
+          category_id: 4
         },
         {
           id: 35,
