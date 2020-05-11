@@ -388,7 +388,7 @@ exports.seed = (knex) =>
             'Donating because I\'m rich and want to buy more new bikes but figured I should not put this in the dump because I learned that global warming is happening.'
           ]),
           location: 'Greymouth',
-          image_url: JSON.stringify(['ie6f4acrwylvokqqfcvz.jpg']),
+          image_url: JSON.stringify(['v1589182626/Screen_Shot_2020-05-11_at_6.56.57_PM_chau1k.png', 'v1589182637/Screen_Shot_2020-05-11_at_6.57.30_PM_j60pt9.png', 'v1589182629/Screen_Shot_2020-05-11_at_6.56.46_PM_pfbkef.png']),
           user_id: 4,
           category_id: 5
         },
@@ -402,7 +402,7 @@ exports.seed = (knex) =>
             'Having to leave this behind as I am moving to Auckland.'
           ]),
           location: 'Hornby, Christchurch',
-          image_url: JSON.stringify(['ie6f4acrwylvokqqfcvz.jpg']),
+          image_url: JSON.stringify(['v1589182629/Screen_Shot_2020-05-11_at_7.00.43_PM_epxtx0.png', 'v1589182632/Screen_Shot_2020-05-11_at_7.00.50_PM_lqvfg5.png']),
           user_id: 4,
           category_id: 6
         },
@@ -416,7 +416,7 @@ exports.seed = (knex) =>
             'Breathable, soft design'
           ]),
           location: 'Bluff',
-          image_url: JSON.stringify(['ie6f4acrwylvokqqfcvz.jpg']),
+          image_url: JSON.stringify(['v1589182636/Screen_Shot_2020-05-11_at_7.02.19_PM_ayakjf.png', 'v1589182636/Screen_Shot_2020-05-11_at_7.02.05_PM_vorvjm.png', 'v1589182636/Screen_Shot_2020-05-11_at_7.01.54_PM_lqufd4.png', 'v1589182636/Screen_Shot_2020-05-11_at_7.02.12_PM_rtbe6e.png']),
           user_id: 4,
           category_id: 8
         },
@@ -430,7 +430,7 @@ exports.seed = (knex) =>
             'Comes with the original charger and 2 batteries'
           ]),
           location: 'Atawhai, Nelson',
-          image_url: JSON.stringify(['ie6f4acrwylvokqqfcvz.jpg']),
+          image_url: JSON.stringify(['v1589182639/Screen_Shot_2020-05-11_at_7.04.40_PM_tdl2md.png', 'v1589182641/Screen_Shot_2020-05-11_at_7.05.00_PM_zwbo9r.png', 'v1589182641/Screen_Shot_2020-05-11_at_7.04.48_PM_kenm5q.png', 'v1589182642/Screen_Shot_2020-05-11_at_7.05.22_PM_iqoige.png']),
           user_id: 4,
           category_id: 2
         }
