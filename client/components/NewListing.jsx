@@ -20,12 +20,12 @@ class NewListing extends React.Component {
       categoryId: '',
       location: '',
       imageUrl: [],
-      userId: this.props.user.id,
+      userId: this.props.user.id, 
       show: false
     }
     this.handleChange = this.handleChange.bind(this)
-  }
-
+  } 
+// 
   handleChange (evt) {
     this.setState({ [evt.target.name]: evt.target.value })
   }
@@ -33,6 +33,10 @@ class NewListing extends React.Component {
   handleDescriptionChange = (evt) => {
     const arr = evt.target.value.split("\n")
     this.setState({description: arr})
+    var spitAddie = this.props.address.split(',')
+    var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
+    console.log(addie)
+    this.setState({ location: addie })
   }
 
   imageUpload = tag => {
@@ -62,8 +66,8 @@ class NewListing extends React.Component {
   }
 
   inputChecker = () => {
-    const { name, description, location } = this.state
-    if(name !== '' && description !== '' && location !== '') {
+    const { name, description } = this.state
+    if(name !== '' && description !== '') {
       return true
     } else {
       return false
@@ -106,12 +110,13 @@ class NewListing extends React.Component {
             <label>Listing Name</label>
             <input type="text" name="name" onChange={this.handleChange} />
 
-            <label>Description</label>
-            <input type="text" name="description" onChange={this.handleDescriptionChange} />
-
             {/* maybe make it a dropdown? */}
             <label>Location</label>
             <Autocomplete />
+
+            <label>Description</label>
+            <input type="text" name="description" onChange={this.handleDescriptionChange} />
+
             {/* need to update category list */}
             <Form.Button onClick={() => this.imageUpload()}>Upload Image</Form.Button>
             {this.state.imageUrl[0] &&
@@ -167,6 +172,7 @@ class NewListing extends React.Component {
 const mapStateToProps = state => {
   return {
     user: state.user,
+    address: state.autocomplete,
     error: state.error
   }
 }

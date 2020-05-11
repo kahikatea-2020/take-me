@@ -69,9 +69,12 @@ class SignUp extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     })
-    this.setState({ location: this.props.address })
-    console.log(this.state)
+    var spitAddie = this.props.address.split(',')
+    var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
+    console.log(addie)
+    this.setState({ location: addie })
   }
+  
 
   submitHandler = e => {
     this.props.dispatch(hideError())
