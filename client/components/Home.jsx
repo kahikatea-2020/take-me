@@ -16,9 +16,9 @@ class Home extends React.Component {
   render () {
     return (
       <>
-        <SearchBar history={this.props.history}/>
+        <SearchBar history={this.props.history} />
         <h1>Latest Listings</h1>
-        <CategoryList />
+        <CategoryList history={this.props.history} />
         <WaitIndicator />
         <div className="ListingWrapper">
           {this.props.listings.map(item => <ListItem key={item.id} listing={item} />)}
