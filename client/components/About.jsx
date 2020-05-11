@@ -19,6 +19,7 @@ class About extends React.Component {
           <li>You are saving energy - because the manufacturer does not need to make a new product</li>
           <li>Reduces landfill use - if we can reduce the amount of waste in a landfill, we will be better off as a planet</li>
           <li>Reduces the number of chemicals used - factories use raw materials which create toxic chemicals</li>
+          <li>Reduces water pollution - if an item is recycled, it will not end up in the ocean</li>
           
         </ul>
 
