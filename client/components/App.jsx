@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import { CloudinaryContext } from 'cloudinary-react'
 import { connect } from 'react-redux'
 import { isAuthenticated } from 'authenticare/client'
@@ -13,7 +13,6 @@ import Listing from './Listing'
 import NewListing from './NewListing'
 import Profile from './Profile'
 import Error404 from './Error404'
-import Autocomplete from './Autocomplete'
 
 // import Footer from './Footer'
 
