@@ -124,9 +124,13 @@ class Listing extends React.Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-        <div className='questions-and-answers'>
+        {/* {this.state.comments.legnth &&
+          <div className='questions-and-answers'>
+            {this.state.comments.map(comment => {
 
-        </div>
+            })}
+          </div>
+        } */}
       </>
     )
   }
