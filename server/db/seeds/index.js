@@ -17,7 +17,7 @@ exports.seed = (knex) =>
     .then(() =>
       knex('users').insert([
         { id: 1, username: 'johnS', first_name: 'John', last_name: 'Sengson', email: 'john@gmail.com', phone_number: '021-435-1234', image_url: 'v1588967373/john_yigtz6.jpg', hash: '5F4DCC3B5AA765D61D8327DEB882CF99', location: 'Auckland' },
-        { id: 2, username: 'm-dog', first_name: 'Mathias', last_name: 'Bast', email: 'mathias@gmail.com', phone_number: '021-352-1234', image_url: 'v1588967372/mathias_eos91h.jpg', hash: '5F4DCC3B5AA765D61D8327DEB882CF99', location: 'Gisborne' },
+        { id: 2, username: 'BubbleBast', first_name: 'Mathias', last_name: 'Bast', email: 'mathias@gmail.com', phone_number: '021-352-1234', image_url: 'v1588967372/mathias_eos91h.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$t7fDj0UPvYCnLculR3ti2w$hsbmENXcvcQbKGBoj2cBoH0xVBB8OIYfNDSZsatnT8k', location: 'Gisborne' },
         { id: 3, username: 'hamishT', first_name: 'Hamish', last_name: 'Tana', email: 'hamish@gmail.com', phone_number: '021-665-4287', image_url: 'v1588967348/hamishT_eiqwbd.jpg', hash: '5F4DCC3B5AA765D61D8327DEB898PHA7', location: 'Auckland' },
         { id: 4, username: 'vibes-lache', first_name: 'Lache', last_name: 'Melvin', email: 'lache@gmail.com', phone_number: '021-352-6789', image_url: 'v1588967373/lache_v5blpl.png', hash: '5F4DCC3B5AA7KGA84D8327DEB8826KL8', location: 'Nelson' },
         { id: 5, username: 'p-man', first_name: 'Pat', last_name: 'Lim', email: 'pat@gmail.com', phone_number: '021-352-6789', image_url: 'v1588967373/pat_cevccf.jpg', hash: '5F4DCC3B5AA765D61D8327DEB8826KL8', location: 'Auckland' },
@@ -445,7 +445,7 @@ exports.seed = (knex) =>
             'Please E-mail me for more details about it. It is just a nice beanie. It is hard to give it away but it is for the best.'
           ]),
           location: 'Inner Kaiti, Gisborne',
-          image_url: JSON.stringify(['v1589182639/Screen_Shot_2020-05-11_at_7.04.40_PM_tdl2md.png', 'v1589182641/Screen_Shot_2020-05-11_at_7.05.00_PM_zwbo9r.png', 'v1589182641/Screen_Shot_2020-05-11_at_7.04.48_PM_kenm5q.png', 'v1589182642/Screen_Shot_2020-05-11_at_7.05.22_PM_iqoige.png']),
+          image_url: JSON.stringify(['v1589182639/ueszm7j3qi3yrantl05t.jpg', 'v1589182641/ir6zwiw7h3gyx6w9cluy.jpg', 'v1589182641/dcit4b8msok5dwrot8vf.jpg']),
           user_id: 4,
           category_id: 2
         },
