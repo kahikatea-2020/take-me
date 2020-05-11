@@ -9,6 +9,7 @@ import { addListing } from '../api/listings'
 import Autocomplete from './Autocomplete'
 
 import { showError, hideError } from '../actions/error'
+import { userPending, userSuccess } from '../actions/users'
 import { Link } from 'react-router-dom'
 
 class NewListing extends React.Component {
@@ -76,19 +77,22 @@ class NewListing extends React.Component {
 
   submitHandler = () => {
     this.props.dispatch(hideError())
-    if(this.inputChecker()){
+    if(this.inputChecker()) {
+      this.props.dispatch(userPending())
       if (!this.state.imageUrl[0]) {
         this.setState({
           imageUrl: [...this.state.imageUrl, 'v1589063179/default-listing_pgdcsc.png']
         }, () => {
           addListing(this.state)
             .then(id => {
+              this.props.dispatch(userSuccess())
               this.props.history.push(`/listings/${id}`)
             })
           })
         } else {
           addListing(this.state)
             .then(id => {
+              this.props.dispatch(userSuccess())
               this.props.history.push(`/listings/${id}`)
             })
       }
@@ -101,6 +105,8 @@ class NewListing extends React.Component {
     return (
       <>
       {/* this is a pretty shit solution lets make this better at some point*/}
+        <div id="wrapper">
+
         {(isAuthenticated() && (this.props.user.username !== undefined))
         ?<>
           <h1>Create a listing</h1>
@@ -164,6 +170,7 @@ class NewListing extends React.Component {
         />
         </>
         :<p>Log in to create a listing</p>}
+        </div>
       </>
     )
   }

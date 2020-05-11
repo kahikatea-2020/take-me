@@ -3,16 +3,10 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import { Search } from 'semantic-ui-react'
 
-import { getListings } from '../actions/listings'
-
 const initialState = { isLoading: false, results: [], value: '' }
 
 class SearchBar extends Component {
   state = initialState
-
-  componentDidMount () {
-    getListings()
-  }
 
   handleResultSelect = (e, { result }) => this.setState({ value: result.title })
 
@@ -70,7 +64,8 @@ const mapStateToProps = state => {
   const listings = state.listings.map(listing => ({
       title: listing.name,
       image: `https://res.cloudinary.com/takemenz/image/upload/${listing.imageUrl[0]}`,
-      id: listing.id
+      id: listing.id,
+      description: listing.category
     })
   )
   return {
@@ -79,10 +74,4 @@ const mapStateToProps = state => {
   }
 }
 
-function mapDispatchToProps (dispatch) {
-  return {
-    getListings: () => dispatch(getListings())
-  }
-}
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchBar)
+export default connect(mapStateToProps)(SearchBar)
