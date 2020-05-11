@@ -10,6 +10,7 @@ class About extends React.Component {
         We want to promote recycling and reusing things that do not need to be thrown out. "one man's trash is another man's treasure"
         Is how our site works. We aim to make it easy to find someone else who wants something you will throw out and give it a second life.
         </p>
+        <h2>Why Recycle?</h2>
 
       </>
     )
