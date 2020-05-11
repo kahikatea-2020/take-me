@@ -12,8 +12,9 @@ class About extends React.Component {
         </p>
         <h2>Why Recycle?</h2>
         <p>
-        You have heard of reduce, reuse, recycle right?
-        Well, this is another thing that we are trying to do by making this Website.
+          You have heard of reduce, reuse, recycle, right? 
+          Well, this is a concept our team is promoting through creating this Website.  By choosing our website, in turn choosing a pathway of 
+          sustainable living, you are also choosing to make the following positive impacts:
         </p>
         <ul>
           <li>You are saving energy - because the manufacturer does not need to make a new product</li>
