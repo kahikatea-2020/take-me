@@ -26,7 +26,10 @@ class About extends React.Component {
             Less toxic chemicals - factories that produce the products we see on shelves are often made from raw materials which create toxic 
             chemicals, re-purposing is a simple solution to lowering the demand, therefore, the production of these toxins
           </li>
-          <li>Reduces water pollution - if an item is recycled, it will not end up in the ocean</li>
+          <li>
+            Reduces pollution - a lot of our "rubbish" can actually be recycled, opting for this method can reduce the amount of waste 
+            that wind up in the oceans
+          </li>
           <li>Saves you money - if you are getting something free from our site, you are not buying something new. As a result, you are saving money!</li>
         </ul>
         <h2>How Can You Help?</h2>
