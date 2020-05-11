@@ -75,7 +75,11 @@ class SignUp extends React.Component {
     this.setState({ location: addie })
   }
   
-
+  handleOnKeyDown = event => {
+    if (event.keyCode === 13) {
+      this.submitHandler()
+    }
+  }
   submitHandler = e => {
     this.props.dispatch(hideError())
     if (this.state.password !== this.state.confirmPassword) {
@@ -177,6 +181,7 @@ class SignUp extends React.Component {
             placeholder='Confirm password'
             type='password'
             autoComplete='off'
+            onKeyDown={this.handleOnKeyDown}
           />
           <Form.Button
           onClick={e => {

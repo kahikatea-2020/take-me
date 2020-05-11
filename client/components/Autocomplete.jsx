@@ -88,7 +88,6 @@ class Autocomplete extends Component {
     } = this
 
     let suggestionsListComponent
-
     if (showSuggestions && userInput) {
       if (filteredSuggestions.length) {
         suggestionsListComponent = (
@@ -111,7 +110,7 @@ class Autocomplete extends Component {
       } else {
         suggestionsListComponent = (
           <div className="no-suggestions">
-            <em>No suggestions, you're on your own!</em>
+            <em>No suggestions sorry</em>
           </div>
         )
       }
