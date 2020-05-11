@@ -77,6 +77,12 @@ class NewListing extends React.Component {
     }
   }
 
+  handleOnKeyDown = event => {
+    if (event.keyCode === 13) {
+      this.submitHandler()
+    }
+  }
+
   submitHandler = e => {
     e.preventDefault()
     this.props.dispatch(hideError())
@@ -134,7 +140,7 @@ class NewListing extends React.Component {
             <Autocomplete />
 
             <label>Description</label>
-            <input type="text" name="description" onChange={this.handleDescriptionChange} />
+            <input type="text" onKeyDown={this.handleOnKeyDown} name="description" onChange={this.handleDescriptionChange} />
 
             <label>Category</label>
             <CategoryList history={this.props.history} />
