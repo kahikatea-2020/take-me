@@ -66,9 +66,9 @@
   max-height: 100%;
 }
 
-/* START NAVBAR STYLING */
-
-/* END NAVBAR STYLING */
+#latest-listings {
+  margin-bottom: 20px;
+}
 
 /* START CAROUSEL STYLING */
 .slick-carousel {
@@ -86,7 +86,6 @@
 
 .slick-slider {
   width: 50%;
-  margin: 0 auto;
 }
 /* END CAROUSEL STYLING */
 

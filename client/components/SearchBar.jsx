@@ -1,7 +1,7 @@
 import _ from 'lodash'
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { Search } from 'semantic-ui-react'
+import { Button, Search, Menu, Dropdown } from 'semantic-ui-react'
 
 const initialState = { isLoading: false, results: [], value: '' }
 
@@ -42,9 +42,18 @@ class SearchBar extends Component {
   render () {
     const { isLoading, value, results } = this.state
     return (
-      <>
+      <Menu inverted color='blue'>
+        <Menu.Item style={{ width: '20%' }}>
+          <Dropdown style={{ width: '100%', textAlign: 'center' }} placeholder='Category' search selction options={this.props.categories.map(category => ({
+            key: category.id,
+            text: category.name,
+            value: category.name}))}
+            />
+        </Menu.Item>
+        <Menu.Item style={{ width: '80%' }}>
           <Search
-            width={10}
+            style={{ width: '85%', marginRight: '20px' }}
+            input={{ fluid: true }}
             loading={isLoading}
             onResultSelect={this.handleResultSelect}
             onSearchChange={_.debounce(this.handleSearchChange, 500, {
@@ -55,7 +64,11 @@ class SearchBar extends Component {
             value={value}
             {...this.props}
           />
-      </>
+        <Button inverted style={{ width: '10%' }}>
+          Search
+        </Button>
+        </Menu.Item>
+      </Menu>
     )
   }
 }
@@ -69,7 +82,7 @@ const mapStateToProps = state => {
     })
   )
   return {
-    // selectedCategory: state.selectedCategory,
+    categories: state.categories,
     listings: listings
   }
 }

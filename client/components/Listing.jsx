@@ -2,6 +2,7 @@ import React from 'react'
 import Slider from 'react-slick'
 import { isAuthenticated } from 'authenticare/client'
 import { connect } from 'react-redux'
+import { Grid } from 'semantic-ui-react'
 
 import WaitIndicator from './WaitIndicator'
 
@@ -48,9 +49,9 @@ class Listing extends React.Component {
     }
 
     return (
-      <>
-        <div className="listingWrapper">
-          <h2>{listing.name}</h2>
+      <Grid columns={2} divided>
+        <Grid.Row>
+          <Grid.Column>
           {(this.state.imageUrl[0] !== undefined ) &&
             <div className='slick-carousel'>
               <Slider className='slick-image' {...settings}>
@@ -65,10 +66,13 @@ class Listing extends React.Component {
               </Slider>
             </div>
           }
+          </Grid.Column>
+          <Grid.Column>
           <div className='listing-description'>
+            <h1>{listing.name}</h1>
             {this.state.description.map(sentence => <p key={sentence.substr(0, 10)}>{sentence}</p>)}
           </div>
-        <div className='contactInfo'>
+        <div className='contact-info'>
           <h4>Location: {listing.location}</h4>
           <h3>Contact {listing.userFirstName}</h3>
           <p>{listing.userPhoneNumber}</p>
@@ -78,7 +82,7 @@ class Listing extends React.Component {
             </button>
            }
         </div>
-          <button className='emailButton'>
+          <button className='email-button'>
             <a href={`mailto:${listing.userEmail}?subject=#${listing.id}:%20${this.state.emailSubject}`}>Email Dealer</a>
           </button>
           <br />
@@ -86,9 +90,10 @@ class Listing extends React.Component {
             ? <Link to={`/profile/${listing.userId}`} ><button>Your listings</button></Link>
             : <Link to={`/profile/${listing.userId}`} ><button>{listing.userFirstName}'s listings</button></Link>
            }
-        </div>
         <WaitIndicator />
-      </>
+          </Grid.Column>
+        </Grid.Row>
+      </Grid>
     )
   }
 }
