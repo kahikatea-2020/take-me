@@ -7,6 +7,7 @@ import selectedCategory from './selectedCategory'
 import user from './users'
 import error from './error'
 import userListings from './usersListings'
+import autocomplete from './autocomplete'
 
 export default combineReducers({
   pending,
@@ -15,5 +16,6 @@ export default combineReducers({
   selectedCategory,
   user,
   error,
-  userListings
+  userListings,
+  autocomplete
 })

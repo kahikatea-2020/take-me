@@ -10,6 +10,7 @@ import { showError, hideError } from '../actions/error'
 import { BASE_API_URL } from '../base-api.js'
 import { userPending, userSuccess, getUserDetails } from '../actions/users'
 import WaitIndicator from './WaitIndicator'
+import Autocomplete from './Autocomplete'
 
 class SignUp extends React.Component {
   state = {
@@ -17,17 +18,17 @@ class SignUp extends React.Component {
     lastName: '',
     emailAddress: '',
     phoneNumber: null,
-    location: '',
     username: '',
     password: '',
     confirmPassword: '',
     imageUrl: 'v1589061239/default-profile_checno.png',
-    uploadedImage: false
+    uploadedImage: false,
+    location: ''
   }
 
-  inputChecker = () => {
-    const { firstName, lastName, emailAddress, location, username, password, phoneNumber } = this.state
-    if (firstName !== '' && lastName !== '' && location !== '' && username !== '' && password !== '' && emailAddress !== '') {
+  inputChecker = event => {
+    const { firstName, lastName, emailAddress, username, password, phoneNumber } = this.state
+    if (firstName !== '' && lastName !== '' && username !== '' && password !== '' && emailAddress !== '') {
       if (phoneNumber !== null || phoneNumber !== '') {
         return false
       } else {
@@ -68,7 +69,12 @@ class SignUp extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     })
+    var spitAddie = this.props.address.split(',')
+    var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
+    console.log(addie)
+    this.setState({ location: addie })
   }
+  
 
   submitHandler = e => {
     this.props.dispatch(hideError())
@@ -142,15 +148,7 @@ class SignUp extends React.Component {
             placeholder='Phone number'
             type='number'
           />
-          <Form.Input
-            onKeyUp={this.updateField}
-            fluid
-            required
-            width={6}
-            name='location'
-            placeholder='Location'
-            type='text'
-          />
+          <Autocomplete />
           <Form.Input
             onKeyUp={this.updateField}
             fluid
@@ -235,7 +233,8 @@ class SignUp extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    error: state.error
+    error: state.error,
+    address: state.autocomplete
   }
 }
 
