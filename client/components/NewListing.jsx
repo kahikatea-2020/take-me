@@ -3,6 +3,7 @@ import { Form } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { isAuthenticated } from 'authenticare/client'
 
+import CategoryList from './CategoryList'
 import { openUploadWidget } from './CloudinaryService'
 import { addListing } from '../api/listings'
 
@@ -89,6 +90,7 @@ class NewListing extends React.Component {
             <label>Description</label>
             <input type="text" name="description" required onChange={this.handleDescriptionChange} />
 
+            <CategoryList />
             {/* maybe make it a dropdown? */}
             <label>Location (maybe make a drop down as well?) </label>
             <input type="text" name="location" required onChange={this.handleChange} />
