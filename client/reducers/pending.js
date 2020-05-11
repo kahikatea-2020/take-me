@@ -1,6 +1,7 @@
 import {
   GET_LISTINGS_PENDING,
   GET_LISTINGS_SUCCESS,
+  GET_LISTING_SUCCESS,
   GET_USERS_LISTINGS_SUCCESS,
   GET_USERS_LISTINGS_PENDING
 } from '../actions/listings'
@@ -31,6 +32,7 @@ export default function pendingReducer (pendingState = false, action) {
     case LOGIN_SUCCESS:
     case GET_USERS_LISTINGS_SUCCESS:
     case GET_LISTINGS_SUCCESS:
+    case GET_LISTING_SUCCESS:
     case GET_USER_SUCCESS:
     case GET_CATEGORIES_SUCCESS:
     case ERROR:
