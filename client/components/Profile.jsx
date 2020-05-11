@@ -71,7 +71,7 @@ class Profile extends React.Component {
                   <img src={`https://res.cloudinary.com/takemenz/image/upload/${listing.imageUrl[0]}`} alt={listing.name} />
                 </div>
               {(isAuthenticated() && (this.props.user.id === listing.userId)) && <>
-              <button name={listing.id} onClick={this.handleDelete}>Delete</button>
+              <button name={listing.id} onClick={this.handleDelete}>Taken</button>
               <Link to={`/update-listing/${listing.id}`}><button>Update</button></Link>
               </>}
             </div> 
