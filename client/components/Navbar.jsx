@@ -30,8 +30,8 @@ class Navbar extends React.Component {
               <Menu.Item as={Link} to='/new-listing'>
                 Create a Listing
               </Menu.Item>
-              <Dropdown simple trigger={profile} icon={null}>
-                <Dropdown.Menu>
+              <Dropdown simple trigger={profile} icon={null} style={{ minWidth: '10vw' }}>
+                <Dropdown.Menu style={{ width: '100%' }}>
                   <Dropdown.Item style={{ paddingLeft: '10px' }} as={Link} to={`/profile/${this.props.user.id}`}>
                     Profile
                   </Dropdown.Item>
