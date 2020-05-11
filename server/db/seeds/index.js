@@ -29,7 +29,7 @@ exports.seed = (knex) =>
           id: 1,
           name: 'Soccer Ball',
           description: JSON.stringify([
-            'Moving house and we don\'t use this ball anymore',
+            'Moving house and we don\'t use this ball anymore.',
             'Free to a good home!'
           ]),
           location: 'Auckland',
@@ -41,9 +41,9 @@ exports.seed = (knex) =>
           id: 2,
           name: 'Ladder',
           description: JSON.stringify([
-            '5 step ladder',
-            'I\'ve only used it like twice',
-            'Perfect working condition, contact me for pick up times'
+            '5 step ladder.',
+            'I\'ve only used it like twice.',
+            'Perfect working condition, contact me for pick up times.'
           ]),
           location: 'Wellington',
           image_url: JSON.stringify(['v1588967373/ladder_s9wtoj.jpg']),
@@ -54,9 +54,9 @@ exports.seed = (knex) =>
           id: 3,
           name: 'Infant Shoes',
           description: JSON.stringify([
-            'Infant shoes in great condition',
-            'My child has outgrown already',
-            'Contact me below if interested'
+            'Infant shoes in great condition.',
+            'My child has outgrown already and only worn a few times.',
+            'Contact me below if interested.'
           ]),
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967372/infantshoes_ohcade.jpg']),
@@ -67,9 +67,9 @@ exports.seed = (knex) =>
           id: 4,
           name: 'Broken Galaxy s3',
           description: JSON.stringify([
-            'Broken - screen cracked',
-            'Got a new phone and dont want to spend for fixing',
-            'Good for parts'
+            'Broken - screen cracked.',
+            'Got a new phone and dont want to spend for fixing.',
+            'Good for parts.'
           ]),
           location: 'Queenstown',
           image_url: JSON.stringify(['v1588967332/brokenphone_q5dkym.jpg']),
@@ -80,9 +80,9 @@ exports.seed = (knex) =>
           id: 5,
           name: 'Old Couch',
           description: JSON.stringify([
-            'Moving house and no space for this couch',
-            'Still in good condition',
-            'Hit me up asap, currently sitting outside'
+            'Moving house and no space for this couch.',
+            'Still in good condition.',
+            'Hit me up asap, currently sitting outside.'
           ]),
           location: 'Waiheke Island',
           image_url: JSON.stringify(['v1588967347/couch_z4bqcd.jpg']),
@@ -93,9 +93,9 @@ exports.seed = (knex) =>
           id: 6,
           name: 'Ukulele',
           description: JSON.stringify([
-            'Purchased so I can learn but gave up',
-            'Not for me but could be for you',
-            'Please contact me if interested'
+            'Purchased so I can learn but gave up.',
+            'Not for me but could be for you.',
+            'Please contact me if interested.'
           ]),
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967373/ukulele_xpaknn.jpg']),
@@ -106,9 +106,9 @@ exports.seed = (knex) =>
           id: 7,
           name: 'Tire',
           description: JSON.stringify([
-            'Was cleaning the garage and found this',
-            'Sold my car so no need for this',
-            'Not sure about the size but we can organise for you to check'
+            'Was cleaning the garage and found this.',
+            'Sold my car so no need for this.',
+            'Not sure about the size but we can organise for you to check.'
           ]),
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967373/tire_lzlvpn.jpg']),
@@ -119,8 +119,8 @@ exports.seed = (knex) =>
           id: 8,
           name: 'Old garden tools',
           description: JSON.stringify([
-            'Got new ones so these are surplus to requirement',
-            'Bit rusty but they still do the job'
+            'Got new ones so these are surplus to requirement.',
+            'Bit rusty but they still do the job.'
           ]),
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967373/rake_dspvuh.jpg']),
@@ -131,9 +131,9 @@ exports.seed = (knex) =>
           id: 9,
           name: 'Nokia Charger',
           description: JSON.stringify([
-            'No phone to use this with',
-            'Free to someone who still has nokia phones',
-            'Contact me if interested'
+            'No phone to use this with.',
+            'Free to someone who still has nokia phones.',
+            'Contact me if interested.'
           ]),
           location: 'Rotorua',
           image_url: JSON.stringify(['v1588967347/charger_mhozxk.jpg']),
@@ -144,9 +144,9 @@ exports.seed = (knex) =>
           id: 10,
           name: 'Basketball board',
           description: JSON.stringify([
-            'Some idiot dunked and broke the basket',
-            'The rim is still in good condition but I cant be bothered to fix it',
-            'Just need new screws and you will need to take it off the wall if interested'
+            'Some idiot dunked and broke the basket.',
+            'The rim is still in good condition but I cant be bothered to fix it.',
+            'Just need new screws and you will need to take it off the wall if interested.'
           ]),
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967348/hoops_jbmdbg.jpg']),
@@ -157,9 +157,9 @@ exports.seed = (knex) =>
           id: 11,
           name: 'Cup set',
           description: JSON.stringify([
-            'Listed on trade me as I am going back home overseas',
-            'Still not sold so they are now free to a good home ',
-            'Good quality cups and hardly used all as I live by myself'
+            'Listed on trade me as I am going back home overseas.',
+            'Still not sold so they are now free to a good home.',
+            'Good quality cups and hardly used all as I live by myself.'
           ]),
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967347/cups_wpgqls.jpg']),
@@ -170,9 +170,9 @@ exports.seed = (knex) =>
           id: 12,
           name: 'Chair-old',
           description: JSON.stringify([
-            'Chair in ok condition free for pick up',
-            'Got a new set and this is now an extra',
-            'Made from good quality wood so it will last a while'
+            'Chair in ok condition free for pick up.',
+            'Got a new set and this is now an extra.',
+            'Made from good quality wood so it will last a while.'
           ]),
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967347/chair_eyb6ba.jpg']),
@@ -184,8 +184,8 @@ exports.seed = (knex) =>
           name: 'Best shirt ever',
           description: JSON.stringify([
             'Had this really cool shirt when I was young.',
-            'Sad to let it go but it wont fit me anymore',
-            'Free to someone who wants to spread the Don Energy'
+            'Sad to let it go but it wont fit me anymore.',
+            'Free to someone who wants to spread the Don Energy.'
           ]),
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967332/bigdonshirt_xg8gzu.jpg']),
@@ -196,9 +196,9 @@ exports.seed = (knex) =>
           id: 14,
           name: 'Harmonica for kids',
           description: JSON.stringify([
-            'Bought from the warehouse for the kids',
-            'Instant regret as the kids wont stop using it',
-            'Its free to anyone who can tolerate it'
+            'Bought from the warehouse for the kids.',
+            'Instant regret as the kids wont stop using it.',
+            'Its free to anyone who can tolerate it.'
           ]),
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967348/harmonica_ovrack.jpg']),
@@ -209,9 +209,9 @@ exports.seed = (knex) =>
           id: 15,
           name: 'Jumper Cables',
           description: JSON.stringify([
-            'Got a battery starter so no need for this',
-            'Has helped me multiple times and hope it does for you too',
-            'Contact me if interested'
+            'Got a battery starter so no need for this.',
+            'Has helped me multiple times and hope it does for you too.',
+            'Contact me if interested.'
           ]),
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967372/jumperleads_lrhtdz.jpg']),
@@ -235,9 +235,9 @@ exports.seed = (knex) =>
           id: 17,
           name: 'Pot',
           description: JSON.stringify([
-            'Pot is bit old but still in good condition',
-            'Will look good in your garden',
-            'Needs 2 person lift when picking up'
+            'Pot is bit old but still in good condition.',
+            'Will look good in your garden.',
+            'Needs 2 person lift when picking up.'
           ]),
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967373/pot_pejjzr.jpg']),
@@ -274,9 +274,9 @@ exports.seed = (knex) =>
           id: 20,
           name: 'Yoga Mat',
           description: JSON.stringify([
-            'I may or may not have borrowed this and forgotten to return it',
-            'It\'s in perfect condition so let me know if you are interested',
-            'Pick ups after work hours ideally'
+            'I may or may not have borrowed this and forgotten to return it.',
+            'It\'s in perfect condition so let me know if you are interested.',
+            'Pick ups after work hours ideally.'
           ]),
           location: 'Wellington',
           image_url: JSON.stringify(['f3ckqvha48hrejwhoodw.jpg']),
@@ -287,9 +287,9 @@ exports.seed = (knex) =>
           id: 21,
           name: 'Olympia Fields, US Open 2003 cap',
           description: JSON.stringify([
-            'Old cap of mine',
-            'I\'ve got so many I just need to get rid of some',
-            'I\'ve given it a good wash, so don\'t worry about it'
+            'Old cap of mine.',
+            'I\'ve got so many I just need to get rid of some.',
+            'I\'ve given it a good wash, so don\'t worry about it.'
           ]),
           location: 'Wellington',
           image_url: JSON.stringify(['vosljyixedmr3cfcsyb8.jpg', 'hwazaysffsg26wrzvdiz.jpg']),
@@ -301,7 +301,7 @@ exports.seed = (knex) =>
           name: 'Apple Trackpad',
           description: JSON.stringify([
             'Perfect condition, I want to save the planet!',
-            'Just upgraded to a mouse haha, so let me know if you are keen'
+            'Just upgraded to a mouse haha, so let me know if you are keen.'
           ]),
           location: 'Wellington',
           image_url: JSON.stringify(['nvidzfpug6yol8bubxmg.jpg', 'g6amwtjedwrrpkgpzj3e.jpg']),
@@ -325,10 +325,10 @@ exports.seed = (knex) =>
           id: 24,
           name: 'Olympus 35mm mju zoon',
           description: JSON.stringify([
-            'Good condition',
-            'I can send you some photos if you like',
-            'Unfortunately the battery is flat, so you\'ll need to buy some',
-            'But it\'s free so why wouldn\'t you want it'
+            'Good condition.',
+            'I can send you some photos if you like.',
+            'Unfortunately the battery is flat, so you\'ll need to buy some.',
+            'But it\'s free so why wouldn\'t you want it.'
           ]),
           location: 'Auckland',
           image_url: JSON.stringify(['i1paunxg4mu5uaeo2ccg.jpg', 'jaa7m8owujmxhd7cizjm.jpg']),
@@ -340,8 +340,8 @@ exports.seed = (knex) =>
           name: 'Adidas Gazelle shoes',
           description: JSON.stringify([
             'Size 10',
-            'Bit worn down, but totally wearable still',
-            'May need a bit of a clean',
+            'Bit worn down, but totally wearable still.',
+            'May need a bit of a clean.',
             'I just don\'t really wear then, would love for someone to wear them till they fall apart!'
           ]),
           location: 'Auckland',
@@ -353,11 +353,11 @@ exports.seed = (knex) =>
           id: 26,
           name: 'Quick release guitar capo',
           description: JSON.stringify([
-            'The original One-handed Quick-Change capo',
-            'Strong, lightweight aluminum with steel spring',
-            'Professional quality',
-            "Parks on the guitar's headstock when not in use",
-            'hand_orientation: ambidextrous'
+            'The original One-handed Quick-Change capo.',
+            'Strong, lightweight aluminum with steel spring.',
+            'Professional quality.',
+            "Parks on the guitar's headstock when not in use.",
+            'hand_orientation: ambidextrous.'
           ]),
           location: 'Lake Taupo',
           image_url: JSON.stringify(['ie6f4acrwylvokqqfcvz.jpg']),
@@ -369,7 +369,7 @@ exports.seed = (knex) =>
           name: 'Sebastian Klotz Copy Viola',
           description: JSON.stringify([
             'Beautiful viola.',
-            'In as-new condition',
+            'In as-new condition.',
             'It is approximately 70 cm long and has a beautifully inlaid fingerboard and nice tone woods.',
             'Viola comes with a shoulder rest and a carbon fibre bow, resin and a good case.'
           ]),
@@ -382,7 +382,7 @@ exports.seed = (knex) =>
           id: 28,
           name: '2004 Buell XB12S Lightning Motorbike',
           description: JSON.stringify([
-            'Manual Transmission',
+            'Manual Transmission.',
             'The Buell XB12S Lightning is a very individual motorcycle and hugely enjoyable to ride.',
             '1202cc Harley-Davidson air cooled V-twin in the Buell XB12S Lightning has been tuned and lays down fat wads of torque from tick over upwards.',
             'Donating because I\'m rich and want to buy more new bikes but figured I should not put this in the dump because I learned that global warming is happening.'
@@ -398,7 +398,7 @@ exports.seed = (knex) =>
           description: JSON.stringify([
             'This fun succulent has bright green leaves whose tips turn pink when in full sun.',
             'It has a woody stem and displays yellow flowers in the Spring.',
-            'Will make a great addition to someone else\'s collection',
+            'Will make a great addition to someone else\'s collection.',
             'Having to leave this behind as I am moving to Auckland.'
           ]),
           location: 'Hornby, Christchurch',
@@ -410,10 +410,10 @@ exports.seed = (knex) =>
           id: 30,
           name: 'MASKS!! 50pack',
           description: JSON.stringify([
-            'Photos are of a box I opened, your box is sealed and contains 50 masks',
-            'Tri-layer design for maximum protection',
-            'Comes with 100mL bottle of hand sanitiser as well',
-            'Breathable, soft design'
+            'Photos are of a box I opened, your box is sealed and contains 50 masks.',
+            'Tri-layer design for maximum protection.',
+            'Comes with 100mL bottle of hand sanitiser as well.',
+            'Breathable, soft design.'
           ]),
           location: 'Bluff',
           image_url: JSON.stringify(['v1589182636/Screen_Shot_2020-05-11_at_7.02.19_PM_ayakjf.png', 'v1589182636/Screen_Shot_2020-05-11_at_7.02.05_PM_vorvjm.png', 'v1589182636/Screen_Shot_2020-05-11_at_7.01.54_PM_lqufd4.png', 'v1589182636/Screen_Shot_2020-05-11_at_7.02.12_PM_rtbe6e.png']),
@@ -424,10 +424,10 @@ exports.seed = (knex) =>
           id: 31,
           name: 'Canon 6D + 24-105mm F4 L Lens',
           description: JSON.stringify([
-            'Camera body itself is in very good condition with no noticeable scuffs or scratches',
+            'Camera body itself is in very good condition with no noticeable scuffs or scratches.',
             'Lens has a slight crack in the barrel as shown in the photos. This has been there for as long as I\'ve had the camera, has no impact on image quality or focusing of the lens. It also hasn\'t extended or grown larger in all the time I\'ve had it. Functionally the lens has always worked great.',
             'Shutter count is 34k so lots of usable life left as these are rated for 100k, and they normally go well beyond that number.',
-            'Comes with the original charger and 2 batteries'
+            'Comes with the original charger and 2 batteries.'
           ]),
           location: 'Atawhai, Nelson',
           image_url: JSON.stringify(['v1589182639/Screen_Shot_2020-05-11_at_7.04.40_PM_tdl2md.png', 'v1589182641/Screen_Shot_2020-05-11_at_7.05.00_PM_zwbo9r.png', 'v1589182641/Screen_Shot_2020-05-11_at_7.04.48_PM_kenm5q.png', 'v1589182642/Screen_Shot_2020-05-11_at_7.05.22_PM_iqoige.png']),
@@ -599,9 +599,9 @@ exports.seed = (knex) =>
           id: 42,
           name: 'Toys for kids',
           description: JSON.stringify([
-            'Kids have outgrown this two toys',
-            'Will give your young ones lots of hours of play',
-            'Still in really good condition'
+            'Kids have outgrown this two toys.',
+            'Will give your young ones lots of hours of play.',
+            'Still in really good condition.'
           ]),
           location: 'Totara Vale, Auckland 0629',
           image_url: JSON.stringify([
@@ -617,10 +617,10 @@ exports.seed = (knex) =>
           id: 43,
           name: 'Weight plates',
           description: JSON.stringify([
-            'Weight plates from the warehouse',
-            'Lost the bar so no use for them anymore',
-            'Will be good to add to your home gym',
-            'Contact me so can organise pick up'
+            'Weight plates from the warehouse.',
+            'Lost the bar so no use for them anymore.',
+            'Will be good to add to your home gym.',
+            'Contact me so can organise pick up.'
           ]),
           location: ' Unsworth Heights, Auckland 0632',
           image_url: JSON.stringify([
@@ -635,10 +635,10 @@ exports.seed = (knex) =>
           id: 44,
           name: 'Iphone x cases',
           description: JSON.stringify([
-            'Join the android community went I damaged my iphone x',
-            'One is a UAG which is in ok condition',
-            'The other case is a defender I think with normal wear and tear',
-            'Both are my back up cases and still offer good protection'
+            'Join the android community went I damaged my iphone x.',
+            'One is a UAG which is in ok condition.',
+            'The other case is a defender I think with normal wear and tear.',
+            'Both are my back up cases and still offer good protection.'
           ]),
           location: '  Newmarket, Auckland 1023',
           image_url: JSON.stringify([
@@ -654,10 +654,10 @@ exports.seed = (knex) =>
           id: 45,
           name: 'Playing cards',
           description: JSON.stringify([
-            ' 2 x playing cards set from Sky City',
-            'Both have been used only once',
-            'Given a few by a friend and have too many',
-            'Can be a good way to kill some time while in lockdown'
+            ' 2 x playing cards set from Sky City.',
+            'Both have been used only once.',
+            'Given a few by a friend and have too many.',
+            'Can be a good way to kill some time while in lockdown.'
           ]),
           location: '  Newmarket, Auckland 1023',
           image_url: JSON.stringify([
@@ -672,11 +672,11 @@ exports.seed = (knex) =>
           id: 46,
           name: 'Bmx bike spokes',
           description: JSON.stringify([
-            ' 2 x Bmx bike spokes',
-            'Came from Redline BMX bike which I sold',
-            'Forgot to install them back when sold and cant get in touch with the buyer',
-            'Some rust but can easliy be cleaned and painted',
-            'Upgraded to a mountain bike so no need for them anymore'
+            ' 2 x Bmx bike spokes.',
+            'Came from Redline BMX bike which I sold.',
+            'Forgot to install them back when sold and cant get in touch with the buyer.',
+            'Some rust but can easliy be cleaned and painted.',
+            'Upgraded to a mountain bike so no need for them anymore.'
           ]),
           location: '  Newmarket, Auckland 1023',
           image_url: JSON.stringify([
