@@ -51,7 +51,7 @@ class Listing extends React.Component {
     return (
       <Grid columns={2} divided>
         <Grid.Row>
-          <Grid.Column className='listing-images'>
+          <Grid.Column stretched className='listing-images'>
             {(this.state.imageUrl[0] !== undefined) &&
               <div className='slick-carousel'>
                 <Slider className='slick-image' {...settings}>
@@ -69,6 +69,11 @@ class Listing extends React.Component {
           </Grid.Column>
           <Grid.Column stretched className='listing-details'>
             <div className='listing-description'>
+              {(isAuthenticated() && (this.props.user.id === listing.userId)) &&
+                  <Button id='update' style={{ maxHeight: '5vh', maxWidth: '50%' }} as={Link} to={`/update-listing/${listing.id}`} className='update-listing'>
+                    Edit Listing
+                  </Button>
+              }
               <h1>{listing.name}</h1>
               <h4>Location: {listing.location}</h4>
               {this.state.description.map(sentence => <p key={sentence.substr(0, 10)}>{sentence}</p>)}
@@ -91,20 +96,13 @@ class Listing extends React.Component {
                     <Button id='email' as={Link} to={`mailto:${listing.userEmail}?subject=#${listing.id}:%20${this.state.emailSubject}`}>
                       Email
                     </Button>
-                    {/* <Link to={`/profile/${listing.userId}`} > */}
                     <Button id='profile' as={Link} to={`/profile/${listing.userId}`}>
                       View Profile
                       </Button>
-                    {/* </Link> */}
                   </div>
                 </Card.Content>
               </Card>
             </div>
-            {(isAuthenticated() && (this.props.user.id === listing.userId)) &&
-              <Button id='update' style={{ maxHeight: '5vh', maxWidth: '50%' }} as={Link} to={`/update-listing/${listing.id}`} className='update-listing'>
-                Edit Listing
-            </Button>
-            }
             <WaitIndicator />
           </Grid.Column>
         </Grid.Row>
