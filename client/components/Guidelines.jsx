@@ -4,7 +4,7 @@ class Guidelines extends React.Component {
   render () {
     return (
       <div className='guidelines'>
-        <h1>TakeMe Guideles</h1>
+        <h1>TakeMe Guidelines</h1>
         <br/>
         <p>This page is to set standards and guidelines for all users, both listers and takers.
            Please make sure you agree to all that is documented below before using our service.</p>
