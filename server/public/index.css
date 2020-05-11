@@ -90,15 +90,82 @@
 
 .slick-slider {
   width: 90%;
+  /* margin: 0 auto; */
+  float: left;
+}
+
+.slick-carousel img {
+  /* need to define image height */
 }
 /* END CAROUSEL STYLING */
 
 /* START LISTING STYLING */
+div.row {
+  min-height: 80vh;
+}
+
+.listing-details {
+  padding-left: 100px;
+}
+
 .listing-description {
-  margin-top: 5%;
-  width: auto;
+  margin-left: 4vw;
+  padding-top: 2vh;
+}
+
+.listing-description h1 {
+  margin-bottom: none;
+}
+
+.listing-description h4 {
+  margin-bottom: 5vh;
+  margin-top: none;
+}
+
+.listing-description p {
+  font-size: 1.2em;
+}
+
+.contact-info {
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 5vh;
+}
+
+.contact-info div.ui.card {
+  width: 30vw;
+  height: 30vh;
+  font-size: 1.2em;
+  margin-left: 4vw;
+}
+
+.contact-info div.ui.card div.content {
+  padding: 3vh;
+}
+
+div.header {
+  margin-top: 1vh;
+}
+
+div.meta {
+  margin-top: 3vh;
+}
+
+.contact-info div.ui.card img {
+  width: 5vw;
   height: auto;
 }
+
+.ui-two-buttons #email {
+  float: left;
+  width: 45%;
+}
+
+.ui-two-buttons #profile {
+  float: right;
+  width: 50%;
+}
+
 /* END LISTING STYLING*/
 
 .deleteButton {
