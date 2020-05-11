@@ -60,6 +60,7 @@ class SearchBar extends Component {
               leading: true
             })}
             onKeyDown={this.handleEnter}
+            placeholder='Search Listings...'
             results={results}
             value={value}
             {...this.props}
