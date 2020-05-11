@@ -506,5 +506,93 @@ exports.seed = (knex) =>
           image_url: JSON.stringify(['v1589182639/edhjocxxxtcu4xsly0ez.jpg', 'v1589182641/j6xw6hvjcrfpoq5tmnor.jpg', 'v1589182641/sev5lpij8thxbnu45cl3.jpg', 'v1589182642/hruy5wrgpy0xz2jvgrbq.jpg', 'v1589182642/pwrcn9pzvjml4ykd69pf.jpg']),
           user_id: 2,
           category_id: 5
+        },
+        {
+          id: 37,
+          name: 'French print in frame',
+          description: JSON.stringify([
+            'Moving countries so getting rid of a ton of stuff!',
+            'Beautiful vintage “Kina Lillet” print in large black frame.',
+            'Great condition, small tear in the backing but is obviously not visible and does not affect the picture hanging at all.'
+          ]),
+          location: 'Aranui, Christchurch',
+          image_url: JSON.stringify([
+            'v1589185694/p2m81pmunflguholnkwi.jpg',
+            'v1589185694/ajqfy3qidophq8cee1ho.jpg'
+          ]),
+          user_id: 6,
+          category_id: 4
+        },
+        {
+          id: 38,
+          name: 'Monopoly board (UK edition)',
+          description: JSON.stringify([
+            'UK Edition Monopoly board with all pieces and cards included.',
+            'Super fun, competitive game to play with family or friends.',
+            'Don\'t blame me if this causes arguments.',
+            'Free to whoever can pick up first.'
+          ]),
+          location: 'Ellerslie, Auckland',
+          image_url: JSON.stringify([
+            'v1589185882/obwbl1prutb4rtb7eqah.jpg',
+            'v1589185882/wtd6tvlmxyzknfq2oa7d.jpg'
+          ]),
+          user_id: 6,
+          category_id: 4
+        },
+        {
+          id: 39,
+          name: 'Hairdryer (Mark Hill)',
+          description: JSON.stringify([
+            'Giving away this powerful salon-quality hairdryer by Mark Hill in amazing working condition.',
+            'Only reason I’m giving it away is because I’m leaving the country next week and it must go.',
+            'The cord is roughly two meters and it comes with a diffuser and a 50ml heat protection spray too.',
+            'This hairdryer features five heat options and five airflow/power options (up to 2200W), meaning you have 25 different combinations!',
+            'First come, first served.'
+          ]),
+          location: 'Richmond, Nelson',
+          image_url: JSON.stringify([
+            'v1589186167/sv2dqy2tcpdtjxyi7upp.jpg',
+            'v1589186170/txvohk90qmcu2wdm7kdl.jpg',
+            'v1589186174/eljl0wowmgo7wallmspx.jpg',
+            'v1589186176/c6ecrhyglg1xehcipskg.jpg'
+          ]),
+          user_id: 6,
+          category_id: 8
+        },
+        {
+          id: 40,
+          name: 'Olivia the Orchid',
+          description: JSON.stringify([
+            'Beautiful pink flowering orchid with supports for sale.',
+            'She has been well cared for and we are sad to say goodbye to Olivia the Orchid.',
+            'I\'m hoping she can find a nice new home with someone who will take care of her!',
+            'I have a few other plants to give away too so let me know if you’re are interested in those or check out my profile for my other listings.'
+          ]),
+          location: 'Sunshine Bay, Queenstown',
+          image_url: JSON.stringify([
+            'v1589186358/m1838s4pooepzlwgdcf8.jpg',
+            'v1589186356/avdw9i327obntespfm9o.jpg'
+          ]),
+          user_id: 6,
+          category_id: 6
+        },
+        {
+          id: 41,
+          name: 'Dr. Martens (size UK 10)',
+          description: JSON.stringify([
+            'Dr Martens 1460 Smooth (8 eye) boots in size UK 10, black colour.',
+            'They’ve only been tried on at home and weren’t quite the right style so sending on to a good home!',
+            'They also come with a set of yellow laces.'
+          ]),
+          location: 'Johnsonville, Wellington',
+          image_url: JSON.stringify([
+            'v1589186686/ovujggrnqouzhkdu4sfc.jpg',
+            'v1589186687/gt4x7biphwrpcs9mnxo8.jpg',
+            'v1589186689/ix980mz4nm0hqhpjbvpa.jpg',
+            'v1589186691/xywtch3yanwnkylnrxt7.jpg'
+          ]),
+          user_id: 6,
+          category_id: 1
         }
       ]))
