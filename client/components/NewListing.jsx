@@ -7,6 +7,7 @@ import SweetAlert from 'sweetalert2-react'
 import { openUploadWidget } from './CloudinaryService'
 import { addListing } from '../api/listings'
 import { showError, hideError } from '../actions/error'
+import { userPending, userSuccess } from '../actions/users'
 import { Link } from 'react-router-dom'
 
 class NewListing extends React.Component {
@@ -70,19 +71,22 @@ class NewListing extends React.Component {
 
   submitHandler = () => {
     this.props.dispatch(hideError())
-    if(this.inputChecker()){
+    if(this.inputChecker()) {
+      this.props.dispatch(userPending())
       if (!this.state.imageUrl[0]) {
         this.setState({
           imageUrl: [...this.state.imageUrl, 'v1589063179/default-listing_pgdcsc.png']
         }, () => {
           addListing(this.state)
             .then(id => {
+              this.props.dispatch(userSuccess())
               this.props.history.push(`/listings/${id}`)
             })
           })
         } else {
           addListing(this.state)
             .then(id => {
+              this.props.dispatch(userSuccess())
               this.props.history.push(`/listings/${id}`)
             })
       }
