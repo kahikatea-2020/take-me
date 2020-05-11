@@ -18,7 +18,10 @@ class About extends React.Component {
         </p>
         <ul>
           <li>Energy Conservation - using our website reduces product demand from manufacturers, thus, saving energy</li>
-          <li>Reduces landfill use - if we can reduce the amount of waste in a landfill, we will be better off as a planet</li>
+          <li>
+            Reduces landfill conteng - by re-purposing and/or recycle materials and products, we reduce the amount of waste that end up in 
+            landfills which altogether contribute to a healthier planet
+          </li>
           <li>Reduces the number of chemicals used - factories use raw materials which create toxic chemicals</li>
           <li>Reduces water pollution - if an item is recycled, it will not end up in the ocean</li>
           <li>Saves you money - if you are getting something free from our site, you are not buying something new. As a result, you are saving money!</li>
