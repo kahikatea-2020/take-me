@@ -2,7 +2,7 @@ const connection = require('./connection')
 
 function getCommentsById (id, db = connection) {
   return db('q_and_a')
-    .join('users', 'q_and_a.user', 'users.id')
+    .join('users', 'q_and_a.user_id', 'users.id')
     .where('q_and_a.listing_id', id)
     .select('q_and_a.id as id',
       'q_and_a.comment as comment',
