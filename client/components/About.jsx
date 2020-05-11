@@ -36,7 +36,15 @@ class About extends React.Component {
           We do want to make it as accessible and as easy as possible to do this by making the Website user friendly and easy to navigate and
           easy on the eyes.
         </p>
-
+        <h2>Made By:</h2>
+        <ul>
+          <li>Mathias Bast</li>
+          <li>Patrick Lim</li>
+          <li>Laché Melvin</li>
+          <li>Hamish Henry</li>
+          <li>Ellora Virtue</li>
+          <li>John Sengson</li>
+        </ul>
       </>
     )
   }
