@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 import { CloudinaryContext } from 'cloudinary-react'
 import { connect } from 'react-redux'
 import { isAuthenticated } from 'authenticare/client'
