@@ -18,10 +18,9 @@
     "test:watch": "npm test -- --watchAll",
     "knex": "knex --knexfile server/db/knexfile.js",
     "db:delete": "rm -f server/db/dev.sqlite3 ",
-    "db:rollback": "npm run knex migrate:rollback",
     "db:migrate": "npm run knex migrate:latest",
     "db:seed": "npm run knex seed:run",
-    "db:reset": "run-s db:delete db:rollback db:migrate db:seed",
+    "db:reset": "run-s db:delete db:migrate db:seed",
     "postinstall": "run-s db:reset build",
     "lint": "eslint --ignore-path .gitignore ."
   },
