@@ -7,10 +7,12 @@ import ListItem from './ListItem'
 import CategoryList from './CategoryList'
 
 import { getListings } from '../actions/listings'
+import { getCategories } from '../actions/categories'
 
 class Home extends React.Component {
   componentDidMount () {
     this.props.dispatch(getListings())
+    this.props.dispatch(getCategories())
   }
 
   render () {
