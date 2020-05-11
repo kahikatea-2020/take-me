@@ -1,5 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { getAddress } from '../api/addy'
+import { connect } from 'react-redux'
+import { addAdress } from '../actions/autocomplete'
 
 class Autocomplete extends Component {
   constructor (props) {
@@ -32,6 +34,7 @@ class Autocomplete extends Component {
             filteredSuggestions,
             showSuggestions: true
           })
+          this.props.dispatch(addAdress(this.state.userInput))
         })
     }
   }
@@ -43,6 +46,7 @@ class Autocomplete extends Component {
       showSuggestions: false,
       userInput: e.currentTarget.innerText
     })
+    this.props.dispatch(addAdress(e.currentTarget.innerText))
   }
 
   onKeyDown = e => {
@@ -54,6 +58,7 @@ class Autocomplete extends Component {
         showSuggestions: false,
         userInput: filteredSuggestions[activeSuggestion]
       })
+      this.props.dispatch(addAdress(filteredSuggestions[activeSuggestion]))
     } else if (e.keyCode === 38) {
       if (activeSuggestion === 0) {
         return
@@ -126,4 +131,4 @@ class Autocomplete extends Component {
   }
 }
 
-export default Autocomplete
+export default connect()(Autocomplete)

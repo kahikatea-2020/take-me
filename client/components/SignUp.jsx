@@ -22,7 +22,8 @@ class SignUp extends React.Component {
     password: '',
     confirmPassword: '',
     imageUrl: 'v1589061239/default-profile_checno.png',
-    uploadedImage: false
+    uploadedImage: false,
+    location: ''
   }
 
   inputChecker = event => {
@@ -68,6 +69,8 @@ class SignUp extends React.Component {
     this.setState({
       [e.target.name]: e.target.value
     })
+    this.setState({ location: this.props.address })
+    console.log(this.state)
   }
 
   submitHandler = e => {
@@ -224,7 +227,8 @@ class SignUp extends React.Component {
 
 const mapStateToProps = state => {
   return {
-    error: state.error
+    error: state.error,
+    address: state.autocomplete
   }
 }
 
