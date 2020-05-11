@@ -24,14 +24,6 @@ class Navbar extends React.Component {
           <Menu.Item style={{ padding: '10px' }} as={Link} to='/' header>
             <Image size='small' src={'/logo-white.png'} />
           </Menu.Item>
-          {/* So this next part basically is saying
-              if its logged in and there is a username in the store show it
-              else they need to log in
-              That's not great bc when you reload the page there is not username
-              in the store so it looks like you need to log in again even though
-              you don't
-              This is a temporary fix but if there is a way to use the token then
-              we should definitely do that */}
         <Menu.Menu style={fontStyle} position='right'>
           {(isAuthenticated() && (this.props.user.username !== undefined))
             ? <>

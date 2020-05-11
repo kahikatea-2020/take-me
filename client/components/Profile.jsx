@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { isAuthenticated } from 'authenticare/client'
 // import { Ui, Card } from 'semantic-ui-react'
 import { getUserById } from '../api/users'
+import { userPending, userSuccess } from '../actions/users'
 import { getUsersListings } from '../actions/listings'
 import WaitIndicator from './WaitIndicator'
 import { deleteListingById } from '../api/listings'
@@ -32,8 +33,12 @@ class Profile extends React.Component {
 
   handleDelete = event => {
     const id = event.target.name
+    this.props.dispatch(userPending())
     deleteListingById(id)
-    this.props.dispatch(getUsersListings(this.props.match.params.id))
+      .then (() => {
+        // this.props.dispatch(userSuccess())
+        this.props.dispatch(getUsersListings(this.props.match.params.id))
+      })
   }
 
   render () {
@@ -54,7 +59,8 @@ class Profile extends React.Component {
         </div>
         <div>
           <h2>Your Listings</h2>
-          {this.props.usersListings.length !== 0 && <> 
+          {this.props.usersListings.length !== 0 
+          ? <> 
           {this.props.usersListings.map(listing => {
             return <div className="ui card" key={listing.id}>
               <p>name: {listing.name}</p>
@@ -70,8 +76,10 @@ class Profile extends React.Component {
             </div> 
           })}
           </> 
+          : <WaitIndicator />
           }
         </div>
+        <WaitIndicator />
       </>
     )
   }

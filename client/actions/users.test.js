@@ -1,8 +1,10 @@
 import {
+  getUserPending,
   getUserSuccess,
   getUserDetails,
   userPending,
   userSuccess,
+  GET_USER_PENDING,
   GET_USER_SUCCESS,
   LOGIN_PENDING,
   LOGIN_SUCCESS
@@ -28,6 +30,10 @@ jest.mock('../api/users', () => {
 })
 
 describe('getUserDetails functionality', () => {
+  it('should have a getUserPending action that dispatched pending correctly', () => {
+    const action = getUserPending()
+    expect(action.type).toBe(GET_USER_PENDING)
+  })
   it('should have getUserSuccess function that dispatches success correctly', () => {
     const details = {
       id: 2,
@@ -51,10 +57,11 @@ describe('getUserDetails functionality', () => {
     const action = getUserDetails()
     return action(dispatch)
       .then(() => {
-        expect(dispatch.mock.calls.length).toBe(1)
-        expect(dispatch.mock.calls[0][0].type).toBe(GET_USER_SUCCESS)
-        expect(dispatch.mock.calls[0][0].details.location).toBe('fairyland')
-        expect(Object.keys(dispatch.mock.calls[0][0].details)).toHaveLength(8)
+        expect(dispatch.mock.calls.length).toBe(2)
+        expect(dispatch.mock.calls[0][0].type).toBe(GET_USER_PENDING)
+        expect(dispatch.mock.calls[1][0].type).toBe(GET_USER_SUCCESS)
+        expect(dispatch.mock.calls[1][0].details.location).toBe('fairyland')
+        expect(Object.keys(dispatch.mock.calls[1][0].details)).toHaveLength(8)
       })
   })
 })

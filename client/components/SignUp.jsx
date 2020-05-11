@@ -25,7 +25,7 @@ class SignUp extends React.Component {
     uploadedImage: false
   }
 
-  inputChecker = event => {
+  inputChecker = () => {
     const { firstName, lastName, emailAddress, location, username, password, phoneNumber } = this.state
     if (firstName !== '' && lastName !== '' && location !== '' && username !== '' && password !== '' && emailAddress !== '') {
       if (phoneNumber !== null || phoneNumber !== '') {
