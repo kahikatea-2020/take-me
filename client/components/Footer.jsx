@@ -10,11 +10,13 @@ class Footer extends React.Component {
           <div className="ui grid container" id="footerWrapper">
             <div className="four wide column" id="footerColumn">
               <div className="ui list" id="listWrapper">
+                <Link to={'/'}>
+                  <div className="item">
+                    <img src="takeme-green.png" alt="logo" id="footerLogo"/>
+                  </div>
+                </Link>
                 <div className="item">
-                  <img src="takeme-green.png" alt="logo" id="footerLogo"/>
-                </div>
-                <div className="item">
-                  <p>Doing our part for a more sustainable <br />New Zealand.</p>
+                  <p id="tagLine">Doing our part for a more sustainable <br />New Zealand.</p>
                 </div>
               </div>
             </div>
