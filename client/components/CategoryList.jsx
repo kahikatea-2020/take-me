@@ -15,16 +15,17 @@ class CategoryList extends React.Component {
   handleChange = (e, data) => {
     const id = data.options.find(category => data.value === category.value).key
     const text = data.options.find(category => data.value === category.value).text
+    this.props.dispatch(selectedCategoryChange({
+      id: id,
+      name: data.value
+    }))
     this.setState({
       selectedCategory: {
         text: text,
         name: data.value
       }
     })
-    this.props.dispatch(selectedCategoryChange({
-      id: id,
-      name: data.value
-    }))
+    this.props.onCategoryChange()
   }
 
   render () {

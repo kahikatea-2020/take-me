@@ -81,12 +81,12 @@ class Profile extends React.Component {
                   <div className='ui two buttons'>
                     <Button as='a' to={`/update-listing/${userListing.id}`} basic color='blue'>Update</Button>
                     <Button onClick={() => Swal.fire({
-                        title: 'Are you sure?',
-                        text: 'Are you sure you want to delete this item!',
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonText: 'Yes, delete it',
-                        cancelButtonText: 'No, keep it!'
+                      title: 'Wait!',
+                      text: 'Are you sure you want to delete this item?',
+                      icon: 'warning',
+                      showCancelButton: true,
+                      confirmButtonText: 'Yes, delete it',
+                      cancelButtonText: 'No, keep it'
                       }).then((result) => {
                         if (result.value) {
                           this.handleDelete(userListing.id)
@@ -98,7 +98,7 @@ class Profile extends React.Component {
                         } else {
                           Swal.fire({
                             title: 'Cancelled',
-                            text: 'Your listing is safe',
+                            text: 'Your listing is safe.',
                             icon: 'error'
                           })
                         }

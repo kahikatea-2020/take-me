@@ -19,12 +19,12 @@ exports.seed = (knex) =>
       ]))
     .then(() =>
       knex('users').insert([
-        { id: 1, username: 'johnS', first_name: 'John', last_name: 'Sengson', email: 'john@gmail.com', phone_number: '021-435-1234', image_url: 'v1588967373/john_yigtz6.jpg', hash: '5F4DCC3B5AA765D61D8327DEB882CF99', location: 'Auckland' },
+        { id: 1, username: 'johnS', first_name: 'John', last_name: 'Sengson', email: 'john@gmail.com', phone_number: '021-435-1234', image_url: 'v1588967373/john_yigtz6.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Auckland' },
         { id: 2, username: 'BubbleBast', first_name: 'Mathias', last_name: 'Bast', email: 'mathias@gmail.com', phone_number: '021-352-1234', image_url: 'v1588967372/mathias_eos91h.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$t7fDj0UPvYCnLculR3ti2w$hsbmENXcvcQbKGBoj2cBoH0xVBB8OIYfNDSZsatnT8k', location: 'Gisborne' },
-        { id: 3, username: 'hamishT', first_name: 'Hamish', last_name: 'Tana', email: 'hamish@gmail.com', phone_number: '021-665-4287', image_url: 'v1588967348/hamishT_eiqwbd.jpg', hash: '5F4DCC3B5AA765D61D8327DEB898PHA7', location: 'Auckland' },
-        { id: 4, username: 'vibes-lache', first_name: 'Lache', last_name: 'Melvin', email: 'lache@gmail.com', phone_number: '021-352-6789', image_url: 'v1588967373/lache_v5blpl.png', hash: '5F4DCC3B5AA7KGA84D8327DEB8826KL8', location: 'Nelson' },
+        { id: 3, username: 'hamishT', first_name: 'Hamish', last_name: 'Tana', email: 'hamish@gmail.com', phone_number: '021-665-4287', image_url: 'v1588967348/hamishT_eiqwbd.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Auckland' },
+        { id: 4, username: 'vibes-lache', first_name: 'Lache', last_name: 'Melvin', email: 'lache@gmail.com', phone_number: '021-352-6789', image_url: 'v1588967373/lache_v5blpl.png', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Nelson' },
         { id: 5, username: 'p-man', first_name: 'Pat', last_name: 'Lim', email: 'pat@gmail.com', phone_number: '021-352-6789', image_url: 'v1588967373/pat_cevccf.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Auckland' },
-        { id: 6, username: 'ElloraV', first_name: 'Ellora', last_name: 'Virtue', email: 'ellora@gmail.com', phone_number: '022-648-2546', image_url: 'v1588967348/ellora_ze8tgm.jpg', hash: '5F4DCC3YH8UJ65D61D8327DEB8826KL8', location: 'Auckland' }
+        { id: 6, username: 'ElloraV', first_name: 'Ellora', last_name: 'Virtue', email: 'ellora@gmail.com', phone_number: '022-648-2546', image_url: 'v1588967348/ellora_ze8tgm.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Auckland' }
       ]))
     .then(() =>
       knex('listings').insert([
@@ -173,7 +173,7 @@ exports.seed = (knex) =>
           id: 12,
           name: 'Chair-old',
           description: JSON.stringify([
-            'Chair in ok condition free for pick up.',
+            'Chair is in ok condition free for pick up.',
             'Got a new set and this is now an extra.',
             'Made from good quality wood so it will last a while.'
           ]),
@@ -638,7 +638,8 @@ exports.seed = (knex) =>
           id: 44,
           name: 'Iphone x cases',
           description: JSON.stringify([
-            'Join the android community went I damaged my iphone x.',
+            'Joined the android community when I damaged my iphone x.',
+            'No use for them anymore.',
             'One is a UAG which is in ok condition.',
             'The other case is a defender I think with normal wear and tear.',
             'Both are my back up cases and still offer good protection.'
@@ -660,7 +661,7 @@ exports.seed = (knex) =>
             ' 2 x playing cards set from Sky City.',
             'Both have been used only once.',
             'Given a few by a friend and have too many.',
-            'Can be a good way to kill some time while in lockdown.'
+            'Can be a good way to kill time for times like in lockdown.'
           ]),
           location: '  Newmarket, Auckland 1023',
           image_url: JSON.stringify([
@@ -765,8 +766,155 @@ exports.seed = (knex) =>
         {
           id: 2,
           comment: 'Yes, as per lisitng description.',
-          date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
+          date: 'Tue May 12 2020 10:05:38 GMT+1200 (New Zealand Standard Time)',
           user_id: 4,
           listing_id: 27
+        },
+        {
+          id: 3,
+          comment: 'Can I rename it?',
+          date: 'Tue May 12 2020 11:03:40 GMT+1200 (New Zealand Standard Time)',
+          user_id: 2,
+          listing_id: 40
+        },
+        {
+          id: 4,
+          comment: 'Dont be silly, We don\'t want to confuse her!',
+          date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
+          user_id: 6,
+          listing_id: 40
+        },
+        {
+          id: 5,
+          comment: 'Do you have size 8?',
+          date: 'Tue May 12 2020 11:03:40 GMT+1200 (New Zealand Standard Time)',
+          user_id: 5,
+          listing_id: 41
+        },
+        {
+          id: 6,
+          comment: 'Yeah swing round and pick them up whenever you\'re free!!! JK no I don\'t',
+          date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
+          user_id: 6,
+          listing_id: 41
+        },
+        {
+          id: 7,
+          comment: 'What sound does it make?',
+          date: 'Tue May 12 2020 11:03:40 GMT+1200 (New Zealand Standard Time)',
+          user_id: 2,
+          listing_id: 28
+        },
+        {
+          id: 8,
+          comment: 'BRRRRROOOOOMMMMMMMMMM, scurrrrr *crash* Many horses be warned',
+          date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
+          user_id: 4,
+          listing_id: 28
+        },
+        {
+          id: 9,
+          comment: 'Can I just have one, my other one went for a walk',
+          date: 'Tue May 12 2020 11:03:40 GMT+1200 (New Zealand Standard Time)',
+          user_id: 3,
+          listing_id: 25
+        },
+        {
+          id: 10,
+          comment: '????',
+          date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
+          user_id: 5,
+          listing_id: 25
+        },
+        {
+          id: 11,
+          comment: 'Can I take just one?',
+          date: 'Wed May 13 2020 07:17:28 GMT+1200 (New Zealand Standard Time)',
+          user_id: 3,
+          listing_id: 44
+        },
+        {
+          id: 12,
+          comment: 'How old is the vacuum?  Do you think the parts need to fix will still be available?',
+          date: 'Wed May 13 2020 07:24:29 GMT+1200 (New Zealand Standard Time)',
+          user_id: 5,
+          listing_id: 49
+        },
+        {
+          id: 13,
+          comment: 'Of course you can. Contact me on my mobile so we can do this!',
+          date: 'Wed May 13 2020 07:25:37 GMT+1200 (New Zealand Standard Time)',
+          user_id: 1,
+          listing_id: 44
+        },
+        {
+          id: 14,
+          comment: 'Looks like a fun game! Is it missing anything at all are all contents still there?',
+          date: 'Wed May 13 2020 07:26:44 GMT+1200 (New Zealand Standard Time)',
+          user_id: 4,
+          listing_id: 38
+        },
+        {
+          id: 15,
+          comment: 'Is the screen the only issue? Will it still turn on?',
+          date: 'Wed May 13 2020 07:27:49 GMT+1200 (New Zealand Standard Time)',
+          user_id: 2,
+          listing_id: 4
+        },
+        {
+          id: 16,
+          comment: 'Yeah it does turn on still last time I check. Just one more thing, this is only for the phone. The charger wont come with it. ',
+          date: 'Wed May 13 2020 07:29:01 GMT+1200 (New Zealand Standard Time)',
+          user_id: 3,
+          listing_id: 4
+        },
+        {
+          id: 17,
+          comment: 'Can you add a picture of the tear? ',
+          date: 'Wed May 13 2020 07:35:01 GMT+1200 (New Zealand Standard Time)',
+          user_id: 4,
+          listing_id: 37
+        },
+        {
+          id: 18,
+          comment: 'It is still working right? ',
+          date: 'Wed May 13 2020 07:35:07 GMT+1200 (New Zealand Standard Time)',
+          user_id: 1,
+          listing_id: 48
+        },
+        {
+          id: 19,
+          comment: 'What size is it?',
+          date: 'Wed May 13 2020 07:25:07 GMT+1200 (New Zealand Standard Time)',
+          user_id: 3,
+          listing_id: 32
+        },
+        {
+          id: 20,
+          comment: 'Medium',
+          date: 'Wed May 13 2020 07:32:07 GMT+1200 (New Zealand Standard Time)',
+          user_id: 2,
+          listing_id: 32
+        },
+        {
+          id: 21,
+          comment: 'It is a cool shirt! Are they still available for purchase anywhere? I cant find them online.',
+          date: 'Wed May 13 2020 07:28:07 GMT+1200 (New Zealand Standard Time)',
+          user_id: 6,
+          listing_id: 13
+        },
+        {
+          id: 22,
+          comment: 'I dont think so. Got it from a Big Don Camp I went to years ago.',
+          date: 'Wed May 13 2020 07:45:15 GMT+1200 (New Zealand Standard Time)',
+          user_id: 2,
+          listing_id: 13
+        },
+        {
+          id: 23,
+          comment: 'Yeah it is. Just surplus to requirements now.',
+          date: 'Wed May 13 2020 08:15:35 GMT+1200 (New Zealand Standard Time)',
+          user_id: 5,
+          listing_id: 48
         }
       ]))
