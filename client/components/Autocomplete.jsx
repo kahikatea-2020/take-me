@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { getAddress } from '../api/addy'
 import { connect } from 'react-redux'
 import { addAdress } from '../actions/autocomplete'
-import { Form } from 'semantic-ui-react' 
+import { Form } from 'semantic-ui-react'
 
 class Autocomplete extends Component {
   constructor (props) {

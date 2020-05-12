@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { isAuthenticated } from 'authenticare/client'
-import { Card, Button, Image, Header } from 'semantic-ui-react'
+import { Card, Button, Image, Header, Grid } from 'semantic-ui-react'
 
 import WaitIndicator from './WaitIndicator'
 import ListItem from './ListItem'
@@ -50,15 +50,25 @@ class Profile extends React.Component {
     }))
     return (
       <>
-        <div className="ui two columns">
-          <Image src={`https://res.cloudinary.com/takemenz/image/upload/${user.imageUrl}`} alt="Profile Photo"/>
-          <Header as='h2'>
-            {user.firstName} {user.lastName}
-            <Header.Subheader>{user.username}</Header.Subheader>
-            <Header.Subheader>{user.email}</Header.Subheader>
-            <Header.Subheader>{user.phoneNumber}</Header.Subheader>
-            <Header.Subheader>{user.location}</Header.Subheader>
-          </Header>
+        <div style={{ height: '300px'}} className="ui right aligned grid">
+          <div style={{ height: '300px'}} className="center aligned two column row">
+            <div className="column">
+              <Image style={{ width: '200px', float: 'right' }} src={`https://res.cloudinary.com/takemenz/image/upload/${user.imageUrl}`} alt="Profile Photo"/>
+            </div>
+            <div className="column left aligned row">
+              <div style={{ verticalAlign: 'middle' }}>
+                <p>
+                    <h2 style={{ marginBottom: '0px'}}>{user.firstName} {user.lastName}</h2>
+                    <em>{user.username}</em>
+                    <br/>
+                    <br/>
+                    <p>Email: {user.email}</p>
+                    <p>Phone Number: {user.phoneNumber}</p>
+                    <p>Location: {user.location}</p>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
         <div>
           <h2>Your Listings</h2>
