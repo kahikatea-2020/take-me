@@ -42,7 +42,9 @@ class Home extends React.Component {
     if (!this.state.locationAdded && this.props.user.location) {
       this.addLocation()
     }
-    this.setState({ checked: !this.state.checked })
+    this.setState({ checked: !this.state.checked }, () => {
+      this.setState({ page: !this.state.page })
+    })
   }
 
   addLocation = () => {
@@ -58,7 +60,7 @@ class Home extends React.Component {
     if (this.props.selectedCategory.id && (this.props.selectedCategory.id !== 100)) {
       selectedListings = selectedListings.filter(listing => listing.categoryId === this.props.selectedCategory.id)
     }
-    console.log(this.pageOfItems)
+
     return (
       <>
         <SearchBar history={this.props.history}/>
