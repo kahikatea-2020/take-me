@@ -69,7 +69,7 @@ class Profile extends React.Component {
           </div>
         </div>
         <div>
-          <h2>Your Listings</h2>
+          <h2>Listings from {profile.firstName}</h2>
           <Card.Group itemsPerRow={4} className='centered'>
           <>
           {listing.length !== 0 
@@ -107,7 +107,7 @@ class Profile extends React.Component {
               }
               </div> 
             })
-            : <WaitIndicator />
+            : <p>This user has no listings</p>
           }
           </>
           </Card.Group>
