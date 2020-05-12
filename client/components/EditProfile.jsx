@@ -22,12 +22,15 @@ class EditProfile extends React.Component {
     uploadedImage: false,
     location: '',
     id: '',
-    show: false
+    show: false,
+    user: {}
   }
 
   componentDidMount () {
     getUserById(this.props.match.params.id)
     .then(user => {
+      console.log(user)
+      this.state({user: user})
       this.setState({
         firstName: user.firstName,
         lastName: user.lastName,
@@ -100,8 +103,23 @@ class EditProfile extends React.Component {
     if(this.props.user.id === Number(this.props.match.params.id)){
       this.props.dispatch(hideError())
       if(this.inputChecker()){
-        this.props.dispatch(showError('Please fill out all the fields'))
-        this.setState({ show: true })
+        // this.props.dispatch(showError('Please fill out all the fields'))
+        // this.setState({ show: true })
+        if(this.state.firstName == ''){
+          this.setState({firstName: this.state.user.firstName})
+        }
+        if(this.state.lastName == ''){
+          this.setState({lastName: this.state.user.lastName})
+        }
+        if(this.state.location == ''){
+          this.setState({location: this.state.user.location})
+        }
+        if(this.state.phoneNumber == ''){
+          this.setState({phoneNumber: this.state.user.phoneNumber})
+        }
+        if(this.state.emailAddress == ''){
+          this.setState({emailAddress: this.state.user.emailAddress})
+        }
       } else {
         editUser(this.state)
           .then(() => {
