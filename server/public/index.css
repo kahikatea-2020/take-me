@@ -243,6 +243,15 @@ div.field button.ui.button {
 
 /* END LOGIN STYLING*/
 
+.guidelines {
+  height: 100vh;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20%;
+}
+
 .search div.field {
   width: 100%;
 }
