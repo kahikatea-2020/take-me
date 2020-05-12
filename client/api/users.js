@@ -11,3 +11,11 @@ export function getUserDetails () {
     .set({ 'Authorization': `Bearer ${getEncodedToken()}` })
     .then(res => res.body)
 }
+
+export function editUser (user) {
+  return request.put('/api/v1/users/edit')
+    .send(user)
+    .then(res => {
+      console.log(res)
+    })
+}

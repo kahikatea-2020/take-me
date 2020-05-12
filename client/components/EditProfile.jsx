@@ -10,6 +10,7 @@ import { connect } from 'react-redux'
 
 
 import Autocomplete from './Autocomplete'
+import { editUser } from '../api/users'
 
 class EditProfile extends React.Component {
   state = {
@@ -19,7 +20,8 @@ class EditProfile extends React.Component {
     phoneNumber: null,
     imageUrl: 'v1589061239/default-profile_checno.png',
     uploadedImage: false,
-    location: ''
+    location: '',
+    id: ''
   }
 
   imageUpload = (tag, preset) => {
@@ -56,6 +58,9 @@ class EditProfile extends React.Component {
 
   updateField = e => {
     this.setState({
+      id: this.props.match.params.id
+    })
+    this.setState({
       [e.target.name]: e.target.value
     })
     var spitAddie = this.props.address.split(',')
@@ -64,18 +69,9 @@ class EditProfile extends React.Component {
   }
 
   submitHandler = e => {
-
-      register(this.state, { baseUrl: BASE_API_URL })
-        .then((token) => {
-          if (isAuthenticated()) {
-            this.props.dispatch(getUserDetails())
-          }
-        })
-        .catch((err) => {
-          console.log(err.message)
-        })
+      editUser(this.state)
         .then(() => {
-          console.log('winner', this.state)
+          this.props.history.push(`/profile/${this.props.match.params.id}`)
         })
     
   }
