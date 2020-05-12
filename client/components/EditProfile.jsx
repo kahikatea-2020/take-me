@@ -83,23 +83,24 @@ class EditProfile extends React.Component {
   }
 
   submitHandler = e => {
-    console.log(this.props.user)
-    this.props.dispatch(hideError())
-    if(this.inputChecker()){
-      this.props.dispatch(showError('Please fill out all the fields'))
-      this.setState({ show: true })
-    } else {
-      editUser(this.state)
-        .then(() => {
-          this.props.history.push(`/profile/${this.props.match.params.id}`)
-        })
-        .catch(err => {
-          if (err.message === 'Unauthorized') {
-            this.props.dispatch(showError('This is not the page you are looking for'))
-            this.setState({ show: true })
-          }
-          console.log('error is:', err.message)
-        })
+    if(this.props.user.id === Number(this.props.match.params.id)){
+      this.props.dispatch(hideError())
+      if(this.inputChecker()){
+        this.props.dispatch(showError('Please fill out all the fields'))
+        this.setState({ show: true })
+      } else {
+        editUser(this.state)
+          .then(() => {
+            this.props.history.push(`/profile/${this.props.match.params.id}`)
+          })
+          .catch(err => {
+            if (err.message === 'Unauthorized') {
+              this.props.dispatch(showError('This is not the page you are looking for'))
+              this.setState({ show: true })
+            }
+            console.log('error is:', err.message)
+          })
+      }
     }
   }
 
