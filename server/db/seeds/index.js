@@ -813,16 +813,16 @@ exports.seed = (knex) =>
         },
         {
           id: 9,
-          comment: 'Does this come with the case?',
+          comment: 'Can I just have one, my other one went for a walk',
           date: 'Tue May 12 2020 11:03:40 GMT+1200 (New Zealand Standard Time)',
           user_id: 3,
-          listing_id: 27
+          listing_id: 25
         },
         {
           id: 10,
-          comment: 'Yes, as per lisitng description.',
+          comment: '????',
           date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
-          user_id: 4,
+          user_id: 5,
           listing_id: 27
         }
       ]))
