@@ -123,7 +123,7 @@ class Listing extends React.Component {
           </Grid.Column>
           <Grid.Column stretched className='listing-details'>
             <div className='listing-description'>
-              {(isAuthenticated() && (this.props.user.id === listing.userId)) &&
+              {(isAuthenticated() && (this.props.user.id === listing.userId) && !this.state.taken) &&
                   <Button id='update' style={{ maxHeight: '5vh', maxWidth: '50%' }} as={Link} to={`/update-listing/${listing.id}`} className='update-listing'>
                     Edit Listing
                   </Button>
