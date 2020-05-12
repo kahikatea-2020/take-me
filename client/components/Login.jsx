@@ -52,6 +52,7 @@ class Login extends React.Component {
 
   handleOnKeyDown = event => {
     if (event.keyCode === 13) {
+      event.preventDefault()
       this.submitHandler()
     }
   }

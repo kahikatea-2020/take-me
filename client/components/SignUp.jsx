@@ -21,7 +21,7 @@ class SignUp extends React.Component {
     username: '',
     password: '',
     confirmPassword: '',
-    imageUrl: 'v1589061239/default-profile_checno.png',
+    imageUrl: 'v1589318426/hvu5hza8chku5rnjcane.png',
     uploadedImage: false,
     location: ''
   }
@@ -60,7 +60,7 @@ class SignUp extends React.Component {
 
   deleteImage = () => {
     this.setState({
-      imageUrl: 'v1589061239/default-profile_checno.png',
+      imageUrl: 'v1589318426/hvu5hza8chku5rnjcane.png',
       uploadedImage: false
     })
   }
