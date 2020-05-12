@@ -24,6 +24,18 @@ class EditProfile extends React.Component {
     id: '',
     show: false
   }
+  
+  componentDidMount () {
+    getUserDetails()
+    .then(user => {
+    if(user.id === this.props.match.params.id){
+      console.log('hi')
+      this.setState({load:true})
+    } else {
+      this.props.history.push('/')
+    }
+    })
+  }
 
   imageUpload = (tag, preset) => {
     const uploadOptions = {
@@ -98,6 +110,7 @@ class EditProfile extends React.Component {
   render () {
     return (
       <div>
+        {isAuthenticated() &&
         <Form>
           <Form.Input
             fluid
@@ -176,7 +189,7 @@ class EditProfile extends React.Component {
               Submit
             </Form.Button>
          </Form.Group>
-        </Form>
+        </Form>}
         <SweetAlert
           show={this.state.show}
           title="Oops, something went wrong!"

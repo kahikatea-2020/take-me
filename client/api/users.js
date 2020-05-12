@@ -9,7 +9,10 @@ export function getUserById (id) {
 export function getUserDetails () {
   return request.get(`/api/v1/users/getuser`)
     .set({ 'Authorization': `Bearer ${getEncodedToken()}` })
-    .then(res => res.body)
+    .then(res => {
+      console.log(res.body)
+      return res.body
+    })
 }
 
 export function editUser (user) {
