@@ -19,7 +19,6 @@ router.post('/add', (req, res) => {
     userId,
     listingId
   }
-  console.log(data, date)
   db.addCommentById(data)
     .then(() => {
       res.status(200).json({ ok: true })
