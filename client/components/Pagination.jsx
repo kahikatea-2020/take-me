@@ -21,6 +21,7 @@ class Pagination extends React.Component {
 
   componentDidMount () {
     this.setPage(this.props.initialPage)
+    this.props.onChange()
   }
 
   componentDidUpdate (prevProps, prevState) {
