@@ -209,7 +209,7 @@ class SignUp extends React.Component {
               </div>
             </div>
           }
-          <Form.Checkbox required label={<label>I agree to the <a href='/guidelines'>TakeMe Guidelines</a></label>} />
+          <Form.Checkbox required label={<label>I agree to the <a href='/guidelines'>TakeMe Guidelines</a></label>} error />
           <Form.Group>
             <Link to='/'>
               <Form.Button>
