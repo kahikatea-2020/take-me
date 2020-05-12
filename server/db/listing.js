@@ -17,6 +17,7 @@ function getListingsById (id, db = connection) {
       'listings.image_url as imageUrl',
       'listings.user_id as userId',
       'listings.category_id as categoryId',
+      'listings.taken as taken',
       'listings.location as location',
       'users.username as username',
       'users.first_name as userFirstName',
