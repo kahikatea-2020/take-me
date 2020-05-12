@@ -778,7 +778,7 @@ exports.seed = (knex) =>
         },
         {
           id: 4,
-          comment: 'Dont be silly, We don\'t want to confuse her!.',
+          comment: 'Dont be silly, We don\'t want to confuse her!',
           date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
           user_id: 6,
           listing_id: 40
@@ -806,7 +806,7 @@ exports.seed = (knex) =>
         },
         {
           id: 8,
-          comment: 'BRRRRROOOOOMMMMMMMMMM, scurrrrr *crash*. Many horses be warned',
+          comment: 'BRRRRROOOOOMMMMMMMMMM, scurrrrr *crash* Many horses be warned',
           date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
           user_id: 4,
           listing_id: 28
