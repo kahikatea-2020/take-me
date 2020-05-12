@@ -1,6 +1,12 @@
 import React from 'react'
 import { Form } from 'semantic-ui-react'
 import { openUploadWidget } from './CloudinaryService'
+import { isAuthenticated, register } from 'authenticare/client'
+import { Link } from 'react-router-dom'
+import { getUserDetails } from '../actions/users'
+import { BASE_API_URL } from '../base-api.js'
+
+
 
 import Autocomplete from './Autocomplete'
 
@@ -56,6 +62,23 @@ class EditProfile extends React.Component {
     this.setState({ location: addie })
   }
 
+  submitHandler = e => {
+
+      register(this.state, { baseUrl: BASE_API_URL })
+        .then((token) => {
+          if (isAuthenticated()) {
+            this.props.dispatch(getUserDetails())
+          }
+        })
+        .catch((err) => {
+          console.log(err.message)
+        })
+        .then(() => {
+          console.log('winner')
+        })
+    
+  }
+
   render () {
     return (
       <div>
@@ -94,7 +117,7 @@ class EditProfile extends React.Component {
             placeholder='Phone number'
             type='number'
           />
-          {/* <Form.Button
+          <Form.Button
           onClick={e => {
             e.preventDefault()
             return this.imageUpload(undefined, 'brmcwkea')}
@@ -133,7 +156,7 @@ class EditProfile extends React.Component {
             >
               Submit
             </Form.Button> */}
-          {/* </Form.Group> */}
+         </Form.Group>
         </Form>
       </div>
     )
