@@ -1,9 +1,10 @@
 import React from 'react'
+import { Container } from 'semantic-ui-react'
 
 class Guidelines extends React.Component {
   render () {
     return (
-      <div className='guidelines'>
+      <Container text className='guidelines'>
         <h1>TakeMe Guidelines</h1>
         <br/>
         <p>This page is to set standards and guidelines for all users, both listers and takers.
@@ -35,7 +36,7 @@ class Guidelines extends React.Component {
           <li>Communicate in a timely and respectful manner when dealing with other users.</li>
           <li>Not share any personal contact info of any other users.</li>
         </ul>
-      </div>
+      </Container>
     )
   }
 }

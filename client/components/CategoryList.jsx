@@ -25,7 +25,7 @@ class CategoryList extends React.Component {
         name: data.value
       }
     })
-    this.props.onCategoryChange()
+    this.props.onChange()
   }
 
   render () {

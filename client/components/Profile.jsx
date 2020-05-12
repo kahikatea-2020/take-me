@@ -4,7 +4,8 @@ import { isAuthenticated } from 'authenticare/client'
 import { Card, Button, Image, Header, Grid } from 'semantic-ui-react'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
- 
+import { Link } from 'react-router-dom'
+
 import WaitIndicator from './WaitIndicator'
 import ListItem from './ListItem'
 
@@ -41,7 +42,6 @@ class Profile extends React.Component {
         this.props.dispatch(getUsersListings(this.props.match.params.id))
       })
   }
-
   render () {
     const { profile } = this.state
     const listing = this.props.usersListings.map(listing => ({
@@ -64,12 +64,15 @@ class Profile extends React.Component {
                 <p>Email: {profile.email}</p>
                 <p>Phone Number: {profile.phoneNumber}</p>
                 <p>Location: {profile.location}</p>
-              </div>
+                {(isAuthenticated() && (this.props.user.id === profile.id)) &&
+                <Button as={Link} to={`/edit-profile/${profile.id}`} basic color='blue'>Edit Profile</Button>
+                }
+                </div>
             </div>
           </div>
         </div>
         <div>
-          <h2>Your Listings</h2>
+          <h2>Listings from {profile.firstName}</h2>
           <Card.Group itemsPerRow={4} className='centered'>
           <>
           {listing.length !== 0 
@@ -81,12 +84,12 @@ class Profile extends React.Component {
                   <div className='ui two buttons'>
                     <Button as='a' to={`/update-listing/${userListing.id}`} basic color='blue'>Update</Button>
                     <Button onClick={() => Swal.fire({
-                        title: 'Are you sure?',
-                        text: 'Are you sure you want to delete this item!',
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonText: 'Yes, delete it',
-                        cancelButtonText: 'No, keep it!'
+                      title: 'Wait!',
+                      text: 'Are you sure you want to delete this item?',
+                      icon: 'warning',
+                      showCancelButton: true,
+                      confirmButtonText: 'Yes, delete it',
+                      cancelButtonText: 'No, keep it'
                       }).then((result) => {
                         if (result.value) {
                           this.handleDelete(userListing.id)
@@ -98,7 +101,7 @@ class Profile extends React.Component {
                         } else {
                           Swal.fire({
                             title: 'Cancelled',
-                            text: 'Your listing is safe',
+                            text: 'Your listing is safe.',
                             icon: 'error'
                           })
                         }
@@ -107,7 +110,7 @@ class Profile extends React.Component {
               }
               </div> 
             })
-            : <WaitIndicator />
+            : <p>This user has no listings</p>
           }
           </>
           </Card.Group>

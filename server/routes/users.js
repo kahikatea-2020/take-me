@@ -27,4 +27,17 @@ router.get('/:id', (req, res) => {
     })
 })
 
+// PUT /api/v1/users/edit
+router.put('/edit', getTokenDecoder(), (req, res) => {
+  const userData = req.body
+  if (req.user.id === Number(userData.id)) {
+    db.editUser(userData)
+      .then(dbRes => {
+        res.send({ ok: true })
+      })
+  } else {
+    res.sendStatus(401)
+  }
+})
+
 module.exports = router

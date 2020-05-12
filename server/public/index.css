@@ -243,6 +243,23 @@ div.field button.ui.button {
 
 /* END LOGIN STYLING*/
 
+.guidelines {
+  height: 100vh;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20%;
+}
+
+.about {
+  min-height: 100vh;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .search div.field {
   width: 100%;
 }
@@ -264,6 +281,14 @@ div.ui.blue.inverted.search.menu {
   color: #888888 !important;
 }
 
-.search {
-  color: black !important;
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
