@@ -35,6 +35,18 @@ class Profile extends React.Component {
     })
   }
 
+  componentWillReceiveProps(nextProps) {
+    const newId = nextProps.match.params.id;
+    if(this.state.profile.id != newId) {
+      getUserById(newId)
+      .then(profile => {
+          this.setState({
+            profile
+          })
+      })
+    }
+  }
+
   handleDelete = id => {
     this.props.dispatch(userPending())
     deleteListingById(id)
