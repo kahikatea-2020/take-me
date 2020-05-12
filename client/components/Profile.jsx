@@ -60,7 +60,7 @@ class Profile extends React.Component {
               <div style={{ verticalAlign: 'middle' }}>
                 <h2 style={{ marginBottom: '0px' }}>{profile.firstName} {profile.lastName}</h2>
                 <em>{profile.username}</em><br />
-                  <br />
+                <br />
                 <p>Email: {profile.email}</p>
                 <p>Phone Number: {profile.phoneNumber}</p>
                 <p>Location: {profile.location}</p>

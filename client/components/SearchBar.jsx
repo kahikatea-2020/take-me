@@ -72,7 +72,7 @@ class SearchBar extends Component {
     const categories = [{ key: 100, text: 'All Categories', value: 'All Categories' }, ...storeCategories]
     return (
       <Menu className='search' inverted color='blue'>
-        <Menu.Item id='dropdown' style={{ width: '20%' }}>
+        <Menu.Item style={{ width: '20%' }}>
           <Form.Select
             style={{ minWidth: '100%', textAlign: 'center' }}
             id='category-search'
@@ -86,7 +86,7 @@ class SearchBar extends Component {
         </Menu.Item>
         <Menu.Item style={{ width: '80%' }}>
           <Search
-            style={{ width: '85%', marginRight: '20px' }}
+            style={{ width: '95%', marginLeft: '2.5%' }}
             input={{ fluid: true }}
             loading={isLoading}
             onResultSelect={this.handleResultSelect}
@@ -99,9 +99,6 @@ class SearchBar extends Component {
             value={value}
             {...this.props}
           />
-        <Button inverted style={{ width: '10%' }}>
-          Search
-        </Button>
         </Menu.Item>
       </Menu>
     )
