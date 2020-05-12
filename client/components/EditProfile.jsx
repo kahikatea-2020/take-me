@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom'
 import { getUserDetails } from '../actions/users'
 import { connect } from 'react-redux'
 import { showError, hideError } from '../actions/error'
+import SweetAlert from 'sweetalert2-react'
 
 
 import Autocomplete from './Autocomplete'
@@ -77,16 +78,21 @@ class EditProfile extends React.Component {
         return false
       }
     } else {
-      return false
+      return true
     }
   }
 
   submitHandler = e => {
+    this.props.dispatch(hideError())
+    if(this.inputChecker()){
+      this.props.dispatch(showError('Please fill out all the fields'))
+      this.setState({ show: true })
+    } else {
       editUser(this.state)
         .then(() => {
           this.props.history.push(`/profile/${this.props.match.params.id}`)
         })
-    
+    }
   }
 
   render () {
@@ -95,7 +101,6 @@ class EditProfile extends React.Component {
         <Form>
           <Form.Input
             fluid
-            required
             width={6}
             name='firstName'
             placeholder='First name'
@@ -105,7 +110,6 @@ class EditProfile extends React.Component {
           />
           <Form.Input
             fluid
-            required
             width={6}
             name='lastName'
             placeholder='Last name'
@@ -117,7 +121,6 @@ class EditProfile extends React.Component {
           <Autocomplete id='address' />
           <Form.Input
             fluid
-            required
             width={6}
             name='emailAddress'
             placeholder='Email address'
@@ -127,7 +130,6 @@ class EditProfile extends React.Component {
           />
           <Form.Input
             fluid
-            required
             width={6}
             name='phoneNumber'
             placeholder='Phone number'
