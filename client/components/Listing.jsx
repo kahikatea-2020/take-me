@@ -129,8 +129,9 @@ class Listing extends React.Component {
                   </Card.Content>
                   <Card.Content extra>
                     <div className='ui-two-buttons'>
-                      <Button id='email' as={Link} to={`mailto:${listing.userEmail}?subject=#${listing.id}:%20${this.state.emailSubject}`}>
-                        Email
+                      <Button id='email'>
+                        <a href={`mailto:${listing.userEmail}?subject=#${listing.id}:%20${this.state.emailSubject}`}>
+                        Email</a>
                       </Button>
                       {/* <Link to={`/profile/${listing.userId}`} > */}
                       <Button id='profile' as={Link} to={`/profile/${listing.userId}`}>
