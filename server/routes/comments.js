@@ -11,7 +11,8 @@ router.get('/:id', (req, res) => {
 
 // POST /api/v1/comments/add
 router.post('/add', (req, res) => {
-  db.addCommentById
+  const comment = req.body
+  db.addCommentById()
 })
 
 module.exports = router
