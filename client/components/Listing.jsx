@@ -91,7 +91,7 @@ class Listing extends React.Component {
     return (
       <>
       <Grid columns={2} divided>
-        <Grid.Row>
+        <Grid.Row id='row-target'>
           <Grid.Column stretched className='listing-images'>
             {(this.state.imageUrl[0] !== undefined) &&
               <div className='slick-carousel'>
@@ -110,14 +110,16 @@ class Listing extends React.Component {
           </Grid.Column>
           <Grid.Column stretched className='listing-details'>
             <div className='listing-description'>
-              {(isAuthenticated() && (this.props.user.id === listing.userId)) &&
-                  <Button id='update' style={{ maxHeight: '5vh', maxWidth: '50%' }} as={Link} to={`/update-listing/${listing.id}`} className='update-listing'>
-                    Edit Listing
-                  </Button>
-              }
-              <h1>{listing.name}</h1>
-              <h4>Location: {listing.location}</h4>
-              {this.state.description.map(sentence => <p key={sentence.substr(0, 10)}>{sentence}</p>)}
+              <div className='row'>
+                {(isAuthenticated() && (this.props.user.id === listing.userId)) &&
+                    <Button id='update' style={{ maxHeight: '5vh', maxWidth: '50%' }} as={Link} to={`/update-listing/${listing.id}`} className='update-listing'>
+                      Edit Listing
+                    </Button>
+                }
+                <h1>{listing.name}</h1>
+                <h4>Location: {listing.location}</h4>
+                {this.state.description.map(sentence => <p key={sentence.substr(0, 10)}>{sentence}</p>)}
+              </div>
             </div>
             <div className='contact-info'>
               <Card>

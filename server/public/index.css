@@ -111,7 +111,7 @@ div.singleImagePreview button {
 /* END CAROUSEL STYLING */
 
 /* START LISTING STYLING */
-div.row {
+#row-cont div.row {
   min-height: 80vh;
 }
 
