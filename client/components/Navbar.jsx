@@ -18,7 +18,7 @@ class Navbar extends React.Component {
   render() {
     const profile = (
       <Menu.Item>
-          <Image avatar alt='profile image' src={`https://res.cloudinary.com/takemenz/image/upload/${this.props.user.imageUrl}`} />
+          <Image avatar alt='profile image' src={ this.props.user.imageUrl ? `https://res.cloudinary.com/takemenz/image/upload/${this.props.user.imageUrl}` : '' } />
           {this.props.user.firstName}
       </Menu.Item>
     )
