@@ -40,6 +40,15 @@ function getUserByName (username, db = connection) {
 }
 
 function editUser (user, db = connection) {
+  const { firstName, lastName, email, phoneNumber, imageUrl } = user
   return db('users')
     .where('id', user.id)
+    .update({
+      first_name: firstName,
+      last_name: lastName,
+      email: email,
+      phone_number: phoneNumber,
+      image_url: imageUrl
+    })
+    .then(id => console.log(id))
 }
