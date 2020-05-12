@@ -23,12 +23,13 @@ class SignUp extends React.Component {
     confirmPassword: '',
     imageUrl: 'v1589318426/hvu5hza8chku5rnjcane.png',
     uploadedImage: false,
-    location: ''
+    location: '',
+    checked: false
   }
 
   inputChecker = event => {
-    const { firstName, lastName, emailAddress, username, password, phoneNumber } = this.state
-    if (firstName !== '' && lastName !== '' && username !== '' && password !== '' && emailAddress !== '') {
+    const { firstName, lastName, emailAddress, username, password, phoneNumber, checked } = this.state
+    if (firstName !== '' && lastName !== '' && username !== '' && password !== '' && emailAddress !== '' && checked === true) {
       if (phoneNumber !== null || phoneNumber !== '') {
         return false
       } else {
@@ -70,15 +71,22 @@ class SignUp extends React.Component {
       [e.target.name]: e.target.value
     })
     var spitAddie = this.props.address.split(',')
-    var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
+    var addie = spitAddie[spitAddie.length - 2] + ',' + spitAddie[spitAddie.length - 1]
     this.setState({ location: addie })
   }
-  
+
   handleOnKeyDown = event => {
     if (event.keyCode === 13) {
       this.submitHandler()
     }
   }
+
+  checkboxHandler = e => {
+    this.setState({
+      checked: !this.state.checked
+    })
+  }
+
   submitHandler = e => {
     this.props.dispatch(hideError())
     if (this.state.password !== this.state.confirmPassword) {
@@ -107,131 +115,132 @@ class SignUp extends React.Component {
     }
   }
 
-  render () {
+  render() {
     return (
       <>
-      <div id="wrapper">
+        <div id="wrapper">
 
-        <h1>Sign Up</h1>
-        <p>Please fill in the following details:</p>
-        <Form>
-          <Form.Input
-            onKeyUp={this.updateField}
-            fluid
-            required
-            width={6}
-            name='firstName'
-            placeholder='First name'
-            type='text'
-          />
-          <Form.Input
-            onKeyUp={this.updateField}
-            fluid
-            required
-            width={6}
-            name='lastName'
-            placeholder='Last name'
-            type='text'
-          />
-          <br/>
-          <Form.Input
-            onKeyUp={this.updateField}
-            fluid
-            required
-            width={6}
-            name='emailAddress'
-            placeholder='Email address'
-            type='text'
-          />
-          <Form.Input
-            onKeyUp={this.updateField}
-            fluid
-            required
-            width={6}
-            name='phoneNumber'
-            placeholder='Phone number'
-            type='number'
-          />
-          <Autocomplete id='address'/>
-          <Form.Input
-            onKeyUp={this.updateField}
-            fluid
-            required
-            width={6}
-            name='username'
-            placeholder='Username'
-            type='text'
-          />
-          <Form.Input
-            onKeyUp={this.updateField}
-            fluid
-            required
-            width={6}
-            name='password'
-            placeholder='Password'
-            type='password'
-            autoComplete='off'
-          />
-          <Form.Input
-            onKeyUp={this.updateField}
-            fluid
-            required
-            width={6}
-            name='confirmPassword'
-            placeholder='Confirm password'
-            type='password'
-            autoComplete='off'
-            onKeyDown={this.handleOnKeyDown}
-          />
-          <Form.Button
-          onClick={e => {
-            e.preventDefault()
-            return this.imageUpload(undefined, 'brmcwkea')}
-          }>Upload Image</Form.Button>
-          {(this.state.uploadedImage) &&
-            <div className='imagesPreview'>
-              <div className='singleImagePreview'>
-                <div style={{height: '40px', width: '40px', marginLeft: '110px'}}>
-                  <button onClick={e => {
-                    e.preventDefault()
-                    return this.deleteImage()
-                  }}>
-                    <img
-                      src='/trash-can.png'
-                      alt='delete button'
-                      className='deleteButton'
-                    />
-                  </button>
-                </div>
-                <div>
-                  <img className='theImage' src={`https://res.cloudinary.com/takemenz/image/upload/${this.state.imageUrl}`}/>
+          <h1>Sign Up</h1>
+          <p>Please fill in the following details:</p>
+          <Form>
+            <Form.Input
+              onKeyUp={this.updateField}
+              fluid
+              required
+              width={6}
+              name='firstName'
+              placeholder='First name'
+              type='text'
+            />
+            <Form.Input
+              onKeyUp={this.updateField}
+              fluid
+              required
+              width={6}
+              name='lastName'
+              placeholder='Last name'
+              type='text'
+            />
+            <br />
+            <Form.Input
+              onKeyUp={this.updateField}
+              fluid
+              required
+              width={6}
+              name='emailAddress'
+              placeholder='Email address'
+              type='text'
+            />
+            <Form.Input
+              onKeyUp={this.updateField}
+              fluid
+              required
+              width={6}
+              name='phoneNumber'
+              placeholder='Phone number'
+              type='number'
+            />
+            <Autocomplete id='address' />
+            <Form.Input
+              onKeyUp={this.updateField}
+              fluid
+              required
+              width={6}
+              name='username'
+              placeholder='Username'
+              type='text'
+            />
+            <Form.Input
+              onKeyUp={this.updateField}
+              fluid
+              required
+              width={6}
+              name='password'
+              placeholder='Password'
+              type='password'
+              autoComplete='off'
+            />
+            <Form.Input
+              onKeyUp={this.updateField}
+              fluid
+              required
+              width={6}
+              name='confirmPassword'
+              placeholder='Confirm password'
+              type='password'
+              autoComplete='off'
+              onKeyDown={this.handleOnKeyDown}
+            />
+            <Form.Button
+              onClick={e => {
+                e.preventDefault()
+                return this.imageUpload(undefined, 'brmcwkea')
+              }
+              }>Upload Image</Form.Button>
+            {(this.state.uploadedImage) &&
+              <div className='imagesPreview'>
+                <div className='singleImagePreview'>
+                  <div style={{ height: '40px', width: '40px', marginLeft: '110px' }}>
+                    <button onClick={e => {
+                      e.preventDefault()
+                      return this.deleteImage()
+                    }}>
+                      <img
+                        src='/trash-can.png'
+                        alt='delete button'
+                        className='deleteButton'
+                      />
+                    </button>
+                  </div>
+                  <div>
+                    <img className='theImage' src={`https://res.cloudinary.com/takemenz/image/upload/${this.state.imageUrl}`} />
+                  </div>
                 </div>
               </div>
-            </div>
-          }
-          <Form.Checkbox required label={<label>I agree to the <a href='/guidelines'>TakeMe Guidelines</a></label>} error />
-          <Form.Group>
-            <Link to='/'>
-              <Form.Button>
-              Cancel
+            }
+            <Form.Checkbox onChange={this.checkboxHandler} required label={<label>I agree to the <a href='/guidelines'>TakeMe Guidelines</a></label>} />
+            <Form.Group>
+              <Link to='/'>
+                <Form.Button>
+                  Cancel
               </Form.Button>
-            </Link>
-            <Form.Button
-              type='submit'
-              onClick={this.submitHandler}
-            >
-              Submit
+              </Link>
+              <Form.Button
+                type='submit'
+                onClick={this.submitHandler}
+              >
+                Submit
             </Form.Button>
-          </Form.Group>
-        </Form>
-        <SweetAlert
-          show={this.state.show}
-          title="Oops, something went wrong!"
-          text={this.props.error}
-          onConfirm={() => this.setState({ show: false })}
-        />
-        <WaitIndicator />
-      </div>
+            </Form.Group>
+          </Form>
+          <SweetAlert
+            show={this.state.show}
+            title="Oops, something went wrong!"
+            text={this.props.error}
+            onConfirm={() => this.setState({ show: false })}
+          />
+          <WaitIndicator />
+        </div>
       </>
     )
   }

@@ -178,6 +178,22 @@ div.meta {
   width: 45%;
 }
 
+#email a {
+  color: #5A5A5A !important;
+}
+
+#email a:hover {
+  color: black !important;
+}
+
+#profile a {
+  color: #5A5A5A !important;
+}
+
+#profile a:hover {
+  color: black !important;
+}
+
 .ui-two-buttons #profile {
   float: right;
   width: 50%;
@@ -278,6 +294,10 @@ div.ui.blue.inverted.search.menu {
 }
 
 .search .ui.dropdown:not(.button)>.default.text {
+  color: #888888 !important;
+}
+
+#search::placeholder {
   color: #888888 !important;
 }
 
