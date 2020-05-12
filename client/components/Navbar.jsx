@@ -41,7 +41,7 @@ class Navbar extends React.Component {
                   <Dropdown.Item style={{ margin: '0' }} as={Link}
                   onClick={() => Swal.fire({
                   title: 'Are you sure?',
-                  text: 'Are Yoy sure you want to log out?',
+                  text: 'Are you sure you want to log out?',
                   icon: 'warning',
                   showCancelButton: true,
                   confirmButtonText: 'Log Out',
