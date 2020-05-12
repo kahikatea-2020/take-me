@@ -45,6 +45,7 @@ Object {
               />
             </div>
           </div>
+          <br />
           <div
             class="required six wide field"
           >
@@ -73,10 +74,22 @@ Object {
               />
             </div>
           </div>
-          <input
-            type="text"
-            value=""
-          />
+          <div
+            class="six wide field"
+          >
+            <label>
+              * Only suburb and city will be visible on listing
+            </label>
+            <div
+              class="ui input"
+            >
+              <input
+                placeholder="Start typing your address..."
+                type="text"
+                value=""
+              />
+            </div>
+          </div>
           <div
             class="required six wide field"
           >
@@ -129,6 +142,30 @@ Object {
             >
               Upload Image
             </button>
+          </div>
+          <div
+            class="required field"
+          >
+            <div
+              class="ui checkbox"
+            >
+              <input
+                class="hidden"
+                readonly=""
+                required=""
+                tabindex="0"
+                type="checkbox"
+                value=""
+              />
+              <label>
+                I agree to the 
+                <a
+                  href="/guidelines"
+                >
+                  TakeMe Guidelines
+                </a>
+              </label>
+            </div>
           </div>
           <div
             class="fields"
@@ -202,6 +239,7 @@ Object {
             />
           </div>
         </div>
+        <br />
         <div
           class="required six wide field"
         >
@@ -230,10 +268,22 @@ Object {
             />
           </div>
         </div>
-        <input
-          type="text"
-          value=""
-        />
+        <div
+          class="six wide field"
+        >
+          <label>
+            * Only suburb and city will be visible on listing
+          </label>
+          <div
+            class="ui input"
+          >
+            <input
+              placeholder="Start typing your address..."
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
         <div
           class="required six wide field"
         >
@@ -286,6 +336,30 @@ Object {
           >
             Upload Image
           </button>
+        </div>
+        <div
+          class="required field"
+        >
+          <div
+            class="ui checkbox"
+          >
+            <input
+              class="hidden"
+              readonly=""
+              required=""
+              tabindex="0"
+              type="checkbox"
+              value=""
+            />
+            <label>
+              I agree to the 
+              <a
+                href="/guidelines"
+              >
+                TakeMe Guidelines
+              </a>
+            </label>
+          </div>
         </div>
         <div
           class="fields"

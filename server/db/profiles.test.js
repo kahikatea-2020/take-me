@@ -15,7 +15,7 @@ describe('getUserById', () => {
     const testId = 3
     return db.getUserById(testId, testDb)
       .then(res => {
-        expect(Object.keys(res)).toHaveLength(5)
+        expect(Object.keys(res)).toHaveLength(8)
         expect(res.location).toBe('Auckland')
         expect(res.firstName).toBe('Pat')
       })
