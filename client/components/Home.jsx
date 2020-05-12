@@ -95,7 +95,7 @@ class Home extends React.Component {
             <Card.Group itemsPerRow={4} className='centered'>
               {this.pageOfItems.map(item => <ListItem key={item.id} listing={item} />)}
             </Card.Group>
-            <Pagination items={selectedListings} onChangePage={this.onChangePage} />
+            <Pagination items={selectedListings} onChangePage={this.onChangePage} onChange={this.onChange} />
           </>
           : <p>Sorry, there are no current listings to match your search filters</p>}
       </>
