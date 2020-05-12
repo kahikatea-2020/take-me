@@ -1,12 +1,11 @@
 import React from 'react'
 import { Form } from 'semantic-ui-react'
 import { openUploadWidget } from './CloudinaryService'
-import { isAuthenticated, register } from 'authenticare/client'
+import { isAuthenticated } from 'authenticare/client'
 import { Link } from 'react-router-dom'
 import { getUserDetails } from '../actions/users'
-import { BASE_API_URL } from '../base-api.js'
 import { connect } from 'react-redux'
-
+import { showError, hideError } from '../actions/error'
 
 
 import Autocomplete from './Autocomplete'
@@ -21,7 +20,8 @@ class EditProfile extends React.Component {
     imageUrl: 'v1589061239/default-profile_checno.png',
     uploadedImage: false,
     location: '',
-    id: ''
+    id: '',
+    show: false
   }
 
   imageUpload = (tag, preset) => {
@@ -66,6 +66,15 @@ class EditProfile extends React.Component {
     var spitAddie = this.props.address.split(',')
     var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
     this.setState({ location: addie })
+  }
+
+  inputChecker = event => {
+    const { firstName, lastName, emailAddress, phoneNumber, location } = this.state
+    if(firstName !== '' && lastName !== '' && emailAddress !== '' && location !== '') {
+      if(phoneNumber !== '' || phoneNumber !== null){
+        return false
+      }
+    }
   }
 
   submitHandler = e => {
@@ -162,13 +171,20 @@ class EditProfile extends React.Component {
             </Form.Button>
          </Form.Group>
         </Form>
+        <SweetAlert
+          show={this.state.show}
+          title="Oops, something went wrong!"
+          text={this.props.error}
+          onConfirm={() => this.setState({ show: false })}
+        />
       </div>
     )
   }
 }
 const mapStateToProps = state => {
   return {
-    address: state.autocomplete
+    address: state.autocomplete,
+    error: state.error
   }
 }
 
