@@ -38,7 +38,6 @@ class NewListing extends React.Component {
     this.setState({description: arr})
     var spitAddie = this.props.address.split(',')
     var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
-    console.log(addie)
     this.setState({ location: addie })
   }
 

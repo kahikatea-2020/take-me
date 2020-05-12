@@ -23,7 +23,6 @@ class Autocomplete extends Component {
       getAddress(e.currentTarget.value)
         .then(apiRes => {
           const suggestions = apiRes.a.map(item => item.a)
-          console.log(suggestions)
           const filteredSuggestions = suggestions.filter(
             suggestion =>
               suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
