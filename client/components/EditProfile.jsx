@@ -28,7 +28,6 @@ class EditProfile extends React.Component {
   componentDidMount () {
     getUserById(this.props.match.params.id)
     .then(user => {
-      console.log(user)
       this.setState({
         firstName: user.firstName,
         lastName: user.lastName,
@@ -72,6 +71,7 @@ class EditProfile extends React.Component {
   }
 
   updateField = e => {
+    console.log(this.state, e.target.value)
     this.setState({
       id: this.props.match.params.id
     })
@@ -127,21 +127,19 @@ class EditProfile extends React.Component {
             fluid
             width={6}
             name='firstName'
-            placeholder='First name'
+            placeholder={this.state.firstName}
             type='text'
             onKeyUp={this.updateField}
             autoComplete='off'
-            value={this.setState.firstName}
             />
           <Form.Input
             fluid
             width={6}
             name='lastName'
-            placeholder='Last name'
+            placeholder={this.state.lastName}
             type='text'
             onKeyUp={this.updateField}
             autoComplete='off'
-            value={this.setState.lastName}
             />
           <br/>
           <Autocomplete id='address' />
@@ -149,21 +147,19 @@ class EditProfile extends React.Component {
             fluid
             width={6}
             name='emailAddress'
-            placeholder='Email address'
+            placeholder={this.state.emailAddress}
             type='text'
             onKeyUp={this.updateField}
             autoComplete='off'
-            value={this.setState.emailAddress}
             />
           <Form.Input
             fluid
             width={6}
             name='phoneNumber'
-            placeholder='Phone number'
+            placeholder={this.state.phoneNumber}
             type='number'
             onKeyUp={this.updateField}
             autoComplete='off'
-            value={this.setState.phoneNumber}
           />
           <Form.Button
           onClick={e => {
