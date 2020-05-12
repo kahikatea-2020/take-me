@@ -16,18 +16,20 @@ class Home extends React.Component {
     super(props)
 
     this.state = {
-      pageOfItems: [],
       location: '',
       checked: false,
-      locationAdded: false
+      locationAdded: false,
+      page: false
     }
 
     this.onChangePage = this.onChangePage.bind(this)
   }
 
+  pageOfItems = []
+
   onChangePage (pageOfItems) {
     // update state with new page of items
-    this.setState({ pageOfItems: pageOfItems })
+    this.pageOfItems = pageOfItems
   }
 
   componentDidMount () {
@@ -56,7 +58,7 @@ class Home extends React.Component {
     if (this.props.selectedCategory.id && (this.props.selectedCategory.id !== 100)) {
       selectedListings = selectedListings.filter(listing => listing.categoryId === this.props.selectedCategory.id)
     }
-    console.log(this.state.pageOfItems, selectedListings)
+    console.log(this.pageOfItems)
     return (
       <>
         <SearchBar history={this.props.history}/>
@@ -80,16 +82,22 @@ class Home extends React.Component {
         </div>
         <WaitIndicator />
         {selectedListings.length > 0
-          ? (!this.state.checked && (!this.props.selectedCategory.id || (this.props.selectedCategory.id === 100)))
-            ? <>
-              <Card.Group itemsPerRow={4} className='centered'>
-                {this.state.pageOfItems.map(item => <ListItem key={item.id} listing={item} />)}
-              </Card.Group>
-              <Pagination items={selectedListings} onChangePage={this.onChangePage} />
-            </>
-            : <Card.Group itemsPerRow={4} className='centered'>
-              {selectedListings.map(item => <ListItem key={item.id} listing={item} />)}
+          // ? (!this.state.checked && (!this.props.selectedCategory.id || (this.props.selectedCategory.id === 100)))
+          //   ? <>
+          //     <Card.Group itemsPerRow={4} className='centered'>
+          //       {this.state.pageOfItems.map(item => <ListItem key={item.id} listing={item} />)}
+          //     </Card.Group>
+          //     <Pagination items={selectedListings} onChangePage={this.onChangePage} />
+          //   </>
+          //   : <Card.Group itemsPerRow={4} className='centered'>
+          //     {selectedListings.map(item => <ListItem key={item.id} listing={item} />)}
+          //   </Card.Group>
+          ? <>
+            <Card.Group itemsPerRow={4} className='centered'>
+              {this.pageOfItems.map(item => <ListItem key={item.id} listing={item} />)}
             </Card.Group>
+            <Pagination items={selectedListings} onChangePage={this.onChangePage} />
+          </>
           : <p>Sorry, there are no current listings in your location</p>}
       </>
     )

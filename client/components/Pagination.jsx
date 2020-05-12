@@ -23,12 +23,12 @@ class Pagination extends React.Component {
     this.setPage(this.props.initialPage)
   }
 
-  // componentDidUpdate (prevProps, prevState) {
-  //   // reset page if items array has changed
-  //   if (this.props.items !== prevProps.items) {
-  //     this.setPage(this.props.initialPage)
-  //   }
-  // }
+  componentDidUpdate (prevProps, prevState) {
+    // reset page if items array has changed
+    if (this.props.items !== prevProps.items) {
+      this.setPage(this.props.initialPage)
+    }
+  }
 
   setPage (page) {
     var { items, pageSize } = this.props
