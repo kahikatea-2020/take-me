@@ -8,6 +8,7 @@
   padding-bottom: 5vh;
 }
 
+/* START FOOTER STYLING */
 #footer {
   width: 100vw;
   position: relative;
@@ -17,10 +18,6 @@
   margin-top: 5vh;
   background-color: rgb(29, 29, 29);
   color: white;
-}
-
-#wrapper {
-  height: 100vh;
 }
 
 #footerLogo {
@@ -43,6 +40,7 @@
 #footerLinks :hover {
   color: #ffffff;
 }
+/* END FOOTER STYLING */
 
 #tagLine {
   color: #f3f3f3a1;
@@ -195,3 +193,46 @@ div.ui.checkbox {
   margin: 5vh 0 3vh 0;
 }
 /* END NEW LISTING STYLING*/
+
+/* START UPDATE LISTING STYLING*/
+div.ui.container.update-listing {
+  display: inline-block;
+  flex-direction: column;
+  justify-content: center;
+}
+/* END UPDATE LISTING STYLING*/
+
+/* START LOGIN STYLING*/
+#wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 85vh;
+  padding-top: 10vh;
+  text-align: center;
+}
+
+#wrapper h1 {
+  margin-bottom: 5vh;
+}
+
+form.ui.form {
+  width: 70vw;
+}
+
+div#login-buttons.fields {
+  margin-top: 5vh;
+}
+
+div.fields {
+  display: flex;
+  justify-content: center;
+  margin: 5vh 0 5vh 0;
+}
+
+div.field button.ui.button {
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 8vw;
+}
+/* END LOGIN STYLING*/

@@ -59,39 +59,43 @@ class Login extends React.Component {
   render () {
     return (
       <>
-        <div id="wrapper">
+        <div id='wrapper'>
           <h1>Login</h1>
           <Form>
-            <Form.Input
-              onKeyUp={this.updateField}
-              fluid
-              width={6}
-              name='username'
-              placeholder='Username'
-              type='text'
-            />
-            <Form.Input
-              onKeyUp={this.updateField}
-              fluid
-              width={6}
-              name='password'
-              placeholder='Password'
-              type='password'
-              autoComplete='off'
-              onKeyDown={this.handleOnKeyDown}
-            />
             <Form.Group>
+              <Form.Input
+                onKeyUp={this.updateField}
+                fluid
+                width={6}
+                name='username'
+                placeholder='Username'
+                type='text'
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Input
+                onKeyUp={this.updateField}
+                fluid
+                width={6}
+                name='password'
+                placeholder='Password'
+                type='password'
+                autoComplete='off'
+                onKeyDown={this.handleOnKeyDown}
+              />
+            </Form.Group>
+            <Form.Group id='login-buttons'>
+              <Link to='/'>
+                <Form.Button>
+              Cancel
+                </Form.Button>
+              </Link>
               <Form.Button
                 type='submit'
                 onClick={this.submitHandler}
               >
               Submit
               </Form.Button>
-              <Link to='/'>
-                <Form.Button>
-              Cancel
-                </Form.Button>
-              </Link>
             </Form.Group>
           </Form>
           <WaitIndicator />
