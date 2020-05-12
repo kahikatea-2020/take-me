@@ -30,6 +30,7 @@ class Home extends React.Component {
   onChangePage (pageOfItems) {
     // update state with new page of items
     this.pageOfItems = pageOfItems
+    this.setState({ rerenderer: !this.state.rerenderer })
   }
 
   onCategoryChange = () => {
