@@ -19,8 +19,10 @@ class Listing extends React.Component {
     description: [],
     imageUrl: [],
     comments: [],
-    newComment: ''
+    newComment: '',
+    taken: false,
   }
+
   componentDidMount() {
     this.props.dispatch(getListingsPending())
     getListingById(this.props.match.params.id)
@@ -33,7 +35,8 @@ class Listing extends React.Component {
             listing,
             emailSubject: listing.name.split(' ').join('%20'),
             description: listing.description,
-            imageUrl: listing.imageUrl
+            imageUrl: listing.imageUrl,
+            taken: listing.taken,
           }, this.getComments)
         }
       })
@@ -117,6 +120,10 @@ class Listing extends React.Component {
               }
               <h1>{listing.name}</h1>
               <h4>Location: {listing.location}</h4>
+              <h4>Status: { (listing.taken)
+                    ? <p>Taken</p>
+                    : <p>Available</p>
+                  }</h4>
               {this.state.description.map(sentence => <p key={sentence.substr(0, 10)}>{sentence}</p>)}
             </div>
             <div className='contact-info'>

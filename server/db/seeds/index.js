@@ -167,13 +167,13 @@ exports.seed = (knex) =>
           description: JSON.stringify([
             'Some idiot dunked and broke the basket.',
             'The rim is still in good condition but I cant be bothered to fix it.',
-            'Just need new screws and you will need to take it off the wall if interested.'
+            'Just need new screws asdaasdasdasdasdasdnd you will need to take it off the wall if interested.'
           ]),
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967348/hoops_jbmdbg.jpg']),
           user_id: 2,
           category_id: 7,
-          taken: false,
+          taken: true,
           date_taken: '12/05/2020'
         },
         {
