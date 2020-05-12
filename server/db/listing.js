@@ -71,7 +71,6 @@ function getUserByListingId (id, db = connection) {
     .first()
 }
 
-
 module.exports = {
   getListings,
   getListingsById,
