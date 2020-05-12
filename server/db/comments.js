@@ -14,7 +14,7 @@ function getCommentsById (id, db = connection) {
 }
 
 function addCommentById (id, data, db = connection) {
-  
+  reutn db('q_and_a')
 }
 
 module.exports = {
