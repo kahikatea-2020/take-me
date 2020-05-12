@@ -28,7 +28,7 @@ router.get('/:id', (req, res) => {
 })
 
 // PUT /api/v1/users/edit
-router.put('/edit', getTokenDecoder() (req, res) => {
+router.put('/edit', getTokenDecoder(), (req, res) => {
   const userData = req.body
   if( req.user.id === userData.id){
   db.editUser(userData)
