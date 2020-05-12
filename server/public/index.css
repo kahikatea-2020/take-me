@@ -5,7 +5,7 @@
 }
 
 #main-container {
-  padding-bottom: 15vh;
+  padding-bottom: 5vh;
 }
 
 #footer {
@@ -95,7 +95,6 @@
 .slick-slider {
   width: 90%;
 }
-
 /* END CAROUSEL STYLING */
 
 /* START LISTING STYLING */
@@ -103,13 +102,20 @@ div.row {
   min-height: 80vh;
 }
 
+div.stretched.column.listing-details {
+  min-height: 80vh;
+}
+
 .listing-details {
   padding-left: 100px;
+  display: flex;
+  flex-direction: row;
 }
 
 .listing-description {
   margin-left: 4vw;
   padding-top: 2vh;
+  display: inline-block;
 }
 
 .listing-description h1 {
@@ -126,8 +132,6 @@ div.row {
 }
 
 .contact-info {
-  display: flex;
-  align-items: flex-end;
   padding-bottom: 5vh;
 }
 
@@ -136,6 +140,7 @@ div.row {
   height: 30vh;
   font-size: 1.2em;
   margin-left: 4vw;
+  margin-top: 5vh;
 }
 
 .contact-info div.ui.card div.content {
@@ -165,7 +170,7 @@ div.meta {
   width: 50%;
 }
 
-.ui.button.update-listing #update {
+#update {
   float: right;
 }
 /* END LISTING STYLING*/
