@@ -1,5 +1,6 @@
 import React from 'react'
 import { Form } from 'semantic-ui-react'
+import { openUploadWidget } from './CloudinaryService'
 
 import Autocomplete from './Autocomplete'
 
@@ -12,6 +13,47 @@ class EditProfile extends React.Component {
     imageUrl: 'v1589061239/default-profile_checno.png',
     uploadedImage: false,
     location: ''
+  }
+
+  imageUpload = (tag, preset) => {
+    const uploadOptions = {
+      cloudName: 'takemenz',
+      tags: [tag],
+      uploadPreset: preset
+    }
+
+    openUploadWidget(uploadOptions, (error, photo) => {
+      if (!error) {
+        if (photo.event === 'success') {
+          this.setState({
+            imageUrl: photo.info.path,
+            uploadedImage: true
+          })
+        }
+      }
+    })
+  }
+
+  deleteImage = () => {
+    this.setState({
+      imageUrl: 'v1589061239/default-profile_checno.png',
+      uploadedImage: false
+    })
+  }
+
+  handleOnKeyDown = event => {
+    if (event.keyCode === 13) {
+      this.submitHandler()
+    }
+  }
+
+  updateField = e => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+    var spitAddie = this.props.address.split(',')
+    var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
+    this.setState({ location: addie })
   }
 
   render () {
@@ -35,6 +77,7 @@ class EditProfile extends React.Component {
             type='text'
           />
           <br/>
+          <Autocomplete id='address' />
           <Form.Input
             fluid
             required
