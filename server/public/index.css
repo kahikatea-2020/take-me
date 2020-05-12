@@ -8,6 +8,10 @@
   padding-bottom: 5vh;
 }
 
+#wrapper {
+  min-height: 100vh
+}
+
 /* START FOOTER STYLING */
 #footer {
   width: 100vw;
@@ -203,7 +207,7 @@ div.ui.container.update-listing {
 /* END UPDATE LISTING STYLING*/
 
 /* START LOGIN STYLING*/
-#wrapper {
+#login {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -212,27 +216,29 @@ div.ui.container.update-listing {
   text-align: center;
 }
 
-#wrapper h1 {
+#login h1 {
   margin-bottom: 5vh;
+  text-align: center;
 }
 
 form.ui.form {
   width: 70vw;
 }
 
-div#login-buttons.fields {
-  margin-top: 5vh;
-}
-
-div.fields {
+#login div.fields {
   display: flex;
   justify-content: center;
-  margin: 5vh 0 5vh 0;
+  margin: 2vh 0 2vh 0;
+}
+
+div.fields#buttons {
+  margin-top: 5vh;
 }
 
 div.field button.ui.button {
   margin-left: 10px;
   margin-right: 10px;
-  width: 8vw;
+  min-width: 8vw;
 }
+
 /* END LOGIN STYLING*/
