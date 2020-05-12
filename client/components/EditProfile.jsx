@@ -92,6 +92,9 @@ class EditProfile extends React.Component {
         .then(() => {
           this.props.history.push(`/profile/${this.props.match.params.id}`)
         })
+        .catch(err => {
+          console.log('error is:', err.message)
+        })
     }
   }
 
