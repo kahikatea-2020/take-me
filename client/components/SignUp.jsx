@@ -71,7 +71,6 @@ class SignUp extends React.Component {
     })
     var spitAddie = this.props.address.split(',')
     var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
-    console.log(addie)
     this.setState({ location: addie })
   }
   
