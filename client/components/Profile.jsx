@@ -40,6 +40,7 @@ class Profile extends React.Component {
     if(this.state.profile.id != newId) {
       getUserById(newId)
       .then(profile => {
+        this.props.dispatch(getUsersListings(newId))
           this.setState({
             profile
           })
