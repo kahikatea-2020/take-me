@@ -18,7 +18,8 @@ function createUser (user, db = connection) {
     .then(() => generateHash(user.password))
     .then(passwordHash => {
       const { firstName, lastName, emailAddress, phoneNumber, location, username, imageUrl } = user
-      return db('users').insert({ first_name: firstName, last_name: lastName, email: emailAddress, phone_number: phoneNumber, username: username, hash: passwordHash, location: location, image_url: imageUrl })
+      var address = location.slice(0, -5)
+      return db('users').insert({ first_name: firstName, last_name: lastName, email: emailAddress, phone_number: phoneNumber, username: username, hash: passwordHash, location: address, image_url: imageUrl })
     })
 }
 

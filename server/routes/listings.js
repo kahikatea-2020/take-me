@@ -50,7 +50,18 @@ router.delete('/:id', getTokenDecoder(), (req, res) => {
 
 // POST /api/v1/listings/new
 router.post('/new', (req, res) => {
-  db.addListing(req.body)
+  const { name, description, location, imageUrl, show, userId, categoryId } = req.body
+  var address = location.slice(0, -5)
+  const data = {
+    name,
+    description,
+    imageUrl,
+    show,
+    location: address,
+    userId,
+    categoryId
+  }
+  db.addListing(data)
     .then((id) => {
       res.send({ id: id[0] })
     })
