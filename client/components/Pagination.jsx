@@ -19,12 +19,16 @@ class Pagination extends React.Component {
     this.state = { pager: {} }
   }
 
-  componentDidUpdate (prevProps, prevState) {
-    // reset page if items array has changed
-    if (this.props.items !== prevProps.items) {
-      this.setPage(this.props.initialPage)
-    }
+  componentDidMount () {
+    this.setPage(this.props.initialPage)
   }
+
+  // componentDidUpdate (prevProps, prevState) {
+  //   // reset page if items array has changed
+  //   if (this.props.items !== prevProps.items) {
+  //     this.setPage(this.props.initialPage)
+  //   }
+  // }
 
   setPage (page) {
     var { items, pageSize } = this.props
@@ -110,17 +114,21 @@ class Pagination extends React.Component {
         <li className={pager.currentPage === 1 ? 'disabled' : ''}>
           <a onClick={() => this.setPage(1)}>First</a>
         </li>
-        <li className={pager.currentPage === 1 ? 'disabled' : ''}>
-          <a onClick={() => this.setPage(pager.currentPage - 1)}>Previous</a>
-        </li>
+        {pager.currentPage !== 1 &&
+          <li className={pager.currentPage === 1 ? 'disabled' : ''}>
+            <a onClick={() => this.setPage(pager.currentPage - 1)}>Previous</a>
+          </li>
+        }
         {pager.pages.map((page, index) =>
           <li key={index} className={pager.currentPage === page ? 'active' : ''}>
             <a onClick={() => this.setPage(page)}>{page}</a>
           </li>
         )}
-        <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
-          <a onClick={() => this.setPage(pager.currentPage + 1)}>Next</a>
-        </li>
+        {pager.currentPage !== pager.totalPages &&
+          <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
+            <a onClick={() => this.setPage(pager.currentPage + 1)}>Next</a>
+          </li>
+        }
         <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
           <a onClick={() => this.setPage(pager.totalPages)}>Last</a>
         </li>

@@ -56,7 +56,7 @@ class Home extends React.Component {
     if (this.props.selectedCategory.id && (this.props.selectedCategory.id !== 100)) {
       selectedListings = selectedListings.filter(listing => listing.categoryId === this.props.selectedCategory.id)
     }
-    console.log(this.state.pageOfItems)
+    console.log(this.state.pageOfItems, selectedListings)
     return (
       <>
         <SearchBar history={this.props.history}/>
@@ -80,11 +80,16 @@ class Home extends React.Component {
         </div>
         <WaitIndicator />
         {selectedListings.length > 0
-          ? <><Card.Group itemsPerRow={4} className='centered'>
-            {selectedListings.map(item => <ListItem key={item.id} listing={item} />)}
-          </Card.Group>
-          {/* <Pagination items={selectedListings} onChangePage={this.onChangePage} /> */}
-          </>
+          ? !this.state.checked
+            ? <>
+              <Card.Group itemsPerRow={4} className='centered'>
+                {this.state.pageOfItems.map(item => <ListItem key={item.id} listing={item} />)}
+              </Card.Group>
+                <Pagination items={selectedListings} onChangePage={this.onChangePage} />
+              </>
+            : <Card.Group itemsPerRow={4} className='centered'>
+                {selectedListings.map(item => <ListItem key={item.id} listing={item} />)}
+              </Card.Group>
           : <p>Sorry, there are no current listings in your location</p>}
       </>
     )
