@@ -178,6 +178,22 @@ div.meta {
   width: 45%;
 }
 
+#email a {
+  color: #5A5A5A !important;
+}
+
+#email a:hover {
+  color: black !important;
+}
+
+#profile a {
+  color: #5A5A5A !important;
+}
+
+#profile a:hover {
+  color: black !important;
+}
+
 .ui-two-buttons #profile {
   float: right;
   width: 50%;
