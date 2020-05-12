@@ -8,8 +8,24 @@ import ListItem from './ListItem'
 import CategoryList from './CategoryList'
 import { getListings } from '../actions/listings'
 import { getCategories } from '../actions/categories'
+import Pagination from './Pagination'
 
 class Home extends React.Component {
+  constructor () {
+    super()
+
+    this.state = {
+      pageOfItems: []
+    }
+
+    this.onChangePage = this.onChangePage.bind(this)
+  }
+
+  onChangePage (pageOfItems) {
+    // update state with new page of items
+    this.setState({ pageOfItems: pageOfItems })
+  }
+
   componentDidMount () {
     this.props.dispatch(getListings())
     this.props.dispatch(getCategories())
@@ -22,7 +38,7 @@ class Home extends React.Component {
         selectedListings = selectedListings.filter(listing => listing.categoryId === this.props.selectedCategory.id)
       }
     }
-
+    console.log(this.state.pageOfItems)
     return (
       <>
         <SearchBar history={this.props.history}/>
@@ -30,8 +46,13 @@ class Home extends React.Component {
         <h1 id='latest-listings'>Latest Listings</h1>
         <WaitIndicator />
         <Card.Group itemsPerRow={4} className='centered'>
-          {selectedListings.map(item => <ListItem key={item.id} listing={item} />)}
+          {/* {this.state.pageOfItems.map(item =>
+            <div key={item.id}>{item.name}</div>
+          )} */}
+          {this.state.pageOfItems.map(item => <ListItem key={item.id} listing={item} />)}
         </Card.Group>
+
+        <Pagination items={selectedListings} onChangePage={this.onChangePage} />
       </>
     )
   }
