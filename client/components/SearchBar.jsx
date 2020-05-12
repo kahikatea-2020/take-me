@@ -86,6 +86,7 @@ class SearchBar extends Component {
         </Menu.Item>
         <Menu.Item style={{ width: '80%' }}>
           <Search
+            id='search'
             style={{ width: '95%', marginLeft: '2.5%' }}
             input={{ fluid: true }}
             loading={isLoading}

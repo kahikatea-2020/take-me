@@ -74,16 +74,16 @@ class Home extends React.Component {
         <div id='toggle' className='ui three column grid' style={{ height: '10vh' }}>
           <div className='row'>
             <h1 className='four wide column' id='latest-listings'>Latest Listings</h1>
-            {isAuthenticated() &&
             <div className="eight wide column">
+              {isAuthenticated() &&
               <Checkbox
                 label='Near Me'
                 onClick={this.handleChange}
                 style={{ marginTop: '10px' }}
                 toggle
               />
+              }
             </div>
-            }
             <div className='four wide right aligned column'>
               <CategoryList history={this.props.history} onChange={this.onChange} />
             </div>

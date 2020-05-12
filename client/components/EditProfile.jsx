@@ -61,7 +61,7 @@ class EditProfile extends React.Component {
 
   deleteImage = () => {
     this.setState({
-      imageUrl: 'v1589061239/default-profile_checno.png',
+      imageUrl: 'v1589318426/hvu5hza8chku5rnjcane.png',
       uploadedImage: false
     })
   }
@@ -135,25 +135,27 @@ class EditProfile extends React.Component {
 
   render () {
     return (
-      <div>
+      <div id='wrapper'>
         {isAuthenticated() &&
         <Form>
           <Form.Input
             fluid
             width={6}
             name='firstName'
-            placeholder={this.state.firstName}
+            placeholder='First Name'
+            value={this.state.firstName}
             type='text'
-            onKeyUp={this.updateField}
+            onChange={this.updateField}
             autoComplete='off'
             />
           <Form.Input
             fluid
             width={6}
             name='lastName'
-            placeholder={this.state.lastName}
+            placeholder='Last Name'
+            value={this.state.lastName}
             type='text'
-            onKeyUp={this.updateField}
+            onChange={this.updateField}
             autoComplete='off'
             />
           <br/>
@@ -162,16 +164,18 @@ class EditProfile extends React.Component {
             fluid
             width={6}
             name='emailAddress'
-            placeholder={this.state.emailAddress}
+            placeholder='Email Address'
+            value={this.state.emailAddress}
             type='text'
-            onKeyUp={this.updateField}
+            onChange={this.updateField}
             autoComplete='off'
             />
           <Form.Input
             fluid
             width={6}
             name='phoneNumber'
-            placeholder={this.state.phoneNumber}
+            placeholder='Phone Number'
+            value={this.state.phoneNumber}
             type='number'
             onKeyUp={this.updateField}
             autoComplete='off'
@@ -180,7 +184,9 @@ class EditProfile extends React.Component {
           onClick={e => {
             e.preventDefault()
             return this.imageUpload(undefined, 'brmcwkea')}
-          }>Upload Image</Form.Button>
+          }>
+            Upload Image
+          </Form.Button>
           {(this.state.uploadedImage) &&
             <div className='imagesPreview'>
               <div className='singleImagePreview'>
