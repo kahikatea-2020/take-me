@@ -42,7 +42,6 @@ class Profile extends React.Component {
         this.props.dispatch(getUsersListings(this.props.match.params.id))
       })
   }
-
   render () {
     const { profile } = this.state
     const listing = this.props.usersListings.map(listing => ({
@@ -65,8 +64,10 @@ class Profile extends React.Component {
                 <p>Email: {profile.email}</p>
                 <p>Phone Number: {profile.phoneNumber}</p>
                 <p>Location: {profile.location}</p>
+                {(isAuthenticated() && (this.props.user.id === profile.id)) &&
                 <Button as={Link} to={`/edit-profile/${profile.id}`} basic color='blue'>Edit Profile</Button>
-              </div>
+                }
+                </div>
             </div>
           </div>
         </div>
