@@ -242,3 +242,16 @@ div.field button.ui.button {
 }
 
 /* END LOGIN STYLING*/
+
+.search div.field {
+  width: 100%;
+}
+
+#dropdown {
+  display: flex;
+  align-items: center;
+}
+
+.listingCard:hover {
+  top: -5px;
+}

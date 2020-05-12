@@ -66,11 +66,11 @@ class SearchBar extends Component {
 
     const categories = [{ key: 100, text: 'All Categories', value: 'All Categories' }, ...storeCategories]
     return (
-      <Menu inverted color='blue'>
-        <Menu.Item style={{ width: '20%' }}>
+      <Menu className='search' inverted color='blue'>
+        <Menu.Item id='dropdown' style={{ width: '20%' }}>
           <Form.Select
-            style={{ width: '100%', textAlign: 'center' }}
-            width={6}
+            style={{ minWidth: '100%', textAlign: 'center' }}
+            id='category-search'
             onChange={this.handleCategoryChange}
             fluid
             options={categories}

@@ -26,8 +26,8 @@ class Home extends React.Component {
     return (
       <>
         <SearchBar history={this.props.history}/>
-        <CategoryList history={this.props.history}/>
         <h1 id='latest-listings'>Latest Listings</h1>
+        <CategoryList history={this.props.history}/>
         <WaitIndicator />
         <Card.Group itemsPerRow={4} className='centered'>
           {selectedListings.map(item => <ListItem key={item.id} listing={item} />)}
