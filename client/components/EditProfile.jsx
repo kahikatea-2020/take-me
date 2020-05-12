@@ -93,6 +93,10 @@ class EditProfile extends React.Component {
           this.props.history.push(`/profile/${this.props.match.params.id}`)
         })
         .catch(err => {
+          if (err.message === 'Unauthorized') {
+            this.props.dispatch(showError('This is not the page you are looking for'))
+            this.setState({ show: true })
+          }
           console.log('error is:', err.message)
         })
     }
