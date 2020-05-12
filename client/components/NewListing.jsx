@@ -123,36 +123,37 @@ class NewListing extends React.Component {
   render () {
     return (
       <>
-      {/* this is a pretty shit solution lets make this better at some point*/}
         <div id="wrapper">
 
         {(isAuthenticated() && (this.props.user.username !== undefined))
         ?<>
           <h1>Create a listing</h1>
-          <p>Please fill in the following</p>
+          <p>Please fill in the following:</p>
           <Form>
-
-            <label>Listing Name</label>
-            <input type="text" name="name" onChange={this.handleChange} />
-
-            {/* maybe make it a dropdown? */}
-            <label>Location</label>
+            <Form.Input
+              width={6}
+              type='text'
+              name='name'
+              placeholder='Listing Title'
+              onChange={this.handleChange} 
+            />
             <Autocomplete />
-
-            <label>Description</label>
-            <input type="text" onKeyDown={this.handleOnKeyDown} name="description" onChange={this.handleDescriptionChange} />
-
-            <label>Category</label>
+            <Form.TextArea
+              width={6}
+              type='text'
+              name='description'
+              placeholder='Description'
+              onChange={this.handleDescriptionChange} 
+              onKeyDown={this.handleOnKeyDown}
+            />
             <CategoryList history={this.props.history} />
-
-            {/* need to update category list */}
             <Form.Button type='button' onClick={() => this.imageUpload()}>Upload Image</Form.Button>
             {this.state.imageUrl[0] &&
             <div className='imagesPreview'>
               {this.state.imageUrl.map((img, idx) => {
               return (
                 <div key={idx} className='singleImagePreview'>
-                  <div style={{height: '40px', width: '40px', marginLeft: '110px'}}>
+                  <div style={{height: '40px', width: 'auto', marginLeft: '110px'}}>
                     <button onClick={e => {
                       e.preventDefault()
                       return this.deleteImage(idx)
@@ -171,22 +172,24 @@ class NewListing extends React.Component {
               )})}
             </div>
             }
-            <Form.Button
-              type='submit'
-              onClick={this.submitHandler}
-            >
-              Submit
-            </Form.Button>
-            <Link to='/'><Form.Button
-              type='button'
-            >
-              Cancel 
-            </Form.Button></Link>
-            
+            <Form.Checkbox required label={<label>I agree to the <a href='/guidelines'>TakeMe Guidelines</a></label>} />
+            <Form.Group>
+              <Link to='/'>
+                <Form.Button>
+                  Cancel
+              </Form.Button>
+              </Link>
+              <Form.Button
+                type='submit'
+                onClick={this.submitHandler}
+              >
+                Submit
+              </Form.Button>
+            </Form.Group>
           </Form>
           <SweetAlert
           show={this.state.show}
-          title="Oppsie, Something went wrong!"
+          title="Oops, Something went wrong!"
           text={this.props.error}
           onConfirm={() => this.setState({ show: false })}
         />

@@ -1,7 +1,8 @@
-import React, { Component, Fragment } from 'react'
+import React, { Component } from 'react'
 import { getAddress } from '../api/addy'
 import { connect } from 'react-redux'
 import { addAdress } from '../actions/autocomplete'
+import { Form } from 'semantic-ui-react' 
 
 class Autocomplete extends Component {
   constructor (props) {
@@ -23,7 +24,6 @@ class Autocomplete extends Component {
       getAddress(e.currentTarget.value)
         .then(apiRes => {
           const suggestions = apiRes.a.map(item => item.a)
-          console.log(suggestions)
           const filteredSuggestions = suggestions.filter(
             suggestion =>
               suggestion.toLowerCase().indexOf(userInput.toLowerCase()) > -1
@@ -117,15 +117,18 @@ class Autocomplete extends Component {
     }
 
     return (
-      <Fragment>
-        <input
-          type="text"
+      <>
+        <Form.Input
+          type='text'
+          label='* Only suburb and city will be visible on listing'
+          width={6}
+          placeholder='Start typing your address...'
           onChange={onChange}
           onKeyDown={onKeyDown}
           value={userInput}
         />
         {suggestionsListComponent}
-      </Fragment>
+      </>
     )
   }
 }

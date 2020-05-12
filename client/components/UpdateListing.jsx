@@ -1,12 +1,14 @@
 import React from 'react'
 import SweetAlert from 'sweetalert2-react'
 import { Form, List } from 'semantic-ui-react'
+import { Link } from 'react-router-dom'
 import { editListing } from '../api/listings'
 import { getListingById } from '../api/listings'
 import { openUploadWidget } from './CloudinaryService'
-import { userPending, userSuccess } from '../actions/users'
+// import { userPending, userSuccess } from '../actions/users'
 import { hideError, showError } from '../actions/error'
 import { connect } from 'react-redux'
+import Autocomplete from './Autocomplete'
 import WaitIndicator from './WaitIndicator'
 
 class UpdateListing extends React.Component {
@@ -28,6 +30,7 @@ class UpdateListing extends React.Component {
   }
 
   handleChange = evt => {
+    console.log('handlechange')
     this.setState({ [evt.target.name]: evt.target.value })
   }
 
@@ -127,11 +130,11 @@ class UpdateListing extends React.Component {
             width={6}
             type='text'
             name='name'
-            label='Listing Name'
+            label='Listing Title'
             onChange={this.handleChange}
             value={this.state.name}
           />
-          <Form.Input
+          <Form.TextArea
             width={6}
             type='text'
             name='description'
@@ -139,14 +142,7 @@ class UpdateListing extends React.Component {
             onChange={this.handleDescriptionChange}
             value={this.state.description}
           />
-          <Form.Input
-            width={6}
-            type='text'
-            name='location'
-            label='Location'
-            onChange={this.handleChange}
-            value={this.state.location}
-          />
+          <Autocomplete />
           <Form.Button onClick={() => this.imageUpload()}>Upload Image</Form.Button>
           {this.state.imageUrl[0] &&
             <div className='imagesPreview'>
@@ -173,12 +169,19 @@ class UpdateListing extends React.Component {
               })}
             </div>
           }
-          <Form.Button
-            type='submit'
-            onClick={this.submitHandler}
-          >
-            Submit
-          </Form.Button>
+          <Form.Group>
+            <Link to='/'>
+              <Form.Button>
+                Cancel
+              </Form.Button>
+            </Link>
+            <Form.Button
+              type='submit'
+              onClick={this.submitHandler}
+            >
+              Submit
+            </Form.Button>
+          </Form.Group>
         </Form>
         <SweetAlert
           show={this.state.show}
