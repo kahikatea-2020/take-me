@@ -21,7 +21,7 @@ router.post('/add', (req, res) => {
   }
   console.log(data, date)
   db.addCommentById(data)
-    .then(dbRes => {
+    .then(() => {
       res.status(200).json({ ok: true })
     })
 })
