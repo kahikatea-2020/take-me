@@ -143,13 +143,18 @@ class UpdateListing extends React.Component {
             value={this.state.description}
           />
           <Autocomplete />
-          <Form.Button onClick={() => this.imageUpload()}>Upload Image</Form.Button>
+          <Form.Button onClick={() => this.imageUpload()}>
+            Upload Image
+          </Form.Button>
           {this.state.imageUrl[0] &&
             <div className='imagesPreview'>
               {this.state.imageUrl.map((img, idx) => {
                 return (
                   <div className='singleImagePreview'>
-                    <div style={{ height: '40px', width: '40px', marginLeft: '110px' }}>
+                    <div>
+                      <img className='theImage' src={`https://res.cloudinary.com/takemenz/image/upload/${img}`} />
+                    </div>
+                    <div>
                       <button onClick={e => {
                         e.preventDefault()
                         return this.deleteImage(idx)
@@ -160,9 +165,6 @@ class UpdateListing extends React.Component {
                           className='deleteButton'
                         />
                       </button>
-                    </div>
-                    <div>
-                      <img className='theImage' src={`https://res.cloudinary.com/takemenz/image/upload/${img}`} />
                     </div>
                   </div>
                 )
