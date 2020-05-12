@@ -5,10 +5,15 @@ import { Button, Search, Menu, Form } from 'semantic-ui-react'
 
 import { getCategories } from '../actions/categories'
 
-const initialState = { isLoading: false, results: [], value: '', category: {} }
+const initialState = { isLoading: false, results: [], value: '' }
 
 class SearchBar extends Component {
-  state = initialState
+  state = {
+    isLoading: false,
+    results: [],
+    value: '',
+    category: {}
+  }
 
   componentDidMount () {
     this.props.dispatch(getCategories())

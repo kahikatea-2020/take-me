@@ -2,8 +2,11 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import { Container, Menu, Header, Image, Dropdown } from 'semantic-ui-react'
 import { connect } from 'react-redux'
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
 
 import { isAuthenticated, logOff } from 'authenticare/client'
+const MySwal = withReactContent(Swal)
 
 const fontStyle = {
   fontSize: '16px'
@@ -35,10 +38,20 @@ class Navbar extends React.Component {
                   <Dropdown.Item style={{ paddingLeft: '10px' }} as={Link} to={`/profile/${this.props.user.id}`}>
                     Profile
                   </Dropdown.Item>
-                  <Dropdown.Item style={{ margin: '0' }} as={Link} to='#' onClick={() => {
+                  <Dropdown.Item style={{ margin: '0' }} as={Link}
+                  onClick={() => Swal.fire({
+                  title: 'Are you sure?',
+                  text: 'Are Yoy sure you want to log out?',
+                  icon: 'warning',
+                  showCancelButton: true,
+                  confirmButtonText: 'Log Out',
+                  cancelButtonText: 'No, Stay'
+                }).then((result) => {
+                  if (result.value) {
                     logOff()
                     this.props.history.push('/')
-                  }}
+                  }
+                })}
                   >
                     Log Off
                   </Dropdown.Item>

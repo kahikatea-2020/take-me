@@ -44,6 +44,16 @@ Object {
           <div
             class="fields"
           >
+            <div
+              class="field"
+            >
+              <button
+                class="ui button"
+                type="submit"
+              >
+                Submit
+              </button>
+            </div>
             <a
               href="/"
             >
@@ -57,16 +67,6 @@ Object {
                 </button>
               </div>
             </a>
-            <div
-              class="field"
-            >
-              <button
-                class="ui button"
-                type="submit"
-              >
-                Submit
-              </button>
-            </div>
           </div>
         </form>
       </div>
@@ -112,6 +112,16 @@ Object {
         <div
           class="fields"
         >
+          <div
+            class="field"
+          >
+            <button
+              class="ui button"
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
           <a
             href="/"
           >
@@ -125,16 +135,6 @@ Object {
               </button>
             </div>
           </a>
-          <div
-            class="field"
-          >
-            <button
-              class="ui button"
-              type="submit"
-            >
-              Submit
-            </button>
-          </div>
         </div>
       </form>
     </div>
