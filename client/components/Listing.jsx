@@ -6,7 +6,7 @@ import { Button, Card, Grid, Image, Form } from 'semantic-ui-react'
 
 import WaitIndicator from './WaitIndicator'
 
-import { getListingById } from '../api/listings'
+import { getListingById, editListing } from '../api/listings'
 import { getCommentsById, addComment } from '../api/q-and-a'
 import { getListingsPending, getListingSuccess } from '../actions/listings'
 import { getCommentsPending, getCommentsSuccess } from '../actions/q-and-a'
@@ -20,7 +20,8 @@ class Listing extends React.Component {
     imageUrl: [],
     comments: [],
     newComment: '',
-    taken: false,
+    taken: false ? true : false,
+    date_taken: ''
   }
 
   componentDidMount() {
@@ -76,6 +77,22 @@ class Listing extends React.Component {
       addComment(newCommentObject)
         .then(this.getComments)
     }
+  }
+
+  handleTaken = listing => {
+    const modifiedListing = {
+      id: listing.id,
+      name: listing.name,
+      location: listing.location,
+      description: listing.description,
+      imageUrl: listing.imageUrl,
+      comments: listing.comments,
+      newComment: listing.newComment,
+      taken: false ? true : false,
+      // date_taken: new Date()
+      date_taken: listing.date_taken
+    }
+    editListing(listing.id, modifiedListing)
   }
 
   render() {
@@ -152,9 +169,12 @@ class Listing extends React.Component {
                 </Card>
               </div>
               {(isAuthenticated() && (this.props.user.id === listing.userId)) &&
-                <Button id='update' style={{ maxHeight: '5vh', maxWidth: '50%' }} as={Link} to={`/update-listing/${listing.id}`} className='update-listing'>
+              <div>
+              <Button id='update' style={{ maxHeight: '5vh', maxWidth: '50%' }} as={Link} to={`/update-listing/${listing.id}`} className='update-listing'>
                   Edit Listing
               </Button>
+              <Button name={listing.id} onClick={() => this.handleTaken(listing)}>Mark as taken</Button>
+              </div>
               }
               <WaitIndicator />
             </Grid.Column>
