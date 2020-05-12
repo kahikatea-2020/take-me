@@ -46,9 +46,6 @@ class Home extends React.Component {
         <h1 id='latest-listings'>Latest Listings</h1>
         <WaitIndicator />
         <Card.Group itemsPerRow={4} className='centered'>
-          {/* {this.state.pageOfItems.map(item =>
-            <div key={item.id}>{item.name}</div>
-          )} */}
           {this.state.pageOfItems.map(item => <ListItem key={item.id} listing={item} />)}
         </Card.Group>
 
