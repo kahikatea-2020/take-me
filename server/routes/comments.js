@@ -12,7 +12,17 @@ router.get('/:id', (req, res) => {
 // POST /api/v1/comments/add
 router.post('/add', (req, res) => {
   const { comment, userId, listingId } = req.body
-  db.addCommentById()
+  const date = new Date(Date.now()).toString()
+  const data = {
+    comment,
+    date,
+    userId,
+    listingId
+  }
+  db.addCommentById(data)
+    .then(dbRes => {
+      res.status(200).json({ ok: true })
+    })
 })
 
 module.exports = router
