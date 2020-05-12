@@ -18,7 +18,7 @@ function addCommentById (id, data, db = connection) {
     .insert({
       comment: data.comment,
       user_id: data.userId,
-      listing_: data.listing.Id
+      listing_: data.listingId
     })
 }
 
