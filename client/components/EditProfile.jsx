@@ -15,7 +15,7 @@ class EditProfile extends React.Component {
   state = {
     firstName: '',
     lastName: '',
-    email: '',
+    emailAddress: '',
     phoneNumber: null,
     imageUrl: 'v1589061239/default-profile_checno.png',
     uploadedImage: false,
@@ -38,7 +38,6 @@ class EditProfile extends React.Component {
           })
         }
       }
-      console.log(this.state)
     })
   }
 
@@ -76,7 +75,7 @@ class EditProfile extends React.Component {
           console.log(err.message)
         })
         .then(() => {
-          console.log('winner')
+          console.log('winner', this.state)
         })
     
   }
@@ -92,6 +91,8 @@ class EditProfile extends React.Component {
             name='firstName'
             placeholder='First name'
             type='text'
+            onKeyUp={this.updateField}
+            autoComplete='off'
           />
           <Form.Input
             fluid
@@ -100,6 +101,8 @@ class EditProfile extends React.Component {
             name='lastName'
             placeholder='Last name'
             type='text'
+            onKeyUp={this.updateField}
+            autoComplete='off'
           />
           <br/>
           <Autocomplete id='address' />
@@ -110,6 +113,8 @@ class EditProfile extends React.Component {
             name='emailAddress'
             placeholder='Email address'
             type='text'
+            onKeyUp={this.updateField}
+            autoComplete='off'
           />
           <Form.Input
             fluid
@@ -118,6 +123,8 @@ class EditProfile extends React.Component {
             name='phoneNumber'
             placeholder='Phone number'
             type='number'
+            onKeyUp={this.updateField}
+            autoComplete='off'
           />
           <Form.Button
           onClick={e => {
