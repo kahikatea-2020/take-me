@@ -2,12 +2,12 @@ import React from 'react'
 import Slider from 'react-slick'
 import { isAuthenticated } from 'authenticare/client'
 import { connect } from 'react-redux'
-import { Button, Card, Grid, Image } from 'semantic-ui-react'
+import { Button, Card, Grid, Image, Form } from 'semantic-ui-react'
 
 import WaitIndicator from './WaitIndicator'
 
 import { getListingById } from '../api/listings'
-import { getCommentsById } from '../api/q-and-a'
+import { getCommentsById, addComment } from '../api/q-and-a'
 import { getListingsPending, getListingSuccess } from '../actions/listings'
 import { getCommentsPending, getCommentsSuccess } from '../actions/q-and-a'
 import { Link } from 'react-router-dom'
@@ -18,7 +18,8 @@ class Listing extends React.Component {
     emailSubject: '',
     description: [],
     imageUrl: [],
-    comments: []
+    comments: [],
+    newComment: ''
   }
   componentDidMount() {
     this.props.dispatch(getListingsPending())
@@ -53,6 +54,18 @@ class Listing extends React.Component {
       return { color: 'rgb(33, 133, 208)' }
     } else {
       return {}
+    }
+  }
+
+  updateField = e => {
+    this.setState({
+      newComment: e.target.value
+    })
+  }
+
+  submitHandler = () => {
+    if(this.state.newComment !== '') {
+      addComment(this.state.newComment)
     }
   }
 
@@ -147,6 +160,31 @@ class Listing extends React.Component {
               </div>
             ))}
           </div>
+        }
+        {isAuthenticated() && 
+          <Form>
+            {(this.props.user.id === listing.userId)
+            ? (this.state.comments.length > 0)
+              ? <label>Reply or Add a Comment</label>
+              : <label>Add a Comment</label>
+            : <label>Ask a Question</label>
+            }
+            <Form.Input
+              onKeyUp={this.updateField}
+              fluid
+              required
+              width={8}
+              name='comment'
+              placeholder=''
+              type='text'
+            />
+            <Form.Button
+              type='submit'
+              onClick={this.submitHandler}
+            >
+            Submit
+            </Form.Button>
+          </Form>
         }
       </>
     )
