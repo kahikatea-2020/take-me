@@ -61,17 +61,28 @@
 
 .singleImagePreview {
   width: 150px;
-  height: 190px;
-  margin: 1px;
+  height: 150px;
+  margin: 0 2vw 0 2vw;
   display: flex;
-  flex-direction: column;
-  justify-content: end;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .theImage {
   max-width: 100%;
-  border: grey 1px solid;
   max-height: 100%;
+}
+
+div.singleImagePreview button {
+  height: 3vh;
+  width: auto;
+  margin-left: 1vw;
+  border-radius: 5px;
+}
+
+.deleteButton {
+  height: 100%;
 }
 
 #latest-listings {
@@ -175,7 +186,12 @@ div.meta {
 }
 /* END LISTING STYLING*/
 
-.deleteButton {
-  height: 100%; 
-  width: 100%;
+/* START NEW LISTING STYLING*/
+div.ui.fluid.selection.dropdown {
+  margin-bottom: 5vh;
 }
+
+div.ui.checkbox {
+  margin: 5vh 0 3vh 0;
+}
+/* END NEW LISTING STYLING*/

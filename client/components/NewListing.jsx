@@ -146,14 +146,20 @@ class NewListing extends React.Component {
               onChange={this.handleDescriptionChange} 
               onKeyDown={this.handleOnKeyDown}
             />
-            <CategoryList history={this.props.history} />
+            <CategoryList
+              style={{ marginBottom: '15px' }}
+              history={this.props.history}
+            />
             <Form.Button type='button' onClick={() => this.imageUpload()}>Upload Image</Form.Button>
             {this.state.imageUrl[0] &&
             <div className='imagesPreview'>
               {this.state.imageUrl.map((img, idx) => {
               return (
                 <div key={idx} className='singleImagePreview'>
-                  <div style={{height: '40px', width: 'auto', marginLeft: '110px'}}>
+                  <div>
+                    <img className='theImage' src={`https://res.cloudinary.com/takemenz/image/upload/${img}`}/>
+                  </div>
+                  <div>
                     <button onClick={e => {
                       e.preventDefault()
                       return this.deleteImage(idx)
@@ -164,9 +170,6 @@ class NewListing extends React.Component {
                         className='deleteButton'
                       />
                     </button>
-                  </div>
-                  <div>
-                    <img className='theImage' src={`https://res.cloudinary.com/takemenz/image/upload/${img}`}/>
                   </div>
                 </div>
               )})}
@@ -189,7 +192,7 @@ class NewListing extends React.Component {
           </Form>
           <SweetAlert
           show={this.state.show}
-          title="Oops, Something went wrong!"
+          title="Oops, something went wrong!"
           text={this.props.error}
           onConfirm={() => this.setState({ show: false })}
         />
