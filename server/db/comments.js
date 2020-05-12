@@ -13,7 +13,7 @@ function getCommentsById (id, db = connection) {
     )
 }
 
-function addCommentById (data, db = connection) {
+function addComment (data, db = connection) {
   return db('q_and_a')
     .insert({
       date: data.date,
@@ -25,5 +25,5 @@ function addCommentById (data, db = connection) {
 
 module.exports = {
   getCommentsById,
-  addCommentById
+  addComment
 }

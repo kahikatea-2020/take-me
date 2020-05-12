@@ -19,7 +19,7 @@ router.post('/add', (req, res) => {
     userId,
     listingId
   }
-  db.addCommentById(data)
+  db.addComment(data)
     .then(() => {
       res.status(200).json({ ok: true })
     })
