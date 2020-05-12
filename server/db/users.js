@@ -5,8 +5,7 @@ const { generateHash } = require('authenticare/server')
 module.exports = {
   createUser,
   userExists,
-  getUserByName,
-  editUser
+  getUserByName
 }
 
 function createUser (user, db = connection) {
@@ -39,16 +38,3 @@ function getUserByName (username, db = connection) {
     .first()
 }
 
-function editUser (user, db = connection) {
-  const { firstName, lastName, email, phoneNumber, imageUrl } = user
-  return db('users')
-    .where('id', user.id)
-    .update({
-      first_name: firstName,
-      last_name: lastName,
-      email: email,
-      phone_number: phoneNumber,
-      image_url: imageUrl
-    })
-    .then(id => console.log(id))
-}

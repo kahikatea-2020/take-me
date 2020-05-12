@@ -33,6 +33,7 @@ router.put('/edit', (req, res) => {
   db.editUser(userData)
     .then(dbRes => {
       console.log(dbRes)
+      res.send({ ok: true })
     })
 })
 
