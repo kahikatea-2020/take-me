@@ -10,7 +10,6 @@ export function getUserDetails () {
   return request.get(`/api/v1/users/getuser`)
     .set({ 'Authorization': `Bearer ${getEncodedToken()}` })
     .then(res => {
-      console.log(res.body)
       return res.body
     })
 }
