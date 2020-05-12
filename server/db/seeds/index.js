@@ -901,13 +901,20 @@ exports.seed = (knex) =>
           comment: 'It is a cool shirt! Are they still available for purchase anywhere? I can\t find them online.',
           date: 'Wed May 13 2020 07:28:07 GMT+1200 (New Zealand Standard Time)',
           user_id: 6,
-          listing_id: 32
+          listing_id: 13
         },
         {
           id: 22,
           comment: 'I don\t think so. Got it from a Big Don Camp I went to years ago.',
           date: 'Wed May 13 2020 07:45:15 GMT+1200 (New Zealand Standard Time)',
           user_id: 2,
-          listing_id: 32
+          listing_id: 13
+        },
+        {
+          id: 23,
+          comment: 'Yeah it is. Just surplus to requirements now.',
+          date: 'Wed May 13 2020 08:15:35 GMT+1200 (New Zealand Standard Time)',
+          user_id: 5,
+          listing_id: 48
         }
       ]))
