@@ -58,15 +58,7 @@ class Home extends React.Component {
                 style={{ marginTop: '10px' }}
                 toggle
               />
-              {/* <label>Near Me</label>
-              <input type="checkbox" value={this.state.checked} onClick={this.handleChange}/> */}
             </div>
-            // <Button.Group className='eight wide column'>
-            //   {/* {this.state.location !== '' */}
-            //   <Button onClick={this.removeLocationFilter} positive>Show All Listings</Button>
-            //   <Button.Or />
-            //   <Button onClick={this.locationFilter}>Listings Near Me</Button>
-            // </Button.Group>
             }
             <div className='four wide right aligned column'>
               <CategoryList history={this.props.history}/>
