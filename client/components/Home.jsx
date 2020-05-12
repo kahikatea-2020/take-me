@@ -45,16 +45,18 @@ class Home extends React.Component {
         <SearchBar history={this.props.history}/>
         <CategoryList history={this.props.history}/>
         {isAuthenticated() && <>
-            {this.state.location !== ''
-              ? <button onClick={this.removeLocationFilter}>Show All Listings</button>
-              : <button onClick={this.locationFilter}>Listing Near Me</button> }
-          </>
+          {this.state.location !== ''
+            ? <button onClick={this.removeLocationFilter}>Show All Listings</button>
+            : <button onClick={this.locationFilter}>Listing Near Me</button> }
+        </>
         }
         <h1 id='latest-listings'>Latest Listings</h1>
         <WaitIndicator />
-        <Card.Group itemsPerRow={4} className='centered'>
-          {selectedListings.map(item => <ListItem key={item.id} listing={item} />)}
-        </Card.Group>
+        {selectedListings.length > 0
+          ? <Card.Group itemsPerRow={4} className='centered'>
+            {selectedListings.map(item => <ListItem key={item.id} listing={item} />)}
+          </Card.Group>
+          : <p>Sorry, there are no current listings in your location</p>}
       </>
     )
   }
