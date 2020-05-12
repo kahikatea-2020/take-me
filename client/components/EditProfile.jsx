@@ -83,6 +83,7 @@ class EditProfile extends React.Component {
   }
 
   submitHandler = e => {
+    console.log(this.props.user)
     this.props.dispatch(hideError())
     if(this.inputChecker()){
       this.props.dispatch(showError('Please fill out all the fields'))
