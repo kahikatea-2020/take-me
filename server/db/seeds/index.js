@@ -799,17 +799,17 @@ exports.seed = (knex) =>
         },
         {
           id: 7,
-          comment: 'Does this come with the case?',
+          comment: 'What sound does it make?',
           date: 'Tue May 12 2020 11:03:40 GMT+1200 (New Zealand Standard Time)',
-          user_id: 3,
+          user_id: 2,
           listing_id: 28
         },
         {
           id: 8,
-          comment: 'Yes, as per lisitng description.',
+          comment: 'BRRRRROOOOOMMMMMMMMMM, scurrrrr *crash*. Many horses be warned',
           date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
           user_id: 4,
-          listing_id: 27
+          listing_id: 28
         },
         {
           id: 9,
