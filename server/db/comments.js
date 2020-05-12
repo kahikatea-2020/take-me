@@ -13,13 +13,13 @@ function getCommentsById (id, db = connection) {
     )
 }
 
-function addCommentById (id, data, db = connection) {
+function addCommentById (data, db = connection) {
   return db('q_and_a')
     .insert({
       date: data.date,
       comment: data.comment,
       user_id: data.userId,
-      listing_: data.listingId
+      listing_id: data.listingId
     })
 }
 
