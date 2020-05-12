@@ -4,15 +4,17 @@ exports.seed = (knex) =>
     .then(() => knex('categories').del())
     .then(() =>
       knex('categories').insert([
-        { id: 1, name: 'Clothing' },
+        { id: 1, name: 'Clothing & Shoes' },
         { id: 2, name: 'Electronics' },
-        { id: 3, name: 'Furniture' },
+        { id: 3, name: 'Furniture & Home Décor' },
         { id: 4, name: 'Homeware & Applicances' },
         { id: 5, name: 'Automotive' },
         { id: 6, name: 'Garden' },
-        { id: 7, name: 'Sports, Toys, Hobbies' },
+        { id: 7, name: 'Sports' },
         { id: 8, name: 'Health & Beauty' },
-        { id: 9, name: 'Music & Instruments' }
+        { id: 9, name: 'Music & Instruments' },
+        { id: 10, name: 'Entertainment' },
+        { id: 11, name: 'Miscellaneous' }
       ]))
     .then(() =>
       knex('users').insert([
@@ -521,7 +523,7 @@ exports.seed = (knex) =>
             'v1589185694/ajqfy3qidophq8cee1ho.jpg'
           ]),
           user_id: 6,
-          category_id: 4
+          category_id: 3
         },
         {
           id: 38,
@@ -538,7 +540,7 @@ exports.seed = (knex) =>
             'v1589185882/wtd6tvlmxyzknfq2oa7d.jpg'
           ]),
           user_id: 6,
-          category_id: 4
+          category_id: 10
         },
         {
           id: 39,
@@ -575,7 +577,7 @@ exports.seed = (knex) =>
             'v1589186356/avdw9i327obntespfm9o.jpg'
           ]),
           user_id: 6,
-          category_id: 6
+          category_id: 3
         },
         {
           id: 41,
@@ -611,7 +613,7 @@ exports.seed = (knex) =>
             'v1589194613/toys1_yf7ox7.jpg'
           ]),
           user_id: 1,
-          category_id: 7
+          category_id: 10
         },
         {
           id: 43,
@@ -666,7 +668,7 @@ exports.seed = (knex) =>
             'v1589195009/card1_ege1xv.jpg'
           ]),
           user_id: 1,
-          category_id: 7
+          category_id: 10
         },
         {
           id: 46,
