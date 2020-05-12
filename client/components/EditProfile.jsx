@@ -1,7 +1,19 @@
 import React from 'react'
 import { Form } from 'semantic-ui-react'
 
+import Autocomplete from './Autocomplete'
+
 class EditProfile extends React.Component {
+  state = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    phoneNumber: null,
+    imageUrl: 'v1589061239/default-profile_checno.png',
+    uploadedImage: false,
+    location: ''
+  }
+
   render () {
     return (
       <div>
