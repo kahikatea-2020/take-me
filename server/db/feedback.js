@@ -1,7 +1,8 @@
 const connection = require('./connection')
 
 module.exports = {
-  getUserFeedback
+  getUserFeedback,
+  addFeedback
 }
 
 function getUserFeedback (id, db = connection) {
@@ -15,4 +16,12 @@ function getUserFeedback (id, db = connection) {
     )
 }
 
-func
+function addFeedback (data, db = connection) {
+  return db('feedback')
+    .insert({
+      date: data.date,
+      comment: data.comment,
+      user_id: data.userId
+    })
+    .catch(err => console.log(err.message))
+}
