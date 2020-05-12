@@ -90,7 +90,7 @@ class Home extends React.Component {
             </Card.Group>
             <Pagination items={selectedListings} onChangePage={this.onChangePage} />
           </>
-          : <p>Sorry, there are no current listings in your location</p>}
+          : <p>Sorry, there are no current listings to match your search filters</p>}
       </>
     )
   }
