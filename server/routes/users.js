@@ -30,7 +30,6 @@ router.get('/:id', (req, res) => {
 // PUT /api/v1/users/edit
 router.put('/edit', getTokenDecoder(), (req, res) => {
   const userData = req.body
-  console.log(req.user.id, userData.id)
   if (req.user.id === Number(userData.id)) {
     db.editUser(userData)
       .then(dbRes => {
