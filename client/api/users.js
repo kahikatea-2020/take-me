@@ -17,6 +17,7 @@ export function getUserDetails () {
 export function editUser (user) {
   return request.put('/api/v1/users/edit')
     .send(user)
+    .set({ 'Authorization': `Bearer ${getEncodedToken()}` })
     .then(res => {
       console.log(res)
     })
