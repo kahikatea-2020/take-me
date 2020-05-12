@@ -71,7 +71,6 @@ class SignUp extends React.Component {
     })
     var spitAddie = this.props.address.split(',')
     var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
-    console.log(addie)
     this.setState({ location: addie })
   }
   
@@ -134,6 +133,7 @@ class SignUp extends React.Component {
             placeholder='Last name'
             type='text'
           />
+          <br/>
           <Form.Input
             onKeyUp={this.updateField}
             fluid
@@ -152,7 +152,7 @@ class SignUp extends React.Component {
             placeholder='Phone number'
             type='number'
           />
-          <Autocomplete />
+          <Autocomplete id='address'/>
           <Form.Input
             onKeyUp={this.updateField}
             fluid

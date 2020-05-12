@@ -62,6 +62,8 @@ class SearchBar extends Component {
       text: category.name,
       value: category.name
     }))
+    
+
     const categories = [{ key: 100, text: 'All Categories', value: 'All Categories' }, ...storeCategories]
     return (
       <Menu inverted color='blue'>
