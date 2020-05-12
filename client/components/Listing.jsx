@@ -130,7 +130,7 @@ class Listing extends React.Component {
               }
               <h1>{listing.name}</h1>
               <h4>Location: {listing.location}</h4>
-              <h4>Status: { (listing.taken)
+              <h4>Status: { (this.state.taken)
                     ? <p>Taken</p>
                     : <p>Available</p>
                   }</h4>
