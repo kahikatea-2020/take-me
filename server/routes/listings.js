@@ -115,17 +115,17 @@ router.get('/user/:id', (req, res) => {
 })
 
 // /api/v1/listings/taken/:id
-router.put('/taken/:id', (req, res) => {
-  const id = req.params.id
-  var date = new Date()
-  var utcTime = date.getTime() + (date.getTimezoneOffset() * 60000)
-  var timeOffset = 12
-  var NewZealandTime = new Date(utcTime + (3600000 * timeOffset))
-  var today = NewZealandTime.getDate() + '/' + (NewZealandTime.getMonth() + 1) + '/' + NewZealandTime.getFullYear()
-  db.setItemToTaken(id, today)
-    .then(dbRes => {
-      console.log(dbRes)
-      res.json({ ok: true }).status(200)
+router.put('/taken/:id', getTokenDecoder(), (req, res) => {
+  const id = Number(req.params.id)
+  db.getUserByListingId(id)
+    .then(({ userId }) => {
+      if (userId === Number(req.user.id)) {
+        var date = new Date(Date.now()).toString()
+        db.setItemToTaken(id, date)
+          .then(dbRes => {
+            res.json({ ok: true }).status(200)
+          })
+      }
     })
     .catch(err => {
       console.log(err.message)
