@@ -103,12 +103,9 @@ class EditProfile extends React.Component {
     var spitAddie = this.props.address.split(',')
     var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
     this.setState({ location: addie })
-    console.log(this.state)
     if(this.props.user.id === Number(this.props.match.params.id)){
       this.props.dispatch(hideError())
       if(this.inputChecker()){
-        // this.props.dispatch(showError('Please fill out all the fields'))
-        // this.setState({ show: true })
         if(this.state.firstName == ''){
           this.setState({firstName: this.state.user.firstName})
         }
