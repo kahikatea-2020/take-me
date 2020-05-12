@@ -13,6 +13,10 @@ function getCommentsById (id, db = connection) {
     )
 }
 
+function addCommentById (id, data, db = connection) {
+  
+}
+
 module.exports = {
   getCommentsById
 }
