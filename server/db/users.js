@@ -37,3 +37,4 @@ function getUserByName (username, db = connection) {
     .where('username', username)
     .first()
 }
+

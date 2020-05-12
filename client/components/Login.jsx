@@ -103,7 +103,7 @@ class Login extends React.Component {
             <WaitIndicator />
             <SweetAlert
               show={this.state.show}
-              title="Oppsie, Something went wrong!"
+              title="Oops, something went wrong!"
               text={this.props.error}
               onConfirm={() => this.setState({ show: false })}
             />
