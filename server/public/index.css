@@ -252,6 +252,14 @@ div.field button.ui.button {
   margin-top: 20%;
 }
 
+.about {
+  min-height: 100vh;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .search div.field {
   width: 100%;
 }
