@@ -2,7 +2,9 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { isAuthenticated } from 'authenticare/client'
 import { Card, Button, Image, Header } from 'semantic-ui-react'
-
+import Swal from 'sweetalert2'
+import withReactContent from 'sweetalert2-react-content'
+ 
 import WaitIndicator from './WaitIndicator'
 import ListItem from './ListItem'
 
@@ -10,6 +12,8 @@ import { getUserById } from '../api/users'
 import { userPending, userSuccess } from '../actions/users'
 import { getUsersListings } from '../actions/listings'
 import { deleteListingById } from '../api/listings'
+
+const MySwal = withReactContent(Swal)
 
 class Profile extends React.Component {
   state = {
@@ -72,7 +76,29 @@ class Profile extends React.Component {
                 isAuthenticated() && user.id === l.userId &&
                   <div className='ui two buttons'>
                     <Button as='a' to={`/update-listing/${l.id}`} basic color='blue'>Update</Button>
-                    <Button onClick={() => this.handleDelete(l.id)} basic color='red'>Delete</Button>
+                    <Button onClick={() => Swal.fire({
+                        title: 'Are you sure?',
+                        text: 'Are you sure you want to delete this item!',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: 'Yes, delete it',
+                        cancelButtonText: 'No, keep it!'
+                      }).then((result) => {
+                        if (result.value) {
+                          this.handleDelete(l.id)
+                          Swal.fire({
+                            title: 'Deleted!',
+                            text: 'Your file has been deleted.',
+                            icon: 'success'
+                          })
+                        } else {
+                          Swal.fire({
+                            title: 'Cancelled',
+                            text: 'Your listing is safe',
+                            icon: 'error'
+                          })
+                        }
+                    })} basic color='red'>Delete</Button>
                   </div>
               }
             </div> 
