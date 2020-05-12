@@ -823,6 +823,6 @@ exports.seed = (knex) =>
           comment: '????',
           date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
           user_id: 5,
-          listing_id: 27
+          listing_id: 25
         }
       ]))
