@@ -6,7 +6,7 @@ import { Button, Card, Grid, Image, Form } from 'semantic-ui-react'
 
 import WaitIndicator from './WaitIndicator'
 
-import { getListingById, editListing } from '../api/listings'
+import { getListingById, markAsTaken } from '../api/listings'
 import { getCommentsById, addComment } from '../api/q-and-a'
 import { getListingsPending, getListingSuccess } from '../actions/listings'
 import { getCommentsPending, getCommentsSuccess } from '../actions/q-and-a'
@@ -20,7 +20,7 @@ class Listing extends React.Component {
     imageUrl: [],
     comments: [],
     newComment: '',
-    taken: false ? true : false,
+    taken: false,
     date_taken: ''
   }
 
@@ -79,20 +79,13 @@ class Listing extends React.Component {
     }
   }
 
-  handleTaken = listing => {
-    const modifiedListing = {
-      id: listing.id,
-      name: listing.name,
-      location: listing.location,
-      description: listing.description,
-      imageUrl: listing.imageUrl,
-      comments: listing.comments,
-      newComment: listing.newComment,
-      taken: false ? true : false,
-      // date_taken: new Date()
-      date_taken: listing.date_taken
-    }
-    editListing(listing.id, modifiedListing)
+  handleTaken = () => {
+    markAsTaken(this.state.listing.id)
+      .then(res => {
+        if (res === 'success') {
+          this.setState({ taken: true })
+        }
+      })
   }
 
   render() {
@@ -168,12 +161,9 @@ class Listing extends React.Component {
                   </Card.Content>
                 </Card>
               </div>
-              {(isAuthenticated() && (this.props.user.id === listing.userId)) &&
+              {(isAuthenticated() && (this.props.user.id === listing.userId) && !this.state.taken) &&
               <div>
-              <Button id='update' style={{ maxHeight: '5vh', maxWidth: '50%' }} as={Link} to={`/update-listing/${listing.id}`} className='update-listing'>
-                  Edit Listing
-              </Button>
-              <Button name={listing.id} onClick={() => this.handleTaken(listing)}>Mark as taken</Button>
+              <Button name={listing.id} onClick={() => this.handleTaken()}>Mark as taken</Button>
               </div>
               }
               <WaitIndicator />
