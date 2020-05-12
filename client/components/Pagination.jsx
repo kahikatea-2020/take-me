@@ -19,13 +19,6 @@ class Pagination extends React.Component {
     this.state = { pager: {} }
   }
 
-  // UNSAFE_componentWillMount () {
-  //   // set page if items array isn't empty
-  //   if (this.props.items && this.props.items.length) {
-  //     this.setPage(this.props.initialPage)
-  //   }
-  // }
-
   componentDidUpdate (prevProps, prevState) {
     // reset page if items array has changed
     if (this.props.items !== prevProps.items) {
