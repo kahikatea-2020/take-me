@@ -8,7 +8,7 @@ import { hideError, showError } from '../actions/error'
 import { connect } from 'react-redux'
 
 class UpdateListing extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       listing: {},
@@ -22,7 +22,7 @@ class UpdateListing extends React.Component {
 
   handleDescriptionChange = (evt) => {
     const arr = evt.target.value.split("\n")
-    this.setState({description: arr}, console.log(this.state.description))
+    this.setState({ description: arr }, console.log(this.state.description))
   }
 
   handleChange = evt => {
@@ -56,9 +56,9 @@ class UpdateListing extends React.Component {
     })
   }
 
-  componentWillMount () {
+  componentWillMount() {
     this.getListingDetails()
-  } 
+  }
 
   inputChecker = () => {
     const { name, description, location } = this.state
@@ -69,106 +69,113 @@ class UpdateListing extends React.Component {
     }
   }
 
-  getListingDetails(){
+  getListingDetails() {
     let listingId = this.props.match.params.id
     getListingById(listingId)
-    .then(listing => {
-      console.log(listing)
-      if(listing === undefined) {
-        this.props.history.push(`/404`)
-      }
-      this.setState({
-        listing,
-        name: listing.name,
-        description: listing.description,
-        location: listing.location,
-        imageUrl: listing.imageUrl
-      }, () => {
-        console.log(this.state);
-      });
-    })
-    .catch(err => console.log(err));
-    }
-
-    submitHandler = () => {
-      this.props.dispatch(hideError())
-      if(this.inputChecker()){
-        let listingId = this.props.match.params.id
-        if (!this.state.imageUrl[0]) {
-          this.setState({
-            imageUrl: [...this.state.imageUrl, 'v1589063179/default-listing_pgdcsc.png']
-          }, () => {
-            console.log(this.state)
-            editListing(this.props.match.params.id, this.state)
-              .then(id => {
-                this.props.history.push(`/listings/${listingId}`)
-              })
-            })
-          } else {
-            editListing(this.props.match.params.id, this.state)
-              .then(id => {
-                this.props.history.push(`/listings/${listingId}`)
-              })
+      .then(listing => {
+        console.log(listing)
+        if (listing === undefined) {
+          this.props.history.push(`/404`)
         }
-      } else {
-        this.props.dispatch(showError('Please fill out all the fields'))
-        this.setState({ show: true })
-      }
-    }
+        this.setState({
+          listing,
+          name: listing.name,
+          description: listing.description,
+          location: listing.location,
+          imageUrl: listing.imageUrl
+        }, () => {
+          console.log(this.state);
+        });
+      })
+      .catch(err => console.log(err));
+  }
 
-  render () {
+  submitHandler = () => {
+    this.props.dispatch(hideError())
+    if (this.inputChecker()) {
+      let listingId = this.props.match.params.id
+      if (!this.state.imageUrl[0]) {
+        this.setState({
+          imageUrl: [...this.state.imageUrl, 'v1589063179/default-listing_pgdcsc.png']
+        }, () => {
+          console.log(this.state)
+          editListing(this.props.match.params.id, this.state)
+            .then(id => {
+              this.props.history.push(`/listings/${listingId}`)
+            })
+        })
+      } else {
+        editListing(this.props.match.params.id, this.state)
+          .then(id => {
+            this.props.history.push(`/listings/${listingId}`)
+          })
+      }
+    } else {
+      this.props.dispatch(showError('Please fill out all the fields'))
+      this.setState({ show: true })
+    }
+  }
+
+  render() {
     return (
       <>
         <h1>Update Listing</h1>
         <Form>
-          <div className="ui form">
-            <div className="field">
-              <label>Listing Name</label>
-              <input type="text" name="name" onChange={this.handleChange} value={this.state.name} />
-            </div>
-          </div>
-          <div className="ui form">
-            <div className="field">
-              <label>Description</label>
-              <input type="text" name="description" onChange={this.handleDescriptionChange} value={this.state.description} />
-            </div>
-          </div>
-          <div className="ui form">
-            <div className="field">
-              <label>Location</label>
-              <input type="text" name="location" onChange={this.handleChange} value={this.state.location} />
-            </div>
-          </div>
+          <Form.Input
+            width={6}
+            type='text'
+            name='name'
+            label='Listing Name'
+            onChange={this.handleChange}
+            value={this.state.name}
+          />
+          <Form.Input
+            width={6}
+            type='text'
+            name='description'
+            label='Description'
+            onChange={this.handleDescriptionChange}
+            value={this.state.description}
+          />
+          <Form.Input
+            width={6}
+            type='text'
+            name='location'
+            label='Location'
+            onChange={this.handleChange}
+            value={this.state.location}
+          />
           <Form.Button onClick={() => this.imageUpload()}>Upload Image</Form.Button>
-            {this.state.imageUrl[0] &&
+          {this.state.imageUrl[0] &&
             <div className='imagesPreview'>
               {this.state.imageUrl.map((img, idx) => {
-              return (
-                <div className='singleImagePreview'>
-                  <div style={{height: '40px', width: '40px', marginLeft: '110px'}}>
-                    <button onClick={e => {
-                      e.preventDefault()
-                      return this.deleteImage(idx)
-                    }}>
-                      <img
-                        src='/trash-can.png'
-                        alt='delete button'
-                        className='deleteButton'
-                      />
-                    </button>
+                return (
+                  <div className='singleImagePreview'>
+                    <div style={{ height: '40px', width: '40px', marginLeft: '110px' }}>
+                      <button onClick={e => {
+                        e.preventDefault()
+                        return this.deleteImage(idx)
+                      }}>
+                        <img
+                          src='/trash-can.png'
+                          alt='delete button'
+                          className='deleteButton'
+                        />
+                      </button>
+                    </div>
+                    <div>
+                      <img className='theImage' src={`https://res.cloudinary.com/takemenz/image/upload/${img}`} />
+                    </div>
                   </div>
-                  <div>
-                    <img className='theImage' src={`https://res.cloudinary.com/takemenz/image/upload/${img}`}/>
-                  </div>
-                </div>
-              )})}
+                )
+              })}
             </div>
-            }
+          }
           <Form.Button
-              type='submit'
-              onClick={this.submitHandler}
-            >
-              Submit
+            type='submit'
+            onClick={this.submitHandler}
+          >
+            Submit
           </Form.Button>
         </Form>
         <SweetAlert
