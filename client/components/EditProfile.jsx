@@ -10,7 +10,7 @@ import SweetAlert from 'sweetalert2-react'
 
 
 import Autocomplete from './Autocomplete'
-import { editUser } from '../api/users'
+import { editUser, getUserById } from '../api/users'
 
 class EditProfile extends React.Component {
   state = {
@@ -25,24 +25,25 @@ class EditProfile extends React.Component {
     show: false
   }
 
+  componentDidMount () {
+    getUserById(this.props.match.params.id)
+    .then(user => {
+      console.log(user)
+      this.setState({
+        firstName: user.firstName,
+        lastName: user.lastName,
+        emailAddress: user.email,
+        phoneNumber: user.phoneNumber,
+        location: user.location
+      })
+    })
+  }
+
   imageUpload = (tag, preset) => {
     const uploadOptions = {
       cloudName: 'takemenz',
       tags: [tag],
       uploadPreset: preset
-    }
-
-    componentDidMount = e => {
-      getUserById(this.props.match.params.id)
-      .then(user => {
-        this.setState({
-          firstName: user.firstName,
-          lastName: user.lastName,
-          emailAddress: user.emailAddress,
-          phoneNumber: user.phoneNumber,
-          location: user.location
-        })
-      })
     }
 
     openUploadWidget(uploadOptions, (error, photo) => {
@@ -130,7 +131,8 @@ class EditProfile extends React.Component {
             type='text'
             onKeyUp={this.updateField}
             autoComplete='off'
-          />
+            value={this.setState.firstName}
+            />
           <Form.Input
             fluid
             width={6}
@@ -139,7 +141,8 @@ class EditProfile extends React.Component {
             type='text'
             onKeyUp={this.updateField}
             autoComplete='off'
-          />
+            value={this.setState.lastName}
+            />
           <br/>
           <Autocomplete id='address' />
           <Form.Input
@@ -150,7 +153,8 @@ class EditProfile extends React.Component {
             type='text'
             onKeyUp={this.updateField}
             autoComplete='off'
-          />
+            value={this.setState.emailAddress}
+            />
           <Form.Input
             fluid
             width={6}
@@ -159,6 +163,7 @@ class EditProfile extends React.Component {
             type='number'
             onKeyUp={this.updateField}
             autoComplete='off'
+            value={this.setState.phoneNumber}
           />
           <Form.Button
           onClick={e => {
