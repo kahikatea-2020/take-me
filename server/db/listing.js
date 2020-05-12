@@ -71,6 +71,12 @@ function getUserByListingId (id, db = connection) {
     .first()
 }
 
+function setItemToTaken (id, date, db = connection) {
+  return db('listings')
+    .where('id', id)
+    .update({ taken: true, date_taken: date })
+}
+
 module.exports = {
   getListings,
   getListingsById,
@@ -78,5 +84,6 @@ module.exports = {
   addListing,
   updateListingById,
   getUsersListingsById,
-  getUserByListingId
+  getUserByListingId,
+  setItemToTaken
 }
