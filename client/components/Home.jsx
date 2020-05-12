@@ -1,6 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Card } from 'semantic-ui-react'
+import { isAuthenticated } from 'authenticare/client'
 
 import WaitIndicator from './WaitIndicator'
 import SearchBar from './SearchBar'
@@ -38,7 +39,8 @@ class Home extends React.Component {
       <>
         <SearchBar history={this.props.history}/>
         <CategoryList history={this.props.history}/>
-        <button onClick={this.locationFilter}>Listing Near Me</button>
+        {isAuthenticated() &&
+        <button onClick={this.locationFilter}>Listing Near Me</button>}
         <h1 id='latest-listings'>Latest Listings</h1>
         <WaitIndicator />
         <Card.Group itemsPerRow={4} className='centered'>
