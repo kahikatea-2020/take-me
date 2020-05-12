@@ -768,5 +768,61 @@ exports.seed = (knex) =>
           date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
           user_id: 4,
           listing_id: 27
+        },
+        {
+          id: 3,
+          comment: 'Can I rename it?',
+          date: 'Tue May 12 2020 11:03:40 GMT+1200 (New Zealand Standard Time)',
+          user_id: 2,
+          listing_id: 40
+        },
+        {
+          id: 4,
+          comment: 'Yes, as per lisitng description.',
+          date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
+          user_id: 4,
+          listing_id: 27
+        },
+        {
+          id: 5,
+          comment: 'Does this come with the case?',
+          date: 'Tue May 12 2020 11:03:40 GMT+1200 (New Zealand Standard Time)',
+          user_id: 3,
+          listing_id: 27
+        },
+        {
+          id: 6,
+          comment: 'Yes, as per lisitng description.',
+          date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
+          user_id: 4,
+          listing_id: 27
+        },
+        {
+          id: 7,
+          comment: 'Does this come with the case?',
+          date: 'Tue May 12 2020 11:03:40 GMT+1200 (New Zealand Standard Time)',
+          user_id: 3,
+          listing_id: 27
+        },
+        {
+          id: 8,
+          comment: 'Yes, as per lisitng description.',
+          date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
+          user_id: 4,
+          listing_id: 27
+        },
+        {
+          id: 9,
+          comment: 'Does this come with the case?',
+          date: 'Tue May 12 2020 11:03:40 GMT+1200 (New Zealand Standard Time)',
+          user_id: 3,
+          listing_id: 27
+        },
+        {
+          id: 10,
+          comment: 'Yes, as per lisitng description.',
+          date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
+          user_id: 4,
+          listing_id: 27
         }
       ]))
