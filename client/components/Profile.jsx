@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { isAuthenticated } from 'authenticare/client'
-import { Card, Button, Image, Header } from 'semantic-ui-react'
+import { Card, Button, Image, Header, Grid } from 'semantic-ui-react'
 import Swal from 'sweetalert2'
 import withReactContent from 'sweetalert2-react-content'
  
@@ -9,7 +9,7 @@ import WaitIndicator from './WaitIndicator'
 import ListItem from './ListItem'
 
 import { getUserById } from '../api/users'
-import { userPending, userSuccess } from '../actions/users'
+import { userPending, userSuccess, getUserDetails } from '../actions/users'
 import { getUsersListings } from '../actions/listings'
 import { deleteListingById } from '../api/listings'
 
@@ -17,19 +17,16 @@ const MySwal = withReactContent(Swal)
 
 class Profile extends React.Component {
   state = {
-    user: {},
-  }
-
-  componentWillMount () {
-    this.props.dispatch(getUsersListings(this.props.match.params.id))
+    profile: {},
   }
 
   componentDidMount () {
+    this.props.dispatch(getUsersListings(this.props.match.params.id))
     getUserById(this.props.match.params.id)
-    .then(user => {
-      if(user !== null){
+    .then(profile => {
+      if (profile !== null) {
         this.setState({
-          user
+          profile
         })
       } else {
         this.props.history.push(`/404`)
@@ -41,41 +38,48 @@ class Profile extends React.Component {
     this.props.dispatch(userPending())
     deleteListingById(id)
       .then (() => {
-        // this.props.dispatch(userSuccess())
         this.props.dispatch(getUsersListings(this.props.match.params.id))
       })
   }
 
   render () {
-    const { user } = this.props
+    const { profile } = this.state
     const listing = this.props.usersListings.map(listing => ({
       ...listing,
-      userImage: user.imageUrl
+      userImage: profile.imageUrl
     }))
+    
     return (
       <>
-        <div className="ui two columns">
-          <Image src={`https://res.cloudinary.com/takemenz/image/upload/${user.imageUrl}`} alt="Profile Photo"/>
-          <Header as='h2'>
-            {user.firstName} {user.lastName}
-            <Header.Subheader>{user.username}</Header.Subheader>
-            <Header.Subheader>{user.email}</Header.Subheader>
-            <Header.Subheader>{user.phoneNumber}</Header.Subheader>
-            <Header.Subheader>{user.location}</Header.Subheader>
-          </Header>
+        <div style={{ height: '300px' }} className="ui right aligned grid">
+          <div style={{ height: '300px' }} className="center aligned two column row">
+            <div className="column">
+              <Image style={{ width: '200px', float: 'right' }} src={`https://res.cloudinary.com/takemenz/image/upload/${profile.imageUrl}`} alt="Profile Photo" />
+            </div>
+            <div className="column left aligned row">
+              <div style={{ verticalAlign: 'middle' }}>
+                <h2 style={{ marginBottom: '0px' }}>{profile.firstName} {profile.lastName}</h2>
+                <em>{profile.username}</em><br />
+                  <br />
+                <p>Email: {profile.email}</p>
+                <p>Phone Number: {profile.phoneNumber}</p>
+                <p>Location: {profile.location}</p>
+              </div>
+            </div>
+          </div>
         </div>
         <div>
           <h2>Your Listings</h2>
           <Card.Group itemsPerRow={4} className='centered'>
+          <>
           {listing.length !== 0 
-          ? <> 
-          {listing.map(l => {
-            return <div className="ui card" key={l.id}>
-              <ListItem key={l.id} listing={l}/>
+            ? listing.map(userListing => {
+              return <div className="ui card" key={userListing.id}>
+              <ListItem key={userListing.id} listing={userListing} />
               {
-                isAuthenticated() && user.id === l.userId &&
+                isAuthenticated() && this.props.user.id === profile.id &&
                   <div className='ui two buttons'>
-                    <Button as='a' to={`/update-listing/${l.id}`} basic color='blue'>Update</Button>
+                    <Button as='a' to={`/update-listing/${userListing.id}`} basic color='blue'>Update</Button>
                     <Button onClick={() => Swal.fire({
                         title: 'Are you sure?',
                         text: 'Are you sure you want to delete this item!',
@@ -85,7 +89,7 @@ class Profile extends React.Component {
                         cancelButtonText: 'No, keep it!'
                       }).then((result) => {
                         if (result.value) {
-                          this.handleDelete(l.id)
+                          this.handleDelete(userListing.id)
                           Swal.fire({
                             title: 'Deleted!',
                             text: 'Your file has been deleted.',
@@ -101,11 +105,11 @@ class Profile extends React.Component {
                     })} basic color='red'>Delete</Button>
                   </div>
               }
-            </div> 
-          })}
-          </> 
-          : <WaitIndicator />
+              </div> 
+            })
+            : <WaitIndicator />
           }
+          </>
           </Card.Group>
         </div>
         <WaitIndicator />
@@ -113,7 +117,8 @@ class Profile extends React.Component {
     )
   }
 }
-// update/listing/:id
+
+  // update/listing/:id
 const mapStateToProps = state => {
   return {
     usersListings: state.userListings,

@@ -59,48 +59,54 @@ class Login extends React.Component {
   render () {
     return (
       <>
-        <div id="wrapper">
-          <h1>Login</h1>
-          <Form>
-            <Form.Input
-              onKeyUp={this.updateField}
-              fluid
-              width={6}
-              name='username'
-              placeholder='Username'
-              type='text'
-            />
-            <Form.Input
-              onKeyUp={this.updateField}
-              fluid
-              width={6}
-              name='password'
-              placeholder='Password'
-              type='password'
-              autoComplete='off'
-              onKeyDown={this.handleOnKeyDown}
-            />
-            <Form.Group>
-              <Form.Button
-                type='submit'
-                onClick={this.submitHandler}
-              >
-              Submit
-              </Form.Button>
-              <Link to='/'>
-                <Form.Button>
+        <div id='wrapper'>
+          <div id='login'>
+            <h1>Login</h1>
+            <Form id='login-cont'>
+              <Form.Group>
+                <Form.Input
+                  onKeyUp={this.updateField}
+                  fluid
+                  width={6}
+                  name='username'
+                  placeholder='Username'
+                  type='text'
+                />
+              </Form.Group>
+              <Form.Group>
+                <Form.Input
+                  onKeyUp={this.updateField}
+                  fluid
+                  width={6}
+                  name='password'
+                  placeholder='Password'
+                  type='password'
+                  autoComplete='off'
+                  onKeyDown={this.handleOnKeyDown}
+                />
+              </Form.Group>
+              <Form.Group id='buttons'>
+                <Link to='/'>
+                  <Form.Button>
               Cancel
+                  </Form.Button>
+                </Link>
+                <Form.Button
+                  type='submit'
+                  onClick={this.submitHandler}
+                >
+              Submit
                 </Form.Button>
-              </Link>
-            </Form.Group>
-          </Form>
-          <WaitIndicator />
-          <SweetAlert
-            show={this.state.show}
-            title="Oppsie, Something went wrong!"
-            text={this.props.error}
-            onConfirm={() => this.setState({ show: false })}
-          />
+              </Form.Group>
+            </Form>
+            <WaitIndicator />
+            <SweetAlert
+              show={this.state.show}
+              title="Oppsie, Something went wrong!"
+              text={this.props.error}
+              onConfirm={() => this.setState({ show: false })}
+            />
+          </div>
         </div>
       </>
     )

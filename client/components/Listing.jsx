@@ -90,54 +90,56 @@ class Listing extends React.Component {
 
     return (
       <>
-        <Grid columns={2} divided>
-          <Grid.Row>
-            <Grid.Column className='listing-images'>
-              {(this.state.imageUrl[0] !== undefined) &&
-                <div className='slick-carousel'>
-                  <Slider className='slick-image' {...settings}>
-                    {this.state.imageUrl.map((url, idx) => (
-                      <img
-                        key={idx}
-                        className='slick-image'
-                        src={`https://res.cloudinary.com/takemenz/image/upload/${url}`}
-                        alt={listing.name}
-                      />
-                    ))}
-                  </Slider>
-                </div>
-              }
-            </Grid.Column>
-            <Grid.Column stretched className='listing-details'>
-              <div className='listing-description'>
-                <h1>{listing.name}</h1>
-                <h4>Location: {listing.location}</h4>
-                {this.state.description.map(sentence => <p key={sentence.substr(0, 10)}>{sentence}</p>)}
-              </div>
-              <div className='contact-info'>
-                <Card>
-                  <Card.Content>
-                    <Image
-                      circular
-                      floated='right'
-                      src={`https://res.cloudinary.com/takemenz/image/upload/${listing.userImage}`}
+      <Grid columns={2} divided>
+        <Grid.Row>
+          <Grid.Column stretched className='listing-images'>
+            {(this.state.imageUrl[0] !== undefined) &&
+              <div className='slick-carousel'>
+                <Slider className='slick-image' {...settings}>
+                  {this.state.imageUrl.map((url, idx) => (
+                    <img
+                      key={idx}
+                      className='slick-image'
+                      src={`https://res.cloudinary.com/takemenz/image/upload/${url}`}
+                      alt={listing.name}
                     />
-                    <Card.Header>Contact {listing.userFirstName}</Card.Header>
-                    <Card.Meta>
-                      Phone: {listing.userPhoneNumber}
-                    </Card.Meta>
-                  </Card.Content>
-                  <Card.Content extra>
-                    <div className='ui-two-buttons'>
-                      <Button id='email'>
-                        <a href={`mailto:${listing.userEmail}?subject=#${listing.id}:%20${this.state.emailSubject}`}>
-                        Email</a>
-                      </Button>
-                      {/* <Link to={`/profile/${listing.userId}`} > */}
-                      <Button id='profile' as={Link} to={`/profile/${listing.userId}`}>
-                        View Profile
-                        </Button>
-                      {/* </Link> */}
+                  ))}
+                </Slider>
+              </div>
+            }
+          </Grid.Column>
+          <Grid.Column stretched className='listing-details'>
+            <div className='listing-description'>
+              {(isAuthenticated() && (this.props.user.id === listing.userId)) &&
+                  <Button id='update' style={{ maxHeight: '5vh', maxWidth: '50%' }} as={Link} to={`/update-listing/${listing.id}`} className='update-listing'>
+                    Edit Listing
+                  </Button>
+              }
+              <h1>{listing.name}</h1>
+              <h4>Location: {listing.location}</h4>
+              {this.state.description.map(sentence => <p key={sentence.substr(0, 10)}>{sentence}</p>)}
+            </div>
+            <div className='contact-info'>
+              <Card>
+                <Card.Content>
+                  <Image
+                    circular
+                    floated='right'
+                    src={`https://res.cloudinary.com/takemenz/image/upload/${listing.userImage}`}
+                  />
+                  <Card.Header>Contact {listing.userFirstName}</Card.Header>
+                  <Card.Meta>
+                    Phone: {listing.userPhoneNumber}
+                  </Card.Meta>
+                </Card.Content>
+                <Card.Content extra>
+                  <div className='ui-two-buttons'>
+                    <Button id='email'>
+                      <a href={`mailto:${listing.userEmail}?subject=#${listing.id}:%20${this.state.emailSubject}`}>Email</a>
+                    </Button>
+                    <Button id='profile' as={Link} to={`/profile/${listing.userId}`}>
+                      View Profile
+                    </Button>
                     </div>
                   </Card.Content>
                 </Card>

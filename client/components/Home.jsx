@@ -43,7 +43,6 @@ class Home extends React.Component {
     return (
       <>
         <SearchBar history={this.props.history}/>
-        <CategoryList history={this.props.history}/>
         {isAuthenticated() && <>
           {this.state.location !== ''
             ? <button onClick={this.removeLocationFilter}>Show All Listings</button>
@@ -51,6 +50,7 @@ class Home extends React.Component {
         </>
         }
         <h1 id='latest-listings'>Latest Listings</h1>
+        <CategoryList history={this.props.history}/>
         <WaitIndicator />
         {selectedListings.length > 0
           ? <Card.Group itemsPerRow={4} className='centered'>
