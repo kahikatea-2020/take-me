@@ -263,7 +263,3 @@ div.ui.blue.inverted.search.menu {
 .search .ui.dropdown:not(.button)>.default.text {
   color: #888888 !important;
 }
-
-.search {
-  color: black !important;
-}
