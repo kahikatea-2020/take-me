@@ -19,7 +19,7 @@ class Home extends React.Component {
       location: '',
       checked: false,
       locationAdded: false,
-      page: false
+      rerenderer: false // this is so the correct info displays as pagination can't affect actual state
     }
 
     this.onChangePage = this.onChangePage.bind(this)
@@ -33,8 +33,8 @@ class Home extends React.Component {
   }
 
   onCategoryChange = () => {
-    this.setState({ page: !this.state.page }, () => {
-      this.setState({ page: !this.state.page })
+    this.setState({ rerenderer: !this.state.rerenderer }, () => {
+      this.setState({ rerenderer: !this.state.rerenderer })
     })
   }
 
@@ -49,7 +49,7 @@ class Home extends React.Component {
       this.addLocation()
     }
     this.setState({ checked: !this.state.checked }, () => {
-      this.setState({ page: !this.state.page })
+      this.setState({ rerenderer: !this.state.rerenderer })
     })
   }
 
@@ -84,7 +84,7 @@ class Home extends React.Component {
             </div>
             }
             <div className='four wide right aligned column'>
-              <CategoryList history={this.props.history} func={this.onCategoryChange} />
+              <CategoryList history={this.props.history} onCategoryChange={this.onCategoryChange} />
             </div>
           </div>
         </div>
