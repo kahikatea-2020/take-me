@@ -21,6 +21,7 @@ function addComment (data, db = connection) {
       user_id: data.userId,
       listing_id: data.listingId
     })
+    .catch(err => console.log(err.message))
 }
 
 module.exports = {
