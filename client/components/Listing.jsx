@@ -65,7 +65,12 @@ class Listing extends React.Component {
 
   submitHandler = () => {
     if(this.state.newComment !== '') {
-      addComment(this.state.newComment)
+      const newCommentObject = {
+        comment: this.state.newComment,
+        userId: this.props.user.id,
+        listingId: this.state.listing.id
+      }
+      addComment(newCommentObject)
         .then(this.getComments)
     }
   }
