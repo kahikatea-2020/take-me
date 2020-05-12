@@ -36,7 +36,7 @@ router.put('/edit', getTokenDecoder() (req, res) => {
       res.send({ ok: true })
     })
   } else {
-    res.sendStatus(200)
+    res.sendStatus(401)
   }
 })
 
