@@ -50,7 +50,6 @@ class Home extends React.Component {
         selectedListings = selectedListings.filter(listing => listing.categoryId === this.props.selectedCategory.id)
       }
     }
-    console.log(this.state.pageOfItems)
     return (
       <>
         <SearchBar history={this.props.history}/>
