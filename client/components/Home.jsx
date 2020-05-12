@@ -13,8 +13,8 @@ import { getCategories } from '../actions/categories'
 class Home extends React.Component {
   state = {
     location: '',
-    checked: true,
-    selectedListings: []
+    checked: false,
+    locationAdded: false
   }
 
   componentDidMount () {
@@ -23,35 +23,25 @@ class Home extends React.Component {
   }
 
   handleChange = e => {
-    this.setState({ location: this.props.user.location.split(', ')[1] })
-    if (this.state.checked) {
-      this.setState({ selectedListings: this.state.selectedListings.filter(listing => listing.location.includes(this.state.location)) })
-    } else this.setState({ selectedListings: this.props.listings.sort((a, b) => b.id - a.id) })
+    e.preventDefault()
     this.setState({ checked: !this.state.checked })
   }
 
-  locationFilter = e => {
-    e.preventDefault()
+  addLocation = () => {
     const location = this.props.user.location.split(', ')[1]
-    this.setState({ location })
-  }
-
-  removeLocationFilter = e => {
-    e.preventDefault()
-    this.setState({ location: '' })
+    this.setState({ location, locationAdded: true })
   }
 
   render () {
-    let { selectedListings } = this.state
-    // if (this.state.checked) {
-    //   selectedListings = selectedListings.filter(listing => listing.location.includes(this.state.location))
-    // } else {
-    //   selectedListings = this.props.listings.sort((a, b) => b.id - a.id)
-    // }
-    if (this.props.selectedCategory.id) {
-      if (this.props.selectedCategory.id !== 100) {
-        selectedListings = selectedListings.filter(listing => listing.categoryId === this.props.selectedCategory.id)
-      }
+    if (!this.state.locationAdded && this.props.user.location) {
+      this.addLocation()
+    }
+    let selectedListings = this.props.listings.sort((a, b) => b.id - a.id)
+    if (this.state.checked) {
+      selectedListings = selectedListings.filter(listing => listing.location.includes(this.state.location))
+    }
+    if (this.props.selectedCategory.id && (this.props.selectedCategory.id !== 100)) {
+      selectedListings = selectedListings.filter(listing => listing.categoryId === this.props.selectedCategory.id)
     }
 
     return (
