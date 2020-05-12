@@ -50,6 +50,11 @@ class Navbar extends React.Component {
                   if (result.value) {
                     logOff()
                     this.props.history.push('/')
+                    Swal.fire({
+                      title: 'Logged Out!',
+                      text: 'You have been successfully logged out',
+                      icon: 'success'
+                    })
                   }
                 })}
                   >
