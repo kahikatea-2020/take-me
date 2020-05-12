@@ -5,6 +5,7 @@ import { isAuthenticated, register } from 'authenticare/client'
 import { Link } from 'react-router-dom'
 import { getUserDetails } from '../actions/users'
 import { BASE_API_URL } from '../base-api.js'
+import { connect } from 'react-redux'
 
 
 
@@ -37,6 +38,7 @@ class EditProfile extends React.Component {
           })
         }
       }
+      console.log(this.state)
     })
   }
 
@@ -143,7 +145,6 @@ class EditProfile extends React.Component {
               </div>
             </div>
           }
-          <Form.Checkbox required label={<label>I agree to the <a href='/guidelines'>TakeMe Guidelines</a></label>} />
           <Form.Group>
             <Link to='/'>
               <Form.Button>
@@ -155,12 +156,17 @@ class EditProfile extends React.Component {
               onClick={this.submitHandler}
             >
               Submit
-            </Form.Button> */}
+            </Form.Button>
          </Form.Group>
         </Form>
       </div>
     )
   }
 }
+const mapStateToProps = state => {
+  return {
+    address: state.autocomplete
+  }
+}
 
-export default EditProfile
+export default connect(mapStateToProps)(EditProfile)
