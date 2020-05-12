@@ -26,6 +26,11 @@ class Home extends React.Component {
     this.setState({ location })
   }
 
+  removeLocationFilter = e => {
+    e.preventDefault()
+    this.setState({ location: '' })
+  }
+
   render () {
     let selectedListings = this.props.listings.sort((a, b) => b.id - a.id)
     selectedListings = selectedListings.filter(listing => listing.location.includes(this.state.location))
@@ -39,8 +44,12 @@ class Home extends React.Component {
       <>
         <SearchBar history={this.props.history}/>
         <CategoryList history={this.props.history}/>
-        {isAuthenticated() &&
-        <button onClick={this.locationFilter}>Listing Near Me</button>}
+        {isAuthenticated() && <>
+            {this.state.location !== ''
+              ? <button onClick={this.removeLocationFilter}>Show All Listings</button>
+              : <button onClick={this.locationFilter}>Listing Near Me</button> }
+          </>
+        }
         <h1 id='latest-listings'>Latest Listings</h1>
         <WaitIndicator />
         <Card.Group itemsPerRow={4} className='centered'>
