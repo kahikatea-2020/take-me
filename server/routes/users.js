@@ -27,4 +27,13 @@ router.get('/:id', (req, res) => {
     })
 })
 
+// PUT /api/v1/users/edit
+router.put('/edit', (req, res) => {
+  const userData = req.body
+  db.editUser(userData)
+    .then(dbRes => {
+      console.log(dbRes)
+    })
+})
+
 module.exports = router
