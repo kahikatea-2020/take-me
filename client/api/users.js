@@ -9,5 +9,16 @@ export function getUserById (id) {
 export function getUserDetails () {
   return request.get(`/api/v1/users/getuser`)
     .set({ 'Authorization': `Bearer ${getEncodedToken()}` })
-    .then(res => res.body)
+    .then(res => {
+      return res.body
+    })
+}
+
+export function editUser (user) {
+  return request.put('/api/v1/users/edit')
+    .send(user)
+    .set({ 'Authorization': `Bearer ${getEncodedToken()}` })
+    .then(res => {
+      console.log(res)
+    })
 }
