@@ -138,7 +138,6 @@ class Profile extends React.Component {
                 {
                   isAuthenticated() && this.props.user.id === profile.id &&
                     <div className='ui two buttons'>
-                      <Button as='a' to={`/update-listing/${userListing.id}`} basic color='blue'>Update</Button>
                       <Button onClick={() => Swal.fire({
                         title: 'Wait!',
                         text: 'Are you sure you want to delete this item?',
