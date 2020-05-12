@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Card } from 'semantic-ui-react'
+import { Button, Card, Container, Checkbox } from 'semantic-ui-react'
 import { isAuthenticated } from 'authenticare/client'
 
 import WaitIndicator from './WaitIndicator'
@@ -9,10 +9,34 @@ import ListItem from './ListItem'
 import CategoryList from './CategoryList'
 import { getListings } from '../actions/listings'
 import { getCategories } from '../actions/categories'
+import Pagination from './Pagination'
 
 class Home extends React.Component {
-  state = {
-    location: ''
+  constructor (props) {
+    super(props)
+
+    this.state = {
+      location: '',
+      checked: false,
+      locationAdded: false,
+      rerenderer: false // this is so the correct info displays as pagination can't affect actual state
+    }
+
+    this.onChangePage = this.onChangePage.bind(this)
+  }
+
+  pageOfItems = []
+
+  onChangePage (pageOfItems) {
+    // update state with new page of items
+    this.pageOfItems = pageOfItems
+    // this.setState({ rerenderer: !this.state.rerenderer })
+  }
+
+  onChange = () => {
+    this.setState({ rerenderer: !this.state.rerenderer }, () => {
+      this.setState({ rerenderer: !this.state.rerenderer })
+    })
   }
 
   componentDidMount () {
@@ -20,43 +44,60 @@ class Home extends React.Component {
     this.props.dispatch(getCategories())
   }
 
-  locationFilter = e => {
+  handleChange = e => {
     e.preventDefault()
-    const location = this.props.user.location.split(', ')[1]
-    this.setState({ location })
+    if (!this.state.locationAdded && this.props.user.location) {
+      this.addLocation()
+    }
+    this.setState({ checked: !this.state.checked }, () => {
+      this.setState({ rerenderer: !this.state.rerenderer })
+    })
   }
 
-  removeLocationFilter = e => {
-    e.preventDefault()
-    this.setState({ location: '' })
+  addLocation = () => {
+    const location = this.props.user.location.split(', ')[1]
+    this.setState({ location, locationAdded: true })
   }
 
   render () {
     let selectedListings = this.props.listings.sort((a, b) => b.id - a.id)
-    selectedListings = selectedListings.filter(listing => listing.location.includes(this.state.location))
-    if (this.props.selectedCategory.id) {
-      if (this.props.selectedCategory.id !== 100) {
-        selectedListings = selectedListings.filter(listing => listing.categoryId === this.props.selectedCategory.id)
-      }
+    if (this.state.checked) {
+      selectedListings = selectedListings.filter(listing => listing.location.includes(this.state.location))
+    }
+    if (this.props.selectedCategory.id && (this.props.selectedCategory.id !== 100)) {
+      selectedListings = selectedListings.filter(listing => listing.categoryId === this.props.selectedCategory.id)
     }
 
     return (
       <>
         <SearchBar history={this.props.history}/>
-        {isAuthenticated() && <>
-          {this.state.location !== ''
-            ? <button onClick={this.removeLocationFilter}>Show All Listings</button>
-            : <button onClick={this.locationFilter}>Listing Near Me</button> }
-        </>
-        }
-        <h1 id='latest-listings'>Latest Listings</h1>
-        <CategoryList history={this.props.history}/>
+        <div id='toggle' className='ui three column grid' style={{ height: '10vh' }}>
+          <div className='row'>
+            <h1 className='four wide column' id='latest-listings'>Latest Listings</h1>
+            {isAuthenticated() &&
+            <div className="eight wide column">
+              <Checkbox
+                label='Near Me'
+                onClick={this.handleChange}
+                style={{ marginTop: '10px' }}
+                toggle
+              />
+            </div>
+            }
+            <div className='four wide right aligned column'>
+              <CategoryList history={this.props.history} onChange={this.onChange} />
+            </div>
+          </div>
+        </div>
         <WaitIndicator />
         {selectedListings.length > 0
-          ? <Card.Group itemsPerRow={4} className='centered'>
-            {selectedListings.map(item => <ListItem key={item.id} listing={item} />)}
-          </Card.Group>
-          : <p>Sorry, there are no current listings in your location</p>}
+          ? <>
+            <Card.Group itemsPerRow={4} className='centered'>
+              {this.pageOfItems.map(item => <ListItem key={item.id} listing={item} />)}
+            </Card.Group>
+            <Pagination items={selectedListings} onChangePage={this.onChangePage} onChange={this.onChange} />
+          </>
+          : <p>Sorry, there are no current listings to match your search filters</p>}
       </>
     )
   }

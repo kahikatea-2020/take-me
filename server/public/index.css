@@ -189,7 +189,7 @@ div.meta {
 /* END LISTING STYLING*/
 
 /* START NEW LISTING STYLING*/
-div.ui.fluid.selection.dropdown {
+.new-listing div.ui.fluid.selection.dropdown {
   margin-bottom: 5vh;
 }
 
@@ -243,15 +243,52 @@ div.field button.ui.button {
 
 /* END LOGIN STYLING*/
 
+.guidelines {
+  height: 100vh;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  justify-content: center;
+  margin-top: 20%;
+}
+
+.about {
+  min-height: 100vh;
+  display: flex;
+  align-items: left;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .search div.field {
   width: 100%;
 }
 
-#dropdown {
-  display: flex;
-  align-items: center;
-}
-
 .listingCard:hover {
   top: -5px;
+}
+
+div.ui.blue.inverted.search.menu {
+  margin-bottom: 5vh;
+  padding: 10px 0 10px 0;
+}
+
+#toggle .ui.toggle.checkbox input:checked~label:before {
+  background-color: #f79421 !important;
+}
+
+.search .ui.dropdown:not(.button)>.default.text {
+  color: #888888 !important;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
 }
