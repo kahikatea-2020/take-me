@@ -32,6 +32,19 @@ class EditProfile extends React.Component {
       uploadPreset: preset
     }
 
+    componentDidMount = e => {
+      getUserById(this.props.match.params.id)
+      .then(user => {
+        this.setState({
+          firstName: user.firstName,
+          lastName: user.lastName,
+          emailAddress: user.emailAddress,
+          phoneNumber: user.phoneNumber,
+          location: user.location
+        })
+      })
+    }
+
     openUploadWidget(uploadOptions, (error, photo) => {
       if (!error) {
         if (photo.event === 'success') {
