@@ -36,6 +36,9 @@ class EditProfile extends React.Component {
         phoneNumber: user.phoneNumber,
         location: user.location
       })
+      this.setState({
+        id: this.props.match.params.id
+      })
     })
   }
 
@@ -100,7 +103,7 @@ class EditProfile extends React.Component {
     var spitAddie = this.props.address.split(',')
     var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
     this.setState({ location: addie })
-    this.setState({id: this.props.match.params.id})
+    console.log(this.state)
     if(this.props.user.id === Number(this.props.match.params.id)){
       this.props.dispatch(hideError())
       if(this.inputChecker()){
