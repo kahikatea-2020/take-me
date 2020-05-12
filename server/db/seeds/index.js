@@ -765,7 +765,7 @@ exports.seed = (knex) =>
         {
           id: 2,
           comment: 'Yes, as per lisitng description.',
-          date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
+          date: 'Tue May 12 2020 10:05:38 GMT+1200 (New Zealand Standard Time)',
           user_id: 4,
           listing_id: 27
         },
@@ -778,31 +778,31 @@ exports.seed = (knex) =>
         },
         {
           id: 4,
-          comment: 'Yes, as per lisitng description.',
+          comment: 'Dont be silly, We don\'t want to confuse her!.',
           date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
-          user_id: 4,
-          listing_id: 27
+          user_id: 6,
+          listing_id: 40
         },
         {
           id: 5,
-          comment: 'Does this come with the case?',
+          comment: 'Do you have size 8?',
           date: 'Tue May 12 2020 11:03:40 GMT+1200 (New Zealand Standard Time)',
-          user_id: 3,
-          listing_id: 27
+          user_id: 5,
+          listing_id: 41
         },
         {
           id: 6,
-          comment: 'Yes, as per lisitng description.',
+          comment: 'Yeah swing round and pick them up whenever you\'re free!!! JK no I don\'t',
           date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
-          user_id: 4,
-          listing_id: 27
+          user_id: 6,
+          listing_id: 41
         },
         {
           id: 7,
           comment: 'Does this come with the case?',
           date: 'Tue May 12 2020 11:03:40 GMT+1200 (New Zealand Standard Time)',
           user_id: 3,
-          listing_id: 27
+          listing_id: 28
         },
         {
           id: 8,
