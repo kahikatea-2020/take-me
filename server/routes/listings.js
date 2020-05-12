@@ -114,4 +114,36 @@ router.get('/user/:id', (req, res) => {
     })
 })
 
+// /api/v1/listings/taken/:id
+router.put('/taken/:id', (req, res) => {
+  const id = req.params.id
+  var date = new Date()
+  var utcTime = date.getTime() + (date.getTimezoneOffset() * 60000)
+  var timeOffset = 12
+  var NewZealandTime = new Date(utcTime + (3600000 * timeOffset))
+  var today = NewZealandTime.getDate() + '/' + (NewZealandTime.getMonth() + 1) + '/' + NewZealandTime.getFullYear()
+  db.setItemToTaken(id, today)
+    .then(dbRes => {
+      console.log(dbRes)
+      res.json({ ok: true }).status(200)
+    })
+    .catch(err => {
+      console.log(err.message)
+      res.status(500).json({ ok: false, err: err.message })
+    })
+})
+
+router.get('/api/v1/listings/taken/:id', (req, res) => {
+  const id = req.params.id
+  db.getTakenStatus(id)
+    .then(dbRes => {
+      console.log(dbRes)
+      res.send(dbRes)
+    })
+    .catch(err => {
+      res.sendStatus(500)
+      console.log(err.message)
+    })
+})
+
 module.exports = router
