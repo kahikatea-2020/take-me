@@ -173,7 +173,7 @@ exports.seed = (knex) =>
           id: 12,
           name: 'Chair-old',
           description: JSON.stringify([
-            'Chair in ok condition free for pick up.',
+            'Chair is in ok condition free for pick up.',
             'Got a new set and this is now an extra.',
             'Made from good quality wood so it will last a while.'
           ]),
@@ -638,7 +638,8 @@ exports.seed = (knex) =>
           id: 44,
           name: 'Iphone x cases',
           description: JSON.stringify([
-            'Join the android community went I damaged my iphone x.',
+            'Joined the android community when I damaged my iphone x.',
+            'No use for them anymore.',
             'One is a UAG which is in ok condition.',
             'The other case is a defender I think with normal wear and tear.',
             'Both are my back up cases and still offer good protection.'
@@ -660,7 +661,7 @@ exports.seed = (knex) =>
             ' 2 x playing cards set from Sky City.',
             'Both have been used only once.',
             'Given a few by a friend and have too many.',
-            'Can be a good way to kill some time while in lockdown.'
+            'Can be a good way to kill time for times like in lockdown.'
           ]),
           location: '  Newmarket, Auckland 1023',
           image_url: JSON.stringify([
@@ -824,5 +825,89 @@ exports.seed = (knex) =>
           date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
           user_id: 5,
           listing_id: 25
+        },
+        {
+          id: 11,
+          comment: 'Can I take just one?',
+          date: 'Wed May 13 2020 07:17:28 GMT+1200 (New Zealand Standard Time)',
+          user_id: 3,
+          listing_id: 44
+        },
+        {
+          id: 12,
+          comment: 'How old is the vacuum?  Do you think the parts need to fix will still be available?',
+          date: 'Wed May 13 2020 07:24:29 GMT+1200 (New Zealand Standard Time)',
+          user_id: 5,
+          listing_id: 49
+        },
+        {
+          id: 13,
+          comment: 'Of course you can. Contact me on my mobile so we can do this!',
+          date: 'Wed May 13 2020 07:25:37 GMT+1200 (New Zealand Standard Time)',
+          user_id: 1,
+          listing_id: 44
+        },
+        {
+          id: 14,
+          comment: 'Looks like a fun game! Is it missing anything at all are all contents still there?',
+          date: 'Wed May 13 2020 07:26:44 GMT+1200 (New Zealand Standard Time)',
+          user_id: 4,
+          listing_id: 38
+        },
+        {
+          id: 15,
+          comment: 'Is the screen the only issue? Will it still turn on?',
+          date: 'Wed May 13 2020 07:27:49 GMT+1200 (New Zealand Standard Time)',
+          user_id: 2,
+          listing_id: 4
+        },
+        {
+          id: 16,
+          comment: 'Yeah it does turn on still last time I check. Just one more thing, this is only for the phone. The charger wont come with it. ',
+          date: 'Wed May 13 2020 07:29:01 GMT+1200 (New Zealand Standard Time)',
+          user_id: 3,
+          listing_id: 4
+        },
+        {
+          id: 17,
+          comment: 'Can you add a picture of the tear? ',
+          date: 'Wed May 13 2020 07:35:01 GMT+1200 (New Zealand Standard Time)',
+          user_id: 4,
+          listing_id: 37
+        },
+        {
+          id: 18,
+          comment: 'It is still working right? ',
+          date: 'Wed May 13 2020 07:35:07 GMT+1200 (New Zealand Standard Time)',
+          user_id: 1,
+          listing_id: 48
+        },
+        {
+          id: 19,
+          comment: 'What size is it?',
+          date: 'Wed May 13 2020 07:25:07 GMT+1200 (New Zealand Standard Time)',
+          user_id: 3,
+          listing_id: 32
+        },
+        {
+          id: 20,
+          comment: 'Medium',
+          date: 'Wed May 13 2020 07:32:07 GMT+1200 (New Zealand Standard Time)',
+          user_id: 2,
+          listing_id: 32
+        },
+        {
+          id: 21,
+          comment: 'It is a cool shirt! Are they still available for purchase anywhere? I can\t find them online.',
+          date: 'Wed May 13 2020 07:28:07 GMT+1200 (New Zealand Standard Time)',
+          user_id: 6,
+          listing_id: 32
+        },
+        {
+          id: 22,
+          comment: 'I don\t think so. Got it from a Big Don Camp I went to years ago.',
+          date: 'Wed May 13 2020 07:45:15 GMT+1200 (New Zealand Standard Time)',
+          user_id: 2,
+          listing_id: 32
         }
       ]))
