@@ -73,7 +73,11 @@ class EditProfile extends React.Component {
     if(firstName !== '' && lastName !== '' && emailAddress !== '' && location !== '') {
       if(phoneNumber !== '' || phoneNumber !== null){
         return false
+      } else {
+        return false
       }
+    } else {
+      return false
     }
   }
 
