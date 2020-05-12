@@ -12,11 +12,12 @@ import { getCategories } from '../actions/categories'
 import Pagination from './Pagination'
 
 class Home extends React.Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
 
     this.state = {
-      pageOfItems: []
+      pageOfItems: [],
+      location: ''
     }
 
     this.onChangePage = this.onChangePage.bind(this)
@@ -25,10 +26,6 @@ class Home extends React.Component {
   onChangePage (pageOfItems) {
     // update state with new page of items
     this.setState({ pageOfItems: pageOfItems })
-  }
-
-  state = {
-    location: ''
   }
 
   componentDidMount () {
@@ -54,8 +51,8 @@ class Home extends React.Component {
       if (this.props.selectedCategory.id !== 100) {
         selectedListings = selectedListings.filter(listing => listing.categoryId === this.props.selectedCategory.id)
       }
-      console.log(this.state.pageOfItems)
     }
+    console.log(this.state.pageOfItems)
     return (
       <>
         <SearchBar history={this.props.history}/>
@@ -69,10 +66,11 @@ class Home extends React.Component {
         <h1 id='latest-listings'>Latest Listings</h1>
         <WaitIndicator />
         {selectedListings.length > 0
-          ? <Card.Group itemsPerRow={4} className='centered'>
+          ? <><Card.Group itemsPerRow={4} className='centered'>
             {this.state.pageOfItems.map(item => <ListItem key={item.id} listing={item} />)}
-            <Pagination items={selectedListings} onChangePage={this.onChangePage} />
           </Card.Group>
+          <Pagination items={selectedListings} onChangePage={this.onChangePage} />
+          </>
           : <p>Sorry, there are no current listings in your location</p>}
       </>
     )
