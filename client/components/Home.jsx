@@ -37,6 +37,9 @@ class Home extends React.Component {
 
   handleChange = e => {
     e.preventDefault()
+    if (!this.state.locationAdded && this.props.user.location) {
+      this.addLocation()
+    }
     this.setState({ checked: !this.state.checked })
   }
 
@@ -46,9 +49,6 @@ class Home extends React.Component {
   }
 
   render () {
-    if (!this.state.locationAdded && this.props.user.location) {
-      this.addLocation()
-    }
     let selectedListings = this.props.listings.sort((a, b) => b.id - a.id)
     if (this.state.checked) {
       selectedListings = selectedListings.filter(listing => listing.location.includes(this.state.location))
@@ -81,9 +81,9 @@ class Home extends React.Component {
         <WaitIndicator />
         {selectedListings.length > 0
           ? <><Card.Group itemsPerRow={4} className='centered'>
-            {this.state.pageOfItems.map(item => <ListItem key={item.id} listing={item} />)}
+            {selectedListings.map(item => <ListItem key={item.id} listing={item} />)}
           </Card.Group>
-          <Pagination items={selectedListings} onChangePage={this.onChangePage} />
+          {/* <Pagination items={selectedListings} onChangePage={this.onChangePage} /> */}
           </>
           : <p>Sorry, there are no current listings in your location</p>}
       </>
