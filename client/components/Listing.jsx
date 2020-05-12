@@ -48,6 +48,13 @@ class Listing extends React.Component {
         })
       })
   }
+  setNameColour = (id) => {
+    if (id === this.state.listing.userId) {
+      return { color: 'rgb(33, 133, 208)' }
+    } else {
+      return {}
+    }
+  }
 
   render() {
     const { listing } = this.state
@@ -124,13 +131,23 @@ class Listing extends React.Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
-        {/* {this.state.comments.legnth &&
+        {(this.state.comments.length > 0) &&
           <div className='questions-and-answers'>
-            {this.state.comments.map(comment => {
-
-            })}
+            {this.state.comments.map(comment => (
+              <div className='comment'>
+                <Image
+                  circular
+                  floated='left'
+                  width='20px'
+                  src={`https://res.cloudinary.com/takemenz/image/upload/${comment.userImage}`}
+                />
+                <h5 style={this.setNameColour(comment.userId)}>{comment.userFirstName}</h5>
+                <p>{comment.comment}</p>
+                <small>{comment.date.substr(0, 21)}</small>
+              </div>
+            ))}
           </div>
-        } */}
+        }
       </>
     )
   }
