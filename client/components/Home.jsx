@@ -42,6 +42,11 @@ class Home extends React.Component {
     this.setState({ location })
   }
 
+  removeLocationFilter = e => {
+    e.preventDefault()
+    this.setState({ location: '' })
+  }
+
   render () {
     let selectedListings = this.props.listings.sort((a, b) => b.id - a.id)
     selectedListings = selectedListings.filter(listing => listing.location.includes(this.state.location))
@@ -49,20 +54,26 @@ class Home extends React.Component {
       if (this.props.selectedCategory.id !== 100) {
         selectedListings = selectedListings.filter(listing => listing.categoryId === this.props.selectedCategory.id)
       }
+      console.log(this.state.pageOfItems)
     }
     return (
       <>
         <SearchBar history={this.props.history}/>
         <CategoryList history={this.props.history}/>
-        {isAuthenticated() &&
-        <button onClick={this.locationFilter}>Listing Near Me</button>}
+        {isAuthenticated() && <>
+          {this.state.location !== ''
+            ? <button onClick={this.removeLocationFilter}>Show All Listings</button>
+            : <button onClick={this.locationFilter}>Listing Near Me</button> }
+        </>
+        }
         <h1 id='latest-listings'>Latest Listings</h1>
         <WaitIndicator />
-        <Card.Group itemsPerRow={4} className='centered'>
-          {this.state.pageOfItems.map(item => <ListItem key={item.id} listing={item} />)}
-        </Card.Group>
-
-        <Pagination items={selectedListings} onChangePage={this.onChangePage} />
+        {selectedListings.length > 0
+          ? <Card.Group itemsPerRow={4} className='centered'>
+            {this.state.pageOfItems.map(item => <ListItem key={item.id} listing={item} />)}
+            <Pagination items={selectedListings} onChangePage={this.onChangePage} />
+          </Card.Group>
+          : <p>Sorry, there are no current listings in your location</p>}
       </>
     )
   }
