@@ -23,6 +23,7 @@ router.post('/add', (req, res) => {
     .then(() => {
       res.status(200).json({ ok: true })
     })
+    .catch(err => console.log(err.message))
 })
 
 module.exports = router
