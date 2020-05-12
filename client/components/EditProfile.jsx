@@ -14,8 +14,6 @@ import { editUser, getUserById } from '../api/users'
 
 class EditProfile extends React.Component {
   state = {
-    firstName: '',
-    lastName: '',
     emailAddress: '',
     phoneNumber: null,
     imageUrl: 'v1589061239/default-profile_checno.png',
@@ -31,8 +29,6 @@ class EditProfile extends React.Component {
     .then(user => {
       this.setState({user: user})
       this.setState({
-        firstName: user.firstName,
-        lastName: user.lastName,
         emailAddress: user.email,
         phoneNumber: user.phoneNumber,
         location: user.location
@@ -103,12 +99,6 @@ class EditProfile extends React.Component {
       if(this.inputChecker()){
         // this.props.dispatch(showError('Please fill out all the fields'))
         // this.setState({ show: true })
-        if(this.state.firstName == ''){
-          this.setState({firstName: this.state.user.firstName})
-        }
-        if(this.state.lastName == ''){
-          this.setState({lastName: this.state.user.lastName})
-        }
         if(this.state.location == ''){
           this.setState({location: this.state.user.location})
         }
@@ -138,33 +128,14 @@ class EditProfile extends React.Component {
       <div id='wrapper'>
         {isAuthenticated() &&
         <Form>
-          <Form.Input
-            fluid
-            width={6}
-            name='firstName'
-            placeholder='First Name'
-            value={this.state.firstName}
-            type='text'
-            onChange={this.updateField}
-            autoComplete='off'
-            />
-          <Form.Input
-            fluid
-            width={6}
-            name='lastName'
-            placeholder='Last Name'
-            value={this.state.lastName}
-            type='text'
-            onChange={this.updateField}
-            autoComplete='off'
-            />
-          <br/>
+          <label><strong>Address</strong></label>
           <Autocomplete id='address' />
           <Form.Input
             fluid
             width={6}
             name='emailAddress'
             placeholder='Email Address'
+            label='Email Address'
             value={this.state.emailAddress}
             type='text'
             onChange={this.updateField}
@@ -175,6 +146,7 @@ class EditProfile extends React.Component {
             width={6}
             name='phoneNumber'
             placeholder='Phone Number'
+            label='Phone Number'
             value={this.state.phoneNumber}
             type='number'
             onKeyUp={this.updateField}
