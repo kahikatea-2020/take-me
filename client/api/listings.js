@@ -39,3 +39,10 @@ export function editListing (id, listing) {
     .catch(err => console.log(err))
 }
 
+export function markAsTaken (id) {
+  return request.put(`/api/v1/listings/taken/${id}`)
+    .set({ 'Authorization': `Bearer ${getEncodedToken()}` })
+    .set({ 'Accept': 'application/json' })
+    .then(() => 'success')
+    .catch(err => console.log(err))
+}

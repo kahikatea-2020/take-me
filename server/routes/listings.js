@@ -114,4 +114,36 @@ router.get('/user/:id', (req, res) => {
     })
 })
 
+// /api/v1/listings/taken/:id
+router.put('/taken/:id', getTokenDecoder(), (req, res) => {
+  const id = Number(req.params.id)
+  db.getUserByListingId(id)
+    .then(({ userId }) => {
+      if (userId === Number(req.user.id)) {
+        var date = new Date(Date.now()).toString()
+        db.setItemToTaken(id, date)
+          .then(dbRes => {
+            res.json({ ok: true }).status(200)
+          })
+      }
+    })
+    .catch(err => {
+      console.log(err.message)
+      res.status(500).json({ ok: false, err: err.message })
+    })
+})
+
+router.get('/api/v1/listings/taken/:id', (req, res) => {
+  const id = req.params.id
+  db.getTakenStatus(id)
+    .then(dbRes => {
+      console.log(dbRes)
+      res.send(dbRes)
+    })
+    .catch(err => {
+      res.sendStatus(500)
+      console.log(err.message)
+    })
+})
+
 module.exports = router

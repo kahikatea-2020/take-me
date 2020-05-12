@@ -6,7 +6,7 @@ import { Button, Card, Grid, Image, Form } from 'semantic-ui-react'
 
 import WaitIndicator from './WaitIndicator'
 
-import { getListingById } from '../api/listings'
+import { getListingById, markAsTaken } from '../api/listings'
 import { getCommentsById, addComment } from '../api/q-and-a'
 import { getListingsPending, getListingSuccess } from '../actions/listings'
 import { getCommentsPending, getCommentsSuccess } from '../actions/q-and-a'
@@ -19,8 +19,11 @@ class Listing extends React.Component {
     description: [],
     imageUrl: [],
     comments: [],
-    newComment: ''
+    newComment: '',
+    taken: false,
+    date_taken: ''
   }
+
   componentDidMount() {
     this.props.dispatch(getListingsPending())
     getListingById(this.props.match.params.id)
@@ -33,7 +36,8 @@ class Listing extends React.Component {
             listing,
             emailSubject: listing.name.split(' ').join('%20'),
             description: listing.description,
-            imageUrl: listing.imageUrl
+            imageUrl: listing.imageUrl,
+            taken: listing.taken,
           }, this.getComments)
         }
       })
@@ -73,6 +77,15 @@ class Listing extends React.Component {
       addComment(newCommentObject)
         .then(this.getComments)
     }
+  }
+
+  handleTaken = () => {
+    markAsTaken(this.state.listing.id)
+      .then(res => {
+        if (res === 'success') {
+          this.setState({ taken: true })
+        }
+      })
   }
 
   render() {
@@ -146,6 +159,11 @@ class Listing extends React.Component {
                   </Card.Content>
                 </Card>
               </div>
+              {(isAuthenticated() && (this.props.user.id === listing.userId) && !this.state.taken) &&
+              <div>
+              <Button name={listing.id} onClick={() => this.handleTaken()}>Mark as taken</Button>
+              </div>
+              }
               <WaitIndicator />
             </Grid.Column>
           </Grid.Row>

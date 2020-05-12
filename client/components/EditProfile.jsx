@@ -3,7 +3,6 @@ import { Form } from 'semantic-ui-react'
 import { openUploadWidget } from './CloudinaryService'
 import { isAuthenticated } from 'authenticare/client'
 import { Link } from 'react-router-dom'
-import { getUserDetails } from '../actions/users'
 import { connect } from 'react-redux'
 import { showError, hideError } from '../actions/error'
 import SweetAlert from 'sweetalert2-react'
@@ -32,6 +31,9 @@ class EditProfile extends React.Component {
         emailAddress: user.email,
         phoneNumber: user.phoneNumber,
         location: user.location
+      })
+      this.setState({
+        id: this.props.match.params.id
       })
     })
   }
@@ -94,6 +96,9 @@ class EditProfile extends React.Component {
   }
 
   submitHandler = e => {
+    var spitAddie = this.props.address.split(',')
+    var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
+    this.setState({ location: addie })
     if(this.props.user.id === Number(this.props.match.params.id)){
       this.props.dispatch(hideError())
       if(this.inputChecker()){
@@ -114,6 +119,7 @@ class EditProfile extends React.Component {
             this.props.history.push(`/profile/${this.props.match.params.id}`)
           })
           .catch(err => {
+            console.log(this.state, err)
             if (err.message === 'Unauthorized') {
               this.props.dispatch(showError('This is not the page you are looking for'))
               this.setState({ show: true })
