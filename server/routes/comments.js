@@ -11,7 +11,7 @@ router.get('/:id', (req, res) => {
 
 // POST /api/v1/comments/add
 router.post('/add', (req, res) => {
-  const comment = req.body
+  const { comment, userId, listingId } = req.body
   db.addCommentById()
 })
 
