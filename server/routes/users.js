@@ -31,11 +31,11 @@ router.get('/:id', (req, res) => {
 router.put('/edit', getTokenDecoder(), (req, res) => {
   const userData = req.body
   console.log(req.user.id, userData.id)
-  if( req.user.id === userData.id){
-  db.editUser(userData)
-    .then(dbRes => {
-      res.send({ ok: true })
-    })
+  if (req.user.id === Number(userData.id)) {
+    db.editUser(userData)
+      .then(dbRes => {
+        res.send({ ok: true })
+      })
   } else {
     res.sendStatus(401)
   }
