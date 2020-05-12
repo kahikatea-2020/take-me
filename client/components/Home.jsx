@@ -30,10 +30,10 @@ class Home extends React.Component {
   onChangePage (pageOfItems) {
     // update state with new page of items
     this.pageOfItems = pageOfItems
-    this.setState({ rerenderer: !this.state.rerenderer })
+    // this.setState({ rerenderer: !this.state.rerenderer })
   }
 
-  onCategoryChange = () => {
+  onChange = () => {
     this.setState({ rerenderer: !this.state.rerenderer }, () => {
       this.setState({ rerenderer: !this.state.rerenderer })
     })
@@ -85,7 +85,7 @@ class Home extends React.Component {
             </div>
             }
             <div className='four wide right aligned column'>
-              <CategoryList history={this.props.history} onCategoryChange={this.onCategoryChange} />
+              <CategoryList history={this.props.history} onChange={this.onChange} />
             </div>
           </div>
         </div>
