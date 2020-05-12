@@ -64,6 +64,7 @@ class Profile extends React.Component {
                 <p>Email: {profile.email}</p>
                 <p>Phone Number: {profile.phoneNumber}</p>
                 <p>Location: {profile.location}</p>
+                <Button as='a' to={`/edit-profile/${profile.id}`} basic color='blue'>Edit Profile</Button>
               </div>
             </div>
           </div>

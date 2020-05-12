@@ -29,8 +29,7 @@ class EditProfile extends React.Component {
   componentDidMount () {
     getUserById(this.props.match.params.id)
     .then(user => {
-      console.log(user)
-      this.state({user: user})
+      this.setState({user: user})
       this.setState({
         firstName: user.firstName,
         lastName: user.lastName,
@@ -74,7 +73,6 @@ class EditProfile extends React.Component {
   }
 
   updateField = e => {
-    console.log(this.state, e.target.value)
     this.setState({
       id: this.props.match.params.id
     })
@@ -130,7 +128,6 @@ class EditProfile extends React.Component {
               this.props.dispatch(showError('This is not the page you are looking for'))
               this.setState({ show: true })
             }
-            console.log('error is:', err.message)
           })
       }
     }
