@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Card } from 'semantic-ui-react'
+import { Button, Card, Container, Checkbox } from 'semantic-ui-react'
 import { isAuthenticated } from 'authenticare/client'
 
 import WaitIndicator from './WaitIndicator'
@@ -17,7 +17,9 @@ class Home extends React.Component {
 
     this.state = {
       pageOfItems: [],
-      location: ''
+      location: '',
+      checked: false,
+      locationAdded: false
     }
 
     this.onChangePage = this.onChangePage.bind(this)
@@ -33,37 +35,49 @@ class Home extends React.Component {
     this.props.dispatch(getCategories())
   }
 
-  locationFilter = e => {
+  handleChange = e => {
     e.preventDefault()
-    const location = this.props.user.location.split(', ')[1]
-    this.setState({ location })
+    this.setState({ checked: !this.state.checked })
   }
 
-  removeLocationFilter = e => {
-    e.preventDefault()
-    this.setState({ location: '' })
+  addLocation = () => {
+    const location = this.props.user.location.split(', ')[1]
+    this.setState({ location, locationAdded: true })
   }
 
   render () {
+    if (!this.state.locationAdded && this.props.user.location) {
+      this.addLocation()
+    }
     let selectedListings = this.props.listings.sort((a, b) => b.id - a.id)
-    selectedListings = selectedListings.filter(listing => listing.location.includes(this.state.location))
-    if (this.props.selectedCategory.id) {
-      if (this.props.selectedCategory.id !== 100) {
-        selectedListings = selectedListings.filter(listing => listing.categoryId === this.props.selectedCategory.id)
-      }
+    if (this.state.checked) {
+      selectedListings = selectedListings.filter(listing => listing.location.includes(this.state.location))
+    }
+    if (this.props.selectedCategory.id && (this.props.selectedCategory.id !== 100)) {
+      selectedListings = selectedListings.filter(listing => listing.categoryId === this.props.selectedCategory.id)
     }
     console.log(this.state.pageOfItems)
     return (
       <>
         <SearchBar history={this.props.history}/>
-        <CategoryList history={this.props.history}/>
-        {isAuthenticated() && <>
-          {this.state.location !== ''
-            ? <button onClick={this.removeLocationFilter}>Show All Listings</button>
-            : <button onClick={this.locationFilter}>Listing Near Me</button> }
-        </>
-        }
-        <h1 id='latest-listings'>Latest Listings</h1>
+        <div id='toggle' className='ui three column grid' style={{ height: '10vh' }}>
+          <div className='row'>
+            <h1 className='four wide column' id='latest-listings'>Latest Listings</h1>
+            {isAuthenticated() &&
+            <div className="eight wide column">
+              <Checkbox
+                label='Near Me'
+                onClick={this.handleChange}
+                style={{ marginTop: '10px' }}
+                toggle
+              />
+            </div>
+            }
+            <div className='four wide right aligned column'>
+              <CategoryList history={this.props.history}/>
+            </div>
+          </div>
+        </div>
         <WaitIndicator />
         {selectedListings.length > 0
           ? <><Card.Group itemsPerRow={4} className='centered'>

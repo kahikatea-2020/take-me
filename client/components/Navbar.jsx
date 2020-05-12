@@ -18,7 +18,7 @@ class Navbar extends React.Component {
   render() {
     const profile = (
       <Menu.Item>
-          <Image avatar alt='profile image' src={`https://res.cloudinary.com/takemenz/image/upload/${this.props.user.imageUrl}`} />
+          <Image avatar alt='profile image' src={ this.props.user.imageUrl ? `https://res.cloudinary.com/takemenz/image/upload/${this.props.user.imageUrl}` : '' } />
           {this.props.user.firstName}
       </Menu.Item>
     )
@@ -38,14 +38,14 @@ class Navbar extends React.Component {
                   <Dropdown.Item style={{ paddingLeft: '10px' }} as={Link} to={`/profile/${this.props.user.id}`}>
                     Profile
                   </Dropdown.Item>
-                  <Dropdown.Item style={{ margin: '0' }} as={Link}
-                  onClick={() => Swal.fire({
-                  title: 'Are you sure?',
-                  text: 'Are Yoy sure you want to log out?',
-                  icon: 'warning',
-                  showCancelButton: true,
-                  confirmButtonText: 'Log Out',
-                  cancelButtonText: 'No, Stay'
+                  <Dropdown.Item style={{ margin: '0' }}
+                    onClick={() => Swal.fire({
+                    title: 'Are you sure?',
+                    text: 'Are you sure you want to log out?',
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonText: 'Log Out',
+                    cancelButtonText: 'No, Stay'
                 }).then((result) => {
                   if (result.value) {
                     logOff()

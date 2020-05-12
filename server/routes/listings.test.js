@@ -109,7 +109,7 @@ test('Delete route deleting successfully', () => {
 test('POST /new adds and redirects', () => {
   return request(server)
     .post('/api/v1/listings/new')
-    .send({ name: 'testname', description: JSON.stringify(['hello']), imageUrl: JSON.stringify(['this is a URL']), userID: 2, categoryId: 2 })
+    .send({ name: 'testname', description: JSON.stringify(['hello']), imageUrl: JSON.stringify(['this is a URL']), location: 'Mount Eden, Auckland', userID: 2, categoryId: 2 })
     .then((res) => {
       expect(res.status).toBe(200)
       expect(res.body.id).toBe(3)

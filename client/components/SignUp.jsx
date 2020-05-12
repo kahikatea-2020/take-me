@@ -133,6 +133,7 @@ class SignUp extends React.Component {
             placeholder='Last name'
             type='text'
           />
+          <br/>
           <Form.Input
             onKeyUp={this.updateField}
             fluid
@@ -151,7 +152,7 @@ class SignUp extends React.Component {
             placeholder='Phone number'
             type='number'
           />
-          <Autocomplete />
+          <Autocomplete id='address'/>
           <Form.Input
             onKeyUp={this.updateField}
             fluid
@@ -208,6 +209,7 @@ class SignUp extends React.Component {
               </div>
             </div>
           }
+          <Form.Checkbox required label={<label>I agree to the <a href='/guidelines'>TakeMe Guidelines</a></label>} />
           <Form.Group>
             <Link to='/'>
               <Form.Button>
@@ -218,13 +220,13 @@ class SignUp extends React.Component {
               type='submit'
               onClick={this.submitHandler}
             >
-            Submit
+              Submit
             </Form.Button>
           </Form.Group>
         </Form>
         <SweetAlert
           show={this.state.show}
-          title="Oppsie, Something went wrong!"
+          title="Oops, something went wrong!"
           text={this.props.error}
           onConfirm={() => this.setState({ show: false })}
         />

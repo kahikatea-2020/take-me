@@ -5,9 +5,14 @@
 }
 
 #main-container {
-  padding-bottom: 15vh;
+  padding-bottom: 5vh;
 }
 
+#wrapper {
+  min-height: 100vh
+}
+
+/* START FOOTER STYLING */
 #footer {
   width: 100vw;
   position: relative;
@@ -17,10 +22,6 @@
   margin-top: 5vh;
   background-color: rgb(29, 29, 29);
   color: white;
-}
-
-#wrapper {
-  height: 100vh;
 }
 
 #footerLogo {
@@ -43,6 +44,7 @@
 #footerLinks :hover {
   color: #ffffff;
 }
+/* END FOOTER STYLING */
 
 #tagLine {
   color: #f3f3f3a1;
@@ -61,17 +63,28 @@
 
 .singleImagePreview {
   width: 150px;
-  height: 190px;
-  margin: 1px;
+  height: 150px;
+  margin: 0 2vw 0 2vw;
   display: flex;
-  flex-direction: column;
-  justify-content: end;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 
 .theImage {
   max-width: 100%;
-  border: grey 1px solid;
   max-height: 100%;
+}
+
+div.singleImagePreview button {
+  height: 3vh;
+  width: auto;
+  margin-left: 1vw;
+  border-radius: 5px;
+}
+
+.deleteButton {
+  height: 100%;
 }
 
 #latest-listings {
@@ -95,7 +108,6 @@
 .slick-slider {
   width: 90%;
 }
-
 /* END CAROUSEL STYLING */
 
 /* START LISTING STYLING */
@@ -103,13 +115,20 @@ div.row {
   min-height: 80vh;
 }
 
+div.stretched.column.listing-details {
+  min-height: 80vh;
+}
+
 .listing-details {
   padding-left: 100px;
+  display: flex;
+  flex-direction: row;
 }
 
 .listing-description {
   margin-left: 4vw;
   padding-top: 2vh;
+  display: inline-block;
 }
 
 .listing-description h1 {
@@ -126,8 +145,6 @@ div.row {
 }
 
 .contact-info {
-  display: flex;
-  align-items: flex-end;
   padding-bottom: 5vh;
 }
 
@@ -136,6 +153,7 @@ div.row {
   height: 30vh;
   font-size: 1.2em;
   margin-left: 4vw;
+  margin-top: 5vh;
 }
 
 .contact-info div.ui.card div.content {
@@ -165,12 +183,87 @@ div.meta {
   width: 50%;
 }
 
-.ui.button.update-listing #update {
+#update {
   float: right;
 }
 /* END LISTING STYLING*/
 
-.deleteButton {
-  height: 100%; 
+/* START NEW LISTING STYLING*/
+.new-listing div.ui.fluid.selection.dropdown {
+  margin-bottom: 5vh;
+}
+
+div.ui.checkbox {
+  margin: 5vh 0 3vh 0;
+}
+/* END NEW LISTING STYLING*/
+
+/* START UPDATE LISTING STYLING*/
+div.ui.container.update-listing {
+  display: inline-block;
+  flex-direction: column;
+  justify-content: center;
+}
+/* END UPDATE LISTING STYLING*/
+
+/* START LOGIN STYLING*/
+#login {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 85vh;
+  padding-top: 10vh;
+  text-align: center;
+}
+
+#login h1 {
+  margin-bottom: 5vh;
+  text-align: center;
+}
+
+form.ui.form {
+  width: 70vw;
+}
+
+#login div.fields {
+  display: flex;
+  justify-content: center;
+  margin: 2vh 0 2vh 0;
+}
+
+div.fields#buttons {
+  margin-top: 5vh;
+}
+
+div.field button.ui.button {
+  margin-left: 10px;
+  margin-right: 10px;
+  min-width: 8vw;
+}
+
+/* END LOGIN STYLING*/
+
+.search div.field {
   width: 100%;
+}
+
+.listingCard:hover {
+  top: -5px;
+}
+
+div.ui.blue.inverted.search.menu {
+  margin-bottom: 5vh;
+  padding: 10px 0 10px 0;
+}
+
+#toggle .ui.toggle.checkbox input:checked~label:before {
+  background-color: #f79421 !important;
+}
+
+.search .ui.dropdown:not(.button)>.default.text {
+  color: #888888 !important;
+}
+
+.search {
+  color: black !important;
 }
