@@ -15,11 +15,11 @@ function getCommentsById (id, db = connection) {
 
 function addCommentById (id, data, db = connection) {
   return db('q_and_a')
-  .insert({
-    comment: data.comment,
-    user_id: data.userId,
-    listing_: data.listing.Id
-  })
+    .insert({
+      comment: data.comment,
+      user_id: data.userId,
+      listing_: data.listing.Id
+    })
 }
 
 module.exports = {
