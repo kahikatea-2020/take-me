@@ -80,7 +80,7 @@ class Home extends React.Component {
         </div>
         <WaitIndicator />
         {selectedListings.length > 0
-          ? !this.state.checked
+          ? (!this.state.checked && (!this.props.selectedCategory.id || (this.props.selectedCategory.id === 100)))
             ? <>
               <Card.Group itemsPerRow={4} className='centered'>
                 {this.state.pageOfItems.map(item => <ListItem key={item.id} listing={item} />)}
