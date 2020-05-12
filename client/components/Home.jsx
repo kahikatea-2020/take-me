@@ -32,6 +32,12 @@ class Home extends React.Component {
     this.pageOfItems = pageOfItems
   }
 
+  onCategoryChange = () => {
+    this.setState({ page: !this.state.page }, () => {
+      this.setState({ page: !this.state.page })
+    })
+  }
+
   componentDidMount () {
     this.props.dispatch(getListings())
     this.props.dispatch(getCategories())
@@ -78,7 +84,7 @@ class Home extends React.Component {
             </div>
             }
             <div className='four wide right aligned column'>
-              <CategoryList history={this.props.history}/>
+              <CategoryList history={this.props.history} func={this.onCategoryChange} />
             </div>
           </div>
         </div>
