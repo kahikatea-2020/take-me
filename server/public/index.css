@@ -328,10 +328,10 @@ div.field button.ui.button {
 }
 
 .aboutHero {
-  height: 100vh;
+  height: 70vh;
   display: flex;
-  align-items: left;
-  justify-content: center;
+  align-items: center;
+  margin-top: 30vh;
   flex-direction: column;
 }
 
@@ -347,7 +347,6 @@ div.field button.ui.button {
 .aboutHeroText p {
   font-family: "Futura-Medium";
   letter-spacing: -1px;
-  
   font-size: 1.7em;
 }
 
