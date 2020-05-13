@@ -184,18 +184,18 @@ class NewListing extends React.Component {
                   </div>
                 }
                 <Form.Checkbox onChange={this.checkboxHandler} required label={<label>I agree to the <a href='/guidelines'>TakeMe Guidelines</a></label>} />
-                <Form.Group>
+                <Form.Group id='new-listing-buttons'>
                   <Link to='/'>
                     <Form.Button>
                       Cancel
-              </Form.Button>
+                    </Form.Button>
                   </Link>
                   <Form.Button
                     type='submit'
                     onClick={this.submitHandler}
                   >
                     Submit
-              </Form.Button>
+                  </Form.Button>
                 </Form.Group>
               </Form>
               <SweetAlert

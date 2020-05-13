@@ -215,6 +215,13 @@ div.ui.checkbox {
 }
 /* END NEW LISTING STYLING*/
 
+div#new-listing-buttons.fields,
+div#edit-profile-buttons.fields,
+div#sign-up-buttons.fields,
+div#update-listing-buttons.fields {
+margin-left: auto;
+}
+
 /* START UPDATE LISTING STYLING*/
 div.ui.container.update-listing {
   display: inline-block;
@@ -253,7 +260,6 @@ div.fields#buttons {
 }
 
 div.field button.ui.button {
-  margin-left: 10px;
   margin-right: 10px;
   min-width: 8vw;
 }

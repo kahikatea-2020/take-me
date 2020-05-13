@@ -186,7 +186,7 @@ class EditProfile extends React.Component {
               </div>
             </div>
           }
-          <Form.Group>
+          <Form.Group id='edit-profile-buttons'>
             <Link to='/'>
               <Form.Button>
               Cancel

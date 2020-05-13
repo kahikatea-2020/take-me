@@ -217,7 +217,7 @@ class SignUp extends React.Component {
             </div>
           }
           <Form.Checkbox onChange={this.checkboxHandler} required label={<label>I agree to the <a href='/guidelines'>TakeMe Guidelines</a></label>} />
-          <Form.Group>
+          <Form.Group id='sign-up-buttons'>
             <Link to='/'>
               <Form.Button>
                 Cancel
