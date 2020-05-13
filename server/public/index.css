@@ -203,6 +203,15 @@ div.meta {
   float: right;
 }
 
+#contact-deetz div.header {
+  font-weight: bold;
+  font-size: 135%;
+}
+
+div #contact-deetz {
+  padding-left: 0 !important;
+  padding-top: 5px;
+}
 /* END LISTING STYLING*/
 
 /* START NEW LISTING STYLING*/
