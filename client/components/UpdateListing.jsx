@@ -82,7 +82,7 @@ class UpdateListing extends React.Component {
         this.setState({
           listing,
           name: listing.name,
-          description: listing.description,
+          description: listing.description.join('\n'),
           location: listing.location,
           imageUrl: listing.imageUrl
         })
