@@ -69,7 +69,7 @@ class Listing extends React.Component {
   }
 
   submitHandler = () => {
-    if(this.state.newComment !== '') {
+    if (this.state.newComment !== '') {
       const newCommentObject = {
         comment: this.state.newComment,
         userId: this.props.user.id,
@@ -77,6 +77,7 @@ class Listing extends React.Component {
       }
       addComment(newCommentObject)
         .then(this.getComments)
+        .then(this.setState({ newComment: '' }))
     }
   }
 
@@ -219,13 +220,14 @@ class Listing extends React.Component {
             : <label>Ask a question</label>
             }
             <Form.Input
-              onKeyUp={this.updateField}
+              onChange={this.updateField}
               fluid
               required
               width={8}
               name='comment'
               placeholder=''
               type='text'
+              value={this.state.newComment}
             />
             <Form.Button
               type='submit'
