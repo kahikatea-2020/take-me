@@ -12,12 +12,16 @@ class Autocomplete extends Component {
       activeSuggestion: 0,
       filteredSuggestions: [],
       showSuggestions: false,
-      userInput: ''
+      userInput: '',
+      userTyping: false
     }
   }
 
   onChange = e => {
     e.persist()
+    if (!this.state.userTyping) {
+      this.setState({ userTyping: true })
+    }
     this.setState({ userInput: e.currentTarget.value })
     const userInput = e.currentTarget.value
     if (userInput.length > 2) {
@@ -51,7 +55,6 @@ class Autocomplete extends Component {
 
   onKeyDown = e => {
     const { activeSuggestion, filteredSuggestions } = this.state
-
     if (e.keyCode === 13) {
       this.setState({
         activeSuggestion: 0,
@@ -124,7 +127,7 @@ class Autocomplete extends Component {
           placeholder='Start typing your address...'
           onChange={onChange}
           onKeyDown={onKeyDown}
-          value={userInput}
+          value={this.state.userTyping ? userInput : this.props.prevAddress}
         />
         {suggestionsListComponent}
         <span><em>* Only suburb and city will be visible on listing</em></span><br />

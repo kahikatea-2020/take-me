@@ -48,6 +48,7 @@ class Home extends React.Component {
 
   render () {
     let selectedListings = this.props.listings.sort((a, b) => b.id - a.id)
+    selectedListings = selectedListings.filter(listing => !listing.taken)
     if (this.state.checked) {
       selectedListings = selectedListings.filter(listing => listing.location.includes(this.state.location))
     }
