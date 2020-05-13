@@ -25,3 +25,9 @@ function addFeedback (data, db = connection) {
     })
     .catch(err => console.log(err.message))
 }
+
+function deleteFeedback (id, db = connection) {
+  return db('feedback')
+    .where({ 'feedback.users_id', id })
+    .del()
+}
