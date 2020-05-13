@@ -13,7 +13,6 @@ function getUserById (id, db = connection) {
 }
 
 function editUser (user, db = connection) {
-  console.log(user)
   const { firstName, lastName, emailAddress, phoneNumber, imageUrl, location } = user
   return db('users')
     .where('id', user.id)

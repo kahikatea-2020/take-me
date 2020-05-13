@@ -137,7 +137,6 @@ router.get('/api/v1/listings/taken/:id', (req, res) => {
   const id = req.params.id
   db.getTakenStatus(id)
     .then(dbRes => {
-      console.log(dbRes)
       res.send(dbRes)
     })
     .catch(err => {
