@@ -19,6 +19,6 @@ export function editUser (user) {
     .send(user)
     .set({ 'Authorization': `Bearer ${getEncodedToken()}` })
     .then(res => {
-      console.log(res)
+      return res
     })
 }

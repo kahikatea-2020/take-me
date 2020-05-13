@@ -35,6 +35,19 @@ class Profile extends React.Component {
     })
   }
 
+  componentWillReceiveProps(nextProps) {
+    const newId = nextProps.match.params.id;
+    if(this.state.profile.id != newId) {
+      getUserById(newId)
+      .then(profile => {
+        this.props.dispatch(getUsersListings(newId))
+          this.setState({
+            profile
+          })
+      })
+    }
+  }
+
   handleDelete = id => {
     this.props.dispatch(userPending())
     deleteListingById(id)
@@ -48,6 +61,8 @@ class Profile extends React.Component {
       ...listing,
       userImage: profile.imageUrl
     }))
+    const currentListings = listing.filter(item => !item.taken)
+    const takenListings = listing.filter(item => item.taken)
     
     return (
       <>
@@ -57,26 +72,30 @@ class Profile extends React.Component {
               <Image style={{ width: '200px', float: 'right' }} src={`https://res.cloudinary.com/takemenz/image/upload/${profile.imageUrl}`} alt="Profile Photo" />
             </div>
             <div className="column left aligned row">
-              <div style={{ verticalAlign: 'middle' }}>
-                <h2 style={{ marginBottom: '0px' }}>{profile.firstName} {profile.lastName}</h2>
+              <div className='row'>
+                {(isAuthenticated() && (this.props.user.id === profile.id)) &&
+                  <Button id='edit-profile' as={Link} to={`/edit-profile/${profile.id}`} basic color='blue'>Edit Profile</Button>
+                }
+                <div style={{ verticalAlign: 'middle' }}>
+                  <h2 style={{ marginBottom: '0px' }}>{profile.firstName} {profile.lastName}</h2>
                 <em>{profile.username}</em><br />
                 <br />
                 <p>Email: {profile.email}</p>
                 <p>Phone Number: {profile.phoneNumber}</p>
                 <p>Location: {profile.location}</p>
-                {(isAuthenticated() && (this.props.user.id === profile.id)) &&
-                <Button as={Link} to={`/edit-profile/${profile.id}`} basic color='blue'>Edit Profile</Button>
-                }
                 </div>
+              </div>
             </div>
           </div>
         </div>
         <div>
-          <h2>Listings from {profile.firstName}</h2>
+        {isAuthenticated() && this.props.user.id === profile.id 
+          ? <h2>Your Current Listings</h2>
+          : <h2>Current Listings from {profile.firstName}</h2>}
           <Card.Group itemsPerRow={4} className='centered'>
           <>
-          {listing.length !== 0 
-            ? listing.map(userListing => {
+          {currentListings.length !== 0 
+            ? currentListings.map(userListing => {
               return <div className="ui card" key={userListing.id}>
               <ListItem key={userListing.id} listing={userListing} />
               {
@@ -110,7 +129,46 @@ class Profile extends React.Component {
               }
               </div> 
             })
-            : <p>This user has no listings</p>
+            : <p>This user has no current listings</p>
+          }
+          {takenListings.length !== 0 
+            ? <div style={{display: 'block'}}>
+              <h2>Previous Listings</h2>
+              {takenListings.map(userListing => {
+                return <div className="ui card" key={userListing.id}>
+                <ListItem key={userListing.id} listing={userListing} />
+                {
+                  isAuthenticated() && this.props.user.id === profile.id &&
+                    <div className='ui two buttons'>
+                      <Button onClick={() => Swal.fire({
+                        title: 'Wait!',
+                        text: 'Are you sure you want to delete this item?',
+                        icon: 'warning',
+                        showCancelButton: true,
+                        confirmButtonText: 'Yes, delete it',
+                        cancelButtonText: 'No, keep it'
+                        }).then((result) => {
+                          if (result.value) {
+                            this.handleDelete(userListing.id)
+                            Swal.fire({
+                              title: 'Deleted!',
+                              text: 'Your file has been deleted.',
+                              icon: 'success'
+                            })
+                          } else {
+                            Swal.fire({
+                              title: 'Cancelled',
+                              text: 'Your listing is safe.',
+                              icon: 'error'
+                            })
+                          }
+                      })} basic color='red'>Delete</Button>
+                    </div>
+                  }
+                  </div> 
+              })}
+              </div>
+            : <p>This user has no current listings</p>
           }
           </>
           </Card.Group>

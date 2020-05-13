@@ -3,7 +3,6 @@ import { Form } from 'semantic-ui-react'
 import { openUploadWidget } from './CloudinaryService'
 import { isAuthenticated } from 'authenticare/client'
 import { Link } from 'react-router-dom'
-import { getUserDetails } from '../actions/users'
 import { connect } from 'react-redux'
 import { showError, hideError } from '../actions/error'
 import SweetAlert from 'sweetalert2-react'
@@ -14,8 +13,6 @@ import { editUser, getUserById } from '../api/users'
 
 class EditProfile extends React.Component {
   state = {
-    firstName: '',
-    lastName: '',
     emailAddress: '',
     phoneNumber: null,
     imageUrl: 'v1589061239/default-profile_checno.png',
@@ -31,11 +28,12 @@ class EditProfile extends React.Component {
     .then(user => {
       this.setState({user: user})
       this.setState({
-        firstName: user.firstName,
-        lastName: user.lastName,
         emailAddress: user.email,
         phoneNumber: user.phoneNumber,
         location: user.location
+      })
+      this.setState({
+        id: this.props.match.params.id
       })
     })
   }
@@ -61,7 +59,7 @@ class EditProfile extends React.Component {
 
   deleteImage = () => {
     this.setState({
-      imageUrl: 'v1589061239/default-profile_checno.png',
+      imageUrl: 'v1589318426/hvu5hza8chku5rnjcane.png',
       uploadedImage: false
     })
   }
@@ -98,17 +96,14 @@ class EditProfile extends React.Component {
   }
 
   submitHandler = e => {
+    var spitAddie = this.props.address.split(',')
+    var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
+    this.setState({ location: addie })
     if(this.props.user.id === Number(this.props.match.params.id)){
       this.props.dispatch(hideError())
       if(this.inputChecker()){
         // this.props.dispatch(showError('Please fill out all the fields'))
         // this.setState({ show: true })
-        if(this.state.firstName == ''){
-          this.setState({firstName: this.state.user.firstName})
-        }
-        if(this.state.lastName == ''){
-          this.setState({lastName: this.state.user.lastName})
-        }
         if(this.state.location == ''){
           this.setState({location: this.state.user.location})
         }
@@ -124,6 +119,7 @@ class EditProfile extends React.Component {
             this.props.history.push(`/profile/${this.props.match.params.id}`)
           })
           .catch(err => {
+            console.log(this.state, err)
             if (err.message === 'Unauthorized') {
               this.props.dispatch(showError('This is not the page you are looking for'))
               this.setState({ show: true })
@@ -135,43 +131,29 @@ class EditProfile extends React.Component {
 
   render () {
     return (
-      <div>
+      <div id='wrapper'>
         {isAuthenticated() &&
         <Form>
-          <Form.Input
-            fluid
-            width={6}
-            name='firstName'
-            placeholder={this.state.firstName}
-            type='text'
-            onKeyUp={this.updateField}
-            autoComplete='off'
-            />
-          <Form.Input
-            fluid
-            width={6}
-            name='lastName'
-            placeholder={this.state.lastName}
-            type='text'
-            onKeyUp={this.updateField}
-            autoComplete='off'
-            />
-          <br/>
+          <label><strong>Address</strong></label>
           <Autocomplete id='address' />
           <Form.Input
             fluid
             width={6}
             name='emailAddress'
-            placeholder={this.state.emailAddress}
+            placeholder='Email Address'
+            label='Email Address'
+            value={this.state.emailAddress}
             type='text'
-            onKeyUp={this.updateField}
+            onChange={this.updateField}
             autoComplete='off'
             />
           <Form.Input
             fluid
             width={6}
             name='phoneNumber'
-            placeholder={this.state.phoneNumber}
+            placeholder='Phone Number'
+            label='Phone Number'
+            value={this.state.phoneNumber}
             type='number'
             onKeyUp={this.updateField}
             autoComplete='off'
@@ -180,7 +162,9 @@ class EditProfile extends React.Component {
           onClick={e => {
             e.preventDefault()
             return this.imageUpload(undefined, 'brmcwkea')}
-          }>Upload Image</Form.Button>
+          }>
+            Upload Image
+          </Form.Button>
           {(this.state.uploadedImage) &&
             <div className='imagesPreview'>
               <div className='singleImagePreview'>

@@ -45,7 +45,7 @@ class App extends React.Component {
               <Route exact path='/guidelines' component={Guidelines} />
               <Route exact path='/about' component={About} />
               <Route exact path='/edit-profile/:id' component={EditProfile} />
-              <Route exact path='/error/404' component={Error404} />
+              <Route exact path='*' component={Error404} />
             </Switch>
           </Container>
           <Route path='/' component={Footer} />
@@ -54,7 +54,5 @@ class App extends React.Component {
     )
   }
 }
-
-//
 
 export default connect()(App)
