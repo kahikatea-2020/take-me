@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Button, Card, Container, Checkbox } from 'semantic-ui-react'
+import { Card, Container, Checkbox, Pagination } from 'semantic-ui-react'
 import { isAuthenticated } from 'authenticare/client'
 
 import WaitIndicator from './WaitIndicator'
@@ -9,7 +9,7 @@ import ListItem from './ListItem'
 import CategoryList from './CategoryList'
 import { getListings } from '../actions/listings'
 import { getCategories } from '../actions/categories'
-import Pagination from './Pagination'
+// import Pagination from './Pagination'
 
 class Home extends React.Component {
   constructor (props) {
@@ -19,24 +19,9 @@ class Home extends React.Component {
       location: '',
       checked: false,
       locationAdded: false,
-      rerenderer: false // this is so the correct info displays as pagination can't affect actual state
+      rerenderer: false, // this is so the correct info displays as pagination can't affect actual state
+      page: 1
     }
-
-    this.onChangePage = this.onChangePage.bind(this)
-  }
-
-  pageOfItems = []
-
-  onChangePage (pageOfItems) {
-    // update state with new page of items
-    this.pageOfItems = pageOfItems
-    // this.setState({ rerenderer: !this.state.rerenderer })
-  }
-
-  onChange = () => {
-    this.setState({ rerenderer: !this.state.rerenderer }, () => {
-      this.setState({ rerenderer: !this.state.rerenderer })
-    })
   }
 
   componentDidMount () {
@@ -59,6 +44,8 @@ class Home extends React.Component {
     this.setState({ location, locationAdded: true })
   }
 
+  setPageNum = (e, { activePage }) => this.setState({ page: activePage })
+
   render () {
     let selectedListings = this.props.listings.sort((a, b) => b.id - a.id)
     if (this.state.checked) {
@@ -67,6 +54,14 @@ class Home extends React.Component {
     if (this.props.selectedCategory.id && (this.props.selectedCategory.id !== 100)) {
       selectedListings = selectedListings.filter(listing => listing.categoryId === this.props.selectedCategory.id)
     }
+
+    const itemsPerPage = 16
+    const { page } = this.state
+    const totalPages = selectedListings.length / itemsPerPage
+    const listingItems = selectedListings.slice(
+      (page - 1) * itemsPerPage,
+      (page - 1) * itemsPerPage + itemsPerPage
+    )
 
     return (
       <>
@@ -93,9 +88,19 @@ class Home extends React.Component {
         {selectedListings.length > 0
           ? <>
             <Card.Group itemsPerRow={4} className='centered'>
-              {this.pageOfItems.map(item => <ListItem key={item.id} listing={item} />)}
+              {listingItems.map(item => <ListItem key={item.id} listing={item} />)}
             </Card.Group>
-            <Pagination items={selectedListings} onChangePage={this.onChangePage} onChange={this.onChange} />
+            <Container className='center aligned' style={{ paddingTop: '30px' }}>
+              <Pagination
+                defaultActivePage={1}
+                totalPages={totalPages}
+                firstItem={null}
+                lastItem={null}
+                pointing
+                secondary
+                onPageChange={this.setPageNum}
+              />
+            </Container>
           </>
           : <p>Sorry, there are no current listings to match your search filters</p>}
       </>
