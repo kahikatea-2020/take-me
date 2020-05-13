@@ -47,8 +47,9 @@ class Home extends React.Component {
   setPageNum = (e, { activePage }) => this.setState({ page: activePage })
 
   render () {
-    let selectedListings = this.props.listings.sort((a, b) => b.id - a.id)
-    selectedListings = selectedListings.filter(listing => !listing.taken)
+    let listings = this.props.listings.sort((a, b) => b.id - a.id)
+    listings = listings.filter(listing => !listing.taken)
+    let selectedListings = [...listings]
     if (this.state.checked) {
       selectedListings = selectedListings.filter(listing => listing.location.includes(this.state.location))
     }
@@ -66,7 +67,7 @@ class Home extends React.Component {
 
     return (
       <>
-        <SearchBar history={this.props.history}/>
+        <SearchBar history={this.props.history} items={listings} />
         <div id='toggle' className='ui three column grid' style={{ height: '10vh' }}>
           <div className='row'>
             <h1 className='four wide column' id='latest-listings'>Latest Listings</h1>
