@@ -130,7 +130,7 @@ class UpdateListing extends React.Component {
             value={this.state.name}
           />
           <Form.TextArea
-            width={6}
+            width={8}
             type='text'
             name='description'
             label='Description'
