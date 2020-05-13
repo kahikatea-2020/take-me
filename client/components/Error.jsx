@@ -1,21 +1,9 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import Swal from 'sweetalert2'
 
 import { hideError } from '../actions/error'
 
 class Error extends React.Component {
-  // if (props.error) {
-  //   return Swal.fire({
-  //     icon: 'error',
-  //     title: 'Oops...',
-  //     text: props.error,
-  //     footer: '<a href>Please try again</a>'
-  //   },
-  //   onClose: () => {
-  //     this.props.dispatch(clearError())
-  //   })
-  // }
   handleClick = () => {
     this.props.dispatch(hideError())
   }
