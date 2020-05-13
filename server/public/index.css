@@ -222,6 +222,10 @@ div#sign-up-buttons.fields,
 div#update-listing-buttons.fields {
   margin-left: auto;
 }
+
+a.item:focus {
+  outline: none;
+}
 /* END RANDOM STYLING */
 
 /* START ADDRESS AUTOCOMPLETE STYLING */
