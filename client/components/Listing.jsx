@@ -68,7 +68,8 @@ class Listing extends React.Component {
     })
   }
 
-  submitHandler = () => {
+  submitHandler = e => {
+    e.preventDefault()
     if (this.state.newComment !== '') {
       const newCommentObject = {
         comment: this.state.newComment,
