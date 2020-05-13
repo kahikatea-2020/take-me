@@ -5,7 +5,7 @@ import { Button } from 'semantic-ui-react'
 class Error404 extends React.Component {
   render () {
     return (
-      <div id='wrapper'>
+      <>
         <div className="ui placeholder segment">
           <div className="ui icon header">
             <i className="search icon"></i>
@@ -19,7 +19,7 @@ class Error404 extends React.Component {
             <Button id='home' as='a' onClick={() => this.props.history.goBack()} to='/' >Back</Button>
           </div>
         </div>
-      </div>
+      </>
     )
   }
 }
