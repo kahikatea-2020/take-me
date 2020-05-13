@@ -48,8 +48,8 @@ class ListItem extends React.Component {
         { this.props.authenticated && <>
           {this.props.current &&
             <div className='ui two buttons'>
-              <Button onClick={() => this.props.history.push(`/update-listing/${userListing.id}`)} basic color='blue'>Update</Button>
-              <Button name={listing.id} onClick={() => Swal.fire({
+              <Button style={{ marginRight: '1px'}} onClick={() => this.props.history.push(`/update-listing/${userListing.id}`)}>Update</Button>
+              <Button style={{ marginLeft: '1px'}} name={listing.id} onClick={() => Swal.fire({
                 title: 'Wait!',
                 text: 'Are you sure you want to mark this item as taken?',
                 icon: 'warning',
