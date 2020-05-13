@@ -14,7 +14,6 @@ function getUserById (id, db = connection) {
 
 function editUser (user, db = connection) {
   const { firstName, lastName, emailAddress, phoneNumber, imageUrl, location } = user
-  var address = location.slice(0, -5)
   return db('users')
     .where('id', user.id)
     .update({
@@ -23,7 +22,7 @@ function editUser (user, db = connection) {
       email: emailAddress,
       phone_number: phoneNumber,
       image_url: imageUrl,
-      location: address
+      location: location
     })
     .then(id => console.log(id))
 }

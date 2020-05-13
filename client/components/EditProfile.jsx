@@ -80,8 +80,9 @@ class EditProfile extends React.Component {
     })
     var spitAddie = this.props.address.split(',')
     if (spitAddie[spitAddie.length-2]) {
-      var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
-      this.setState({ location: addie })
+      const addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
+      const address = addie.slice(0, -5)
+      this.setState({ location: address })
     }
   }
 
@@ -98,15 +99,8 @@ class EditProfile extends React.Component {
     }
   }
 
-  submitHandler = e => {
-    var spitAddie = this.props.address.split(',')
-    if (spitAddie[spitAddie.length-2]) {
-      var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
-      this.setState({ location: addie })
-    }
-    console.log('hi')
+  actuallySubmit = () => {
     if(this.props.user.id === Number(this.props.match.params.id)) {
-      console.log('hii')
       this.props.dispatch(hideError())
       if(this.inputChecker()){
         // this.props.dispatch(showError('Please fill out all the fields'))
@@ -121,6 +115,7 @@ class EditProfile extends React.Component {
           this.setState({emailAddress: this.state.user.emailAddress})
         }
       } else {
+        console.log(this.state.location)
         editUser(this.state)
           .then(() => {
             this.props.dispatch(getUserDetails())
@@ -134,6 +129,17 @@ class EditProfile extends React.Component {
             }
           })
       }
+    }
+  }
+
+  submitHandler = e => {
+    var spitAddie = this.props.address.split(',')
+    if (spitAddie[spitAddie.length-2]) {
+      var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
+      const address = addie.slice(0, -5)
+      this.setState({ location: address }, this.actuallySubmit)
+    } else {
+      this.actuallySubmit()
     }
   }
 
