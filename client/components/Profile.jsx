@@ -136,7 +136,7 @@ class Profile extends React.Component {
                   </Button>
                   </div>
                   <div className='ui two buttons'>
-                    <Button as='a' to={`/update-listing/${userListing.id}`} basic color='blue'>Update</Button>
+                    <Button onClick={() => this.props.history.push(`/update-listing/${userListing.id}`)} basic color='blue'>Update</Button>
                     <Button onClick={() => Swal.fire({
                       title: 'Wait!',
                       text: 'Are you sure you want to delete this item?',

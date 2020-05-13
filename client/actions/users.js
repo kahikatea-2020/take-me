@@ -7,7 +7,6 @@ export const LOGIN_SUCCESS = 'LOGIN_SUCCESS'
 export const GET_USER_PENDING = 'GET_USER_PENDING'
 
 export function getUserSuccess (details) {
-  console.log(details)
   return {
     type: GET_USER_SUCCESS,
     details
