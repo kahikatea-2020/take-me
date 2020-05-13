@@ -190,6 +190,10 @@ div.meta {
   color: black !important;
 }
 
+#prev {
+  padding: 30px 0;
+}
+
 #profile a {
   color: #5A5A5A !important;
 }

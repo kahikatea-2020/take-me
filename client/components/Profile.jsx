@@ -89,7 +89,7 @@ class Profile extends React.Component {
           : <p>This user has no current listings</p>
         }
           
-        <h2>Previous Listings</h2>
+        <h2 id='prev'>Previous Listings</h2>
         <Card.Group itemsPerRow={4} className='centered'>
         { (takenListings.length !== 0)
           ? <Card.Group itemsPerRow={4} className='centered'>
