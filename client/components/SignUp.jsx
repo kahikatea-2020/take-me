@@ -118,6 +118,7 @@ class SignUp extends React.Component {
   render() {
     return (
       <>
+        {isAuthenticated() && <Redirect to='/' />}
         <h1>Sign Up</h1>
         <p>Please fill in the following details:</p>
         <Form>
