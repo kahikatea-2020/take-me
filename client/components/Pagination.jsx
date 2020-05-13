@@ -1,5 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import { Pagination as PaginationSem } from 'semantic-ui-react'
 
 const propTypes = {
   items: PropTypes.array.isRequired,
@@ -102,6 +103,13 @@ class Pagination extends React.Component {
     }
   }
 
+  changeHandler = (evt, data) => {
+    console.log(data);
+    
+    this.setPage(data.activePage)
+    this.props.onChange()
+  }
+
   render () {
     var pager = this.state.pager
 
@@ -111,45 +119,54 @@ class Pagination extends React.Component {
     }
 
     return (
-      <ul className="pagination">
-        <li className={pager.currentPage === 1 ? 'disabled' : ''}>
-          <a onClick={() => {
-            this.setPage(1)
-            this.props.onChange()
-          }}>First</a>
-        </li>
-        {pager.currentPage !== 1 &&
-          <li className={pager.currentPage === 1 ? 'disabled' : ''}>
-            <a onClick={() => {
-              this.setPage(pager.currentPage - 1)
-              this.props.onChange()
-            }}>Previous</a>
-          </li>
-        }
-        {pager.pages.map((page, index) =>
-          <li key={index} className={pager.currentPage === page ? 'active' : ''}>
-            <a onClick={() => {
-              this.setPage(page)
-              this.props.onChange()
-            }}>{page}</a>
-          </li>
-        )}
-        {pager.currentPage !== pager.totalPages &&
-          <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
-            <a onClick={() => {
-              this.setPage(pager.currentPage + 1)
-              this.props.onChange()
-            }
-            }>Next</a>
-          </li>
-        }
-        <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
-          <a onClick={() => {
-            this.setPage(pager.totalPages)
-            this.props.onChange()
-          }}>Last</a>
-        </li>
-      </ul>
+      <PaginationSem
+        defaultActivePage={1}
+        firstItem={null}
+        lastItem={null}
+        pointing
+        secondary
+        onPageChange={(event, data) => this.changeHandler(event, data)}
+        totalPages={pager.totalPages}
+      />
+      // <ul className="pagination">
+      //   <li className={pager.currentPage === 1 ? 'disabled' : ''}>
+      //     <a onClick={() => {
+      //       this.setPage(1)
+      //       this.props.onChange()
+      //     }}>First</a>
+      //   </li>
+      //   {pager.currentPage !== 1 &&
+      //     <li className={pager.currentPage === 1 ? 'disabled' : ''}>
+      //       <a onClick={() => {
+      //         this.setPage(pager.currentPage - 1)
+      //         this.props.onChange()
+      //       }}>Previous</a>
+      //     </li>
+      //   }
+      //   {pager.pages.map((page, index) =>
+      //     <li key={index} className={pager.currentPage === page ? 'active' : ''}>
+      //       <a onClick={() => {
+      //         this.setPage(page)
+      //         this.props.onChange()
+      //       }}>{page}</a>
+      //     </li>
+      //   )}
+      //   {pager.currentPage !== pager.totalPages &&
+      //     <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
+      //       <a onClick={() => {
+      //         this.setPage(pager.currentPage + 1)
+      //         this.props.onChange()
+      //       }
+      //       }>Next</a>
+      //     </li>
+      //   }
+      //   <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
+      //     <a onClick={() => {
+      //       this.setPage(pager.totalPages)
+      //       this.props.onChange()
+      //     }}>Last</a>
+      //   </li>
+      // </ul>
     )
   }
 }
