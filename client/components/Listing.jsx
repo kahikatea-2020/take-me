@@ -129,7 +129,7 @@ class Listing extends React.Component {
               {(isAuthenticated() && (this.props.user.id === listing.userId)) && 
                 <div className='column'>
                   <Button id='update' style={{ maxHeight: '5vh', maxWidth: '50%' }} as={Link} to={`/update-listing/${listing.id}`} className='update-listing' basic color='blue'>
-                    Edit Listing
+                    Update Listing
                   </Button>
                   {!this.state.taken &&
                     <Button name={listing.id} onClick={() => Swal.fire({
