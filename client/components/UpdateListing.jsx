@@ -170,7 +170,7 @@ class UpdateListing extends React.Component {
               })}
             </div>
           }
-          <Form.Group>
+          <Form.Group id='update-listing-buttons'>
             <Link to='/'>
               <Form.Button>
                 Cancel

@@ -4,7 +4,7 @@ function getListings (db = connection) {
   return db('listings')
     .join('categories', 'listings.category_id', 'categories.id')
     .join('users', 'listings.user_id', 'users.id')
-    .select('listings.id as id', 'listings.name as name', 'listings.image_url as imageUrl', 'listings.location as location', 'listings.user_id as userId', 'listings.category_id as categoryId', 'categories.name as category', 'users.image_url as userImage')
+    .select('listings.id as id', 'listings.name as name', 'listings.image_url as imageUrl', 'listings.location as location', 'listings.user_id as userId', 'listings.category_id as categoryId', 'categories.name as category', 'users.image_url as userImage', 'listings.taken as taken')
 }
 
 function getListingsById (id, db = connection) {

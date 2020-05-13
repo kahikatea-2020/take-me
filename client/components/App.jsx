@@ -37,12 +37,12 @@ class App extends React.Component {
             <div id='wrapper'>
               <Switch>
                 <Route exact path='/' component={Home} />
-                <Route path='/sign-up' component={SignUp} />
-                <Route path='/login' component={Login} />
-                <Route path='/new-listing' component={NewListing} />
-                <Route path='/update-listing/:id' component={UpdateListing} />
+                <Route exact path='/sign-up' component={SignUp} />
+                <Route exact path='/login' component={Login} />
+                <Route exact path='/new-listing' component={NewListing} />
+                <Route exact path='/update-listing/:id' component={UpdateListing} />
                 <Route exact path='/listings/:id' component={Listing} />
-                <Route path='/profile/:id' component={Profile} />
+                <Route exact path='/profile/:id' component={Profile} />
                 <Route exact path='/guidelines' component={Guidelines} />
                 <Route exact path='/about' component={About} />
                 <Route exact path='/edit-profile/:id' component={EditProfile} />

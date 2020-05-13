@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { getAddress } from '../api/addy'
 import { connect } from 'react-redux'
 import { addAdress } from '../actions/autocomplete'
-import { Form } from 'semantic-ui-react'
+import { Form, Grid } from 'semantic-ui-react'
 
 class Autocomplete extends Component {
   constructor (props) {
@@ -12,12 +12,16 @@ class Autocomplete extends Component {
       activeSuggestion: 0,
       filteredSuggestions: [],
       showSuggestions: false,
-      userInput: ''
+      userInput: '',
+      userTyping: false
     }
   }
 
   onChange = e => {
     e.persist()
+    if (!this.state.userTyping) {
+      this.setState({ userTyping: true })
+    }
     this.setState({ userInput: e.currentTarget.value })
     const userInput = e.currentTarget.value
     if (userInput.length > 2) {
@@ -51,7 +55,6 @@ class Autocomplete extends Component {
 
   onKeyDown = e => {
     const { activeSuggestion, filteredSuggestions } = this.state
-
     if (e.keyCode === 13) {
       this.setState({
         activeSuggestion: 0,
@@ -91,7 +94,7 @@ class Autocomplete extends Component {
     if (showSuggestions && userInput) {
       if (filteredSuggestions.length) {
         suggestionsListComponent = (
-          <ul className="suggestions">
+          <ul className='suggestions six wide field'>
             {filteredSuggestions.map((suggestion, index) => {
               let className
 
@@ -110,25 +113,26 @@ class Autocomplete extends Component {
       } else {
         suggestionsListComponent = (
           <div className="no-suggestions">
-            <em>No suggestions sorry</em>
+            <strong>Address not found!</strong>
           </div>
         )
       }
     }
 
     return (
-      <>
+      <div id='address-input'>
         <Form.Input
           type='text'
-          label='* Only suburb and city will be visible on listing'
           width={6}
           placeholder='Start typing your address...'
           onChange={onChange}
           onKeyDown={onKeyDown}
-          value={userInput}
+          value={this.state.userTyping ? userInput : this.props.prevAddress}
         />
         {suggestionsListComponent}
-      </>
+        <span><em>* Only suburb and city will be visible on listing</em></span><br />
+        <br />
+      </div>
     )
   }
 }
