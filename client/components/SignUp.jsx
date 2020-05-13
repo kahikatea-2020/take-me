@@ -90,7 +90,7 @@ class SignUp extends React.Component {
   submitHandler = e => {
     this.props.dispatch(hideError())
     if (this.state.password !== this.state.confirmPassword) {
-      this.props.dispatch(showError('Password does not match'))
+      this.props.dispatch(showError('Passwords do not match'))
       this.setState({ show: true })
     } else if (this.inputChecker()) {
       this.props.dispatch(showError('Please fill out all the fields'))
