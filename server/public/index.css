@@ -252,13 +252,92 @@ div.field button.ui.button {
   margin-top: 20%;
 }
 
+/* about page */
+
 .about {
-  min-height: 100vh;
   display: flex;
-  align-items: left;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
 }
+
+.aboutLogo img {
+  width: 40%;
+}
+
+.aboutHero {
+  height: 100vh;
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.aboutHeroText h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 5.5em;
+}
+
+.aboutHeroText {
+  width: 90%;
+}
+
+.aboutHeroText p {
+  font-family: "Futura-Medium";
+  letter-spacing: -1px;
+
+  font-size: 1.7em;
+}
+
+.aboutHero h1 {
+  font-family: "Futura-Medium";  
+  font-size: 1.8em;
+}
+
+.aboutSections{
+  min-height: 55vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: left;
+}
+
+#takeme2nd {
+  font-family: "Futura-Bold";
+  letter-spacing: -2px;
+  word-spacing: -1px;
+  margin-left: 2px;
+}
+
+@font-face {
+  font-family: "Futura-Bold";
+  src: url("./fonts/Futura-Bold.woff") format("woff"), /* Modern Browsers */
+    url("./fonts/Futura-Bold.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: "Futura-Medium";
+
+  src: url("./fonts/Futura-Medium.woff") format("woff"), /* Modern Browsers */
+    url("./fonts/Futura-Medium.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: "Futura-Normal";
+
+  src: url("./fonts/Futura-Normal.woff") format("woff"), /* Modern Browsers */
+    url("./fonts/Futura-Normal.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* end of about */
 
 .search div.field {
   width: 100%;

@@ -5,13 +5,26 @@ class About extends React.Component {
   render () {
     return (
       <>
-        <Container text className='about'>
-          <h1>Welcome To TakeMe</h1>
-          <h2>What is The Point of This Website?</h2>
-          <p>
-          "One man's trash is another man's treasure" is at the heart of our philosophy.<br/>
-          We want to promote recycling and reusing items that do not need to be thrown out. Instead, we aim to make it easy to find someone else who wants an item you might otherwise throw out, and give it a second life.
-          </p>
+        <div className="aboutHero">
+          {/* <div className="aboutLogo">
+            <h1>Welcome to</h1>
+            <img src='about logo-05.png' alt=""/>
+          </div> */}
+
+          <div className="aboutHeroText">
+            <div style={{ textAlign: 'right', paddingRight: '4%'}}>
+            <p id="welcome">Welcome to <span id='takeme2nd'> take me</span></p>
+
+            </div>
+            <h3>
+              "One man's trash is another man's treasure"
+            </h3>
+            <p>
+              We want to promote recycling and reusing items that do not need to be thrown out. Instead, we aim to make it easy to find someone else who wants an item you might otherwise throw out, and give it a second life.
+            </p>
+          </div>
+        </div>
+        <div className="aboutSections">
           <h2>Why Recycle?</h2>
           <p>
           You have heard of reduce, reuse, recycle, right?<br/>
@@ -34,6 +47,8 @@ class About extends React.Component {
             Saves you money - if you are getting something free from our site, you are not buying something new. As a result, you are saving money!
             </li>
           </ul>
+        </div>
+        <div className="aboutSections">
           <h2>How Can You Help?</h2>
           <p>
           We are asking you to consider not throwing items out that could find another life - by using our site, it will keep these items out of a landfill.
@@ -42,11 +57,15 @@ class About extends React.Component {
           What you do with your rubbish affects the planet and the environment we live in. Because of this, we believe everyone has a personal
           responsibility to look after our planet. This site can help you reduce how much rubbish you produce and make someone else happy by doing so!
           </p>
+        </div>
+        <div className="aboutSections">
           <h2>Our Goal?</h2>
           <p>
           We want to reduce the amount of rubbish humans produce by encouraging people to give items another use with someone else.
           We want to make it as accessible and easy as possible to do this by ensuring our website is user friendly and easy to navigate.
           </p>
+        </div>
+        <div className="aboutSections">
           <h2>Made By:</h2>
           <ul>
             <li>Mathias Bast</li>
@@ -56,7 +75,7 @@ class About extends React.Component {
             <li>Ellora Virtue</li>
             <li>John Sengson</li>
           </ul>
-        </Container>
+        </div>
       </>
     )
   }
