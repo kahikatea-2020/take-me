@@ -295,7 +295,7 @@ div.field button.ui.button {
 }
 
 .aboutSections{
-  min-height: 55vh;
+  min-height: 70vh;
   display: flex;
   justify-content: center;
   flex-direction: column;
@@ -303,8 +303,40 @@ div.field button.ui.button {
   font-family: "Futura-Normal";
   font-size: 1.5em;  
   letter-spacing: -1px;
-  
 }
+
+#photoCard {
+  min-height: 35vh;
+  padding-top: 3em;
+}
+
+#aboutSection2 h2 {
+  text-align: center;
+}
+
+#testDivo {
+ min-height: 33vh; 
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: space-evenly;
+}
+
+#testDivo img {
+  width: 45%;
+  object-fit: cover;
+
+}
+
+#aboutCardHeader {
+  width: 45%;
+}
+
+#testDivo h3 {
+  font-size: 1.5em;
+}
+
+
 
 #aboutList {
   margin-left: 2em;

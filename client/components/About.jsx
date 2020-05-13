@@ -53,15 +53,13 @@ class About extends React.Component {
             </List.Item>
           </List>
         </div>
-        <div className="aboutSections">
-          <h2>How Can You Help?</h2>
-          <p>
-          We are asking you to consider not throwing items out that could find another life - by using our site, it will keep these items out of a landfill.
-          You can list items for other people to take and put to good use, or pick something up off the site for yourself.<br/>
-          If you want to clean out your closet, garage or clutter, why waste it when you can give it away?
-          What you do with your rubbish affects the planet and the environment we live in. Because of this, we believe everyone has a personal
-          responsibility to look after our planet. This site can help you reduce how much rubbish you produce and make someone else happy by doing so!
-          </p>
+        <div className="aboutSections" id="photoCard">
+          <div id="testDivo">
+            <img src="https://images.unsplash.com/photo-1568085823039-e823e87197e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt=""/>
+            <div id="aboutCardHeader">
+              <h3>If you want to clean out your closet, garage or clutter, why waste it when you can give it away?</h3>
+            </div>
+          </div>
         </div>
         <div className="aboutSections">
           <h2>Our Goal?</h2>
@@ -69,17 +67,13 @@ class About extends React.Component {
           We want to reduce the amount of rubbish humans produce by encouraging people to give items another use with someone else.
           We want to make it as accessible and easy as possible to do this by ensuring our website is user friendly and easy to navigate.
           </p>
-        </div>
-        <div className="aboutSections">
-          <h2>Made By:</h2>
-          <ul>
-            <li>Mathias Bast</li>
-            <li>Patrick Lim</li>
-            <li>Laché Melvin</li>
-            <li>Hamish Henare</li>
-            <li>Ellora Virtue</li>
-            <li>John Sengson</li>
-          </ul>
+          <h2>How can you help us?</h2>
+          <p>
+          We are asking you to consider not throwing items out that could find another life - by using our site, it will help keep these items out of a landfill.
+          You can list items for other people to take and put to good use, or pick something up off the site for yourself.</p>
+          <p>What you do with your rubbish affects the planet and the environment we live in. Because of this, we believe everyone has a personal
+          responsibility to look after our planet. This site can help you reduce how much rubbish you produce and make someone else happy by doing so!
+          </p>
         </div>
       </>
     )
