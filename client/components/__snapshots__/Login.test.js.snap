@@ -6,91 +6,6 @@ Object {
   "baseElement": <body>
     <div>
       <div
-        id="wrapper"
-      >
-        <div
-          id="login"
-        >
-          <h1>
-            Login
-          </h1>
-          <form
-            class="ui form"
-            id="login-cont"
-          >
-            <div
-              class="fields"
-            >
-              <div
-                class="six wide field"
-              >
-                <div
-                  class="ui fluid input"
-                >
-                  <input
-                    name="username"
-                    placeholder="Username"
-                    type="text"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              class="fields"
-            >
-              <div
-                class="six wide field"
-              >
-                <div
-                  class="ui fluid input"
-                >
-                  <input
-                    autocomplete="off"
-                    name="password"
-                    placeholder="Password"
-                    type="password"
-                  />
-                </div>
-              </div>
-            </div>
-            <div
-              class="fields"
-              id="buttons"
-            >
-              <a
-                href="/"
-              >
-                <div
-                  class="field"
-                >
-                  <button
-                    class="ui button"
-                  >
-                    Cancel
-                  </button>
-                </div>
-              </a>
-              <div
-                class="field"
-              >
-                <button
-                  class="ui button"
-                  type="submit"
-                >
-                  Submit
-                </button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      id="wrapper"
-    >
-      <div
         id="login"
       >
         <h1>
@@ -165,6 +80,83 @@ Object {
           </div>
         </form>
       </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      id="login"
+    >
+      <h1>
+        Login
+      </h1>
+      <form
+        class="ui form"
+        id="login-cont"
+      >
+        <div
+          class="fields"
+        >
+          <div
+            class="six wide field"
+          >
+            <div
+              class="ui fluid input"
+            >
+              <input
+                name="username"
+                placeholder="Username"
+                type="text"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="fields"
+        >
+          <div
+            class="six wide field"
+          >
+            <div
+              class="ui fluid input"
+            >
+              <input
+                autocomplete="off"
+                name="password"
+                placeholder="Password"
+                type="password"
+              />
+            </div>
+          </div>
+        </div>
+        <div
+          class="fields"
+          id="buttons"
+        >
+          <a
+            href="/"
+          >
+            <div
+              class="field"
+            >
+              <button
+                class="ui button"
+              >
+                Cancel
+              </button>
+            </div>
+          </a>
+          <div
+            class="field"
+          >
+            <button
+              class="ui button"
+              type="submit"
+            >
+              Submit
+            </button>
+          </div>
+        </div>
+      </form>
     </div>
   </div>,
   "debug": [Function],
