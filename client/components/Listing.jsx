@@ -210,8 +210,8 @@ class Listing extends React.Component {
             ))}
           </div>
         }
-        {isAuthenticated() && 
-          <Form id='q-a-form'>
+        {isAuthenticated() 
+          ? <Form id='q-a-form'>
             {(this.props.user.id === listing.userId)
             ? (this.state.comments.length > 0)
               ? <label>Reply or add a comment</label>
@@ -234,6 +234,7 @@ class Listing extends React.Component {
             Submit
             </Form.Button>
           </Form>
+          : <h4><em><Link to='/login'>Log in</Link> to ask a question</em></h4>
         }
       </>
     )
