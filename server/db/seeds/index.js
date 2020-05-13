@@ -83,10 +83,7 @@ exports.seed = (knex) =>
           ]),
           location: 'Queenstown',
           image_url: JSON.stringify([
-            'v1589341206/s34_xswcbm.jpg',
-            'v1589341212/s33_pwwkje.jpg',
-            'v1589341220/s32_jqiphr.jpg',
-            'v1589341227/s3_dzoewh.jpg'
+            'v1589345019/dtk5eheeky7msrbgghzf.jpg'
           ]),
           user_id: 3,
           category_id: 2,
@@ -102,7 +99,7 @@ exports.seed = (knex) =>
             'Hit me up asap, currently sitting outside.'
           ]),
           location: 'Waiheke Island',
-          image_url: JSON.stringify(['v1588967347/couch_z4bqcd.jpg']),
+          image_url: JSON.stringify(['v1589345019/ukmxrofr7exsu1orutuq.jpg']),
           user_id: 5,
           category_id: 3,
           taken: false,
@@ -117,7 +114,7 @@ exports.seed = (knex) =>
             'Please contact me if interested.'
           ]),
           location: 'Auckland',
-          image_url: JSON.stringify(['v1588967373/ukulele_xpaknn.jpg']),
+          image_url: JSON.stringify(['v1589345020/oinpyfuczpqpxnyxgdqi.jpg']),
           user_id: 6,
           category_id: 9,
           taken: false,
@@ -150,7 +147,7 @@ exports.seed = (knex) =>
             'Bit rusty but they still do the job.'
           ]),
           location: 'Auckland',
-          image_url: JSON.stringify(['v1588967373/rake_dspvuh.jpg']),
+          image_url: JSON.stringify(['v1589345221/jmrgvjim8w7almxeccen.jpg']),
           user_id: 5,
           category_id: 6,
           taken: false,
@@ -166,8 +163,7 @@ exports.seed = (knex) =>
           ]),
           location: 'Rotorua',
           image_url: JSON.stringify([
-            'v1589340477/charger_xvo5bn.jpg',
-            'v1589340483/charger2_i3p1dp.jpg'
+            'v1589345019/pwsamprabn03icpcgy0s.jpg'
           ]),
           user_id: 4,
           category_id: 2,
@@ -203,9 +199,7 @@ exports.seed = (knex) =>
           ]),
           location: 'Auckland',
           image_url: JSON.stringify([
-            'v1589339013/cups1_ryw1n4.jpg',
-            'v1589339032/cups2_flo0y6.jpg',
-            'v1589339039/cups3_zuasiq.jpg'
+            'v1589345019/eksdfxhch4jzd96wdz3v.jpg'
           ]),
           user_id: 6,
           category_id: 4,
@@ -273,7 +267,7 @@ exports.seed = (knex) =>
             'Contact me if interested.'
           ]),
           location: 'Auckland',
-          image_url: JSON.stringify(['v1588967372/jumperleads_lrhtdz.jpg']),
+          image_url: JSON.stringify(['v1589345019/xxdzea7cbl9kw0hyngai.jpg']),
           user_id: 3,
           category_id: 5,
           taken: false,

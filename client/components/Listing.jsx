@@ -169,10 +169,12 @@ class Listing extends React.Component {
                     floated='right'
                     src={`https://res.cloudinary.com/takemenz/image/upload/${listing.userImage}`}
                   />
-                  <Card.Header>Contact {listing.userFirstName}</Card.Header>
-                  <Card.Meta>
-                    Phone: {listing.userPhoneNumber}
-                  </Card.Meta>
+                  <Card.Content id='contact-deetz'>
+                    <Card.Header>Contact {listing.userFirstName}</Card.Header>
+                    <Card.Meta>
+                      Phone: {listing.userPhoneNumber}
+                    </Card.Meta>
+                  </Card.Content>
                 </Card.Content>
                 <Card.Content extra>
                   <div className='ui-two-buttons'>
@@ -190,6 +192,7 @@ class Listing extends React.Component {
             </Grid.Column>
           </Grid.Row>
         </Grid>
+        
         {(this.state.comments.length > 0) &&
           <div className='questions-and-answers'>
             {this.state.comments.map(comment => (
