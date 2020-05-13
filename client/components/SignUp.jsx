@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { Form } from 'semantic-ui-react'
 import { isAuthenticated, register } from 'authenticare/client'
 import { connect } from 'react-redux'
