@@ -44,6 +44,10 @@
 #footerLinks :hover {
   color: #ffffff;
 }
+
+.bananas {
+  font-size: 110%;
+}
 /* END FOOTER STYLING */
 
 #tagLine {
@@ -203,6 +207,15 @@ div.meta {
   float: right;
 }
 
+#contact-deetz div.header {
+  font-weight: bold;
+  font-size: 135%;
+}
+
+div #contact-deetz {
+  padding-left: 0 !important;
+  padding-top: 5px;
+}
 /* END LISTING STYLING*/
 
 /* START NEW LISTING STYLING*/
@@ -214,6 +227,43 @@ div.ui.checkbox {
   margin: 5vh 0 3vh 0;
 }
 /* END NEW LISTING STYLING*/
+
+/* START RANDOM STYLING */
+div#new-listing-buttons.fields,
+div#edit-profile-buttons.fields,
+div#sign-up-buttons.fields,
+div#update-listing-buttons.fields {
+  margin-left: auto;
+}
+
+a.item:focus {
+  outline: none;
+}
+/* END RANDOM STYLING */
+
+/* START ADDRESS AUTOCOMPLETE STYLING */
+#address-input div.six.wide.field {
+  margin-bottom: 0 !important;
+}
+
+.suggestions li {
+  list-style-type: none;
+  padding: 5px 15px;
+}
+
+.suggestions li:hover {
+  background-color: #e0e1e2;
+  border-radius: .28571429rem;
+}
+
+ul.suggestions {
+  cursor: pointer;
+  margin-top: 0;
+  padding-left: 0;
+  border: 1px solid rgba(34,36,38,.15);
+  border-radius: .28571429rem;
+}
+/* END ADDRESS AUTOCOMPLETE STYLING */
 
 /* START UPDATE LISTING STYLING*/
 div.ui.container.update-listing {
@@ -253,7 +303,6 @@ div.fields#buttons {
 }
 
 div.field button.ui.button {
-  margin-left: 10px;
   margin-right: 10px;
   min-width: 8vw;
 }
@@ -269,13 +318,192 @@ div.field button.ui.button {
   margin-top: 20%;
 }
 
+/* about page */
+
 .about {
-  min-height: 100vh;
   display: flex;
-  align-items: left;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
 }
+
+.aboutLogo img {
+  width: 40%;
+}
+
+.aboutHero {
+  height: 70vh;
+  display: flex;
+  align-items: center;
+  margin-top: 30vh;
+  flex-direction: column;
+}
+
+.aboutHeroText h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 5.5em;
+}
+
+.aboutHeroText {
+  width: 90%;
+}
+
+.aboutHeroText p {
+  font-family: "Futura-Medium";
+  letter-spacing: -1px;
+  font-size: 1.7em;
+}
+
+.aboutHero h1 {
+  font-family: "Futura-Medium";  
+  font-size: 1.8em;
+}
+
+.aboutSections{
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: left;
+  font-family: "Futura-Normal";
+  font-size: 1.5em;  
+  letter-spacing: -1px;
+}
+
+#photoCard {
+  min-height: 35vh;
+  padding-top: 3em;
+}
+
+#aboutSection2 h2 {
+  text-align: center;
+}
+
+#testDivo {
+ min-height: 33vh; 
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: space-evenly;
+}
+
+#testDivo img {
+  width: 45%;
+  object-fit: cover;
+
+}
+
+#aboutCardHeader {
+  width: 45%;
+}
+
+#testDivo h3 {
+  font-size: 1.5em;
+}
+
+
+
+#aboutList {
+  margin-left: 2em;
+}
+
+#aboutListItem {
+  margin-bottom: 1em;
+}
+
+#aboutSecHeaders {
+  font-family: "Futura-medium";
+  font-size: 1em;
+}
+
+
+.aboutSections h2{
+  font-family: "Futura-Bold";
+  font-size: 1.7em;
+}
+
+.takemeTeam {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+}
+
+#teamWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.teamPics {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#teamSegment{
+  text-align: center;
+  width: 100%;
+}
+
+#teamSegment p{
+  font-size: 1.2em;
+}
+
+#thanks {
+  font-family: "Futura-Bold";
+  text-align: center;
+  font-size: 3emgi;
+}
+
+#takeme2nd {
+  font-family: "Futura-Bold";
+  letter-spacing: -2px;
+  word-spacing: -1px;
+  margin-left: 2px;
+}
+
+@font-face {
+  font-family: "Futura-Bold";
+  src: url("./fonts/Futura-Bold.woff") format("woff"), /* Modern Browsers */
+    url("./fonts/Futura-Bold.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Futura-Light";
+
+  src: url("./fonts/Futura-Light.woff") format("woff"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: "Futura-Medium";
+
+  src: url("./fonts/Futura-Medium.woff") format("woff"), /* Modern Browsers */
+    url("./fonts/Futura-Medium.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: "Futura-Normal";
+
+  src: url("./fonts/Futura-Normal.woff") format("woff"), /* Modern Browsers */
+    url("./fonts/Futura-Normal.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* end of about */
 
 .search div.field {
   width: 100%;
@@ -302,6 +530,8 @@ div.ui.blue.inverted.search.menu {
   color: #888888 !important;
 }
 
+/* START OF INPUT TYPE=NUMBER STYLING */
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -313,3 +543,21 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+/* END OF INPUT TYPE=NUMBER STYLING */
+
+/* START OF Q&A STYLING */
+#q-a-form label {
+  font-weight: bold;
+  font-size: 115%;
+  margin-bottom: 15px;
+}
+
+#q-a-form {
+  padding: 50px 0 10px 0;
+}
+
+#q-a-form input {
+  margin-top: 10px;
+}
+/* END OF Q&A STYLING */

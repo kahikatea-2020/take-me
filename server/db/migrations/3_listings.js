@@ -7,8 +7,6 @@ exports.up = knex =>
     table.string('location')
     table.integer('user_id').references('users.id')
     table.integer('category_id').references('categories.id')
-    table.boolean('taken')
-    table.string('date_taken')
   })
 
 exports.down = knex => knex.schema.dropTable('listings')

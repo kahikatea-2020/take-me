@@ -76,19 +76,16 @@ class UpdateListing extends React.Component {
     let listingId = this.props.match.params.id
     getListingById(listingId)
       .then(listing => {
-        console.log(listing)
         if (listing === undefined) {
           this.props.history.push(`/404`)
         }
         this.setState({
           listing,
           name: listing.name,
-          description: listing.description,
+          description: listing.description.join('\n'),
           location: listing.location,
           imageUrl: listing.imageUrl
-        }, () => {
-          console.log(this.state);
-        });
+        })
       })
       .catch(err => console.log(err));
   }
@@ -101,7 +98,6 @@ class UpdateListing extends React.Component {
         this.setState({
           imageUrl: [...this.state.imageUrl, 'v1589063179/default-listing_pgdcsc.png']
         }, () => {
-          console.log(this.state)
           editListing(this.props.match.params.id, this.state)
             .then(id => {
               this.props.history.push(`/listings/${listingId}`)
@@ -141,7 +137,7 @@ class UpdateListing extends React.Component {
             onChange={this.handleDescriptionChange}
             value={this.state.description}
           />
-          <Autocomplete />
+          <Autocomplete prevAddress={this.state.location} />
           <Form.Button onClick={() => this.imageUpload()}>
             Upload Image
           </Form.Button>
@@ -170,7 +166,7 @@ class UpdateListing extends React.Component {
               })}
             </div>
           }
-          <Form.Group>
+          <Form.Group id='update-listing-buttons'>
             <Link to='/'>
               <Form.Button>
                 Cancel

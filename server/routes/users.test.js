@@ -51,7 +51,7 @@ test('GET on getuser runs getTokenDecoder and returns user object', () => {
   return request(server)
     .get('/api/v1/users/getuser')
     .then(res => {
-      expect(Object.keys(res.body)).toHaveLength(8)
-      expect(res.body.location).toBe('test-land')
+      expect(Object.keys(res.body)).toHaveLength(5)
+      expect(res.body.location).toBe('utopia')
     })
 })

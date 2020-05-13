@@ -84,7 +84,7 @@ class Profile extends React.Component {
           
         { (currentListings.length !== 0)
           ? <Card.Group itemsPerRow={4} className='centered'>
-              {currentListings.map(userListing => <ProfileListItem key={userListing.id} listing={userListing} current={true} authenticated={isAuthenticated() && (this.props.user.id === profile.id)}/>)}
+              {currentListings.map(userListing => <ProfileListItem key={userListing.id} listing={userListing} current={true} history={this.props.history} authenticated={isAuthenticated() && (this.props.user.id === profile.id)}/>)}
             </Card.Group>
           : <p>This user has no current listings</p>
         }
@@ -93,7 +93,7 @@ class Profile extends React.Component {
         <Card.Group itemsPerRow={4} className='centered'>
         { (takenListings.length !== 0)
           ? <Card.Group itemsPerRow={4} className='centered'>
-              {takenListings.map(userListing => <ProfileListItem key={userListing.id} listing={userListing} current={false} authenticated={isAuthenticated() && (this.props.user.id === profile.id)}/>)}
+              {takenListings.map(userListing => <ProfileListItem key={userListing.id} listing={userListing} current={false} history={this.props.history} authenticated={isAuthenticated() && (this.props.user.id === profile.id)}/>)}
             </Card.Group>
         : <p>This user has no previous listings</p>
         }

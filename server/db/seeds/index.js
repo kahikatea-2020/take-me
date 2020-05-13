@@ -19,12 +19,12 @@ exports.seed = (knex) =>
       ]))
     .then(() =>
       knex('users').insert([
-        { id: 1, username: 'johnS', first_name: 'John', last_name: 'Sengson', email: 'john@gmail.com', phone_number: '021-435-1234', image_url: 'v1588967373/john_yigtz6.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Newmarket, Auckland' },
-        { id: 2, username: 'BubbleBast', first_name: 'Mathias', last_name: 'Bast', email: 'mathias@gmail.com', phone_number: '021-352-1234', image_url: 'v1588967372/mathias_eos91h.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$t7fDj0UPvYCnLculR3ti2w$hsbmENXcvcQbKGBoj2cBoH0xVBB8OIYfNDSZsatnT8k', location: 'Inner Kaiti, Gisborne' },
-        { id: 3, username: 'hamishT', first_name: 'Hamish', last_name: 'Tana', email: 'hamish@gmail.com', phone_number: '021-665-4287', image_url: 'v1588967348/hamishT_eiqwbd.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Newmarket, Auckland' },
-        { id: 4, username: 'vibes-lache', first_name: 'Lache', last_name: 'Melvin', email: 'lache@gmail.com', phone_number: '021-352-6789', image_url: 'v1588967373/lache_v5blpl.png', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Nelson Central, Nelson' },
-        { id: 5, username: 'p-man', first_name: 'Pat', last_name: 'Lim', email: 'pat@gmail.com', phone_number: '021-352-6789', image_url: 'v1588967373/pat_cevccf.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Mt Eden, Auckland' },
-        { id: 6, username: 'ElloraV', first_name: 'Ellora', last_name: 'Virtue', email: 'ellora@gmail.com', phone_number: '022-648-2546', image_url: 'v1588967348/ellora_ze8tgm.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Newmarket, Auckland' }
+        { id: 1, username: 'johnS', first_name: 'John', last_name: 'Sengson', email: 'john@gmail.com', phone_number: '0214351234', image_url: 'v1588967373/john_yigtz6.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Newmarket, Auckland' },
+        { id: 2, username: 'BubbleBast', first_name: 'Mathias', last_name: 'Bast', email: 'mathias@gmail.com', phone_number: '0213521234', image_url: 'v1588967372/mathias_eos91h.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$t7fDj0UPvYCnLculR3ti2w$hsbmENXcvcQbKGBoj2cBoH0xVBB8OIYfNDSZsatnT8k', location: 'Inner Kaiti, Gisborne' },
+        { id: 3, username: 'hamishT', first_name: 'Hamish', last_name: 'Tana', email: 'hamish@gmail.com', phone_number: '0216654287', image_url: 'v1588967348/hamishT_eiqwbd.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Newmarket, Auckland' },
+        { id: 4, username: 'vibes-lache', first_name: 'Lache', last_name: 'Melvin', email: 'lache@gmail.com', phone_number: '0213526789', image_url: 'v1588967373/lache_v5blpl.png', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Nelson Central, Nelson' },
+        { id: 5, username: 'p-man', first_name: 'Pat', last_name: 'Lim', email: 'pat@gmail.com', phone_number: '0213526789', image_url: 'v1588967373/pat_cevccf.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Mt Eden, Auckland' },
+        { id: 6, username: 'ElloraV', first_name: 'Ellora', last_name: 'Virtue', email: 'ellora@gmail.com', phone_number: '0226482546', image_url: 'v1588967348/ellora_ze8tgm.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Newmarket, Auckland' }
       ]))
     .then(() =>
       knex('listings').insert([
@@ -78,10 +78,13 @@ exports.seed = (knex) =>
           description: JSON.stringify([
             'Broken - screen cracked.',
             'Got a new phone and dont want to spend for fixing.',
-            'Good for parts.'
+            'Still turns on last time I checked',
+            'Get fix or good for parts.'
           ]),
           location: 'Queenstown',
-          image_url: JSON.stringify(['v1588967332/brokenphone_q5dkym.jpg']),
+          image_url: JSON.stringify([
+            'v1589345019/dtk5eheeky7msrbgghzf.jpg'
+          ]),
           user_id: 3,
           category_id: 2,
           taken: false,
@@ -96,7 +99,7 @@ exports.seed = (knex) =>
             'Hit me up asap, currently sitting outside.'
           ]),
           location: 'Waiheke Island',
-          image_url: JSON.stringify(['v1588967347/couch_z4bqcd.jpg']),
+          image_url: JSON.stringify(['v1589345019/ukmxrofr7exsu1orutuq.jpg']),
           user_id: 5,
           category_id: 3,
           taken: false,
@@ -111,7 +114,7 @@ exports.seed = (knex) =>
             'Please contact me if interested.'
           ]),
           location: 'Auckland',
-          image_url: JSON.stringify(['v1588967373/ukulele_xpaknn.jpg']),
+          image_url: JSON.stringify(['v1589345020/oinpyfuczpqpxnyxgdqi.jpg']),
           user_id: 6,
           category_id: 9,
           taken: false,
@@ -126,7 +129,11 @@ exports.seed = (knex) =>
             'Not sure about the size but we can organise for you to check.'
           ]),
           location: 'Auckland',
-          image_url: JSON.stringify(['v1588967373/tire_lzlvpn.jpg']),
+          image_url: JSON.stringify([
+            'v1589340427/tire3_kwga4i.jpg',
+            'v1589340433/tire_f7yvop.jpg',
+            'v1589340441/tire2_ykvkg0.jpg'
+          ]),
           user_id: 3,
           category_id: 5,
           taken: false,
@@ -140,7 +147,7 @@ exports.seed = (knex) =>
             'Bit rusty but they still do the job.'
           ]),
           location: 'Auckland',
-          image_url: JSON.stringify(['v1588967373/rake_dspvuh.jpg']),
+          image_url: JSON.stringify(['v1589345221/jmrgvjim8w7almxeccen.jpg']),
           user_id: 5,
           category_id: 6,
           taken: false,
@@ -155,7 +162,9 @@ exports.seed = (knex) =>
             'Contact me if interested.'
           ]),
           location: 'Rotorua',
-          image_url: JSON.stringify(['v1588967347/charger_mhozxk.jpg']),
+          image_url: JSON.stringify([
+            'v1589345019/pwsamprabn03icpcgy0s.jpg'
+          ]),
           user_id: 4,
           category_id: 2,
           taken: false,
@@ -165,12 +174,16 @@ exports.seed = (knex) =>
           id: 10,
           name: 'Basketball board',
           description: JSON.stringify([
-            'Some idiot dunked and broke the basket.',
-            'The rim is still in good condition but I cant be bothered to fix it.',
-            'Just need new screws asdaasdasdasdasdasdnd you will need to take it off the wall if interested.'
+            'No net but still does the job.',
+            'Currently have plant pots to act as counter weight.',
+            'Always outdoors but have minimal rust.'
           ]),
           location: 'Auckland',
-          image_url: JSON.stringify(['v1588967348/hoops_jbmdbg.jpg']),
+          image_url: JSON.stringify([
+            'v1589340589/board1_dtzdmk.jpg',
+            'v1589340595/board3_ruwuru.jpg',
+            'v1589340599/board2_geetjn.jpg'
+          ]),
           user_id: 2,
           category_id: 7,
           taken: true,
@@ -185,7 +198,9 @@ exports.seed = (knex) =>
             'Good quality cups and hardly used all as I live by myself.'
           ]),
           location: 'Auckland',
-          image_url: JSON.stringify(['v1588967347/cups_wpgqls.jpg']),
+          image_url: JSON.stringify([
+            'v1589345019/eksdfxhch4jzd96wdz3v.jpg'
+          ]),
           user_id: 6,
           category_id: 4,
           taken: false,
@@ -200,7 +215,10 @@ exports.seed = (knex) =>
             'Made from good quality wood so it will last a while.'
           ]),
           location: 'Auckland',
-          image_url: JSON.stringify(['v1588967347/chair_eyb6ba.jpg']),
+          image_url: JSON.stringify([
+            'v1589338972/chair1_juzkun.jpg',
+            'v1589338977/chair2_vznflk.jpg'
+          ]),
           user_id: 1,
           category_id: 3,
           taken: false,
@@ -230,7 +248,11 @@ exports.seed = (knex) =>
             'Its free to anyone who can tolerate it.'
           ]),
           location: 'Auckland',
-          image_url: JSON.stringify(['v1588967348/harmonica_ovrack.jpg']),
+          image_url: JSON.stringify([
+            'v1589339072/harmonica3_ep4e3e.jpg',
+            'v1589339079/harmonica1_basgc3.jpg',
+            'v1589339084/harmonica2_f7hei2.jpg'
+          ]),
           user_id: 1,
           category_id: 9,
           taken: false,
@@ -245,7 +267,7 @@ exports.seed = (knex) =>
             'Contact me if interested.'
           ]),
           location: 'Auckland',
-          image_url: JSON.stringify(['v1588967372/jumperleads_lrhtdz.jpg']),
+          image_url: JSON.stringify(['v1589345019/xxdzea7cbl9kw0hyngai.jpg']),
           user_id: 3,
           category_id: 5,
           taken: false,

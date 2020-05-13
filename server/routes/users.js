@@ -6,18 +6,10 @@ const router = express.Router()
 const db = require('../db/profiles')
 
 router.get('/getuser', getTokenDecoder(), (req, res) => {
-  const u = req.user
-  const user = {
-    id: u.id,
-    username: u.username,
-    firstName: u.first_name,
-    lastName: u.last_name,
-    email: u.email,
-    phoneNumber: u.phone_number,
-    imageUrl: u.image_url,
-    location: u.location
-  }
-  res.json(user)
+  db.getUserById(req.user.id)
+    .then(dbRes => {
+      res.send(dbRes)
+    })
 })
 
 router.get('/:id', (req, res) => {

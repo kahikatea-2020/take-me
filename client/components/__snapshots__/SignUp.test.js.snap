@@ -5,203 +5,6 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <div
-        id="wrapper"
-      >
-        <h1>
-          Sign Up
-        </h1>
-        <p>
-          Please fill in the following details:
-        </p>
-        <form
-          class="ui form"
-        >
-          <div
-            class="required six wide field"
-          >
-            <div
-              class="ui fluid input"
-            >
-              <input
-                name="firstName"
-                placeholder="First name"
-                required=""
-                type="text"
-              />
-            </div>
-          </div>
-          <div
-            class="required six wide field"
-          >
-            <div
-              class="ui fluid input"
-            >
-              <input
-                name="lastName"
-                placeholder="Last name"
-                required=""
-                type="text"
-              />
-            </div>
-          </div>
-          <br />
-          <div
-            class="required six wide field"
-          >
-            <div
-              class="ui fluid input"
-            >
-              <input
-                name="emailAddress"
-                placeholder="Email address"
-                required=""
-                type="text"
-              />
-            </div>
-          </div>
-          <div
-            class="required six wide field"
-          >
-            <div
-              class="ui fluid input"
-            >
-              <input
-                name="phoneNumber"
-                placeholder="Phone number"
-                required=""
-                type="number"
-              />
-            </div>
-          </div>
-          <div
-            class="six wide field"
-          >
-            <label>
-              * Only suburb and city will be visible on listing
-            </label>
-            <div
-              class="ui input"
-            >
-              <input
-                placeholder="Start typing your address..."
-                type="text"
-                value=""
-              />
-            </div>
-          </div>
-          <div
-            class="required six wide field"
-          >
-            <div
-              class="ui fluid input"
-            >
-              <input
-                name="username"
-                placeholder="Username"
-                required=""
-                type="text"
-              />
-            </div>
-          </div>
-          <div
-            class="required six wide field"
-          >
-            <div
-              class="ui fluid input"
-            >
-              <input
-                autocomplete="off"
-                name="password"
-                placeholder="Password"
-                required=""
-                type="password"
-              />
-            </div>
-          </div>
-          <div
-            class="required six wide field"
-          >
-            <div
-              class="ui fluid input"
-            >
-              <input
-                autocomplete="off"
-                name="confirmPassword"
-                placeholder="Confirm password"
-                required=""
-                type="password"
-              />
-            </div>
-          </div>
-          <div
-            class="field"
-          >
-            <button
-              class="ui button"
-            >
-              Upload Image
-            </button>
-          </div>
-          <div
-            class="required field"
-          >
-            <div
-              class="ui checkbox"
-            >
-              <input
-                class="hidden"
-                readonly=""
-                required=""
-                tabindex="0"
-                type="checkbox"
-                value=""
-              />
-              <label>
-                I agree to the 
-                <a
-                  href="/guidelines"
-                >
-                  TakeMe Guidelines
-                </a>
-              </label>
-            </div>
-          </div>
-          <div
-            class="fields"
-          >
-            <a
-              href="/"
-            >
-              <div
-                class="field"
-              >
-                <button
-                  class="ui button"
-                >
-                  Cancel
-                </button>
-              </div>
-            </a>
-            <div
-              class="field"
-            >
-              <button
-                class="ui button"
-                type="submit"
-              >
-                Submit
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
-    </div>
-  </body>,
-  "container": <div>
-    <div
-      id="wrapper"
-    >
       <h1>
         Sign Up
       </h1>
@@ -269,20 +72,28 @@ Object {
           </div>
         </div>
         <div
-          class="six wide field"
+          id="address-input"
         >
-          <label>
-            * Only suburb and city will be visible on listing
-          </label>
           <div
-            class="ui input"
+            class="six wide field"
           >
-            <input
-              placeholder="Start typing your address..."
-              type="text"
-              value=""
-            />
+            <div
+              class="ui input"
+            >
+              <input
+                placeholder="Start typing your address..."
+                type="text"
+                value=""
+              />
+            </div>
           </div>
+          <span>
+            <em>
+              * Only suburb and city will be visible on listing
+            </em>
+          </span>
+          <br />
+          <br />
         </div>
         <div
           class="required six wide field"
@@ -363,6 +174,7 @@ Object {
         </div>
         <div
           class="fields"
+          id="sign-up-buttons"
         >
           <a
             href="/"
@@ -390,6 +202,204 @@ Object {
         </div>
       </form>
     </div>
+  </body>,
+  "container": <div>
+    <h1>
+      Sign Up
+    </h1>
+    <p>
+      Please fill in the following details:
+    </p>
+    <form
+      class="ui form"
+    >
+      <div
+        class="required six wide field"
+      >
+        <div
+          class="ui fluid input"
+        >
+          <input
+            name="firstName"
+            placeholder="First name"
+            required=""
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        class="required six wide field"
+      >
+        <div
+          class="ui fluid input"
+        >
+          <input
+            name="lastName"
+            placeholder="Last name"
+            required=""
+            type="text"
+          />
+        </div>
+      </div>
+      <br />
+      <div
+        class="required six wide field"
+      >
+        <div
+          class="ui fluid input"
+        >
+          <input
+            name="emailAddress"
+            placeholder="Email address"
+            required=""
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        class="required six wide field"
+      >
+        <div
+          class="ui fluid input"
+        >
+          <input
+            name="phoneNumber"
+            placeholder="Phone number"
+            required=""
+            type="number"
+          />
+        </div>
+      </div>
+      <div
+        id="address-input"
+      >
+        <div
+          class="six wide field"
+        >
+          <div
+            class="ui input"
+          >
+            <input
+              placeholder="Start typing your address..."
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <span>
+          <em>
+            * Only suburb and city will be visible on listing
+          </em>
+        </span>
+        <br />
+        <br />
+      </div>
+      <div
+        class="required six wide field"
+      >
+        <div
+          class="ui fluid input"
+        >
+          <input
+            name="username"
+            placeholder="Username"
+            required=""
+            type="text"
+          />
+        </div>
+      </div>
+      <div
+        class="required six wide field"
+      >
+        <div
+          class="ui fluid input"
+        >
+          <input
+            autocomplete="off"
+            name="password"
+            placeholder="Password"
+            required=""
+            type="password"
+          />
+        </div>
+      </div>
+      <div
+        class="required six wide field"
+      >
+        <div
+          class="ui fluid input"
+        >
+          <input
+            autocomplete="off"
+            name="confirmPassword"
+            placeholder="Confirm password"
+            required=""
+            type="password"
+          />
+        </div>
+      </div>
+      <div
+        class="field"
+      >
+        <button
+          class="ui button"
+        >
+          Upload Image
+        </button>
+      </div>
+      <div
+        class="required field"
+      >
+        <div
+          class="ui checkbox"
+        >
+          <input
+            class="hidden"
+            readonly=""
+            required=""
+            tabindex="0"
+            type="checkbox"
+            value=""
+          />
+          <label>
+            I agree to the 
+            <a
+              href="/guidelines"
+            >
+              TakeMe Guidelines
+            </a>
+          </label>
+        </div>
+      </div>
+      <div
+        class="fields"
+        id="sign-up-buttons"
+      >
+        <a
+          href="/"
+        >
+          <div
+            class="field"
+          >
+            <button
+              class="ui button"
+            >
+              Cancel
+            </button>
+          </div>
+        </a>
+        <div
+          class="field"
+        >
+          <button
+            class="ui button"
+            type="submit"
+          >
+            Submit
+          </button>
+        </div>
+      </div>
+    </form>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

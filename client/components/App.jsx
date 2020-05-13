@@ -1,5 +1,8 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Router, Route, Switch } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
+import { wrapHistory } from 'oaf-react-router'
+
 import { CloudinaryContext } from 'cloudinary-react'
 import { connect } from 'react-redux'
 import { isAuthenticated } from 'authenticare/client'
@@ -29,20 +32,22 @@ class App extends React.Component {
   }
 
   render () {
+    const history = createBrowserHistory()
+    wrapHistory(history)
     return (
       <CloudinaryContext cloudName='takemenz'>
-        <Router>
+        <Router history={history}>
           <Route path='/' component={Navbar} />
           <Container id='main-container' style={{ marginTop: '7em' }}>
             <div id='wrapper'>
               <Switch>
                 <Route exact path='/' component={Home} />
-                <Route path='/sign-up' component={SignUp} />
-                <Route path='/login' component={Login} />
-                <Route path='/new-listing' component={NewListing} />
-                <Route path='/update-listing/:id' component={UpdateListing} />
+                <Route exact path='/sign-up' component={SignUp} />
+                <Route exact path='/login' component={Login} />
+                <Route exact path='/new-listing' component={NewListing} />
+                <Route exact path='/update-listing/:id' component={UpdateListing} />
                 <Route exact path='/listings/:id' component={Listing} />
-                <Route path='/profile/:id' component={Profile} />
+                <Route exact path='/profile/:id' component={Profile} />
                 <Route exact path='/guidelines' component={Guidelines} />
                 <Route exact path='/about' component={About} />
                 <Route exact path='/edit-profile/:id' component={EditProfile} />
