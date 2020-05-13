@@ -125,7 +125,7 @@ class Autocomplete extends Component {
           placeholder='Start typing your address...'
           onChange={onChange}
           onKeyDown={onKeyDown}
-          value={userInput}
+          value={userInput || this.props.prevAddress}
         />
         {suggestionsListComponent}
       </>

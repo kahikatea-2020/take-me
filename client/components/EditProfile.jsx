@@ -15,8 +15,8 @@ class EditProfile extends React.Component {
   state = {
     emailAddress: '',
     phoneNumber: null,
-    imageUrl: 'v1589061239/default-profile_checno.png',
-    uploadedImage: false,
+    imageUrl: '',
+    uploadedImage: true,
     location: '',
     id: '',
     show: false,
@@ -30,7 +30,8 @@ class EditProfile extends React.Component {
       this.setState({
         emailAddress: user.email,
         phoneNumber: user.phoneNumber,
-        location: user.location
+        location: user.location,
+        imageUrl: user.imageUrl
       })
       this.setState({
         id: this.props.match.params.id
@@ -135,7 +136,7 @@ class EditProfile extends React.Component {
         {isAuthenticated() &&
         <Form>
           <label><strong>Address</strong></label>
-          <Autocomplete id='address' />
+          <Autocomplete id='address' prevAddress={this.state.location} />
           <Form.Input
             fluid
             width={6}
@@ -153,7 +154,7 @@ class EditProfile extends React.Component {
             name='phoneNumber'
             placeholder='Phone Number'
             label='Phone Number'
-            value={this.state.emailAddress || ''}
+            value={this.state.phoneNumber || null}
             type='number'
             onKeyUp={this.updateField}
             autoComplete='off'
