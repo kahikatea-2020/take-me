@@ -167,7 +167,7 @@ class UpdateListing extends React.Component {
             </div>
           }
           <Form.Group id='update-listing-buttons'>
-            <Link to='/'>
+            <Link to={`/listings/${this.props.match.params.id}`}>
               <Form.Button>
                 Cancel
               </Form.Button>
