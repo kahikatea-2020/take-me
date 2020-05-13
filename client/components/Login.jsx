@@ -40,13 +40,13 @@ class Login extends React.Component {
           this.props.history.goBack()
         } else {
           this.setState({ show: true })
-          this.props.dispatch(showError('Username or Password Incorrect'))
+          this.props.dispatch(showError('Username or password incorrect'))
         }
       })
       .catch(() => {
         this.setState({ show: true })
         this.props.dispatch(userSuccess())
-        this.props.dispatch(showError('Username or Password Incorrect'))
+        this.props.dispatch(showError('Username or password incorrect'))
       })
   }
 
