@@ -167,8 +167,8 @@ class Profile extends React.Component {
             })
             : <p>This user has no current listings</p>
           }
-          {takenListings.length !== 0 
-            ? <div style={{display: 'block'}}>
+          {takenListings.length !== 0  &&
+            <div style={{display: 'block'}}>
               <h2>Previous Listings</h2>
               {takenListings.map(userListing => {
                 return <div className="ui card" key={userListing.id}>
@@ -204,7 +204,6 @@ class Profile extends React.Component {
                   </div> 
               })}
               </div>
-            : <p>This user has no current listings</p>
           }
           </>
           </Card.Group>
