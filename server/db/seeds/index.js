@@ -35,7 +35,7 @@ exports.seed = (knex) =>
             'Moving house and we don\'t use this ball anymore.',
             'Free to a good home!'
           ]),
-          location: 'Auckland',
+          location: 'Pukekohe, Auckland',
           image_url: JSON.stringify(['v1588967374/soccer_ball_q9nnef.jpg']),
           user_id: 1,
           category_id: 7,
@@ -50,7 +50,7 @@ exports.seed = (knex) =>
             'I\'ve only used it like twice.',
             'Perfect working condition, contact me for pick up times.'
           ]),
-          location: 'Wellington',
+          location: 'Johnsonville, Wellington',
           image_url: JSON.stringify(['v1588967373/ladder_s9wtoj.jpg']),
           user_id: 2,
           category_id: 6,
@@ -65,7 +65,7 @@ exports.seed = (knex) =>
             'My child has outgrown already and only worn a few times.',
             'Contact me below if interested.'
           ]),
-          location: 'Auckland',
+          location: 'Hobsonville, Auckland',
           image_url: JSON.stringify(['v1588967372/infantshoes_ohcade.jpg']),
           user_id: 4,
           category_id: 1,
@@ -81,7 +81,7 @@ exports.seed = (knex) =>
             'Still turns on last time I checked',
             'Get fix or good for parts.'
           ]),
-          location: 'Queenstown',
+          location: 'Frankton, Queenstown',
           image_url: JSON.stringify([
             'v1589345019/dtk5eheeky7msrbgghzf.jpg'
           ]),
@@ -98,7 +98,7 @@ exports.seed = (knex) =>
             'Still in good condition.',
             'Hit me up asap, currently sitting outside.'
           ]),
-          location: 'Waiheke Island',
+          location: 'Waiheke Island, Auckland',
           image_url: JSON.stringify(['v1589345019/ukmxrofr7exsu1orutuq.jpg']),
           user_id: 5,
           category_id: 3,
@@ -113,7 +113,7 @@ exports.seed = (knex) =>
             'Not for me but could be for you.',
             'Please contact me if interested.'
           ]),
-          location: 'Auckland',
+          location: 'St Heliers, Auckland',
           image_url: JSON.stringify(['v1589345020/oinpyfuczpqpxnyxgdqi.jpg']),
           user_id: 6,
           category_id: 9,
@@ -128,7 +128,7 @@ exports.seed = (knex) =>
             'Sold my car so no need for this.',
             'Not sure about the size but we can organise for you to check.'
           ]),
-          location: 'Auckland',
+          location: 'Remuera, Auckland',
           image_url: JSON.stringify([
             'v1589340427/tire3_kwga4i.jpg',
             'v1589340433/tire_f7yvop.jpg',
@@ -146,7 +146,7 @@ exports.seed = (knex) =>
             'Got new ones so these are surplus to requirement.',
             'Bit rusty but they still do the job.'
           ]),
-          location: 'Auckland',
+          location: 'Balmoral, Auckland',
           image_url: JSON.stringify(['v1589345221/jmrgvjim8w7almxeccen.jpg']),
           user_id: 5,
           category_id: 6,
@@ -161,7 +161,7 @@ exports.seed = (knex) =>
             'Free to someone who still has nokia phones.',
             'Contact me if interested.'
           ]),
-          location: 'Rotorua',
+          location: 'Hillcrest, Rotorua',
           image_url: JSON.stringify([
             'v1589345019/pwsamprabn03icpcgy0s.jpg'
           ]),
@@ -178,7 +178,7 @@ exports.seed = (knex) =>
             'Currently have plant pots to act as counter weight.',
             'Always outdoors but have minimal rust.'
           ]),
-          location: 'Auckland',
+          location: 'St Heliers, Auckland',
           image_url: JSON.stringify([
             'v1589340589/board1_dtzdmk.jpg',
             'v1589340595/board3_ruwuru.jpg',
@@ -197,7 +197,7 @@ exports.seed = (knex) =>
             'Still not sold so they are now free to a good home.',
             'Good quality cups and hardly used all as I live by myself.'
           ]),
-          location: 'Auckland',
+          location: 'Waiheke Island, Auckland',
           image_url: JSON.stringify([
             'v1589345019/eksdfxhch4jzd96wdz3v.jpg'
           ]),
@@ -214,7 +214,7 @@ exports.seed = (knex) =>
             'Got a new set and this is now an extra.',
             'Made from good quality wood so it will last a while.'
           ]),
-          location: 'Auckland',
+          location: 'Mt Eden, Auckland',
           image_url: JSON.stringify([
             'v1589338972/chair1_juzkun.jpg',
             'v1589338977/chair2_vznflk.jpg'
@@ -232,7 +232,7 @@ exports.seed = (knex) =>
             'Sad to let it go but it wont fit me anymore.',
             'Free to someone who wants to spread the Don Energy.'
           ]),
-          location: 'Auckland',
+          location: 'Ellerslie, Auckland',
           image_url: JSON.stringify(['v1588967332/bigdonshirt_xg8gzu.jpg']),
           user_id: 2,
           category_id: 1,
@@ -247,7 +247,7 @@ exports.seed = (knex) =>
             'Instant regret as the kids wont stop using it.',
             'Its free to anyone who can tolerate it.'
           ]),
-          location: 'Auckland',
+          location: 'Meadowbank, Auckland',
           image_url: JSON.stringify([
             'v1589339072/harmonica3_ep4e3e.jpg',
             'v1589339079/harmonica1_basgc3.jpg',
@@ -266,7 +266,7 @@ exports.seed = (knex) =>
             'Has helped me multiple times and hope it does for you too.',
             'Contact me if interested.'
           ]),
-          location: 'Auckland',
+          location: 'Royal Oak, Auckland',
           image_url: JSON.stringify(['v1589345019/xxdzea7cbl9kw0hyngai.jpg']),
           user_id: 3,
           category_id: 5,
@@ -281,7 +281,7 @@ exports.seed = (knex) =>
             'Quite small so only good for a little bit of vegetables or something.',
             'Could do with a proper clean, has just been sitting in my cupboard.'
           ]),
-          location: 'Auckland',
+          location: 'Penrose, Auckland',
           image_url: JSON.stringify(['v1589171044/lw8xkjgktxnlwneulktg.jpg', 'v1589171043/nspdbsqdqafdy6pjuttm.jpg']),
           user_id: 5,
           category_id: 4,
@@ -296,7 +296,7 @@ exports.seed = (knex) =>
             'Will look good in your garden.',
             'Needs 2 person lift when picking up.'
           ]),
-          location: 'Auckland',
+          location: 'Meadowbank, Auckland',
           image_url: JSON.stringify(['v1588967373/pot_pejjzr.jpg']),
           user_id: 4,
           category_id: 6,
@@ -311,7 +311,7 @@ exports.seed = (knex) =>
             'Please take it off my hands so I can say that I lost it.',
             'Dont tell them I gave it to you.'
           ]),
-          location: 'Auckland',
+          location: 'Mission Bay, Auckland',
           image_url: JSON.stringify(['v1589171042/xnkmr07z4i4dsdm4dutg.jpg', 'v1589171042/e9acjtafwf1ndlnshtjb.jpg']),
           user_id: 2,
           category_id: 7,
@@ -326,7 +326,7 @@ exports.seed = (knex) =>
             'Please only enquire about this if you dont already have a Nespresso machine.',
             'The machine itself is in great condition but make sure you give it a good clean first.'
           ]),
-          location: 'Wellington',
+          location: 'Glenside, Wellington',
           image_url: JSON.stringify(['v1589171042/p993ducuperruvcxihlx.jpg', 'v1589171043/gdxlz5teck3qhurigl3w.jpg']),
           user_id: 5,
           category_id: 4,
@@ -341,7 +341,7 @@ exports.seed = (knex) =>
             'It\'s in perfect condition so let me know if you are interested.',
             'Pick ups after work hours ideally.'
           ]),
-          location: 'Wellington',
+          location: 'Aro Valley, Wellington',
           image_url: JSON.stringify(['f3ckqvha48hrejwhoodw.jpg']),
           user_id: 5,
           category_id: 7,
@@ -356,7 +356,7 @@ exports.seed = (knex) =>
             'I\'ve got so many I just need to get rid of some.',
             'I\'ve given it a good wash, so don\'t worry about it.'
           ]),
-          location: 'Wellington',
+          location: 'Kilbirnie, Wellington',
           image_url: JSON.stringify(['vosljyixedmr3cfcsyb8.jpg', 'hwazaysffsg26wrzvdiz.jpg']),
           user_id: 5,
           category_id: 1,
@@ -370,7 +370,7 @@ exports.seed = (knex) =>
             'Perfect condition, I want to save the planet!',
             'Just upgraded to a mouse haha, so let me know if you are keen.'
           ]),
-          location: 'Wellington',
+          location: 'Johnsonville, Wellington',
           image_url: JSON.stringify(['nvidzfpug6yol8bubxmg.jpg', 'g6amwtjedwrrpkgpzj3e.jpg']),
           user_id: 5,
           category_id: 2,
@@ -385,7 +385,7 @@ exports.seed = (knex) =>
             'Have you exercised?',
             'Well I haven\'t, so take my medicine ball if you want to make use of it!'
           ]),
-          location: 'Auckland',
+          location: 'Devenport, Auckland',
           image_url: JSON.stringify(['bkyndlxrc8yxyofwkvq3.jpg']),
           user_id: 5,
           category_id: 7,
@@ -401,7 +401,7 @@ exports.seed = (knex) =>
             'Unfortunately the battery is flat, so you\'ll need to buy some.',
             'But it\'s free so why wouldn\'t you want it.'
           ]),
-          location: 'Auckland',
+          location: 'Otahuhu, Auckland',
           image_url: JSON.stringify(['i1paunxg4mu5uaeo2ccg.jpg', 'jaa7m8owujmxhd7cizjm.jpg']),
           user_id: 5,
           category_id: 2,
@@ -417,7 +417,7 @@ exports.seed = (knex) =>
             'May need a bit of a clean.',
             'I just don\'t really wear then, would love for someone to wear them till they fall apart!'
           ]),
-          location: 'Auckland',
+          location: 'Pakuranga, Auckland',
           image_url: JSON.stringify(['gnmflabfmfbe1ok5ccml.jpg']),
           user_id: 5,
           category_id: 1,
@@ -434,7 +434,7 @@ exports.seed = (knex) =>
             "Parks on the guitar's headstock when not in use.",
             'hand_orientation: ambidextrous.'
           ]),
-          location: 'Lake Taupo',
+          location: 'Lake Taupo, Taupo',
           image_url: JSON.stringify(['ie6f4acrwylvokqqfcvz.jpg']),
           user_id: 5,
           category_id: 9,
@@ -450,7 +450,7 @@ exports.seed = (knex) =>
             'It is approximately 70 cm long and has a beautifully inlaid fingerboard and nice tone woods.',
             'Viola comes with a shoulder rest and a carbon fibre bow, resin and a good case.'
           ]),
-          location: 'Nelson',
+          location: 'Tahunanui, Nelson',
           image_url: JSON.stringify(['v1589182637/Screen_Shot_2020-05-11_at_6.54.34_PM_xgolqz.png', 'v1589182631/Screen_Shot_2020-05-11_at_6.55.06_PM_rz4uyt.png', 'v1589182626/Screen_Shot_2020-05-11_at_6.54.55_PM_o6fnsq.png', 'v1589182624/Screen_Shot_2020-05-11_at_6.55.16_PM_cl8dm2.png', 'v1589182633/Screen_Shot_2020-05-11_at_6.54.24_PM_et2lhj.png']),
           user_id: 4,
           category_id: 9,
@@ -466,7 +466,7 @@ exports.seed = (knex) =>
             '1202cc Harley-Davidson air cooled V-twin in the Buell XB12S Lightning has been tuned and lays down fat wads of torque from tick over upwards.',
             'Donating because I\'m rich and want to buy more new bikes but figured I should not put this in the dump because I learned that global warming is happening.'
           ]),
-          location: 'Greymouth',
+          location: 'Cobden, Greymouth',
           image_url: JSON.stringify(['v1589182626/Screen_Shot_2020-05-11_at_6.56.57_PM_chau1k.png', 'v1589182637/Screen_Shot_2020-05-11_at_6.57.30_PM_j60pt9.png', 'v1589182629/Screen_Shot_2020-05-11_at_6.56.46_PM_pfbkef.png']),
           user_id: 4,
           category_id: 5,
@@ -498,7 +498,7 @@ exports.seed = (knex) =>
             'Comes with 100mL bottle of hand sanitiser as well.',
             'Breathable, soft design.'
           ]),
-          location: 'Bluff',
+          location: 'Blaketown, Greymouth',
           image_url: JSON.stringify(['v1589182636/Screen_Shot_2020-05-11_at_7.02.19_PM_ayakjf.png', 'v1589182636/Screen_Shot_2020-05-11_at_7.02.05_PM_vorvjm.png', 'v1589182636/Screen_Shot_2020-05-11_at_7.01.54_PM_lqufd4.png', 'v1589182636/Screen_Shot_2020-05-11_at_7.02.12_PM_rtbe6e.png']),
           user_id: 4,
           category_id: 8,
@@ -710,7 +710,7 @@ exports.seed = (knex) =>
             'Will give your young ones lots of hours of play.',
             'Still in really good condition.'
           ]),
-          location: 'Totara Vale, Auckland 0629',
+          location: 'Totara Vale, Auckland',
           image_url: JSON.stringify([
             'v1589194588/toys2_xvljld.jpg',
             'v1589194598/toys3_ib4dzu.jpg',
@@ -731,7 +731,7 @@ exports.seed = (knex) =>
             'Will be good to add to your home gym.',
             'Contact me so can organise pick up.'
           ]),
-          location: ' Unsworth Heights, Auckland 0632',
+          location: 'Unsworth Heights, Auckland',
           image_url: JSON.stringify([
             'v1589194765/plates3_ymrv7s.jpg',
             'v1589194772/plates2_y0iqzp.jpg',
@@ -752,7 +752,7 @@ exports.seed = (knex) =>
             'The other case is a defender I think with normal wear and tear.',
             'Both are my back up cases and still offer good protection.'
           ]),
-          location: '  Newmarket, Auckland 1023',
+          location: 'Newmarket, Auckland',
           image_url: JSON.stringify([
             'v1589194846/case1_m1xmxn.jpg',
             'v1589194853/case2_hleujz.jpg',
@@ -773,7 +773,7 @@ exports.seed = (knex) =>
             'Given a few by a friend and have too many.',
             'Can be a good way to kill time for times like in lockdown.'
           ]),
-          location: '  Newmarket, Auckland 1023',
+          location: 'Newmarket, Auckland',
           image_url: JSON.stringify([
             'v1589194983/cards_uvvtqo.jpg',
             'v1589194989/cards2_atddp7.jpg',
@@ -794,7 +794,7 @@ exports.seed = (knex) =>
             'Some rust but can easliy be cleaned and painted.',
             'Upgraded to a mountain bike so no need for them anymore.'
           ]),
-          location: '  Newmarket, Auckland 1023',
+          location: 'Newmarket, Auckland',
           image_url: JSON.stringify([
             'v1589195088/spoke1_c3zwuy.jpg',
             'v1589195096/spoke2_furyxd.jpg',
@@ -813,7 +813,7 @@ exports.seed = (knex) =>
             'I would say that they are a good 6/10 condition wise so still a bit of life in them.',
             'Feel free to take them off my hands because they dont fit me anymore.'
           ]),
-          location: '  Botany, Auckland 2016',
+          location: 'Botany, Auckland',
           image_url: JSON.stringify([
             'v1589171043/dgnsu3faavhvxap2olgj.jpg',
             'v1589171042/nc9ovnx4u0ymqcs5gljk.jpg'
@@ -829,7 +829,7 @@ exports.seed = (knex) =>
           description: JSON.stringify([
             'Dont need this kettle anymore so I would love to give it away to someone who needs it.'
           ]),
-          location: 'Howick, Auckland 2012',
+          location: 'Howick, Auckland',
           image_url: JSON.stringify([
             'v1589171042/t02sznw9wucqvx30bm7o.jpg',
             'v1589171043/hakkgr9ok16epum6hwle.jpg'
@@ -846,7 +846,7 @@ exports.seed = (knex) =>
             'Cord is broken on this vacuum, I have implemented a quick solution though but the cord will just be long all the time.',
             'I decided to buy a new one so I would like to give this away to someone who needs it more than I do!'
           ]),
-          location: 'Panmure, Auckland 2000',
+          location: 'Panmure, Auckland',
           image_url: JSON.stringify([
             'v1589171042/uxvrfkb5qb9ijqcvjk53.jpg',
             'v1589171042/x5lixe3zbdijkelngykf.jpg',
@@ -864,7 +864,7 @@ exports.seed = (knex) =>
             'Dont really run in these shoes anymore, please feel free to come pick them up if you think you would get better use out of them than me!',
             'US7 womens :)'
           ]),
-          location: 'Pakuranga, Auckland 2015',
+          location: 'Pakuranga, Auckland',
           image_url: JSON.stringify([
             'v1589171044/ii7ake7vrdig2mbuwaig.jpg',
             'v1589171044/kgklhbxuc5jrrj32kvdz.jpg',
