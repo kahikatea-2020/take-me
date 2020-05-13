@@ -35,11 +35,8 @@ class NewListing extends React.Component {
   }
 
   handleDescriptionChange = (evt) => {
-    const arr = evt.target.value.split("\n")
+    const arr = evt.target.value.split('\n')
     this.setState({ description: arr })
-    var spitAddie = this.props.address.split(',')
-    var addie = spitAddie[spitAddie.length - 2] + ',' + spitAddie[spitAddie.length - 1]
-    this.setState({ location: addie })
   }
 
   imageUpload = tag => {
@@ -90,6 +87,16 @@ class NewListing extends React.Component {
   }
 
   submitHandler = e => {
+    var spitAddie = this.props.address.split(',')
+    if (spitAddie[spitAddie.length-2]) {
+      var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
+      this.setState({ location: addie }, () => this.actuallySubmit(e))
+    } else {
+      this.actuallySubmit(e)
+    }
+  }
+
+  actuallySubmit = e => {
     e.preventDefault()
     this.props.dispatch(hideError())
     if (this.inputChecker()) {
@@ -99,7 +106,8 @@ class NewListing extends React.Component {
         categoryId = this.props.selectedCategory.id
       }
       this.setState({
-        categoryId
+        categoryId,
+        userId: this.props.user.id
       }, () => {
         this.props.dispatch(selectedCategoryChange({ id: undefined, name: undefined }))
         if (!this.state.imageUrl[0]) {
