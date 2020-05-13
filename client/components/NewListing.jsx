@@ -12,7 +12,7 @@ import Autocomplete from './Autocomplete'
 
 import { showError, hideError } from '../actions/error'
 import { userPending, userSuccess } from '../actions/users'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 class NewListing extends React.Component {
   constructor(props) {
@@ -129,6 +129,7 @@ class NewListing extends React.Component {
   render() {
     return (
       <>
+      {!isAuthenticated() && <Redirect to='/' />}
         <div className='new-listing'>
 
           {(isAuthenticated() && (this.props.user.username !== undefined))
