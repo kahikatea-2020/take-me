@@ -24,11 +24,6 @@ class UpdateListing extends React.Component {
     }
   }
 
-  handleDescriptionChange = (evt) => {
-    const arr = evt.target.value.split("\n")
-    this.setState({ description: arr }, console.log(this.state.description))
-  }
-
   handleChange = evt => {
     this.setState({ [evt.target.name]: evt.target.value })
   }
@@ -91,28 +86,30 @@ class UpdateListing extends React.Component {
   }
 
   submitHandler = () => {
-    this.props.dispatch(hideError())
-    if (this.inputChecker()) {
-      let listingId = this.props.match.params.id
-      if (!this.state.imageUrl[0]) {
-        this.setState({
-          imageUrl: [...this.state.imageUrl, 'v1589063179/default-listing_pgdcsc.png']
-        }, () => {
+    this.setState({description: this.state.description.split('\n')}, () => {
+      this.props.dispatch(hideError())
+      if (this.inputChecker()) {
+        let listingId = this.props.match.params.id
+        if (!this.state.imageUrl[0]) {
+          this.setState({
+            imageUrl: [...this.state.imageUrl, 'v1589063179/default-listing_pgdcsc.png']
+          }, () => {
+            editListing(this.props.match.params.id, this.state)
+              .then(id => {
+                this.props.history.push(`/listings/${listingId}`)
+              })
+          })
+        } else {
           editListing(this.props.match.params.id, this.state)
             .then(id => {
               this.props.history.push(`/listings/${listingId}`)
             })
-        })
+        }
       } else {
-        editListing(this.props.match.params.id, this.state)
-          .then(id => {
-            this.props.history.push(`/listings/${listingId}`)
-          })
+        this.props.dispatch(showError('Please fill out all the fields'))
+        this.setState({ show: true })
       }
-    } else {
-      this.props.dispatch(showError('Please fill out all the fields'))
-      this.setState({ show: true })
-    }
+    })
   }
 
   render() {
@@ -134,7 +131,7 @@ class UpdateListing extends React.Component {
             type='text'
             name='description'
             label='Description'
-            onChange={this.handleDescriptionChange}
+            onChange={this.handleChange}
             value={this.state.description}
           />
           <Autocomplete prevAddress={this.state.location} />
