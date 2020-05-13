@@ -12,7 +12,8 @@ class Autocomplete extends Component {
       activeSuggestion: 0,
       filteredSuggestions: [],
       showSuggestions: false,
-      userInput: ''
+      userInput: '',
+      userTyping: false
     }
   }
 
@@ -51,7 +52,9 @@ class Autocomplete extends Component {
 
   onKeyDown = e => {
     const { activeSuggestion, filteredSuggestions } = this.state
-
+    if (!this.state.userTyping) {
+      this.setState({ userTyping: true })
+    }
     if (e.keyCode === 13) {
       this.setState({
         activeSuggestion: 0,
@@ -125,7 +128,7 @@ class Autocomplete extends Component {
           placeholder='Start typing your address...'
           onChange={onChange}
           onKeyDown={onKeyDown}
-          value={userInput || this.props.prevAddress}
+          value={this.state.userTyping ? userInput : this.props.prevAddress}
         />
         {suggestionsListComponent}
       </>
