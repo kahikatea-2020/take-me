@@ -34,19 +34,21 @@ class App extends React.Component {
         <Router>
           <Route path='/' component={Navbar} />
           <Container id='main-container' style={{ marginTop: '7em' }}>
-            <Switch>
-              <Route exact path='/' component={Home} />
-              <Route path='/sign-up' component={SignUp} />
-              <Route path='/login' component={Login} />
-              <Route path='/new-listing' component={NewListing} />
-              <Route path='/update-listing/:id' component={UpdateListing} />
-              <Route exact path='/listings/:id' component={Listing} />
-              <Route path='/profile/:id' component={Profile} />
-              <Route exact path='/guidelines' component={Guidelines} />
-              <Route exact path='/about' component={About} />
-              <Route exact path='/edit-profile/:id' component={EditProfile} />
-              <Route exact path='*' component={Error404} />
-            </Switch>
+            <div id='wrapper'>
+              <Switch>
+                <Route exact path='/' component={Home} />
+                <Route path='/sign-up' component={SignUp} />
+                <Route path='/login' component={Login} />
+                <Route path='/new-listing' component={NewListing} />
+                <Route path='/update-listing/:id' component={UpdateListing} />
+                <Route exact path='/listings/:id' component={Listing} />
+                <Route path='/profile/:id' component={Profile} />
+                <Route exact path='/guidelines' component={Guidelines} />
+                <Route exact path='/about' component={About} />
+                <Route exact path='/edit-profile/:id' component={EditProfile} />
+                <Route exact path='*' component={Error404} />
+              </Switch>
+            </div>
           </Container>
           <Route path='/' component={Footer} />
         </Router>
