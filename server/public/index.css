@@ -357,6 +357,19 @@ div.field button.ui.button {
   font-size: 1.7em;
 }
 
+.takemeTeam {
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#teamSegment{
+  text-align: center;
+  width: 100%
+}
+
 #takeme2nd {
   font-family: "Futura-Bold";
   letter-spacing: -2px;

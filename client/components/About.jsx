@@ -1,5 +1,5 @@
 import React from 'react'
-import { List } from 'semantic-ui-react'
+import { List, Image, Header, Segment } from 'semantic-ui-react'
 
 class About extends React.Component {
   render () {
@@ -74,6 +74,71 @@ class About extends React.Component {
           <p>What you do with your rubbish affects the planet and the environment we live in. Because of this, we believe everyone has a personal
           responsibility to look after our planet. This site can help you reduce how much rubbish you produce and make someone else happy by doing so!
           </p>
+        </div>
+        <div className="aboutSections">
+          <div className="takemeTeam">
+            <Image src='./team/lache.png' size='medium' circular />
+            <Header as='h2' attached='top' id="teamSegment">
+              Lache Melvin
+            </Header>
+            <Segment attached id="teamSegment">
+              Vibes lead
+            </Segment>
+          </div>
+          <div className="takemeTeam">
+            <Image src='./team/ellora.jpg' size='medium' circular />
+            <Header as='h2' attached='top' id="teamSegment">
+              Ellora Virtue
+            </Header>
+            <Segment attached id="teamSegment">
+              Vibes lead
+            </Segment>
+          </div>
+          <div className="takemeTeam">
+            <Image src='./team/john.jpg' size='medium' circular />
+            <Header as='h2' attached='top' id="teamSegment">
+            John Sengson
+            </Header>
+            <Segment attached id="teamSegment">
+              Product Owner
+            </Segment>
+          </div>
+          <div className="takemeTeam">
+            <Image src='./team/pat.jpg' size='medium' circular />
+            <Header as='h2' attached='top' id="teamSegment">
+              Lache Melvin
+            </Header>
+            <Segment attached id="teamSegment">
+              Vibes lead
+            </Segment>
+          </div>
+          <div className="takemeTeam">
+            <Image src='./team/hamish.jpg' size='medium' circular />
+            <Header as='h2' attached='top' id="teamSegment">
+              Lache Melvin
+            </Header>
+            <Segment attached id="teamSegment">
+              Vibes lead
+            </Segment>
+          </div>
+          <div className="takemeTeam">
+            <Image src='./team/lache.png' size='medium' circular />
+            <Header as='h2' attached='top' id="teamSegment">
+              Lache Melvin
+            </Header>
+            <Segment attached id="teamSegment">
+              Vibes lead
+            </Segment>
+          </div>
+          <div className="takemeTeam">
+            <Image src='./team/lache.png' size='medium' circular />
+            <Header as='h2' attached='top' id="teamSegment">
+              Lache Melvin
+            </Header>
+            <Segment attached id="teamSegment">
+              Vibes lead
+            </Segment>
+          </div>
         </div>
       </>
     )
