@@ -104,8 +104,6 @@ class Pagination extends React.Component {
   }
 
   changeHandler = (evt, data) => {
-    console.log(data);
-    
     this.setPage(data.activePage)
     this.props.onChange()
   }
