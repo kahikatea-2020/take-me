@@ -110,17 +110,16 @@ class Autocomplete extends Component {
       } else {
         suggestionsListComponent = (
           <div className="no-suggestions">
-            <em>No suggestions sorry</em>
+            <strong>Address not found!</strong>
           </div>
         )
       }
     }
 
     return (
-      <>
+      <div id='address-input'>
         <Form.Input
           type='text'
-          label='* Only suburb and city will be visible on listing'
           width={6}
           placeholder='Start typing your address...'
           onChange={onChange}
@@ -128,7 +127,9 @@ class Autocomplete extends Component {
           value={userInput}
         />
         {suggestionsListComponent}
-      </>
+        <span><em>* Only suburb and city will be visible on listing</em></span><br />
+        <br />
+      </div>
     )
   }
 }

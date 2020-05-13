@@ -215,12 +215,22 @@ div.ui.checkbox {
 }
 /* END NEW LISTING STYLING*/
 
+/* RANDOM STYLING */
 div#new-listing-buttons.fields,
 div#edit-profile-buttons.fields,
 div#sign-up-buttons.fields,
 div#update-listing-buttons.fields {
 margin-left: auto;
 }
+
+#address-input div.six.wide.field {
+  margin-bottom: 0 !important;
+}
+
+#address-input {
+  /* margin-bottom: 20px; */
+}
+/* RANDOM STYLING */
 
 /* START UPDATE LISTING STYLING*/
 div.ui.container.update-listing {
