@@ -10,8 +10,8 @@ class Error404 extends React.Component {
           <div className="ui icon header">
             <i className="search icon"></i>
             <h1 style={{ color: 'red', fontSize: '40px' }}> 404 </h1>
-            <h2>Sorry, we can't find the page you requested.</h2>
-            <h3>You may have clicked on a broken link or entered an incorrect URL.</h3>
+            <h2>Sorry, we can't find the page you requested</h2>
+            <h3>You may have clicked on a broken link or entered an incorrect URL</h3>
           </div>
           <br />
           <div className="inline">
