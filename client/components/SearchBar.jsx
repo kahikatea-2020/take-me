@@ -38,14 +38,12 @@ class SearchBar extends Component {
         }
       }
       const filtered = _.filter(filteredResults, isMatch)
-      console.log('filtered', filtered)
       const matches = filtered.map(listing => ({
         title: listing.name,
         image: `https://res.cloudinary.com/takemenz/image/upload/${listing.imageUrl[0]}`,
         id: listing.id,
         categoryId: listing.categoryId
       }))
-      console.log(matches)
       this.setState({
         isLoading: false,
         results: matches
