@@ -1,6 +1,8 @@
 import React from 'react'
 import { Menu, Container } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import {isAuthenticated} from 'authenticare/client'
 
 class Footer extends React.Component {
   render () {
@@ -37,6 +39,9 @@ class Footer extends React.Component {
                 </div>
                 <Link className="item" id="footerLinks" to={`/`}>Latest Listings</Link>
                 <Link className="item" id="footerLinks" to={`/new-listing`}>List an Item</Link>
+                {isAuthenticated()
+                ? <Link className="item" id="footerLinks" to={`/profile/${this.props.user.id}`}>Profile</Link>
+                : <Link className="item" id="footerLinks" to={`/login`}>Profile</Link>}
               </div>
             </div>
             <div className="four wide column">
@@ -68,4 +73,12 @@ class Footer extends React.Component {
   }
 }
 
-export default Footer
+const mapStateToProps = state => {
+  return {
+    user: state.user
+  }
+}
+
+
+
+export default connect(mapStateToProps)(Footer)
