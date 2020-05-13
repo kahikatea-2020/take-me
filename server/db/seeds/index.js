@@ -83,7 +83,10 @@ exports.seed = (knex) =>
           ]),
           location: 'Queenstown',
           image_url: JSON.stringify([
-            'v1588967332/brokenphone_q5dkym.jpg'
+            'v1589341206/s34_xswcbm.jpg',
+            'v1589341212/s33_pwwkje.jpg',
+            'v1589341220/s32_jqiphr.jpg',
+            'v1589341227/s3_dzoewh.jpg'
           ]),
           user_id: 3,
           category_id: 2,
