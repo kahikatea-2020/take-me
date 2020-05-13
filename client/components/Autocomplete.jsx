@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { getAddress } from '../api/addy'
 import { connect } from 'react-redux'
 import { addAdress } from '../actions/autocomplete'
-import { Form } from 'semantic-ui-react'
+import { Form, Grid } from 'semantic-ui-react'
 
 class Autocomplete extends Component {
   constructor (props) {
@@ -91,7 +91,7 @@ class Autocomplete extends Component {
     if (showSuggestions && userInput) {
       if (filteredSuggestions.length) {
         suggestionsListComponent = (
-          <ul className="suggestions">
+          <ul className='suggestions six wide field'>
             {filteredSuggestions.map((suggestion, index) => {
               let className
 

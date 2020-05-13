@@ -215,22 +215,38 @@ div.ui.checkbox {
 }
 /* END NEW LISTING STYLING*/
 
-/* RANDOM STYLING */
+/* START RANDOM STYLING */
 div#new-listing-buttons.fields,
 div#edit-profile-buttons.fields,
 div#sign-up-buttons.fields,
 div#update-listing-buttons.fields {
-margin-left: auto;
+  margin-left: auto;
 }
+/* END RANDOM STYLING */
 
+/* START ADDRESS AUTOCOMPLETE STYLING */
 #address-input div.six.wide.field {
   margin-bottom: 0 !important;
 }
 
-#address-input {
-  /* margin-bottom: 20px; */
+.suggestions li {
+  list-style-type: none;
+  padding: 5px 15px;
 }
-/* RANDOM STYLING */
+
+.suggestions li:hover {
+  background-color: #e0e1e2;
+  border-radius: .28571429rem;
+}
+
+ul.suggestions {
+  cursor: pointer;
+  margin-top: 0;
+  padding-left: 0;
+  border: 1px solid rgba(34,36,38,.15);
+  border-radius: .28571429rem;
+}
+/* END ADDRESS AUTOCOMPLETE STYLING */
 
 /* START UPDATE LISTING STYLING*/
 div.ui.container.update-listing {
