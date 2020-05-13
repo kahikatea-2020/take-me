@@ -1,5 +1,8 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
+import { Router, Route, Switch } from 'react-router-dom'
+import { createBrowserHistory } from 'history'
+import { wrapHistory } from 'oaf-react-router'
+
 import { CloudinaryContext } from 'cloudinary-react'
 import { connect } from 'react-redux'
 import { isAuthenticated } from 'authenticare/client'
@@ -29,9 +32,11 @@ class App extends React.Component {
   }
 
   render () {
+    const history = createBrowserHistory()
+    wrapHistory(history)
     return (
       <CloudinaryContext cloudName='takemenz'>
-        <Router>
+        <Router history={history}>
           <Route path='/' component={Navbar} />
           <Container id='main-container' style={{ marginTop: '7em' }}>
             <div id='wrapper'>
