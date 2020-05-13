@@ -3,6 +3,7 @@ import Slider from 'react-slick'
 import { isAuthenticated } from 'authenticare/client'
 import { connect } from 'react-redux'
 import { Button, Card, Grid, Image, Form } from 'semantic-ui-react'
+import Swal from 'sweetalert2'
 
 import WaitIndicator from './WaitIndicator'
 
@@ -123,16 +124,42 @@ class Listing extends React.Component {
           </Grid.Column>
           <Grid.Column stretched className='listing-details'>
             <div className='listing-description'>
-              <div className='row'>
-                {(isAuthenticated() && (this.props.user.id === listing.userId)) &&
-                    <Button id='update' style={{ maxHeight: '5vh', maxWidth: '50%' }} as={Link} to={`/update-listing/${listing.id}`} className='update-listing' basic color='blue'>
-                      Edit Listing
-                    </Button>
-                }
-                <h1>{listing.name}</h1>
-                <h4>Location: {listing.location}</h4>
-                {this.state.description.map(sentence => <p key={sentence.substr(0, 10)}>{sentence}</p>)}
-              </div>
+              {(isAuthenticated() && (this.props.user.id === listing.userId)) && 
+                <div className='column'>
+                  <Button id='update' style={{ maxHeight: '5vh', maxWidth: '50%' }} as={Link} to={`/update-listing/${listing.id}`} className='update-listing' basic color='blue'>
+                    Edit Listing
+                  </Button>
+                  {!this.state.taken &&
+                    <Button name={listing.id} onClick={() => Swal.fire({
+                      title: 'Wait!',
+                      text: 'Are you sure you want to mark this item as taken?',
+                      icon: 'warning',
+                      confirmButtonText: 'Yes, it is taken',
+                      cancelButtonText: 'No, keep it listed',
+                      showCancelButton: true
+                      }).then((result) => {
+                        if (result.value) {
+                          this.handleTaken()
+                          Swal.fire({
+                            title: 'Taken!',
+                            text: 'Your item has been marked as taken',
+                            icon: 'success'
+                          })
+                        } else {
+                          Swal.fire({
+                            title: 'Cancelled',
+                            text: 'Your listing is still active',
+                            icon: 'error'
+                          })
+                        }})} basic color='blue'>
+                    Mark as taken
+                  </Button>
+                  }
+                </div>
+              }
+              <h1>{listing.name}</h1>
+              <h4>Location: {listing.location}</h4>
+              {this.state.description.map(sentence => <p key={sentence.substr(0, 10)}>{sentence}</p>)}
             </div>
             <div className='contact-info'>
               <Card>
@@ -159,11 +186,6 @@ class Listing extends React.Component {
                   </Card.Content>
                 </Card>
               </div>
-              {(isAuthenticated() && (this.props.user.id === listing.userId) && !this.state.taken) &&
-              <div>
-              <Button name={listing.id} onClick={() => this.handleTaken()}>Mark as taken</Button>
-              </div>
-              }
               <WaitIndicator />
             </Grid.Column>
           </Grid.Row>
