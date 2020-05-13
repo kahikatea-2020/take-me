@@ -22,7 +22,7 @@ exports.seed = (knex) =>
         { id: 1, username: 'johnS', first_name: 'John', last_name: 'Sengson', email: 'john@gmail.com', phone_number: '0214351234', image_url: 'v1588967373/john_yigtz6.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Newmarket, Auckland' },
         { id: 2, username: 'BubbleBast', first_name: 'Mathias', last_name: 'Bast', email: 'mathias@gmail.com', phone_number: '0213521234', image_url: 'v1588967372/mathias_eos91h.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$t7fDj0UPvYCnLculR3ti2w$hsbmENXcvcQbKGBoj2cBoH0xVBB8OIYfNDSZsatnT8k', location: 'Inner Kaiti, Gisborne' },
         { id: 3, username: 'hamishT', first_name: 'Hamish', last_name: 'Tana', email: 'hamish@gmail.com', phone_number: '0216654287', image_url: 'v1588967348/hamishT_eiqwbd.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Newmarket, Auckland' },
-        { id: 4, username: 'vibes-lache', first_name: 'Lache', last_name: 'Melvin', email: 'lache@gmail.com', phone_number: '0213526789', image_url: 'v1588967373/lache_v5blpl.png', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Nelson Central, Nelson' },
+        { id: 4, username: 'vibes-lache', first_name: 'Lache', last_name: 'Melvin', email: 'lache@gmail.com', phone_number: '0213526789', image_url: 'v1588967373/lache_v5blpl.png', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Mt Eden, Auckland' },
         { id: 5, username: 'p-man', first_name: 'Pat', last_name: 'Lim', email: 'pat@gmail.com', phone_number: '0213526789', image_url: 'v1588967373/pat_cevccf.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Mt Eden, Auckland' },
         { id: 6, username: 'ElloraV', first_name: 'Ellora', last_name: 'Virtue', email: 'ellora@gmail.com', phone_number: '0226482546', image_url: 'v1588967348/ellora_ze8tgm.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Newmarket, Auckland' }
       ]))
@@ -305,16 +305,17 @@ exports.seed = (knex) =>
         },
         {
           id: 18,
-          name: 'Yoga Mat',
+          name: 'Kettle',
           description: JSON.stringify([
-            'I borrowed this yoga mat from Dev Academy.',
-            'Please take it off my hands so I can say that I lost it.',
-            'Dont tell them I gave it to you.'
+            'Dont need this kettle anymore so I would love to give it away to someone who needs it.'
           ]),
-          location: 'Mission Bay, Auckland',
-          image_url: JSON.stringify(['v1589171042/xnkmr07z4i4dsdm4dutg.jpg', 'v1589171042/e9acjtafwf1ndlnshtjb.jpg']),
-          user_id: 2,
-          category_id: 7,
+          location: 'Waipu Cove, Waipu',
+          image_url: JSON.stringify([
+            'v1589171042/t02sznw9wucqvx30bm7o.jpg',
+            'v1589171043/hakkgr9ok16epum6hwle.jpg'
+          ]),
+          user_id: 5,
+          category_id: 4,
           taken: false,
           date_taken: '12/05/2020'
         },
@@ -665,20 +666,19 @@ exports.seed = (knex) =>
         },
         {
           id: 40,
-          name: 'Olivia the Orchid',
+          name: 'Womens Nike Running Shoes, US7',
           description: JSON.stringify([
-            'Beautiful pink flowering orchid with supports for sale.',
-            'She has been well cared for and we are sad to say goodbye to Olivia the Orchid.',
-            'I\'m hoping she can find a nice new home with someone who will take care of her!',
-            'I have a few other plants to give away too so let me know if you’re are interested in those or check out my profile for my other listings.'
+            'Dont really run in these shoes anymore, please feel free to come pick them up if you think you would get better use out of them than me!',
+            'US7 womens :)'
           ]),
-          location: 'Sunshine Bay, Queenstown',
+          location: 'Chartwell, Hamilton',
           image_url: JSON.stringify([
-            'v1589186358/m1838s4pooepzlwgdcf8.jpg',
-            'v1589186356/avdw9i327obntespfm9o.jpg'
+            'v1589171044/ii7ake7vrdig2mbuwaig.jpg',
+            'v1589171044/kgklhbxuc5jrrj32kvdz.jpg',
+            'v1589171043/s7jtjul2kv0keai6yrlp.jpg'
           ]),
-          user_id: 6,
-          category_id: 3,
+          user_id: 3,
+          category_id: 1,
           taken: false,
           date_taken: '12/05/2020'
         },
@@ -752,7 +752,7 @@ exports.seed = (knex) =>
             'The other case is a defender I think with normal wear and tear.',
             'Both are my back up cases and still offer good protection.'
           ]),
-          location: 'Newmarket, Auckland',
+          location: 'Pinehill, Dunedin',
           image_url: JSON.stringify([
             'v1589194846/case1_m1xmxn.jpg',
             'v1589194853/case2_hleujz.jpg',
@@ -773,7 +773,7 @@ exports.seed = (knex) =>
             'Given a few by a friend and have too many.',
             'Can be a good way to kill time for times like in lockdown.'
           ]),
-          location: 'Newmarket, Auckland',
+          location: 'Lower Hutt, Wellington',
           image_url: JSON.stringify([
             'v1589194983/cards_uvvtqo.jpg',
             'v1589194989/cards2_atddp7.jpg',
@@ -794,7 +794,7 @@ exports.seed = (knex) =>
             'Some rust but can easliy be cleaned and painted.',
             'Upgraded to a mountain bike so no need for them anymore.'
           ]),
-          location: 'Newmarket, Auckland',
+          location: 'Hornby, Christchurch',
           image_url: JSON.stringify([
             'v1589195088/spoke1_c3zwuy.jpg',
             'v1589195096/spoke2_furyxd.jpg',
@@ -825,17 +825,16 @@ exports.seed = (knex) =>
         },
         {
           id: 48,
-          name: 'Kettle',
+          name: 'Yoga Mat',
           description: JSON.stringify([
-            'Dont need this kettle anymore so I would love to give it away to someone who needs it.'
+            'I borrowed this yoga mat from Dev Academy.',
+            'Please take it off my hands so I can say that I lost it.',
+            'Dont tell them I gave it to you.'
           ]),
-          location: 'Howick, Auckland',
-          image_url: JSON.stringify([
-            'v1589171042/t02sznw9wucqvx30bm7o.jpg',
-            'v1589171043/hakkgr9ok16epum6hwle.jpg'
-          ]),
-          user_id: 5,
-          category_id: 4,
+          location: 'Mission Bay, Auckland',
+          image_url: JSON.stringify(['v1589171042/xnkmr07z4i4dsdm4dutg.jpg', 'v1589171042/e9acjtafwf1ndlnshtjb.jpg']),
+          user_id: 6,
+          category_id: 7,
           taken: false,
           date_taken: '12/05/2020'
         },
@@ -859,19 +858,20 @@ exports.seed = (knex) =>
         },
         {
           id: 50,
-          name: 'Womens Nike Running Shoes, US7',
+          name: 'Olivia the Orchid',
           description: JSON.stringify([
-            'Dont really run in these shoes anymore, please feel free to come pick them up if you think you would get better use out of them than me!',
-            'US7 womens :)'
+            'Beautiful pink flowering orchid with supports for sale.',
+            'She has been well cared for and we are sad to say goodbye to Olivia the Orchid.',
+            'I\'m hoping she can find a nice new home with someone who will take care of her!',
+            'I have a few other plants to give away too so let me know if you’re are interested in those or check out my profile for my other listings.'
           ]),
-          location: 'Pakuranga, Auckland',
+          location: 'Sunshine Bay, Queenstown',
           image_url: JSON.stringify([
-            'v1589171044/ii7ake7vrdig2mbuwaig.jpg',
-            'v1589171044/kgklhbxuc5jrrj32kvdz.jpg',
-            'v1589171043/s7jtjul2kv0keai6yrlp.jpg'
+            'v1589186358/m1838s4pooepzlwgdcf8.jpg',
+            'v1589186356/avdw9i327obntespfm9o.jpg'
           ]),
-          user_id: 3,
-          category_id: 1,
+          user_id: 6,
+          category_id: 3,
           taken: false,
           date_taken: '12/05/2020'
         }
