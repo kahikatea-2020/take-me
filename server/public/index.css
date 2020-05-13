@@ -319,7 +319,7 @@ div.field button.ui.button {
   align-items: left;
   flex-direction: column;
   justify-content: center;
-  margin: 15% 0 10% 0;
+  margin: 12% 0 10% 0;
 }
 
 .guidelines h1 {
@@ -328,7 +328,7 @@ div.field button.ui.button {
 }
 
 .guidelines hr {
-  margin-bottom: 5vh;
+  margin-bottom: 7vh;
 }
 
 /* about page */

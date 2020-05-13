@@ -19,7 +19,7 @@ class Home extends React.Component {
       location: '',
       checked: false,
       locationAdded: false,
-      rerenderer: false, // this is so the correct info displays as pagination can't affect actual state
+      rerenderer: false,
       page: 1
     }
   }
@@ -104,7 +104,7 @@ class Home extends React.Component {
               />
             </Container>
           </>
-          : <p>Sorry, there are no current listings to match your search filters</p>}
+          : <p>Sorry, there are no current listings that match your search.</p>}
       </>
     )
   }
