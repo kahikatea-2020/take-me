@@ -12,7 +12,7 @@ import ListItem from './ListItem'
 import { getUserById } from '../api/users'
 import { userPending, userSuccess, getUserDetails } from '../actions/users'
 import { getUsersListings } from '../actions/listings'
-import { deleteListingById } from '../api/listings'
+import { deleteListingById, markAsTaken } from '../api/listings'
 
 const MySwal = withReactContent(Swal)
 
@@ -48,6 +48,15 @@ class Profile extends React.Component {
     }
   }
 
+  handleTaken = (id) => {
+    markAsTaken(id)
+      .then(res => {
+        if (res === 'success') {
+          this.props.dispatch(getUsersListings(this.props.match.params.id))
+        }
+      })
+  }
+
   handleDelete = id => {
     this.props.dispatch(userPending())
     deleteListingById(id)
@@ -72,17 +81,19 @@ class Profile extends React.Component {
               <Image style={{ width: '200px', float: 'right' }} src={`https://res.cloudinary.com/takemenz/image/upload/${profile.imageUrl}`} alt="Profile Photo" />
             </div>
             <div className="column left aligned row">
-              <div style={{ verticalAlign: 'middle' }}>
-                <h2 style={{ marginBottom: '0px' }}>{profile.firstName} {profile.lastName}</h2>
-                <em>{profile.username}</em><br />
-                <br />
-                <p>Email: {profile.email}</p>
-                <p>Phone Number: {profile.phoneNumber}</p>
-                <p>Location: {profile.location}</p>
-                {(isAuthenticated() && (this.props.user.id === profile.id)) &&
-                <Button as={Link} to={`/edit-profile/${profile.id}`} basic color='blue'>Edit Profile</Button>
-                }
+              <div className='row'>
+                <div style={{ verticalAlign: 'middle' }}>
+                  <h2 style={{ marginBottom: '0px' }}>{profile.firstName} {profile.lastName}</h2>
+                  <em>{profile.username}</em><br />
+                  <br />
+                  <p>Email: {profile.email}</p>
+                  <p>Phone Number: {profile.phoneNumber}</p>
+                  <p>Location: {profile.location}</p>
+                  {(isAuthenticated() && (this.props.user.id === profile.id)) &&
+                    <Button id='edit-profile' as={Link} to={`/edit-profile/${profile.id}`} basic color='blue'>Edit Profile</Button>
+                  }
                 </div>
+              </div>
             </div>
           </div>
         </div>
@@ -97,7 +108,33 @@ class Profile extends React.Component {
               return <div className="ui card" key={userListing.id}>
               <ListItem key={userListing.id} listing={userListing} />
               {
-                isAuthenticated() && this.props.user.id === profile.id &&
+                isAuthenticated() && this.props.user.id === profile.id && <>
+                  <div className='ui two buttons'>
+                    <Button name={listing.id} onClick={() => Swal.fire({
+                      title: 'Wait!',
+                      text: 'Are you sure you want to mark this item as taken?',
+                      icon: 'warning',
+                      confirmButtonText: 'Yes, it is taken',
+                      cancelButtonText: 'No, keep it listed',
+                      showCancelButton: true
+                      }).then((result) => {
+                        if (result.value) {
+                          this.handleTaken(userListing.id)
+                          Swal.fire({
+                            title: 'Taken!',
+                            text: 'Your item has been marked as taken',
+                            icon: 'success'
+                          })
+                        } else {
+                          Swal.fire({
+                            title: 'Cancelled',
+                            text: 'Your listing is still active',
+                            icon: 'error'
+                          })
+                        }})} basic color='blue'>
+                    Mark as taken
+                  </Button>
+                  </div>
                   <div className='ui two buttons'>
                     <Button as='a' to={`/update-listing/${userListing.id}`} basic color='blue'>Update</Button>
                     <Button onClick={() => Swal.fire({
@@ -124,13 +161,14 @@ class Profile extends React.Component {
                         }
                     })} basic color='red'>Delete</Button>
                   </div>
+                  </>
               }
               </div> 
             })
             : <p>This user has no current listings</p>
           }
-          {takenListings.length !== 0 
-            ? <div style={{display: 'block'}}>
+          {takenListings.length !== 0  &&
+            <div style={{display: 'block'}}>
               <h2>Previous Listings</h2>
               {takenListings.map(userListing => {
                 return <div className="ui card" key={userListing.id}>
@@ -166,7 +204,6 @@ class Profile extends React.Component {
                   </div> 
               })}
               </div>
-            : <p>This user has no current listings</p>
           }
           </>
           </Card.Group>

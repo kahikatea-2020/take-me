@@ -3,7 +3,7 @@ import { connect } from 'react-redux'
 
 const WaitIndicator = (props) => {
   return props.pending
-    ? <img data-testid='wait-indicator' src='/loadIndicator.gif' alt='loading indicator' style={{ width: 50 }} />
+    ? <img data-testid='wait-indicator' src='https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif' alt='loading indicator' style={{ width: '100px', height: '100px' }} />
     : null
 }
 
