@@ -6,7 +6,8 @@ class Guidelines extends React.Component {
     return (
       <Container text className='guidelines'>
         <h1>TakeMe Guidelines</h1>
-        <br/>
+        <br />
+        <hr />
         <p>This page is to set standards and guidelines for all users, both listers and takers.
            Please make sure you agree to all that is documented below before using our service.</p>
         <br/>

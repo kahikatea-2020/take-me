@@ -311,7 +311,7 @@ div.field button.ui.button {
   min-width: 8vw;
 }
 
-/* END LOGIN STYLING*/
+/* END LOGIN STYLING */
 
 .guidelines {
   height: 100vh;
@@ -319,7 +319,16 @@ div.field button.ui.button {
   align-items: left;
   flex-direction: column;
   justify-content: center;
-  margin-top: 20%;
+  margin: 15% 0 10% 0;
+}
+
+.guidelines h1 {
+  text-align: center;
+  margin-bottom: 0;
+}
+
+.guidelines hr {
+  margin-bottom: 5vh;
 }
 
 /* about page */
