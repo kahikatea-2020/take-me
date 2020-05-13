@@ -1,5 +1,5 @@
 import React from 'react'
-import { Container } from 'semantic-ui-react'
+import { List } from 'semantic-ui-react'
 
 class About extends React.Component {
   render () {
@@ -12,8 +12,8 @@ class About extends React.Component {
           </div> */}
 
           <div className="aboutHeroText">
-            <div style={{ textAlign: 'right', paddingRight: '4%'}}>
-            <p id="welcome">Welcome to <span id='takeme2nd'> take me</span></p>
+            <div style={{ textAlign: 'right', paddingRight: '4%' }}>
+              <p id="welcome">Welcome to <span id='takeme2nd'> take me</span></p>
 
             </div>
             <h3>
@@ -25,28 +25,33 @@ class About extends React.Component {
           </div>
         </div>
         <div className="aboutSections">
-          <h2>Why Recycle?</h2>
+          <h2>Reduce, reuse &amp; recycle</h2>
           <p>
-          You have heard of reduce, reuse, recycle, right?<br/>
           This is a concept our team is promoting through creating this website. By choosing our website, and in turn choosing a pathway to sustainable living, you are also choosing to make the following positive impacts:
           </p>
-          <ul>
-            <li>
-            Energy conservation - using our website reduces product demand of manufacturers, thus saving energy.
-            </li>
-            <li>
-            Reduces landfill - by re-purposing and/or recycling materials and products, we reduce the amount of waste that ends up in landfills, which altogether contributes to a healthier planet.
-            </li>
-            <li>
-            Less toxic chemicals - factories that produce the products we see on shelves are often made from raw materials which create toxic chemicals. Re-purposing is a simple solution to lowering the demand, and therefore the production of these toxins.
-            </li>
-            <li>
-            Reduces pollution - a lot of our "rubbish" can actually be recycled. Opting for this method can reduce the amount of waste that would otherwise end up in our oceans.
-            </li>
-            <li>
-            Saves you money - if you are getting something free from our site, you are not buying something new. As a result, you are saving money!
-            </li>
-          </ul>
+          <List id="aboutList">
+            <List.Item id="aboutListItem">
+              <List.Header id="aboutSecHeaders">Energy conservation</List.Header>
+              Using our website reduces product demand of manufacturers, thus saving energy.
+            </List.Item>
+            <List.Item id="aboutListItem">
+              <List.Header id="aboutSecHeaders">Reduces landfill</List.Header>
+              By re-purposing and/or recycling materials and products, we reduce the amount of waste that ends up in
+              landfills, which altogether contributes to a healthier planet.
+            </List.Item>
+            <List.Item id="aboutListItem">
+              <List.Header id="aboutSecHeaders">Less toxic chemicals</List.Header>
+              Factories that produce the products we see on shelves are often made from raw materials which create toxic chemicals. Re-purposing is a simple solution to lowering the demand, and therefore the production of these toxins.
+            </List.Item>
+            <List.Item id="aboutListItem">
+              <List.Header id="aboutSecHeaders">Reduces pollution</List.Header>
+              A lot of our so called rubbish can actually be recycled. Opting for this method can reduce the amount of waste that would otherwise end up in our oceans.
+            </List.Item>
+            <List.Item id="aboutListItem">
+              <List.Header id="aboutSecHeaders">Saves you money</List.Header>
+              If you are getting something free from our website, you are not buying something new. As a result, you are saving money!
+            </List.Item>
+          </List>
         </div>
         <div className="aboutSections">
           <h2>How Can You Help?</h2>

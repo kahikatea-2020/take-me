@@ -285,7 +285,7 @@ div.field button.ui.button {
 .aboutHeroText p {
   font-family: "Futura-Medium";
   letter-spacing: -1px;
-
+  
   font-size: 1.7em;
 }
 
@@ -300,6 +300,29 @@ div.field button.ui.button {
   justify-content: center;
   flex-direction: column;
   align-items: left;
+  font-family: "Futura-Normal";
+  font-size: 1.5em;  
+  letter-spacing: -1px;
+  
+}
+
+#aboutList {
+  margin-left: 2em;
+}
+
+#aboutListItem {
+  margin-bottom: 1em;
+}
+
+#aboutSecHeaders {
+  font-family: "Futura-medium";
+  font-size: 1em;
+}
+
+
+.aboutSections h2{
+  font-family: "Futura-Bold";
+  font-size: 1.7em;
 }
 
 #takeme2nd {
@@ -313,6 +336,14 @@ div.field button.ui.button {
   font-family: "Futura-Bold";
   src: url("./fonts/Futura-Bold.woff") format("woff"), /* Modern Browsers */
     url("./fonts/Futura-Bold.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Futura-Light";
+
+  src: url("./fonts/Futura-Light.woff") format("woff"); /* Modern Browsers */
   font-weight: normal;
   font-style: normal;
 }
