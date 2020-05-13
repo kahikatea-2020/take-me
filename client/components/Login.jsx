@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { Form } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import SweetAlert from 'sweetalert2-react'
@@ -60,6 +60,7 @@ class Login extends React.Component {
   render () {
     return (
       <>
+        {isAuthenticated() && <Redirect to='/' />}
         <div id='login'>
           <h1>Login</h1>
           <Form id='login-cont'>
