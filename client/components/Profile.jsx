@@ -12,7 +12,7 @@ import ListItem from './ListItem'
 import { getUserById } from '../api/users'
 import { userPending, userSuccess, getUserDetails } from '../actions/users'
 import { getUsersListings } from '../actions/listings'
-import { deleteListingById } from '../api/listings'
+import { deleteListingById, markAsTaken } from '../api/listings'
 
 const MySwal = withReactContent(Swal)
 
@@ -46,6 +46,15 @@ class Profile extends React.Component {
           })
       })
     }
+  }
+
+  handleTaken = (id) => {
+    markAsTaken(id)
+      .then(res => {
+        if (res === 'success') {
+          this.props.dispatch(getUsersListings(this.props.match.params.id))
+        }
+      })
   }
 
   handleDelete = id => {
@@ -110,7 +119,7 @@ class Profile extends React.Component {
                       showCancelButton: true
                       }).then((result) => {
                         if (result.value) {
-                          this.handleTaken()
+                          this.handleTaken(userListing.id)
                           Swal.fire({
                             title: 'Taken!',
                             text: 'Your item has been marked as taken',
