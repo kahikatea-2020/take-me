@@ -30,7 +30,6 @@ class UpdateListing extends React.Component {
   }
 
   handleChange = evt => {
-    console.log('handlechange')
     this.setState({ [evt.target.name]: evt.target.value })
   }
 
@@ -171,7 +170,7 @@ class UpdateListing extends React.Component {
               })}
             </div>
           }
-          <Form.Group>
+          <Form.Group id='update-listing-buttons'>
             <Link to='/'>
               <Form.Button>
                 Cancel
@@ -187,7 +186,7 @@ class UpdateListing extends React.Component {
         </Form>
         <SweetAlert
           show={this.state.show}
-          title="Oppsie, Something went wrong!"
+          title="Oops, something went wrong!"
           text={this.props.error}
           onConfirm={() => this.setState({ show: false })}
         />

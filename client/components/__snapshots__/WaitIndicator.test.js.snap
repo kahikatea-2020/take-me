@@ -4,7 +4,7 @@ exports[`Test the WaitIndicator 1`] = `
 <img
   alt="loading indicator"
   data-testid="wait-indicator"
-  src="/loadIndicator.gif"
-  style="width: 50px;"
+  src="https://upload.wikimedia.org/wikipedia/commons/c/c7/Loading_2.gif"
+  style="width: 100px; height: 100px;"
 />
 `;

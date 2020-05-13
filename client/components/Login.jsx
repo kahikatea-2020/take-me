@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { Form } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import SweetAlert from 'sweetalert2-react'
@@ -52,6 +52,7 @@ class Login extends React.Component {
 
   handleOnKeyDown = event => {
     if (event.keyCode === 13) {
+      event.preventDefault()
       this.submitHandler()
     }
   }
@@ -59,54 +60,53 @@ class Login extends React.Component {
   render () {
     return (
       <>
-        <div id='wrapper'>
-          <div id='login'>
-            <h1>Login</h1>
-            <Form id='login-cont'>
-              <Form.Group>
-                <Form.Input
-                  onKeyUp={this.updateField}
-                  fluid
-                  width={6}
-                  name='username'
-                  placeholder='Username'
-                  type='text'
-                />
-              </Form.Group>
-              <Form.Group>
-                <Form.Input
-                  onKeyUp={this.updateField}
-                  fluid
-                  width={6}
-                  name='password'
-                  placeholder='Password'
-                  type='password'
-                  autoComplete='off'
-                  onKeyDown={this.handleOnKeyDown}
-                />
-              </Form.Group>
-              <Form.Group id='buttons'>
-                <Link to='/'>
-                  <Form.Button>
+        {isAuthenticated() && <Redirect to='/' />}
+        <div id='login'>
+          <h1>Login</h1>
+          <Form id='login-cont'>
+            <Form.Group>
+              <Form.Input
+                onKeyUp={this.updateField}
+                fluid
+                width={6}
+                name='username'
+                placeholder='Username'
+                type='text'
+              />
+            </Form.Group>
+            <Form.Group>
+              <Form.Input
+                onKeyUp={this.updateField}
+                fluid
+                width={6}
+                name='password'
+                placeholder='Password'
+                type='password'
+                autoComplete='off'
+                onKeyDown={this.handleOnKeyDown}
+              />
+            </Form.Group>
+            <Form.Group id='buttons'>
+              <Link to='/'>
+                <Form.Button>
               Cancel
-                  </Form.Button>
-                </Link>
-                <Form.Button
-                  type='submit'
-                  onClick={this.submitHandler}
-                >
-              Submit
                 </Form.Button>
-              </Form.Group>
-            </Form>
-            <WaitIndicator />
-            <SweetAlert
-              show={this.state.show}
-              title="Oppsie, Something went wrong!"
-              text={this.props.error}
-              onConfirm={() => this.setState({ show: false })}
-            />
-          </div>
+              </Link>
+              <Form.Button
+                type='submit'
+                onClick={this.submitHandler}
+              >
+              Submit
+              </Form.Button>
+            </Form.Group>
+          </Form>
+          <WaitIndicator />
+          <SweetAlert
+            show={this.state.show}
+            title="Oops, something went wrong!"
+            text={this.props.error}
+            onConfirm={() => this.setState({ show: false })}
+          />
         </div>
       </>
     )

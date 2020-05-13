@@ -3,10 +3,11 @@ import Slider from 'react-slick'
 import { isAuthenticated } from 'authenticare/client'
 import { connect } from 'react-redux'
 import { Button, Card, Grid, Image, Form } from 'semantic-ui-react'
+import Swal from 'sweetalert2'
 
 import WaitIndicator from './WaitIndicator'
 
-import { getListingById } from '../api/listings'
+import { getListingById, markAsTaken } from '../api/listings'
 import { getCommentsById, addComment } from '../api/q-and-a'
 import { getListingsPending, getListingSuccess } from '../actions/listings'
 import { getCommentsPending, getCommentsSuccess } from '../actions/q-and-a'
@@ -19,8 +20,11 @@ class Listing extends React.Component {
     description: [],
     imageUrl: [],
     comments: [],
-    newComment: ''
+    newComment: '',
+    taken: false,
+    date_taken: ''
   }
+
   componentDidMount() {
     this.props.dispatch(getListingsPending())
     getListingById(this.props.match.params.id)
@@ -33,7 +37,8 @@ class Listing extends React.Component {
             listing,
             emailSubject: listing.name.split(' ').join('%20'),
             description: listing.description,
-            imageUrl: listing.imageUrl
+            imageUrl: listing.imageUrl,
+            taken: listing.taken,
           }, this.getComments)
         }
       })
@@ -75,6 +80,15 @@ class Listing extends React.Component {
     }
   }
 
+  handleTaken = () => {
+    markAsTaken(this.state.listing.id)
+      .then(res => {
+        if (res === 'success') {
+          this.setState({ taken: true })
+        }
+      })
+  }
+
   render() {
     const { listing } = this.state
     const settings = {
@@ -91,7 +105,7 @@ class Listing extends React.Component {
     return (
       <>
       <Grid columns={2} divided>
-        <Grid.Row>
+        <Grid.Row id='row-target'>
           <Grid.Column stretched className='listing-images'>
             {(this.state.imageUrl[0] !== undefined) &&
               <div className='slick-carousel'>
@@ -110,10 +124,38 @@ class Listing extends React.Component {
           </Grid.Column>
           <Grid.Column stretched className='listing-details'>
             <div className='listing-description'>
-              {(isAuthenticated() && (this.props.user.id === listing.userId)) &&
-                  <Button id='update' style={{ maxHeight: '5vh', maxWidth: '50%' }} as={Link} to={`/update-listing/${listing.id}`} className='update-listing'>
+              {(isAuthenticated() && (this.props.user.id === listing.userId)) && 
+                <div className='column'>
+                  <Button id='update' style={{ maxHeight: '5vh', maxWidth: '50%' }} as={Link} to={`/update-listing/${listing.id}`} className='update-listing' basic color='blue'>
                     Edit Listing
                   </Button>
+                  {!this.state.taken &&
+                    <Button name={listing.id} onClick={() => Swal.fire({
+                      title: 'Wait!',
+                      text: 'Are you sure you want to mark this item as taken?',
+                      icon: 'warning',
+                      confirmButtonText: 'Yes, it is taken',
+                      cancelButtonText: 'No, keep it listed',
+                      showCancelButton: true
+                      }).then((result) => {
+                        if (result.value) {
+                          this.handleTaken()
+                          Swal.fire({
+                            title: 'Taken!',
+                            text: 'Your item has been marked as taken',
+                            icon: 'success'
+                          })
+                        } else {
+                          Swal.fire({
+                            title: 'Cancelled',
+                            text: 'Your listing is still active',
+                            icon: 'error'
+                          })
+                        }})} basic color='blue'>
+                    Mark as taken
+                  </Button>
+                  }
+                </div>
               }
               <h1>{listing.name}</h1>
               <h4>Location: {listing.location}</h4>
@@ -144,11 +186,6 @@ class Listing extends React.Component {
                   </Card.Content>
                 </Card>
               </div>
-              {(isAuthenticated() && (this.props.user.id === listing.userId)) &&
-                <Button id='update' style={{ maxHeight: '5vh', maxWidth: '50%' }} as={Link} to={`/update-listing/${listing.id}`} className='update-listing'>
-                  Edit Listing
-              </Button>
-              }
               <WaitIndicator />
             </Grid.Column>
           </Grid.Row>

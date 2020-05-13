@@ -4,7 +4,7 @@ function getListings (db = connection) {
   return db('listings')
     .join('categories', 'listings.category_id', 'categories.id')
     .join('users', 'listings.user_id', 'users.id')
-    .select('listings.id as id', 'listings.name as name', 'listings.image_url as imageUrl', 'listings.location as location', 'listings.user_id as userId', 'listings.category_id as categoryId', 'categories.name as category', 'users.image_url as userImage')
+    .select('listings.id as id', 'listings.name as name', 'listings.image_url as imageUrl', 'listings.location as location', 'listings.user_id as userId', 'listings.category_id as categoryId', 'categories.name as category', 'users.image_url as userImage', 'listings.taken as taken')
 }
 
 function getListingsById (id, db = connection) {
@@ -17,6 +17,7 @@ function getListingsById (id, db = connection) {
       'listings.image_url as imageUrl',
       'listings.user_id as userId',
       'listings.category_id as categoryId',
+      'listings.taken as taken',
       'listings.location as location',
       'users.username as username',
       'users.first_name as userFirstName',
@@ -61,7 +62,7 @@ function getUsersListingsById (id, db = connection) {
   return db('users')
     .join('listings', 'users.id', 'listings.user_id')
     .where('users.id', id)
-    .select('users.id as userId', 'listings.description', 'listings.name', 'listings.location', 'listings.id', 'listings.image_url as imageUrl')
+    .select('users.id as userId', 'listings.description', 'listings.name', 'listings.location', 'listings.id', 'listings.image_url as imageUrl', 'listings.taken')
 }
 
 function getUserByListingId (id, db = connection) {
@@ -71,6 +72,11 @@ function getUserByListingId (id, db = connection) {
     .first()
 }
 
+function setItemToTaken (id, date, db = connection) {
+  return db('listings')
+    .where('id', id)
+    .update({ taken: true, date_taken: date })
+}
 
 module.exports = {
   getListings,
@@ -79,5 +85,6 @@ module.exports = {
   addListing,
   updateListingById,
   getUsersListingsById,
-  getUserByListingId
+  getUserByListingId,
+  setItemToTaken
 }

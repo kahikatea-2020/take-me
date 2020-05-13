@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { Form } from 'semantic-ui-react'
 import { isAuthenticated, register } from 'authenticare/client'
 import { connect } from 'react-redux'
@@ -21,14 +21,15 @@ class SignUp extends React.Component {
     username: '',
     password: '',
     confirmPassword: '',
-    imageUrl: 'v1589061239/default-profile_checno.png',
+    imageUrl: 'v1589318426/hvu5hza8chku5rnjcane.png',
     uploadedImage: false,
-    location: ''
+    location: '',
+    checked: false
   }
 
   inputChecker = event => {
-    const { firstName, lastName, emailAddress, username, password, phoneNumber } = this.state
-    if (firstName !== '' && lastName !== '' && username !== '' && password !== '' && emailAddress !== '') {
+    const { firstName, lastName, emailAddress, username, password, phoneNumber, checked } = this.state
+    if (firstName !== '' && lastName !== '' && username !== '' && password !== '' && emailAddress !== '' && checked === true) {
       if (phoneNumber !== null || phoneNumber !== '') {
         return false
       } else {
@@ -60,7 +61,7 @@ class SignUp extends React.Component {
 
   deleteImage = () => {
     this.setState({
-      imageUrl: 'v1589061239/default-profile_checno.png',
+      imageUrl: 'v1589318426/hvu5hza8chku5rnjcane.png',
       uploadedImage: false
     })
   }
@@ -70,15 +71,22 @@ class SignUp extends React.Component {
       [e.target.name]: e.target.value
     })
     var spitAddie = this.props.address.split(',')
-    var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
+    var addie = spitAddie[spitAddie.length - 2] + ',' + spitAddie[spitAddie.length - 1]
     this.setState({ location: addie })
   }
-  
+
   handleOnKeyDown = event => {
     if (event.keyCode === 13) {
       this.submitHandler()
     }
   }
+
+  checkboxHandler = e => {
+    this.setState({
+      checked: !this.state.checked
+    })
+  }
+
   submitHandler = e => {
     this.props.dispatch(hideError())
     if (this.state.password !== this.state.confirmPassword) {
@@ -107,11 +115,10 @@ class SignUp extends React.Component {
     }
   }
 
-  render () {
+  render() {
     return (
       <>
-      <div id="wrapper">
-
+        {isAuthenticated() && <Redirect to='/' />}
         <h1>Sign Up</h1>
         <p>Please fill in the following details:</p>
         <Form>
@@ -133,7 +140,7 @@ class SignUp extends React.Component {
             placeholder='Last name'
             type='text'
           />
-          <br/>
+          <br />
           <Form.Input
             onKeyUp={this.updateField}
             fluid
@@ -152,7 +159,7 @@ class SignUp extends React.Component {
             placeholder='Phone number'
             type='number'
           />
-          <Autocomplete id='address'/>
+          <Autocomplete id='address' />
           <Form.Input
             onKeyUp={this.updateField}
             fluid
@@ -184,14 +191,18 @@ class SignUp extends React.Component {
             onKeyDown={this.handleOnKeyDown}
           />
           <Form.Button
-          onClick={e => {
-            e.preventDefault()
-            return this.imageUpload(undefined, 'brmcwkea')}
-          }>Upload Image</Form.Button>
+            onClick={e => {
+              e.preventDefault()
+              return this.imageUpload(undefined, 'brmcwkea')
+            }
+            }>Upload Image</Form.Button>
           {(this.state.uploadedImage) &&
             <div className='imagesPreview'>
               <div className='singleImagePreview'>
-                <div style={{height: '40px', width: '40px', marginLeft: '110px'}}>
+                <div>
+                  <img className='theImage' src={`https://res.cloudinary.com/takemenz/image/upload/${this.state.imageUrl}`} />
+                </div>
+                <div style={{ height: '40px', width: '40px', marginLeft: '10px' }}>
                   <button onClick={e => {
                     e.preventDefault()
                     return this.deleteImage()
@@ -203,25 +214,22 @@ class SignUp extends React.Component {
                     />
                   </button>
                 </div>
-                <div>
-                  <img className='theImage' src={`https://res.cloudinary.com/takemenz/image/upload/${this.state.imageUrl}`}/>
-                </div>
               </div>
             </div>
           }
-          <Form.Checkbox required label={<label>I agree to the <a href='/guidelines'>TakeMe Guidelines</a></label>} />
-          <Form.Group>
+          <Form.Checkbox onChange={this.checkboxHandler} required label={<label>I agree to the <a href='/guidelines'>TakeMe Guidelines</a></label>} />
+          <Form.Group id='sign-up-buttons'>
             <Link to='/'>
               <Form.Button>
-              Cancel
-              </Form.Button>
+                Cancel
+            </Form.Button>
             </Link>
             <Form.Button
               type='submit'
               onClick={this.submitHandler}
             >
               Submit
-            </Form.Button>
+          </Form.Button>
           </Form.Group>
         </Form>
         <SweetAlert
@@ -231,7 +239,6 @@ class SignUp extends React.Component {
           onConfirm={() => this.setState({ show: false })}
         />
         <WaitIndicator />
-      </div>
       </>
     )
   }

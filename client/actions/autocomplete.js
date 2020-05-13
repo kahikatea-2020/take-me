@@ -1,5 +1,3 @@
-import { showError } from './error'
-
 export const ADDRESS = 'ADDRESS'
 export const CLEAR_ADDRESS = 'CLEAR_ADDRESS'
 

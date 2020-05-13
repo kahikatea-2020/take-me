@@ -5,41 +5,95 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
-      <h1
-        style="color: red;"
+      <div
+        class="ui placeholder segment"
       >
-        Page not found!
-      </h1>
-      <p>
-        Sorry, we can't find the page you requested.
-      </p>
-      <p>
-        You may have clicked on a broken link or entered an incorrect URL.
-      </p>
-      <a
-        href="/"
-      >
-        Home
-      </a>
+        <div
+          class="ui icon header"
+        >
+          <i
+            class="search icon"
+          />
+          <h1
+            style="color: red; font-size: 40px;"
+          >
+             404 
+          </h1>
+          <h2>
+            Sorry, we can't find the page you requested
+          </h2>
+          <h3>
+            You may have clicked on a broken link or entered an incorrect URL
+          </h3>
+        </div>
+        <br />
+        <div
+          class="inline"
+        >
+          <a
+            class="ui button"
+            href="/"
+            id="home"
+            role="button"
+          >
+            Home
+          </a>
+          <a
+            class="ui button"
+            id="home"
+            role="button"
+            to="/"
+          >
+            Back
+          </a>
+        </div>
+      </div>
     </div>
   </body>,
   "container": <div>
-    <h1
-      style="color: red;"
+    <div
+      class="ui placeholder segment"
     >
-      Page not found!
-    </h1>
-    <p>
-      Sorry, we can't find the page you requested.
-    </p>
-    <p>
-      You may have clicked on a broken link or entered an incorrect URL.
-    </p>
-    <a
-      href="/"
-    >
-      Home
-    </a>
+      <div
+        class="ui icon header"
+      >
+        <i
+          class="search icon"
+        />
+        <h1
+          style="color: red; font-size: 40px;"
+        >
+           404 
+        </h1>
+        <h2>
+          Sorry, we can't find the page you requested
+        </h2>
+        <h3>
+          You may have clicked on a broken link or entered an incorrect URL
+        </h3>
+      </div>
+      <br />
+      <div
+        class="inline"
+      >
+        <a
+          class="ui button"
+          href="/"
+          id="home"
+          role="button"
+        >
+          Home
+        </a>
+        <a
+          class="ui button"
+          id="home"
+          role="button"
+          to="/"
+        >
+          Back
+        </a>
+      </div>
+    </div>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],

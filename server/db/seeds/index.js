@@ -19,12 +19,12 @@ exports.seed = (knex) =>
       ]))
     .then(() =>
       knex('users').insert([
-        { id: 1, username: 'johnS', first_name: 'John', last_name: 'Sengson', email: 'john@gmail.com', phone_number: '021-435-1234', image_url: 'v1588967373/john_yigtz6.jpg', hash: '5F4DCC3B5AA765D61D8327DEB882CF99', location: 'Auckland' },
-        { id: 2, username: 'BubbleBast', first_name: 'Mathias', last_name: 'Bast', email: 'mathias@gmail.com', phone_number: '021-352-1234', image_url: 'v1588967372/mathias_eos91h.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$t7fDj0UPvYCnLculR3ti2w$hsbmENXcvcQbKGBoj2cBoH0xVBB8OIYfNDSZsatnT8k', location: 'Gisborne' },
-        { id: 3, username: 'hamishT', first_name: 'Hamish', last_name: 'Tana', email: 'hamish@gmail.com', phone_number: '021-665-4287', image_url: 'v1588967348/hamishT_eiqwbd.jpg', hash: '5F4DCC3B5AA765D61D8327DEB898PHA7', location: 'Auckland' },
-        { id: 4, username: 'vibes-lache', first_name: 'Lache', last_name: 'Melvin', email: 'lache@gmail.com', phone_number: '021-352-6789', image_url: 'v1588967373/lache_v5blpl.png', hash: '5F4DCC3B5AA7KGA84D8327DEB8826KL8', location: 'Nelson' },
-        { id: 5, username: 'p-man', first_name: 'Pat', last_name: 'Lim', email: 'pat@gmail.com', phone_number: '021-352-6789', image_url: 'v1588967373/pat_cevccf.jpg', hash: '5F4DCC3B5AA765D61D8327DEB8826KL8', location: 'Auckland' },
-        { id: 6, username: 'ElloraV', first_name: 'Ellora', last_name: 'Virtue', email: 'ellora@gmail.com', phone_number: '022-648-2546', image_url: 'v1588967348/ellora_ze8tgm.jpg', hash: '5F4DCC3YH8UJ65D61D8327DEB8826KL8', location: 'Auckland' }
+        { id: 1, username: 'johnS', first_name: 'John', last_name: 'Sengson', email: 'john@gmail.com', phone_number: '0214351234', image_url: 'v1588967373/john_yigtz6.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Newmarket, Auckland' },
+        { id: 2, username: 'BubbleBast', first_name: 'Mathias', last_name: 'Bast', email: 'mathias@gmail.com', phone_number: '0213521234', image_url: 'v1588967372/mathias_eos91h.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$t7fDj0UPvYCnLculR3ti2w$hsbmENXcvcQbKGBoj2cBoH0xVBB8OIYfNDSZsatnT8k', location: 'Inner Kaiti, Gisborne' },
+        { id: 3, username: 'hamishT', first_name: 'Hamish', last_name: 'Tana', email: 'hamish@gmail.com', phone_number: '0216654287', image_url: 'v1588967348/hamishT_eiqwbd.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Newmarket, Auckland' },
+        { id: 4, username: 'vibes-lache', first_name: 'Lache', last_name: 'Melvin', email: 'lache@gmail.com', phone_number: '0213526789', image_url: 'v1588967373/lache_v5blpl.png', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Nelson Central, Nelson' },
+        { id: 5, username: 'p-man', first_name: 'Pat', last_name: 'Lim', email: 'pat@gmail.com', phone_number: '0213526789', image_url: 'v1588967373/pat_cevccf.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Mt Eden, Auckland' },
+        { id: 6, username: 'ElloraV', first_name: 'Ellora', last_name: 'Virtue', email: 'ellora@gmail.com', phone_number: '0226482546', image_url: 'v1588967348/ellora_ze8tgm.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Newmarket, Auckland' }
       ]))
     .then(() =>
       knex('listings').insert([
@@ -38,7 +38,9 @@ exports.seed = (knex) =>
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967374/soccer_ball_q9nnef.jpg']),
           user_id: 1,
-          category_id: 7
+          category_id: 7,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 2,
@@ -51,7 +53,9 @@ exports.seed = (knex) =>
           location: 'Wellington',
           image_url: JSON.stringify(['v1588967373/ladder_s9wtoj.jpg']),
           user_id: 2,
-          category_id: 6
+          category_id: 6,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 3,
@@ -64,7 +68,9 @@ exports.seed = (knex) =>
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967372/infantshoes_ohcade.jpg']),
           user_id: 4,
-          category_id: 1
+          category_id: 1,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 4,
@@ -77,7 +83,9 @@ exports.seed = (knex) =>
           location: 'Queenstown',
           image_url: JSON.stringify(['v1588967332/brokenphone_q5dkym.jpg']),
           user_id: 3,
-          category_id: 2
+          category_id: 2,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 5,
@@ -90,7 +98,9 @@ exports.seed = (knex) =>
           location: 'Waiheke Island',
           image_url: JSON.stringify(['v1588967347/couch_z4bqcd.jpg']),
           user_id: 5,
-          category_id: 3
+          category_id: 3,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 6,
@@ -103,7 +113,9 @@ exports.seed = (knex) =>
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967373/ukulele_xpaknn.jpg']),
           user_id: 6,
-          category_id: 9
+          category_id: 9,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 7,
@@ -116,7 +128,9 @@ exports.seed = (knex) =>
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967373/tire_lzlvpn.jpg']),
           user_id: 3,
-          category_id: 5
+          category_id: 5,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 8,
@@ -128,7 +142,9 @@ exports.seed = (knex) =>
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967373/rake_dspvuh.jpg']),
           user_id: 5,
-          category_id: 6
+          category_id: 6,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 9,
@@ -141,7 +157,9 @@ exports.seed = (knex) =>
           location: 'Rotorua',
           image_url: JSON.stringify(['v1588967347/charger_mhozxk.jpg']),
           user_id: 4,
-          category_id: 2
+          category_id: 2,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 10,
@@ -149,12 +167,14 @@ exports.seed = (knex) =>
           description: JSON.stringify([
             'Some idiot dunked and broke the basket.',
             'The rim is still in good condition but I cant be bothered to fix it.',
-            'Just need new screws and you will need to take it off the wall if interested.'
+            'Just need new screws asdaasdasdasdasdasdnd you will need to take it off the wall if interested.'
           ]),
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967348/hoops_jbmdbg.jpg']),
           user_id: 2,
-          category_id: 7
+          category_id: 7,
+          taken: true,
+          date_taken: '12/05/2020'
         },
         {
           id: 11,
@@ -167,20 +187,24 @@ exports.seed = (knex) =>
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967347/cups_wpgqls.jpg']),
           user_id: 6,
-          category_id: 4
+          category_id: 4,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 12,
           name: 'Chair-old',
           description: JSON.stringify([
-            'Chair in ok condition free for pick up.',
+            'Chair is in ok condition free for pick up.',
             'Got a new set and this is now an extra.',
             'Made from good quality wood so it will last a while.'
           ]),
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967347/chair_eyb6ba.jpg']),
           user_id: 1,
-          category_id: 3
+          category_id: 3,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 13,
@@ -193,7 +217,9 @@ exports.seed = (knex) =>
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967332/bigdonshirt_xg8gzu.jpg']),
           user_id: 2,
-          category_id: 1
+          category_id: 1,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 14,
@@ -206,7 +232,9 @@ exports.seed = (knex) =>
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967348/harmonica_ovrack.jpg']),
           user_id: 1,
-          category_id: 9
+          category_id: 9,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 15,
@@ -219,7 +247,9 @@ exports.seed = (knex) =>
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967372/jumperleads_lrhtdz.jpg']),
           user_id: 3,
-          category_id: 5
+          category_id: 5,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 16,
@@ -232,7 +262,9 @@ exports.seed = (knex) =>
           location: 'Auckland',
           image_url: JSON.stringify(['v1589171044/lw8xkjgktxnlwneulktg.jpg', 'v1589171043/nspdbsqdqafdy6pjuttm.jpg']),
           user_id: 5,
-          category_id: 4
+          category_id: 4,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 17,
@@ -245,7 +277,9 @@ exports.seed = (knex) =>
           location: 'Auckland',
           image_url: JSON.stringify(['v1588967373/pot_pejjzr.jpg']),
           user_id: 4,
-          category_id: 6
+          category_id: 6,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 18,
@@ -258,7 +292,9 @@ exports.seed = (knex) =>
           location: 'Auckland',
           image_url: JSON.stringify(['v1589171042/xnkmr07z4i4dsdm4dutg.jpg', 'v1589171042/e9acjtafwf1ndlnshtjb.jpg']),
           user_id: 2,
-          category_id: 7
+          category_id: 7,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 19,
@@ -271,7 +307,9 @@ exports.seed = (knex) =>
           location: 'Wellington',
           image_url: JSON.stringify(['v1589171042/p993ducuperruvcxihlx.jpg', 'v1589171043/gdxlz5teck3qhurigl3w.jpg']),
           user_id: 5,
-          category_id: 4
+          category_id: 4,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 20,
@@ -284,7 +322,9 @@ exports.seed = (knex) =>
           location: 'Wellington',
           image_url: JSON.stringify(['f3ckqvha48hrejwhoodw.jpg']),
           user_id: 5,
-          category_id: 7
+          category_id: 7,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 21,
@@ -297,7 +337,9 @@ exports.seed = (knex) =>
           location: 'Wellington',
           image_url: JSON.stringify(['vosljyixedmr3cfcsyb8.jpg', 'hwazaysffsg26wrzvdiz.jpg']),
           user_id: 5,
-          category_id: 1
+          category_id: 1,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 22,
@@ -309,7 +351,9 @@ exports.seed = (knex) =>
           location: 'Wellington',
           image_url: JSON.stringify(['nvidzfpug6yol8bubxmg.jpg', 'g6amwtjedwrrpkgpzj3e.jpg']),
           user_id: 5,
-          category_id: 2
+          category_id: 2,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 23,
@@ -322,7 +366,9 @@ exports.seed = (knex) =>
           location: 'Auckland',
           image_url: JSON.stringify(['bkyndlxrc8yxyofwkvq3.jpg']),
           user_id: 5,
-          category_id: 7
+          category_id: 7,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 24,
@@ -336,7 +382,9 @@ exports.seed = (knex) =>
           location: 'Auckland',
           image_url: JSON.stringify(['i1paunxg4mu5uaeo2ccg.jpg', 'jaa7m8owujmxhd7cizjm.jpg']),
           user_id: 5,
-          category_id: 2
+          category_id: 2,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 25,
@@ -350,7 +398,9 @@ exports.seed = (knex) =>
           location: 'Auckland',
           image_url: JSON.stringify(['gnmflabfmfbe1ok5ccml.jpg']),
           user_id: 5,
-          category_id: 1
+          category_id: 1,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 26,
@@ -365,7 +415,9 @@ exports.seed = (knex) =>
           location: 'Lake Taupo',
           image_url: JSON.stringify(['ie6f4acrwylvokqqfcvz.jpg']),
           user_id: 5,
-          category_id: 9
+          category_id: 9,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 27,
@@ -379,7 +431,9 @@ exports.seed = (knex) =>
           location: 'Nelson',
           image_url: JSON.stringify(['v1589182637/Screen_Shot_2020-05-11_at_6.54.34_PM_xgolqz.png', 'v1589182631/Screen_Shot_2020-05-11_at_6.55.06_PM_rz4uyt.png', 'v1589182626/Screen_Shot_2020-05-11_at_6.54.55_PM_o6fnsq.png', 'v1589182624/Screen_Shot_2020-05-11_at_6.55.16_PM_cl8dm2.png', 'v1589182633/Screen_Shot_2020-05-11_at_6.54.24_PM_et2lhj.png']),
           user_id: 4,
-          category_id: 9
+          category_id: 9,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 28,
@@ -393,7 +447,9 @@ exports.seed = (knex) =>
           location: 'Greymouth',
           image_url: JSON.stringify(['v1589182626/Screen_Shot_2020-05-11_at_6.56.57_PM_chau1k.png', 'v1589182637/Screen_Shot_2020-05-11_at_6.57.30_PM_j60pt9.png', 'v1589182629/Screen_Shot_2020-05-11_at_6.56.46_PM_pfbkef.png']),
           user_id: 4,
-          category_id: 5
+          category_id: 5,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 29,
@@ -407,7 +463,9 @@ exports.seed = (knex) =>
           location: 'Hornby, Christchurch',
           image_url: JSON.stringify(['v1589182629/Screen_Shot_2020-05-11_at_7.00.43_PM_epxtx0.png', 'v1589182632/Screen_Shot_2020-05-11_at_7.00.50_PM_lqvfg5.png']),
           user_id: 4,
-          category_id: 6
+          category_id: 6,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 30,
@@ -421,7 +479,9 @@ exports.seed = (knex) =>
           location: 'Bluff',
           image_url: JSON.stringify(['v1589182636/Screen_Shot_2020-05-11_at_7.02.19_PM_ayakjf.png', 'v1589182636/Screen_Shot_2020-05-11_at_7.02.05_PM_vorvjm.png', 'v1589182636/Screen_Shot_2020-05-11_at_7.01.54_PM_lqufd4.png', 'v1589182636/Screen_Shot_2020-05-11_at_7.02.12_PM_rtbe6e.png']),
           user_id: 4,
-          category_id: 8
+          category_id: 8,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 31,
@@ -435,7 +495,9 @@ exports.seed = (knex) =>
           location: 'Atawhai, Nelson',
           image_url: JSON.stringify(['v1589182639/Screen_Shot_2020-05-11_at_7.04.40_PM_tdl2md.png', 'v1589182641/Screen_Shot_2020-05-11_at_7.05.00_PM_zwbo9r.png', 'v1589182641/Screen_Shot_2020-05-11_at_7.04.48_PM_kenm5q.png', 'v1589182642/Screen_Shot_2020-05-11_at_7.05.22_PM_iqoige.png']),
           user_id: 4,
-          category_id: 2
+          category_id: 2,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 32,
@@ -450,7 +512,9 @@ exports.seed = (knex) =>
           location: 'Inner Kaiti, Gisborne',
           image_url: JSON.stringify(['v1589182639/ueszm7j3qi3yrantl05t.jpg', 'v1589182641/ir6zwiw7h3gyx6w9cluy.jpg', 'v1589182641/dcit4b8msok5dwrot8vf.jpg']),
           user_id: 2,
-          category_id: 1
+          category_id: 1,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 33,
@@ -465,7 +529,9 @@ exports.seed = (knex) =>
           location: 'Inner Kaiti, Gisborne',
           image_url: JSON.stringify(['v1589182639/sbs4shnbmaicwpulxx5q.jpg', 'v1589182641/j7h1ib8mzhlrellm8sf7.jpg', 'v1589182641/zu8me3czjh2cahlqc4ff.jpg']),
           user_id: 2,
-          category_id: 2
+          category_id: 2,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 34,
@@ -479,7 +545,9 @@ exports.seed = (knex) =>
           location: 'Inner Kaiti, Gisborne',
           image_url: JSON.stringify(['v1589182639/txhyyjcftdfbxfahm697.jpg', 'v1589182641/xjsvrfiwfje6mnenk8td.jpg']),
           user_id: 2,
-          category_id: 4
+          category_id: 4,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 35,
@@ -493,7 +561,9 @@ exports.seed = (knex) =>
           location: 'Inner Kaiti, Gisborne',
           image_url: JSON.stringify(['v1589182639/qii0trawmlz36czjkxfs.jpg', 'v1589182641/hyg4277qcshsgd2b5tlo.jpg', 'v1589182641/u0zwtz2znhj7jh0dkwhb.jpg', 'v1589182642/rlcnreudgmobjbhjhaxk.jpg', 'v1589182642/iuace4dbwmjnyl1qd3o5.jpg']),
           user_id: 2,
-          category_id: 4
+          category_id: 4,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 36,
@@ -508,7 +578,9 @@ exports.seed = (knex) =>
           location: 'Inner Kaiti, Gisborne',
           image_url: JSON.stringify(['v1589182639/edhjocxxxtcu4xsly0ez.jpg', 'v1589182641/j6xw6hvjcrfpoq5tmnor.jpg', 'v1589182641/sev5lpij8thxbnu45cl3.jpg', 'v1589182642/hruy5wrgpy0xz2jvgrbq.jpg', 'v1589182642/pwrcn9pzvjml4ykd69pf.jpg']),
           user_id: 2,
-          category_id: 5
+          category_id: 5,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 37,
@@ -524,7 +596,9 @@ exports.seed = (knex) =>
             'v1589185694/ajqfy3qidophq8cee1ho.jpg'
           ]),
           user_id: 6,
-          category_id: 3
+          category_id: 3,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 38,
@@ -541,7 +615,9 @@ exports.seed = (knex) =>
             'v1589185882/wtd6tvlmxyzknfq2oa7d.jpg'
           ]),
           user_id: 6,
-          category_id: 10
+          category_id: 10,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 39,
@@ -561,7 +637,9 @@ exports.seed = (knex) =>
             'v1589186176/c6ecrhyglg1xehcipskg.jpg'
           ]),
           user_id: 6,
-          category_id: 8
+          category_id: 8,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 40,
@@ -578,7 +656,9 @@ exports.seed = (knex) =>
             'v1589186356/avdw9i327obntespfm9o.jpg'
           ]),
           user_id: 6,
-          category_id: 3
+          category_id: 3,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 41,
@@ -596,7 +676,9 @@ exports.seed = (knex) =>
             'v1589186691/xywtch3yanwnkylnrxt7.jpg'
           ]),
           user_id: 6,
-          category_id: 1
+          category_id: 1,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 42,
@@ -614,7 +696,9 @@ exports.seed = (knex) =>
             'v1589194613/toys1_yf7ox7.jpg'
           ]),
           user_id: 1,
-          category_id: 10
+          category_id: 10,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 43,
@@ -632,13 +716,16 @@ exports.seed = (knex) =>
             'v1589194780/plates1_yomhes.jpg'
           ]),
           user_id: 1,
-          category_id: 7
+          category_id: 7,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 44,
           name: 'Iphone x cases',
           description: JSON.stringify([
-            'Join the android community went I damaged my iphone x.',
+            'Joined the android community when I damaged my iphone x.',
+            'No use for them anymore.',
             'One is a UAG which is in ok condition.',
             'The other case is a defender I think with normal wear and tear.',
             'Both are my back up cases and still offer good protection.'
@@ -651,7 +738,9 @@ exports.seed = (knex) =>
             'v1589194866/case_nkri5z.jpg'
           ]),
           user_id: 1,
-          category_id: 2
+          category_id: 2,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 45,
@@ -660,7 +749,7 @@ exports.seed = (knex) =>
             ' 2 x playing cards set from Sky City.',
             'Both have been used only once.',
             'Given a few by a friend and have too many.',
-            'Can be a good way to kill some time while in lockdown.'
+            'Can be a good way to kill time for times like in lockdown.'
           ]),
           location: '  Newmarket, Auckland 1023',
           image_url: JSON.stringify([
@@ -669,7 +758,9 @@ exports.seed = (knex) =>
             'v1589195009/card1_ege1xv.jpg'
           ]),
           user_id: 1,
-          category_id: 10
+          category_id: 10,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 46,
@@ -688,7 +779,9 @@ exports.seed = (knex) =>
             'v1589195103/spoke3_carewd.jpg'
           ]),
           user_id: 1,
-          category_id: 7
+          category_id: 7,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 47,
@@ -704,7 +797,9 @@ exports.seed = (knex) =>
             'v1589171042/nc9ovnx4u0ymqcs5gljk.jpg'
           ]),
           user_id: 3,
-          category_id: 1
+          category_id: 1,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 48,
@@ -718,7 +813,9 @@ exports.seed = (knex) =>
             'v1589171043/hakkgr9ok16epum6hwle.jpg'
           ]),
           user_id: 5,
-          category_id: 4
+          category_id: 4,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 49,
@@ -734,7 +831,9 @@ exports.seed = (knex) =>
             'v1589171044/wmontfnfoplnq1arzxp6.jpg'
           ]),
           user_id: 1,
-          category_id: 4
+          category_id: 4,
+          taken: false,
+          date_taken: '12/05/2020'
         },
         {
           id: 50,
@@ -750,7 +849,9 @@ exports.seed = (knex) =>
             'v1589171043/s7jtjul2kv0keai6yrlp.jpg'
           ]),
           user_id: 3,
-          category_id: 1
+          category_id: 1,
+          taken: false,
+          date_taken: '12/05/2020'
         }
       ]))
     .then(() =>
@@ -765,8 +866,155 @@ exports.seed = (knex) =>
         {
           id: 2,
           comment: 'Yes, as per lisitng description.',
-          date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
+          date: 'Tue May 12 2020 10:05:38 GMT+1200 (New Zealand Standard Time)',
           user_id: 4,
           listing_id: 27
+        },
+        {
+          id: 3,
+          comment: 'Can I rename it?',
+          date: 'Tue May 12 2020 11:03:40 GMT+1200 (New Zealand Standard Time)',
+          user_id: 2,
+          listing_id: 40
+        },
+        {
+          id: 4,
+          comment: 'Dont be silly, We don\'t want to confuse her!',
+          date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
+          user_id: 6,
+          listing_id: 40
+        },
+        {
+          id: 5,
+          comment: 'Do you have size 8?',
+          date: 'Tue May 12 2020 11:03:40 GMT+1200 (New Zealand Standard Time)',
+          user_id: 5,
+          listing_id: 41
+        },
+        {
+          id: 6,
+          comment: 'Yeah swing round and pick them up whenever you\'re free!!! JK no I don\'t',
+          date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
+          user_id: 6,
+          listing_id: 41
+        },
+        {
+          id: 7,
+          comment: 'What sound does it make?',
+          date: 'Tue May 12 2020 11:03:40 GMT+1200 (New Zealand Standard Time)',
+          user_id: 2,
+          listing_id: 28
+        },
+        {
+          id: 8,
+          comment: 'BRRRRROOOOOMMMMMMMMMM, scurrrrr *crash* Many horses be warned',
+          date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
+          user_id: 4,
+          listing_id: 28
+        },
+        {
+          id: 9,
+          comment: 'Can I just have one, my other one went for a walk',
+          date: 'Tue May 12 2020 11:03:40 GMT+1200 (New Zealand Standard Time)',
+          user_id: 3,
+          listing_id: 25
+        },
+        {
+          id: 10,
+          comment: '????',
+          date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
+          user_id: 5,
+          listing_id: 25
+        },
+        {
+          id: 11,
+          comment: 'Can I take just one?',
+          date: 'Wed May 13 2020 07:17:28 GMT+1200 (New Zealand Standard Time)',
+          user_id: 3,
+          listing_id: 44
+        },
+        {
+          id: 12,
+          comment: 'How old is the vacuum?  Do you think the parts need to fix will still be available?',
+          date: 'Wed May 13 2020 07:24:29 GMT+1200 (New Zealand Standard Time)',
+          user_id: 5,
+          listing_id: 49
+        },
+        {
+          id: 13,
+          comment: 'Of course you can. Contact me on my mobile so we can do this!',
+          date: 'Wed May 13 2020 07:25:37 GMT+1200 (New Zealand Standard Time)',
+          user_id: 1,
+          listing_id: 44
+        },
+        {
+          id: 14,
+          comment: 'Looks like a fun game! Is it missing anything at all are all contents still there?',
+          date: 'Wed May 13 2020 07:26:44 GMT+1200 (New Zealand Standard Time)',
+          user_id: 4,
+          listing_id: 38
+        },
+        {
+          id: 15,
+          comment: 'Is the screen the only issue? Will it still turn on?',
+          date: 'Wed May 13 2020 07:27:49 GMT+1200 (New Zealand Standard Time)',
+          user_id: 2,
+          listing_id: 4
+        },
+        {
+          id: 16,
+          comment: 'Yeah it does turn on still last time I check. Just one more thing, this is only for the phone. The charger wont come with it. ',
+          date: 'Wed May 13 2020 07:29:01 GMT+1200 (New Zealand Standard Time)',
+          user_id: 3,
+          listing_id: 4
+        },
+        {
+          id: 17,
+          comment: 'Can you add a picture of the tear? ',
+          date: 'Wed May 13 2020 07:35:01 GMT+1200 (New Zealand Standard Time)',
+          user_id: 4,
+          listing_id: 37
+        },
+        {
+          id: 18,
+          comment: 'It is still working right? ',
+          date: 'Wed May 13 2020 07:35:07 GMT+1200 (New Zealand Standard Time)',
+          user_id: 1,
+          listing_id: 48
+        },
+        {
+          id: 19,
+          comment: 'What size is it?',
+          date: 'Wed May 13 2020 07:25:07 GMT+1200 (New Zealand Standard Time)',
+          user_id: 3,
+          listing_id: 32
+        },
+        {
+          id: 20,
+          comment: 'Medium',
+          date: 'Wed May 13 2020 07:32:07 GMT+1200 (New Zealand Standard Time)',
+          user_id: 2,
+          listing_id: 32
+        },
+        {
+          id: 21,
+          comment: 'It is a cool shirt! Are they still available for purchase anywhere? I cant find them online.',
+          date: 'Wed May 13 2020 07:28:07 GMT+1200 (New Zealand Standard Time)',
+          user_id: 6,
+          listing_id: 13
+        },
+        {
+          id: 22,
+          comment: 'I dont think so. Got it from a Big Don Camp I went to years ago.',
+          date: 'Wed May 13 2020 07:45:15 GMT+1200 (New Zealand Standard Time)',
+          user_id: 2,
+          listing_id: 13
+        },
+        {
+          id: 23,
+          comment: 'Yeah it is. Just surplus to requirements now.',
+          date: 'Wed May 13 2020 08:15:35 GMT+1200 (New Zealand Standard Time)',
+          user_id: 5,
+          listing_id: 48
         }
       ]))

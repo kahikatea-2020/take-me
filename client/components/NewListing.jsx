@@ -12,10 +12,10 @@ import Autocomplete from './Autocomplete'
 
 import { showError, hideError } from '../actions/error'
 import { userPending, userSuccess } from '../actions/users'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 class NewListing extends React.Component {
-  constructor (props) {
+  constructor(props) {
     super(props)
     this.state = {
       name: '',
@@ -23,21 +23,22 @@ class NewListing extends React.Component {
       categoryId: '',
       location: '',
       imageUrl: [],
-      userId: this.props.user.id, 
-      show: false
+      userId: this.props.user.id,
+      show: false,
+      checked: false
     }
     this.handleChange = this.handleChange.bind(this)
-  } 
-// 
-  handleChange (evt) {
+  }
+  // 
+  handleChange(evt) {
     this.setState({ [evt.target.name]: evt.target.value })
   }
 
   handleDescriptionChange = (evt) => {
     const arr = evt.target.value.split("\n")
-    this.setState({description: arr})
+    this.setState({ description: arr })
     var spitAddie = this.props.address.split(',')
-    var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
+    var addie = spitAddie[spitAddie.length - 2] + ',' + spitAddie[spitAddie.length - 1]
     this.setState({ location: addie })
   }
 
@@ -68,8 +69,8 @@ class NewListing extends React.Component {
   }
 
   inputChecker = () => {
-    const { name, description } = this.state
-    if(name !== '' && description !== '') {
+    const { name, description, checked } = this.state
+    if (name !== '' && description !== '' && checked === true) {
       return true
     } else {
       return false
@@ -82,10 +83,16 @@ class NewListing extends React.Component {
     }
   }
 
+  checkboxHandler = e => {
+    this.setState({
+      checked: !this.state.checked
+    })
+  }
+
   submitHandler = e => {
     e.preventDefault()
     this.props.dispatch(hideError())
-    if(this.inputChecker()) {
+    if (this.inputChecker()) {
       this.props.dispatch(userPending())
       let categoryId = undefined
       if (this.props.selectedCategory.id && this.props.selectedCategory.id !== 100) {
@@ -93,7 +100,7 @@ class NewListing extends React.Component {
       }
       this.setState({
         categoryId
-        }, () => {
+      }, () => {
         this.props.dispatch(selectedCategoryChange({ id: undefined, name: undefined }))
         if (!this.state.imageUrl[0]) {
           this.setState({
@@ -104,99 +111,102 @@ class NewListing extends React.Component {
                 this.props.dispatch(userSuccess())
                 this.props.history.push(`/listings/${id}`)
               })
+          })
+        } else {
+          addListing(this.state)
+            .then(id => {
+              this.props.dispatch(userSuccess())
+              this.props.history.push(`/listings/${id}`)
             })
-          } else {
-            addListing(this.state)
-              .then(id => {
-                this.props.dispatch(userSuccess())
-                this.props.history.push(`/listings/${id}`)
-              })
-          }
-        })
+        }
+      })
     } else {
       this.props.dispatch(showError('Please fill out all the fields'))
       this.setState({ show: true })
     }
   }
 
-  render () {
+  render() {
     return (
       <>
-        <div id="wrapper" className='new-listing'>
+      {!isAuthenticated() && <Redirect to='/' />}
+        <div className='new-listing'>
 
-        {(isAuthenticated() && (this.props.user.username !== undefined))
-        ?<>
-          <h1>Create a listing</h1>
-          <p>Please fill in the following:</p>
-          <Form>
-            <Form.Input
-              width={6}
-              type='text'
-              name='name'
-              placeholder='Listing Title'
-              onChange={this.handleChange} 
-            />
-            <Autocomplete />
-            <Form.TextArea
-              width={6}
-              type='text'
-              name='description'
-              placeholder='Description'
-              onChange={this.handleDescriptionChange} 
-              onKeyDown={this.handleOnKeyDown}
-            />
-            <CategoryList
-              style={{ marginBottom: '15px' }}
-              history={this.props.history}
-            />
-            <Form.Button type='button' onClick={() => this.imageUpload()}>Upload Image</Form.Button>
-            {this.state.imageUrl[0] &&
-            <div className='imagesPreview'>
-              {this.state.imageUrl.map((img, idx) => {
-              return (
-                <div key={idx} className='singleImagePreview'>
-                  <div>
-                    <img className='theImage' src={`https://res.cloudinary.com/takemenz/image/upload/${img}`}/>
+          {(isAuthenticated() && (this.props.user.username !== undefined))
+            ? <>
+              <h1>Create a listing</h1>
+              <p>Please fill in the following:</p>
+              <Form>
+                <Form.Input
+                  width={6}
+                  type='text'
+                  name='name'
+                  placeholder='Listing Title'
+                  onChange={this.handleChange}
+                />
+                <Autocomplete />
+                <Form.TextArea
+                  width={6}
+                  type='text'
+                  name='description'
+                  placeholder='Description'
+                  onChange={this.handleDescriptionChange}
+                  onKeyDown={this.handleOnKeyDown}
+                />
+                <CategoryList
+                  style={{ marginBottom: '15px' }}
+                  history={this.props.history}
+                  onChange={() => null}
+                />
+                <Form.Button type='button' onClick={() => this.imageUpload()}>Upload Image</Form.Button>
+                {this.state.imageUrl[0] &&
+                  <div className='imagesPreview'>
+                    {this.state.imageUrl.map((img, idx) => {
+                      return (
+                        <div key={idx} className='singleImagePreview'>
+                          <div>
+                            <img className='theImage' src={`https://res.cloudinary.com/takemenz/image/upload/${img}`} />
+                          </div>
+                          <div>
+                            <button onClick={e => {
+                              e.preventDefault()
+                              return this.deleteImage(idx)
+                            }}>
+                              <img
+                                src='/trash-can.png'
+                                alt='delete button'
+                                className='deleteButton'
+                              />
+                            </button>
+                          </div>
+                        </div>
+                      )
+                    })}
                   </div>
-                  <div>
-                    <button onClick={e => {
-                      e.preventDefault()
-                      return this.deleteImage(idx)
-                    }}>
-                      <img
-                        src='/trash-can.png'
-                        alt='delete button'
-                        className='deleteButton'
-                      />
-                    </button>
-                  </div>
-                </div>
-              )})}
-            </div>
-            }
-            <Form.Checkbox required label={<label>I agree to the <a href='/guidelines'>TakeMe Guidelines</a></label>} />
-            <Form.Group>
-              <Link to='/'>
-                <Form.Button>
-                  Cancel
-              </Form.Button>
-              </Link>
-              <Form.Button
-                type='submit'
-                onClick={this.submitHandler}
-              >
-                Submit
-              </Form.Button>
-            </Form.Group>
-          </Form>
-          <SweetAlert
-          show={this.state.show}
-          title="Oops, something went wrong!"
-          text={this.props.error}
-          onConfirm={() => this.setState({ show: false })}
-        />
-        </>
-        :<p>Log in to create a listing</p>}
+                }
+                <Form.Checkbox onChange={this.checkboxHandler} required label={<label>I agree to the <a href='/guidelines'>TakeMe Guidelines</a></label>} />
+                <Form.Group id='new-listing-buttons'>
+                  <Link to='/'>
+                    <Form.Button>
+                      Cancel
+                    </Form.Button>
+                  </Link>
+                  <Form.Button
+                    type='submit'
+                    onClick={this.submitHandler}
+                  >
+                    Submit
+                  </Form.Button>
+                </Form.Group>
+              </Form>
+              <SweetAlert
+                show={this.state.show}
+                title="Oops, something went wrong!"
+                text={this.props.error}
+                onConfirm={() => this.setState({ show: false })}
+              />
+            </>
+            : <p>Log in to create a listing</p>}
         </div>
       </>
     )
