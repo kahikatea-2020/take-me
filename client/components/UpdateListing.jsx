@@ -85,6 +85,17 @@ class UpdateListing extends React.Component {
       .catch(err => console.log(err));
   }
 
+  setStateForSubmit = () => {
+    var spitAddie = this.props.address.split(',')
+    if (spitAddie[spitAddie.length-2]) {
+      var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
+      const address = addie.slice(0, -5)
+      this.setState({ location: address }, this.submitHandler)
+    } else {
+      this.submitHandler()
+    }
+  }
+
   submitHandler = () => {
     this.setState({description: this.state.description.split('\n')}, () => {
       this.props.dispatch(hideError())
@@ -171,7 +182,7 @@ class UpdateListing extends React.Component {
             </Link>
             <Form.Button
               type='submit'
-              onClick={this.submitHandler}
+              onClick={this.setStateForSubmit}
             >
               Submit
             </Form.Button>
@@ -190,6 +201,7 @@ class UpdateListing extends React.Component {
 
 const mapStateToProps = state => {
   return {
+    address: state.autocomplete,
     error: state.error
   }
 }
