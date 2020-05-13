@@ -23,9 +23,9 @@ class Footer extends React.Component {
             <div className="four wide column">
               <div className="ui link list" id="footerLinks">
                 <div className="active item" id="footerHeaders">
-                  <Link className="item" id="footerHeaders" to={`/`}>Home</Link>
+                  Take Me:
                 </div>
-                <Link className="item" id="footerLinks" to={`/about`}>About</Link>
+                <Link className="item" id="footerLinks" to={`/about`}>About us</Link>
                 <Link className="item" id="footerLinks" to={`/guidelines`}>Guidelines</Link>
                 <Link className="item" id="footerLinks" to={`/sign-up`}>Sign Up</Link>
               </div>
@@ -33,7 +33,7 @@ class Footer extends React.Component {
             <div className="four wide column">
               <div className="ui link list" id="footerLinks">
                 <div className="active item" id="footerHeaders">
-                  <Link className="item" id="footerHeaders" to={`/`}>Categories</Link>
+                  Quick Links:
                 </div>
                 <Link className="item" id="footerLinks" to={`/`}>Latest Listings</Link>
                 <Link className="item" id="footerLinks" to={`/login`}>By Location</Link>
