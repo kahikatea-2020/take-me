@@ -168,7 +168,10 @@ class EditProfile extends React.Component {
           {(this.state.uploadedImage) &&
             <div className='imagesPreview'>
               <div className='singleImagePreview'>
-                <div style={{height: '40px', width: '40px', marginLeft: '110px'}}>
+                <div>
+                  <img className='theImage' src={`https://res.cloudinary.com/takemenz/image/upload/${this.state.imageUrl}`}/>
+                </div>
+                <div style={{height: '40px', width: '40px', marginLeft: '10px'}}>
                   <button onClick={e => {
                     e.preventDefault()
                     return this.deleteImage()
@@ -179,9 +182,6 @@ class EditProfile extends React.Component {
                       className='deleteButton'
                     />
                   </button>
-                </div>
-                <div>
-                  <img className='theImage' src={`https://res.cloudinary.com/takemenz/image/upload/${this.state.imageUrl}`}/>
                 </div>
               </div>
             </div>
