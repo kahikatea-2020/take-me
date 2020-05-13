@@ -154,7 +154,7 @@ class Listing extends React.Component {
                             icon: 'error'
                           })
                         }})} basic color='blue'>
-                    Mark as taken
+                    Mark as Taken
                   </Button>
                   }
                 </div>

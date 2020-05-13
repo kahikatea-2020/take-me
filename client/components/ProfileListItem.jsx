@@ -71,7 +71,7 @@ class ListItem extends React.Component {
                       icon: 'error'
                     })
                   }})}>
-                Mark as taken
+                Mark as Taken
               </Button>
             </div>
           }
