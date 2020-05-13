@@ -7,7 +7,7 @@ import { connect } from 'react-redux'
 import { showError, hideError } from '../actions/error'
 import SweetAlert from 'sweetalert2-react'
 
-
+import { getUserDetails } from '../actions/users'
 import Autocomplete from './Autocomplete'
 import { editUser, getUserById } from '../api/users'
 
@@ -79,8 +79,10 @@ class EditProfile extends React.Component {
       [e.target.name]: e.target.value
     })
     var spitAddie = this.props.address.split(',')
-    var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
-    this.setState({ location: addie })
+    if (spitAddie[spitAddie.length-2]) {
+      var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
+      this.setState({ location: addie })
+    }
   }
 
   inputChecker = event => {
@@ -102,7 +104,7 @@ class EditProfile extends React.Component {
     this.setState({ location: addie })
     if(this.props.user.id === Number(this.props.match.params.id)){
       this.props.dispatch(hideError())
-      if(this.inputChecker()){
+      if(!this.inputChecker()){
         // this.props.dispatch(showError('Please fill out all the fields'))
         // this.setState({ show: true })
         if(this.state.location == ''){
@@ -117,6 +119,7 @@ class EditProfile extends React.Component {
       } else {
         editUser(this.state)
           .then(() => {
+            this.props.dispatch(getUserDetails())
             this.props.history.push(`/profile/${this.props.match.params.id}`)
           })
           .catch(err => {

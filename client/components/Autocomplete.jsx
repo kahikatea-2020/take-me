@@ -19,6 +19,9 @@ class Autocomplete extends Component {
 
   onChange = e => {
     e.persist()
+    if (!this.state.userTyping) {
+      this.setState({ userTyping: true })
+    }
     this.setState({ userInput: e.currentTarget.value })
     const userInput = e.currentTarget.value
     if (userInput.length > 2) {
@@ -52,9 +55,6 @@ class Autocomplete extends Component {
 
   onKeyDown = e => {
     const { activeSuggestion, filteredSuggestions } = this.state
-    if (!this.state.userTyping) {
-      this.setState({ userTyping: true })
-    }
     if (e.keyCode === 13) {
       this.setState({
         activeSuggestion: 0,
