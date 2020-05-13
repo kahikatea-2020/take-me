@@ -5,6 +5,32 @@ Object {
   "asFragment": [Function],
   "baseElement": <body>
     <div>
+      <div
+        id="wrapper"
+      >
+        <h1
+          style="color: red;"
+        >
+          Page not found!
+        </h1>
+        <p>
+          Sorry, we can't find the page you requested.
+        </p>
+        <p>
+          You may have clicked on a broken link or entered an incorrect URL.
+        </p>
+        <a
+          href="/"
+        >
+          Home
+        </a>
+      </div>
+    </div>
+  </body>,
+  "container": <div>
+    <div
+      id="wrapper"
+    >
       <h1
         style="color: red;"
       >
@@ -22,24 +48,6 @@ Object {
         Home
       </a>
     </div>
-  </body>,
-  "container": <div>
-    <h1
-      style="color: red;"
-    >
-      Page not found!
-    </h1>
-    <p>
-      Sorry, we can't find the page you requested.
-    </p>
-    <p>
-      You may have clicked on a broken link or entered an incorrect URL.
-    </p>
-    <a
-      href="/"
-    >
-      Home
-    </a>
   </div>,
   "debug": [Function],
   "findAllByAltText": [Function],
