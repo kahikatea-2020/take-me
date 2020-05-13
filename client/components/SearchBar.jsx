@@ -4,6 +4,7 @@ import { connect } from 'react-redux'
 import { Button, Search, Menu, Form } from 'semantic-ui-react'
 
 import { getCategories } from '../actions/categories'
+import { getListings } from '../actions/listings'
 
 const initialState = { isLoading: false, results: [], value: '' }
 
@@ -16,6 +17,7 @@ class SearchBar extends Component {
   }
 
   componentDidMount () {
+    this.props.dispatch(getListings())
     this.props.dispatch(getCategories())
   }
 
@@ -27,16 +29,26 @@ class SearchBar extends Component {
     setTimeout(() => {
       if (this.state.value.length < 1) return this.setState(initialState)
       const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
-      const isMatch = (result) => re.test(result.title)
-      let filteredResults = this.props.listings.filter(listing => !listing.taken)
+      const isMatch = (result) => re.test(result.name)
+      let filteredResults = this.props.items
+      filteredResults = filteredResults.filter(listing => !listing.taken)
       if (this.state.category.id) {
         if (this.state.category.id !== 100) {
-          filteredResults = this.props.listings.filter(listing => listing.categoryId === this.state.category.id)
+          filteredResults = filteredResults.filter(listing => listing.categoryId === this.state.category.id)
         }
       }
+      const filtered = _.filter(filteredResults, isMatch)
+      console.log('filtered', filtered)
+      const matches = filtered.map(listing => ({
+        title: listing.name,
+        image: `https://res.cloudinary.com/takemenz/image/upload/${listing.imageUrl[0]}`,
+        id: listing.id,
+        categoryId: listing.categoryId
+      }))
+      console.log(matches)
       this.setState({
         isLoading: false,
-        results: _.filter(filteredResults, isMatch)
+        results: matches
       }) 
     }, 300)
   }
