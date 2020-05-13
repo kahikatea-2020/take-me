@@ -2,7 +2,7 @@ import React from 'react'
 import { Form } from 'semantic-ui-react'
 import { openUploadWidget } from './CloudinaryService'
 import { isAuthenticated } from 'authenticare/client'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { showError, hideError } from '../actions/error'
 import SweetAlert from 'sweetalert2-react'
@@ -140,6 +140,7 @@ class EditProfile extends React.Component {
   render () {
     return (
       <>
+        {!isAuthenticated() && <Redirect to='/' />}
         {isAuthenticated() &&
         <Form>
           <label><strong>Address</strong></label>
