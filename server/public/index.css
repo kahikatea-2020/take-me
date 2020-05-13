@@ -301,13 +301,193 @@ div.field button.ui.button {
   margin-top: 20%;
 }
 
+/* about page */
+
 .about {
-  min-height: 100vh;
   display: flex;
-  align-items: left;
+  align-items: center;
   flex-direction: column;
   justify-content: center;
 }
+
+.aboutLogo img {
+  width: 40%;
+}
+
+.aboutHero {
+  height: 100vh;
+  display: flex;
+  align-items: left;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.aboutHeroText h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 5.5em;
+}
+
+.aboutHeroText {
+  width: 90%;
+}
+
+.aboutHeroText p {
+  font-family: "Futura-Medium";
+  letter-spacing: -1px;
+  
+  font-size: 1.7em;
+}
+
+.aboutHero h1 {
+  font-family: "Futura-Medium";  
+  font-size: 1.8em;
+}
+
+.aboutSections{
+  min-height: 70vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: left;
+  font-family: "Futura-Normal";
+  font-size: 1.5em;  
+  letter-spacing: -1px;
+}
+
+#photoCard {
+  min-height: 35vh;
+  padding-top: 3em;
+}
+
+#aboutSection2 h2 {
+  text-align: center;
+}
+
+#testDivo {
+ min-height: 33vh; 
+ display: flex;
+ flex-direction: row;
+ align-items: center;
+ justify-content: space-evenly;
+}
+
+#testDivo img {
+  width: 45%;
+  object-fit: cover;
+
+}
+
+#aboutCardHeader {
+  width: 45%;
+}
+
+#testDivo h3 {
+  font-size: 1.5em;
+}
+
+
+
+#aboutList {
+  margin-left: 2em;
+}
+
+#aboutListItem {
+  margin-bottom: 1em;
+}
+
+#aboutSecHeaders {
+  font-family: "Futura-medium";
+  font-size: 1em;
+}
+
+
+.aboutSections h2{
+  font-family: "Futura-Bold";
+  font-size: 1.7em;
+}
+
+.takemeTeam {
+  width: 25%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1em;
+}
+
+#teamWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.teamPics {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+#teamSegment{
+  text-align: center;
+  width: 100%;
+}
+
+#teamSegment p{
+  font-size: 1.2em;
+}
+
+#thanks {
+  font-family: "Futura-Bold";
+  text-align: center;
+  font-size: 3emgi;
+}
+
+#takeme2nd {
+  font-family: "Futura-Bold";
+  letter-spacing: -2px;
+  word-spacing: -1px;
+  margin-left: 2px;
+}
+
+@font-face {
+  font-family: "Futura-Bold";
+  src: url("./fonts/Futura-Bold.woff") format("woff"), /* Modern Browsers */
+    url("./fonts/Futura-Bold.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Futura-Light";
+
+  src: url("./fonts/Futura-Light.woff") format("woff"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: "Futura-Medium";
+
+  src: url("./fonts/Futura-Medium.woff") format("woff"), /* Modern Browsers */
+    url("./fonts/Futura-Medium.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* font converted using font-converter.net. thank you! */
+@font-face {
+  font-family: "Futura-Normal";
+
+  src: url("./fonts/Futura-Normal.woff") format("woff"), /* Modern Browsers */
+    url("./fonts/Futura-Normal.woff2") format("woff2"); /* Modern Browsers */
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* end of about */
 
 .search div.field {
   width: 100%;
