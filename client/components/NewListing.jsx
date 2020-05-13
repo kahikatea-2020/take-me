@@ -129,7 +129,7 @@ class NewListing extends React.Component {
   render() {
     return (
       <>
-      {!isAuthenticated() && <Redirect to='/' />}
+      {!isAuthenticated() && <Redirect to='/login' />}
         <div className='new-listing'>
 
           {(isAuthenticated() && (this.props.user.username !== undefined))
