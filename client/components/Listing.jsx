@@ -211,12 +211,12 @@ class Listing extends React.Component {
           </div>
         }
         {isAuthenticated() && 
-          <Form>
+          <Form id='q-a-form'>
             {(this.props.user.id === listing.userId)
             ? (this.state.comments.length > 0)
-              ? <label>Reply or Add a Comment</label>
-              : <label>Add a Comment</label>
-            : <label>Ask a Question</label>
+              ? <label>Reply or add a comment</label>
+              : <label>Add a comment</label>
+            : <label>Ask a question</label>
             }
             <Form.Input
               onKeyUp={this.updateField}

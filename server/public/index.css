@@ -527,6 +527,8 @@ div.ui.blue.inverted.search.menu {
   color: #888888 !important;
 }
 
+/* START OF INPUT TYPE=NUMBER STYLING */
+
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -538,3 +540,21 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
+
+/* END OF INPUT TYPE=NUMBER STYLING */
+
+/* START OF Q&A STYLING */
+#q-a-form label {
+  font-weight: bold;
+  font-size: 115%;
+  margin-bottom: 15px;
+}
+
+#q-a-form {
+  padding: 50px 0 10px 0;
+}
+
+#q-a-form input {
+  margin-top: 10px;
+}
+/* END OF Q&A STYLING */
