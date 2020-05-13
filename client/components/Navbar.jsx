@@ -44,14 +44,14 @@ class Navbar extends React.Component {
                     text: 'Are you sure you want to log out?',
                     icon: 'warning',
                     showCancelButton: true,
-                    confirmButtonText: 'Log Out',
-                    cancelButtonText: 'No, Stay'
+                    confirmButtonText: 'Log out',
+                    cancelButtonText: 'No, stay'
                 }).then((result) => {
                   if (result.value) {
                     logOff()
                     this.props.history.push('/')
                     Swal.fire({
-                      title: 'Logged Out!',
+                      title: 'Logged out!',
                       text: 'You have been successfully logged out',
                       icon: 'success'
                     })

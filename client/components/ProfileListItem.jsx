@@ -87,13 +87,13 @@ class ListItem extends React.Component {
                     this.handleDelete(listing.id)
                     Swal.fire({
                       title: 'Deleted!',
-                      text: 'Your file has been deleted.',
+                      text: 'Your file has been deleted',
                       icon: 'success'
                     })
                   } else {
                     Swal.fire({
                       title: 'Cancelled',
-                      text: 'Your listing is safe.',
+                      text: 'Your listing is safe',
                       icon: 'error'
                     })
                   }

@@ -31,7 +31,7 @@ class Error extends React.Component {
               </div>
 
               <div className="errorMessage">
-                <div><h2>An Error has Occured</h2></div>
+                <div><h2>An error has occured</h2></div>
                 <p>{this.props.error}</p>
                 <div className="errButton" onClick={this.handleClick}><div className="closeErr" unselectable="on">x</div></div>
                 <div className="errAnimate"></div>
