@@ -14,7 +14,7 @@ import { editUser, getUserById } from '../api/users'
 class EditProfile extends React.Component {
   state = {
     emailAddress: '',
-    phoneNumber: null,
+    phoneNumber: '',
     imageUrl: '',
     uploadedImage: true,
     location: '',
@@ -86,8 +86,8 @@ class EditProfile extends React.Component {
   }
 
   inputChecker = event => {
-    const { firstName, lastName, emailAddress, phoneNumber, location } = this.state
-    if(firstName !== '' && lastName !== '' && emailAddress !== '' && location !== '') {
+    const { emailAddress, phoneNumber, location } = this.state
+    if(emailAddress !== '' && location !== '') {
       if(phoneNumber !== '' || phoneNumber !== null){
         return false
       } else {
@@ -100,20 +100,24 @@ class EditProfile extends React.Component {
 
   submitHandler = e => {
     var spitAddie = this.props.address.split(',')
-    var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
-    this.setState({ location: addie })
-    if(this.props.user.id === Number(this.props.match.params.id)){
+    if (spitAddie[spitAddie.length-2]) {
+      var addie = spitAddie[spitAddie.length-2] + ',' + spitAddie[spitAddie.length-1]
+      this.setState({ location: addie })
+    }
+    console.log('hi')
+    if(this.props.user.id === Number(this.props.match.params.id)) {
+      console.log('hii')
       this.props.dispatch(hideError())
-      if(!this.inputChecker()){
+      if(this.inputChecker()){
         // this.props.dispatch(showError('Please fill out all the fields'))
         // this.setState({ show: true })
-        if(this.state.location == ''){
+        if(this.state.location === ''){
           this.setState({location: this.state.user.location})
         }
-        if(this.state.phoneNumber == ''){
+        if(this.state.phoneNumber === ''){
           this.setState({phoneNumber: this.state.user.phoneNumber})
         }
-        if(this.state.emailAddress == ''){
+        if(this.state.emailAddress === ''){
           this.setState({emailAddress: this.state.user.emailAddress})
         }
       } else {
@@ -158,8 +162,8 @@ class EditProfile extends React.Component {
             placeholder='Phone Number'
             label='Phone Number'
             value={this.state.phoneNumber || null}
-            type='number'
-            onKeyUp={this.updateField}
+            type='text'
+            onChange={this.updateField}
             autoComplete='off'
           />
           <Form.Button
