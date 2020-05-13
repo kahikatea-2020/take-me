@@ -28,7 +28,7 @@ class SearchBar extends Component {
       if (this.state.value.length < 1) return this.setState(initialState)
       const re = new RegExp(_.escapeRegExp(this.state.value), 'i')
       const isMatch = (result) => re.test(result.title)
-      let filteredResults = this.props.listings
+      let filteredResults = this.props.listings.filter(listing => !listing.taken)
       if (this.state.category.id) {
         if (this.state.category.id !== 100) {
           filteredResults = this.props.listings.filter(listing => listing.categoryId === this.state.category.id)
