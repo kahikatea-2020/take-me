@@ -7,9 +7,10 @@ class Error404 extends React.Component {
     return (
       <div id='wrapper'>
         <h1 style={{ color: 'red' }}>Page not found!</h1>
-        <p>Sorry, we can't find the page you requested.</p>
-        <p>You may have clicked on a broken link or entered an incorrect URL.</p>
-        <Link to='/'>Home</Link>
+        <h2>Sorry, we can't find the page you requested.</h2>
+        <h3>You may have clicked on a broken link or entered an incorrect URL.</h3>
+        <Button id='home' as={Link} to='/' >Home</Button>
+        <Button id='home' as='a' onClick={() => this.props.history.goBack()} to='/' >Back</Button>
       </div>
     )
   }
