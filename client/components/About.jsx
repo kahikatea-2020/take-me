@@ -75,6 +75,7 @@ class About extends React.Component {
           responsibility to look after our planet. This site can help you reduce how much rubbish you produce and make someone else happy by doing so!
           </p>
         </div>
+        <h4 id="thanks">Thank you!</h4>
         <div className="aboutSections" id="teamWrapper">
           <div className="teamPics">
             <div className="takemeTeam">
@@ -130,7 +131,7 @@ class About extends React.Component {
               Mathias Bast
               </Header>
               <Segment attached id="teamSegment">
-                <h4>Git Lead</p>
+                <p>Git Lead</p>
               </Segment>
             </div>
           </div>

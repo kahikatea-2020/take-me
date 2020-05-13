@@ -389,6 +389,12 @@ div.field button.ui.button {
   font-size: 1.2em;
 }
 
+#thanks {
+  font-family: "Futura-Bold";
+  text-align: center;
+  font-size: 3emgi;
+}
+
 #takeme2nd {
   font-family: "Futura-Bold";
   letter-spacing: -2px;
