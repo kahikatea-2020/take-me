@@ -142,7 +142,7 @@ class EditProfile extends React.Component {
             name='emailAddress'
             placeholder='Email Address'
             label='Email Address'
-            value={this.state.emailAddress}
+            value={this.state.emailAddress || ''}
             type='text'
             onChange={this.updateField}
             autoComplete='off'
@@ -153,7 +153,7 @@ class EditProfile extends React.Component {
             name='phoneNumber'
             placeholder='Phone Number'
             label='Phone Number'
-            value={this.state.phoneNumber}
+            value={this.state.emailAddress || ''}
             type='number'
             onKeyUp={this.updateField}
             autoComplete='off'
