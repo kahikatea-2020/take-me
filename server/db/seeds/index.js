@@ -901,7 +901,7 @@ exports.seed = (knex) =>
         },
         {
           id: 4,
-          comment: 'Dont be silly, We don\'t want to confuse her!',
+          comment: 'Don\'t be silly, we don\'t want to confuse her!',
           date: 'Tue May 12 2020 11:05:38 GMT+1200 (New Zealand Standard Time)',
           user_id: 6,
           listing_id: 40
