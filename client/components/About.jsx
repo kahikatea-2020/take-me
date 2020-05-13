@@ -83,7 +83,7 @@ class About extends React.Component {
               Lache Melvin
               </Header>
               <Segment attached id="teamSegment">
-              Vibes lead
+                <p>Vibes lead</p>
               </Segment>
             </div>
             <div className="takemeTeam">
@@ -92,7 +92,7 @@ class About extends React.Component {
               Ellora Virtue
               </Header>
               <Segment attached id="teamSegment">
-              Scrum Master
+                <p>Scrum Master</p>
               </Segment>
             </div>
             <div className="takemeTeam">
@@ -101,7 +101,7 @@ class About extends React.Component {
             John Sengson
               </Header>
               <Segment attached id="teamSegment">
-              Product Owner
+                <p>Product Owner</p>
               </Segment>
             </div>
           </div>
@@ -112,7 +112,7 @@ class About extends React.Component {
               Pat Lim
               </Header>
               <Segment attached id="teamSegment">
-              Back-end Lead
+                <p>Back-end Lead</p>
               </Segment>
             </div>
             <div className="takemeTeam">
@@ -121,7 +121,7 @@ class About extends React.Component {
              Hamish Henare
               </Header>
               <Segment attached id="teamSegment">
-              Front-end Lead
+                <p>Front-end Lead</p>
               </Segment>
             </div>
             <div className="takemeTeam">
@@ -130,16 +130,7 @@ class About extends React.Component {
               Mathias Bast
               </Header>
               <Segment attached id="teamSegment">
-              Git Lead
-              </Segment>
-            </div>
-            <div className="takemeTeam">
-              <Image src='./team/mascot-12.png' size='medium' circular />
-              <Header as='h2' attached='top' id="teamSegment">
-              Takeme squid
-              </Header>
-              <Segment attached id="teamSegment">
-              Team Leader
+                <h4>Git Lead</p>
               </Segment>
             </div>
           </div>
