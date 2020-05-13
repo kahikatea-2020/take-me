@@ -61,6 +61,9 @@ class SearchBar extends Component {
   }
 
   render () {
+    let searchProps = {...this.props}
+    delete searchProps['dispatch']
+
     const { isLoading, value, results } = this.state
     const storeCategories = this.props.categories.map(category => ({
       key: category.id,
@@ -98,7 +101,7 @@ class SearchBar extends Component {
             placeholder='Search Listings...'
             results={results}
             value={value}
-            {...this.props}
+            {...searchProps}
           />
         </Menu.Item>
       </Menu>

@@ -2,23 +2,18 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { isAuthenticated } from 'authenticare/client'
 import { Card, Button, Image, Header, Grid } from 'semantic-ui-react'
-import Swal from 'sweetalert2'
-import withReactContent from 'sweetalert2-react-content'
+
 import { Link } from 'react-router-dom'
 
 import WaitIndicator from './WaitIndicator'
-import ListItem from './ListItem'
+import ProfileListItem from './ProfileListItem'
 
 import { getUserById } from '../api/users'
-import { userPending, userSuccess, getUserDetails } from '../actions/users'
 import { getUsersListings } from '../actions/listings'
-import { deleteListingById, markAsTaken } from '../api/listings'
-
-const MySwal = withReactContent(Swal)
 
 class Profile extends React.Component {
   state = {
-    profile: {},
+    profile: {}
   }
 
   componentDidMount () {
@@ -48,22 +43,6 @@ class Profile extends React.Component {
     }
   }
 
-  handleTaken = (id) => {
-    markAsTaken(id)
-      .then(res => {
-        if (res === 'success') {
-          this.props.dispatch(getUsersListings(this.props.match.params.id))
-        }
-      })
-  }
-
-  handleDelete = id => {
-    this.props.dispatch(userPending())
-    deleteListingById(id)
-      .then (() => {
-        this.props.dispatch(getUsersListings(this.props.match.params.id))
-      })
-  }
   render () {
     const { profile } = this.state
     const listing = this.props.usersListings.map(listing => ({
@@ -97,117 +76,29 @@ class Profile extends React.Component {
             </div>
           </div>
         </div>
-        <div>
-        {isAuthenticated() && this.props.user.id === profile.id 
+        
+        { isAuthenticated() && (this.props.user.id === profile.id)
           ? <h2>Your Current Listings</h2>
-          : <h2>Current Listings from {profile.firstName}</h2>}
-          <Card.Group itemsPerRow={4} className='centered'>
-          <>
-          {currentListings.length !== 0 
-            ? currentListings.map(userListing => {
-              return <div className="ui card" key={userListing.id}>
-              <ListItem key={userListing.id} listing={userListing} />
-              {
-                isAuthenticated() && this.props.user.id === profile.id && <>
-                  <div className='ui two buttons'>
-                    <Button name={listing.id} onClick={() => Swal.fire({
-                      title: 'Wait!',
-                      text: 'Are you sure you want to mark this item as taken?',
-                      icon: 'warning',
-                      confirmButtonText: 'Yes, it is taken',
-                      cancelButtonText: 'No, keep it listed',
-                      showCancelButton: true
-                      }).then((result) => {
-                        if (result.value) {
-                          this.handleTaken(userListing.id)
-                          Swal.fire({
-                            title: 'Taken!',
-                            text: 'Your item has been marked as taken',
-                            icon: 'success'
-                          })
-                        } else {
-                          Swal.fire({
-                            title: 'Cancelled',
-                            text: 'Your listing is still active',
-                            icon: 'error'
-                          })
-                        }})} basic color='blue'>
-                    Mark as taken
-                  </Button>
-                  </div>
-                  <div className='ui two buttons'>
-                    <Button as='a' to={`/update-listing/${userListing.id}`} basic color='blue'>Update</Button>
-                    <Button onClick={() => Swal.fire({
-                      title: 'Wait!',
-                      text: 'Are you sure you want to delete this item?',
-                      icon: 'warning',
-                      showCancelButton: true,
-                      confirmButtonText: 'Yes, delete it',
-                      cancelButtonText: 'No, keep it'
-                      }).then((result) => {
-                        if (result.value) {
-                          this.handleDelete(userListing.id)
-                          Swal.fire({
-                            title: 'Deleted!',
-                            text: 'Your file has been deleted.',
-                            icon: 'success'
-                          })
-                        } else {
-                          Swal.fire({
-                            title: 'Cancelled',
-                            text: 'Your listing is safe.',
-                            icon: 'error'
-                          })
-                        }
-                    })} basic color='red'>Delete</Button>
-                  </div>
-                  </>
-              }
-              </div> 
-            })
-            : <p>This user has no current listings</p>
-          }
-          {takenListings.length !== 0  &&
-            <div style={{display: 'block'}}>
-              <h2>Previous Listings</h2>
-              {takenListings.map(userListing => {
-                return <div className="ui card" key={userListing.id}>
-                <ListItem key={userListing.id} listing={userListing} />
-                {
-                  isAuthenticated() && this.props.user.id === profile.id &&
-                    <div className='ui two buttons'>
-                      <Button onClick={() => Swal.fire({
-                        title: 'Wait!',
-                        text: 'Are you sure you want to delete this item?',
-                        icon: 'warning',
-                        showCancelButton: true,
-                        confirmButtonText: 'Yes, delete it',
-                        cancelButtonText: 'No, keep it'
-                        }).then((result) => {
-                          if (result.value) {
-                            this.handleDelete(userListing.id)
-                            Swal.fire({
-                              title: 'Deleted!',
-                              text: 'Your file has been deleted.',
-                              icon: 'success'
-                            })
-                          } else {
-                            Swal.fire({
-                              title: 'Cancelled',
-                              text: 'Your listing is safe.',
-                              icon: 'error'
-                            })
-                          }
-                      })} basic color='red'>Delete</Button>
-                    </div>
-                  }
-                  </div> 
-              })}
-              </div>
-          }
-          </>
-          </Card.Group>
-        </div>
+          : <h2>Current Listings from {profile.firstName}</h2>
+        }
+          
+        { (currentListings.length !== 0)
+          ? <Card.Group itemsPerRow={4} className='centered'>
+              {currentListings.map(userListing => <ProfileListItem key={userListing.id} listing={userListing} current={true} authenticated={isAuthenticated() && (this.props.user.id === profile.id)}/>)}
+            </Card.Group>
+          : <p>This user has no current listings</p>
+        }
+          
+        <h2>Previous Listings</h2>
+        <Card.Group itemsPerRow={4} className='centered'>
+        { (takenListings.length !== 0)
+          ? <Card.Group itemsPerRow={4} className='centered'>
+              {takenListings.map(userListing => <ProfileListItem key={userListing.id} listing={userListing} current={false} authenticated={isAuthenticated() && (this.props.user.id === profile.id)}/>)}
+            </Card.Group>
+        : <p>This user has no previous listings</p>
+        }
+        </Card.Group>
+
         <WaitIndicator />
       </>
     )
