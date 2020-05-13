@@ -129,7 +129,7 @@ class NewListing extends React.Component {
   render() {
     return (
       <>
-        <div id="wrapper" className='new-listing'>
+        <div className='new-listing'>
 
           {(isAuthenticated() && (this.props.user.username !== undefined))
             ? <>

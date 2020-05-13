@@ -131,7 +131,7 @@ class EditProfile extends React.Component {
 
   render () {
     return (
-      <div id='wrapper'>
+      <>
         {isAuthenticated() &&
         <Form>
           <label><strong>Address</strong></label>
@@ -206,7 +206,7 @@ class EditProfile extends React.Component {
           text={this.props.error}
           onConfirm={() => this.setState({ show: false })}
         />
-      </div>
+      </>
     )
   }
 }
