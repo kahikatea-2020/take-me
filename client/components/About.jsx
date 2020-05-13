@@ -75,69 +75,73 @@ class About extends React.Component {
           responsibility to look after our planet. This site can help you reduce how much rubbish you produce and make someone else happy by doing so!
           </p>
         </div>
-        <div className="aboutSections">
-          <div className="takemeTeam">
-            <Image src='./team/lache.png' size='medium' circular />
-            <Header as='h2' attached='top' id="teamSegment">
+        <div className="aboutSections" id="teamWrapper">
+          <div className="teamPics">
+            <div className="takemeTeam">
+              <Image src='./team/lache.png' size='medium' circular />
+              <Header as='h2' attached='top' id="teamSegment">
               Lache Melvin
-            </Header>
-            <Segment attached id="teamSegment">
+              </Header>
+              <Segment attached id="teamSegment">
               Vibes lead
-            </Segment>
-          </div>
-          <div className="takemeTeam">
-            <Image src='./team/ellora.jpg' size='medium' circular />
-            <Header as='h2' attached='top' id="teamSegment">
+              </Segment>
+            </div>
+            <div className="takemeTeam">
+              <Image src='./team/ellora.jpg' size='medium' circular />
+              <Header as='h2' attached='top' id="teamSegment">
               Ellora Virtue
-            </Header>
-            <Segment attached id="teamSegment">
-              Vibes lead
-            </Segment>
-          </div>
-          <div className="takemeTeam">
-            <Image src='./team/john.jpg' size='medium' circular />
-            <Header as='h2' attached='top' id="teamSegment">
+              </Header>
+              <Segment attached id="teamSegment">
+              Scrum Master
+              </Segment>
+            </div>
+            <div className="takemeTeam">
+              <Image src='./team/john.jpg' size='medium' circular />
+              <Header as='h2' attached='top' id="teamSegment">
             John Sengson
-            </Header>
-            <Segment attached id="teamSegment">
+              </Header>
+              <Segment attached id="teamSegment">
               Product Owner
-            </Segment>
+              </Segment>
+            </div>
           </div>
-          <div className="takemeTeam">
-            <Image src='./team/pat.jpg' size='medium' circular />
-            <Header as='h2' attached='top' id="teamSegment">
-              Lache Melvin
-            </Header>
-            <Segment attached id="teamSegment">
-              Vibes lead
-            </Segment>
-          </div>
-          <div className="takemeTeam">
-            <Image src='./team/hamish.jpg' size='medium' circular />
-            <Header as='h2' attached='top' id="teamSegment">
-              Lache Melvin
-            </Header>
-            <Segment attached id="teamSegment">
-              Vibes lead
-            </Segment>
-          </div>
-          <div className="takemeTeam">
-            <Image src='./team/lache.png' size='medium' circular />
-            <Header as='h2' attached='top' id="teamSegment">
-              Lache Melvin
-            </Header>
-            <Segment attached id="teamSegment">
-              Vibes lead
-            </Segment>
-          </div>
-          <div className="takemeTeam">
-            <Image src='./team/lache.png' size='medium' circular />
-            <Header as='h2' attached='top' id="teamSegment">
-              Lache Melvin
-            </Header>
-            <Segment attached id="teamSegment">
-              Vibes lead
-            </Segment>
+          <div className="teamPics">
+            <div className="takemeTeam">
+              <Image src='./team/pat.jpg' size='medium' circular />
+              <Header as='h2' attached='top' id="teamSegment">
+              Pat Lim
+              </Header>
+              <Segment attached id="teamSegment">
+              Back-end Lead
+              </Segment>
+            </div>
+            <div className="takemeTeam">
+              <Image src='./team/hamish.jpg' size='medium' circular />
+              <Header as='h2' attached='top' id="teamSegment">
+             Hamish Henare
+              </Header>
+              <Segment attached id="teamSegment">
+              Front-end Lead
+              </Segment>
+            </div>
+            <div className="takemeTeam">
+              <Image src='./team/mathias.jpg' size='medium' circular />
+              <Header as='h2' attached='top' id="teamSegment">
+              Mathias Bast
+              </Header>
+              <Segment attached id="teamSegment">
+              Git Lead
+              </Segment>
+            </div>
+            <div className="takemeTeam">
+              <Image src='./team/mascot-12.png' size='medium' circular />
+              <Header as='h2' attached='top' id="teamSegment">
+              Takeme squid
+              </Header>
+              <Segment attached id="teamSegment">
+              Team Leader
+              </Segment>
+            </div>
           </div>
         </div>
       </>

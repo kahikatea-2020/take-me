@@ -365,6 +365,20 @@ div.field button.ui.button {
   justify-content: center;
 }
 
+#teamWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.teamPics {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
 #teamSegment{
   text-align: center;
   width: 100%
