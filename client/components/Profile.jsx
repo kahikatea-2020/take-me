@@ -73,16 +73,16 @@ class Profile extends React.Component {
             </div>
             <div className="column left aligned row">
               <div className='row'>
-                {(isAuthenticated() && (this.props.user.id === profile.id)) &&
-                  <Button id='edit-profile' as={Link} to={`/edit-profile/${profile.id}`} basic color='blue'>Edit Profile</Button>
-                }
                 <div style={{ verticalAlign: 'middle' }}>
                   <h2 style={{ marginBottom: '0px' }}>{profile.firstName} {profile.lastName}</h2>
-                <em>{profile.username}</em><br />
-                <br />
-                <p>Email: {profile.email}</p>
-                <p>Phone Number: {profile.phoneNumber}</p>
-                <p>Location: {profile.location}</p>
+                  <em>{profile.username}</em><br />
+                  <br />
+                  <p>Email: {profile.email}</p>
+                  <p>Phone Number: {profile.phoneNumber}</p>
+                  <p>Location: {profile.location}</p>
+                  {(isAuthenticated() && (this.props.user.id === profile.id)) &&
+                    <Button id='edit-profile' as={Link} to={`/edit-profile/${profile.id}`} basic color='blue'>Edit Profile</Button>
+                  }
                 </div>
               </div>
             </div>
