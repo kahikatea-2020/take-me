@@ -141,7 +141,7 @@ class UpdateListing extends React.Component {
             onChange={this.handleDescriptionChange}
             value={this.state.description}
           />
-          <Autocomplete />
+          <Autocomplete prevAddress={this.state.location} />
           <Form.Button onClick={() => this.imageUpload()}>
             Upload Image
           </Form.Button>
