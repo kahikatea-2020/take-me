@@ -78,10 +78,13 @@ exports.seed = (knex) =>
           description: JSON.stringify([
             'Broken - screen cracked.',
             'Got a new phone and dont want to spend for fixing.',
-            'Good for parts.'
+            'Still turns on last time I checked',
+            'Get fix or good for parts.'
           ]),
           location: 'Queenstown',
-          image_url: JSON.stringify(['v1588967332/brokenphone_q5dkym.jpg']),
+          image_url: JSON.stringify([
+            'v1588967332/brokenphone_q5dkym.jpg'
+          ]),
           user_id: 3,
           category_id: 2,
           taken: false,
@@ -126,7 +129,11 @@ exports.seed = (knex) =>
             'Not sure about the size but we can organise for you to check.'
           ]),
           location: 'Auckland',
-          image_url: JSON.stringify(['v1588967373/tire_lzlvpn.jpg']),
+          image_url: JSON.stringify([
+            'v1589340427/tire3_kwga4i.jpg',
+            'v1589340433/tire_f7yvop.jpg',
+            'v1589340441/tire2_ykvkg0.jpg'
+          ]),
           user_id: 3,
           category_id: 5,
           taken: false,
@@ -155,7 +162,10 @@ exports.seed = (knex) =>
             'Contact me if interested.'
           ]),
           location: 'Rotorua',
-          image_url: JSON.stringify(['v1588967347/charger_mhozxk.jpg']),
+          image_url: JSON.stringify([
+            'v1589340477/charger_xvo5bn.jpg',
+            'v1589340483/charger2_i3p1dp.jpg'
+          ]),
           user_id: 4,
           category_id: 2,
           taken: false,
@@ -165,12 +175,16 @@ exports.seed = (knex) =>
           id: 10,
           name: 'Basketball board',
           description: JSON.stringify([
-            'Some idiot dunked and broke the basket.',
-            'The rim is still in good condition but I cant be bothered to fix it.',
-            'Just need new screws asdaasdasdasdasdasdnd you will need to take it off the wall if interested.'
+            'No net but still does the job.',
+            'Currently have plant pots to act as counter weight.',
+            'Always outdoors but have minimal rust.'
           ]),
           location: 'Auckland',
-          image_url: JSON.stringify(['v1588967348/hoops_jbmdbg.jpg']),
+          image_url: JSON.stringify([
+            'v1589340589/board1_dtzdmk.jpg',
+            'v1589340595/board3_ruwuru.jpg',
+            'v1589340599/board2_geetjn.jpg'
+          ]),
           user_id: 2,
           category_id: 7,
           taken: true,
@@ -185,7 +199,11 @@ exports.seed = (knex) =>
             'Good quality cups and hardly used all as I live by myself.'
           ]),
           location: 'Auckland',
-          image_url: JSON.stringify(['v1588967347/cups_wpgqls.jpg']),
+          image_url: JSON.stringify([
+            'v1589339013/cups1_ryw1n4.jpg',
+            'v1589339032/cups2_flo0y6.jpg',
+            'v1589339039/cups3_zuasiq.jpg'
+          ]),
           user_id: 6,
           category_id: 4,
           taken: false,
@@ -200,7 +218,10 @@ exports.seed = (knex) =>
             'Made from good quality wood so it will last a while.'
           ]),
           location: 'Auckland',
-          image_url: JSON.stringify(['v1588967347/chair_eyb6ba.jpg']),
+          image_url: JSON.stringify([
+            'v1589338972/chair1_juzkun.jpg',
+            'v1589338977/chair2_vznflk.jpg'
+          ]),
           user_id: 1,
           category_id: 3,
           taken: false,
@@ -230,7 +251,11 @@ exports.seed = (knex) =>
             'Its free to anyone who can tolerate it.'
           ]),
           location: 'Auckland',
-          image_url: JSON.stringify(['v1588967348/harmonica_ovrack.jpg']),
+          image_url: JSON.stringify([
+            'v1589339072/harmonica3_ep4e3e.jpg',
+            'v1589339079/harmonica1_basgc3.jpg',
+            'v1589339084/harmonica2_f7hei2.jpg'
+          ]),
           user_id: 1,
           category_id: 9,
           taken: false,
