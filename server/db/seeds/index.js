@@ -22,13 +22,14 @@ exports.seed = (knex) =>
         { id: 1, username: 'johnS', first_name: 'John', last_name: 'Sengson', email: 'john@gmail.com', phone_number: '0214351234', image_url: 'v1588967373/john_yigtz6.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Newmarket, Auckland' },
         { id: 2, username: 'BubbleBast', first_name: 'Mathias', last_name: 'Bast', email: 'mathias@gmail.com', phone_number: '0213521234', image_url: 'v1588967372/mathias_eos91h.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$t7fDj0UPvYCnLculR3ti2w$hsbmENXcvcQbKGBoj2cBoH0xVBB8OIYfNDSZsatnT8k', location: 'Inner Kaiti, Gisborne' },
         { id: 3, username: 'hamishT', first_name: 'Hamish', last_name: 'Tana', email: 'hamish@gmail.com', phone_number: '0216654287', image_url: 'v1588967348/hamishT_eiqwbd.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Newmarket, Auckland' },
-        { id: 4, username: 'vibes-lache', first_name: 'Lache', last_name: 'Melvin', email: 'lache@gmail.com', phone_number: '0213526789', image_url: 'v1588967373/lache_v5blpl.png', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Mt Eden, Auckland' },
+        { id: 4, username: 'vibes-lache', first_name: 'Lache', last_name: 'Melvin', email: 'lache@gmail.com', phone_number: '0213526789', image_url: 'v1588967373/lache_v5blpl.png', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Nelson Central, Nelson' },
         { id: 5, username: 'p-man', first_name: 'Pat', last_name: 'Lim', email: 'pat@gmail.com', phone_number: '0213526789', image_url: 'v1588967373/pat_cevccf.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Mt Eden, Auckland' },
-        { id: 6, username: 'ElloraV', first_name: 'Ellora', last_name: 'Virtue', email: 'virtue.ellora@gmail.com', phone_number: '0226482546', image_url: 'v1588967348/ellora_ze8tgm.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Newmarket, Auckland' }
+        { id: 6, username: 'ElloraV', first_name: 'Ellora', last_name: 'Virtue', email: 'ellora@gmail.com', phone_number: '0226482546', image_url: 'v1588967348/ellora_ze8tgm.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Newmarket, Auckland' }
       ]))
     .then(() =>
       knex('listings').insert([
         {
+          id: 1,
           name: 'Soccer Ball',
           description: JSON.stringify([
             'Moving house and we don\'t use this ball anymore.',
@@ -42,6 +43,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 2,
           name: 'Ladder',
           description: JSON.stringify([
             '5 step ladder.',
@@ -56,6 +58,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 3,
           name: 'Infant Shoes',
           description: JSON.stringify([
             'Infant shoes in great condition.',
@@ -70,6 +73,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 4,
           name: 'Broken Galaxy s3',
           description: JSON.stringify([
             'Broken - screen cracked.',
@@ -87,6 +91,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 5,
           name: 'Old Couch',
           description: JSON.stringify([
             'Moving house and no space for this couch.',
@@ -101,6 +106,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 6,
           name: 'Ukulele',
           description: JSON.stringify([
             'Purchased so I can learn but gave up.',
@@ -115,6 +121,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 7,
           name: 'Tire',
           description: JSON.stringify([
             'Was cleaning the garage and found this.',
@@ -133,6 +140,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 8,
           name: 'Old garden tools',
           description: JSON.stringify([
             'Got new ones so these are surplus to requirement.',
@@ -146,6 +154,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 9,
           name: 'Nokia Charger',
           description: JSON.stringify([
             'No phone to use this with.',
@@ -162,6 +171,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 10,
           name: 'Basketball board',
           description: JSON.stringify([
             'No net but still does the job.',
@@ -180,6 +190,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 11,
           name: 'Cup set',
           description: JSON.stringify([
             'Listed on trade me as I am going back home overseas.',
@@ -196,6 +207,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 12,
           name: 'Chair-old',
           description: JSON.stringify([
             'Chair is in ok condition free for pick up.',
@@ -213,6 +225,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 13,
           name: 'Best shirt ever',
           description: JSON.stringify([
             'Had this really cool shirt when I was young.',
@@ -227,6 +240,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 14,
           name: 'Harmonica for kids',
           description: JSON.stringify([
             'Bought from the warehouse for the kids.',
@@ -245,6 +259,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 15,
           name: 'Jumper Cables',
           description: JSON.stringify([
             'Got a battery starter so no need for this.',
@@ -259,6 +274,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 16,
           name: 'Small Chopping Board',
           description: JSON.stringify([
             'I have an old chopping board up for grabs if anyone is interested.',
@@ -273,6 +289,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 17,
           name: 'Pot',
           description: JSON.stringify([
             'Pot is bit old but still in good condition.',
@@ -287,21 +304,22 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
-          name: 'Kettle',
+          id: 18,
+          name: 'Yoga Mat',
           description: JSON.stringify([
-            'Dont need this kettle anymore so I would love to give it away to someone who needs it.'
+            'I borrowed this yoga mat from Dev Academy.',
+            'Please take it off my hands so I can say that I lost it.',
+            'Dont tell them I gave it to you.'
           ]),
-          location: 'Waipu Cove, Waipu',
-          image_url: JSON.stringify([
-            'v1589171042/t02sznw9wucqvx30bm7o.jpg',
-            'v1589171043/hakkgr9ok16epum6hwle.jpg'
-          ]),
-          user_id: 5,
-          category_id: 4,
+          location: 'Mission Bay, Auckland',
+          image_url: JSON.stringify(['v1589171042/xnkmr07z4i4dsdm4dutg.jpg', 'v1589171042/e9acjtafwf1ndlnshtjb.jpg']),
+          user_id: 2,
+          category_id: 7,
           taken: false,
           date_taken: '12/05/2020'
         },
         {
+          id: 19,
           name: 'Nespresso Coffee Machine',
           description: JSON.stringify([
             'I recently purchased a new coffee machine so I would love to give this to someone else to try out.',
@@ -316,6 +334,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 20,
           name: 'Yoga Mat',
           description: JSON.stringify([
             'I may or may not have borrowed this and forgotten to return it.',
@@ -330,6 +349,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 21,
           name: 'Olympia Fields, US Open 2003 cap',
           description: JSON.stringify([
             'Old cap of mine.',
@@ -344,6 +364,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 22,
           name: 'Apple Trackpad',
           description: JSON.stringify([
             'Perfect condition, I want to save the planet!',
@@ -357,6 +378,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 23,
           name: '3kg Medicine Ball',
           description: JSON.stringify([
             'In Lockdown?',
@@ -371,6 +393,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 24,
           name: 'Olympus 35mm mju zoon',
           description: JSON.stringify([
             'Good condition.',
@@ -386,6 +409,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 25,
           name: 'Adidas Gazelle shoes',
           description: JSON.stringify([
             'Size 10',
@@ -401,6 +425,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 26,
           name: 'Quick release guitar capo',
           description: JSON.stringify([
             'The original One-handed Quick-Change capo.',
@@ -417,6 +442,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 27,
           name: 'Sebastian Klotz Copy Viola',
           description: JSON.stringify([
             'Beautiful viola.',
@@ -432,6 +458,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 28,
           name: '2004 Buell XB12S Lightning Motorbike',
           description: JSON.stringify([
             'Manual Transmission.',
@@ -447,6 +474,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 29,
           name: 'Pink Jellybean Succulent',
           description: JSON.stringify([
             'This fun succulent has bright green leaves whose tips turn pink when in full sun.',
@@ -462,6 +490,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 30,
           name: 'MASKS!! 50pack',
           description: JSON.stringify([
             'Photos are of a box I opened, your box is sealed and contains 50 masks.',
@@ -477,6 +506,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 31,
           name: 'Canon 6D + 24-105mm F4 L Lens',
           description: JSON.stringify([
             'Camera body itself is in very good condition with no noticeable scuffs or scratches.',
@@ -492,6 +522,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 32,
           name: 'Beanie ',
           description: JSON.stringify([
             'I was cleaning out my draws and I found this bad boy.',
@@ -508,6 +539,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 33,
           name: 'Smoke Alarm',
           description: JSON.stringify([
             'I don\'t need it anymore. I have a newer version that works better.',
@@ -524,6 +556,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 34,
           name: 'Old coffee thing',
           description: JSON.stringify([
             'This does make coffee. It does work well and taste nice. I do recommend you do pick it up.',
@@ -539,6 +572,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 35,
           name: 'A cuttie as heck dolphin',
           description: JSON.stringify([
             'In short, my sister annoyed me a little too much so I repossessed some property as compensation for emotional damage (and to get back at her).',
@@ -554,6 +588,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 36,
           name: 'Car smell good thing',
           description: JSON.stringify([
             'I have one left and I don\'t need it.',
@@ -570,6 +605,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 37,
           name: 'French print in frame',
           description: JSON.stringify([
             'Moving countries so getting rid of a ton of stuff!',
@@ -587,6 +623,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 38,
           name: 'Monopoly board (UK edition)',
           description: JSON.stringify([
             'UK Edition Monopoly board with all pieces and cards included.',
@@ -605,6 +642,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 39,
           name: 'Hairdryer (Mark Hill)',
           description: JSON.stringify([
             'Giving away this powerful salon-quality hairdryer by Mark Hill in amazing working condition.',
@@ -626,23 +664,26 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
-          name: 'Womens Nike Running Shoes, US7',
+          id: 40,
+          name: 'Olivia the Orchid',
           description: JSON.stringify([
-            'Dont really run in these shoes anymore, please feel free to come pick them up if you think you would get better use out of them than me!',
-            'US7 womens :)'
+            'Beautiful pink flowering orchid with supports for sale.',
+            'She has been well cared for and we are sad to say goodbye to Olivia the Orchid.',
+            'I\'m hoping she can find a nice new home with someone who will take care of her!',
+            'I have a few other plants to give away too so let me know if you’re are interested in those or check out my profile for my other listings.'
           ]),
-          location: 'Chartwell, Hamilton',
+          location: 'Sunshine Bay, Queenstown',
           image_url: JSON.stringify([
-            'v1589171044/ii7ake7vrdig2mbuwaig.jpg',
-            'v1589171044/kgklhbxuc5jrrj32kvdz.jpg',
-            'v1589171043/s7jtjul2kv0keai6yrlp.jpg'
+            'v1589186358/m1838s4pooepzlwgdcf8.jpg',
+            'v1589186356/avdw9i327obntespfm9o.jpg'
           ]),
-          user_id: 3,
-          category_id: 1,
+          user_id: 6,
+          category_id: 3,
           taken: false,
           date_taken: '12/05/2020'
         },
         {
+          id: 41,
           name: 'Dr. Martens (size UK 10)',
           description: JSON.stringify([
             'Dr Martens 1460 Smooth (8 eye) boots in size UK 10, black colour.',
@@ -662,6 +703,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 42,
           name: 'Toys for kids',
           description: JSON.stringify([
             'Kids have outgrown this two toys.',
@@ -681,6 +723,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 43,
           name: 'Weight plates',
           description: JSON.stringify([
             'Weight plates from the warehouse.',
@@ -700,6 +743,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 44,
           name: 'Iphone x cases',
           description: JSON.stringify([
             'Joined the android community when I damaged my iphone x.',
@@ -708,7 +752,7 @@ exports.seed = (knex) =>
             'The other case is a defender I think with normal wear and tear.',
             'Both are my back up cases and still offer good protection.'
           ]),
-          location: 'Pinehill, Dunedin',
+          location: 'Newmarket, Auckland',
           image_url: JSON.stringify([
             'v1589194846/case1_m1xmxn.jpg',
             'v1589194853/case2_hleujz.jpg',
@@ -721,6 +765,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 45,
           name: 'Playing cards',
           description: JSON.stringify([
             ' 2 x playing cards set from Sky City.',
@@ -728,7 +773,7 @@ exports.seed = (knex) =>
             'Given a few by a friend and have too many.',
             'Can be a good way to kill time for times like in lockdown.'
           ]),
-          location: 'Lower Hutt, Wellington',
+          location: 'Newmarket, Auckland',
           image_url: JSON.stringify([
             'v1589194983/cards_uvvtqo.jpg',
             'v1589194989/cards2_atddp7.jpg',
@@ -740,6 +785,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 46,
           name: 'Bmx bike spokes',
           description: JSON.stringify([
             ' 2 x Bmx bike spokes.',
@@ -748,7 +794,7 @@ exports.seed = (knex) =>
             'Some rust but can easliy be cleaned and painted.',
             'Upgraded to a mountain bike so no need for them anymore.'
           ]),
-          location: 'Hornby, Christchurch',
+          location: 'Newmarket, Auckland',
           image_url: JSON.stringify([
             'v1589195088/spoke1_c3zwuy.jpg',
             'v1589195096/spoke2_furyxd.jpg',
@@ -760,6 +806,7 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
+          id: 47,
           name: 'US11 mens Nike Running shoes',
           description: JSON.stringify([
             ' US 11 Nike gore-tex running shoes',
@@ -777,20 +824,23 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
-          name: 'Yoga Mat',
+          id: 48,
+          name: 'Kettle',
           description: JSON.stringify([
-            'I borrowed this yoga mat from Dev Academy.',
-            'Please take it off my hands so I can say that I lost it.',
-            'Dont tell them I gave it to you.'
+            'Dont need this kettle anymore so I would love to give it away to someone who needs it.'
           ]),
-          location: 'Mission Bay, Auckland',
-          image_url: JSON.stringify(['v1589171042/xnkmr07z4i4dsdm4dutg.jpg', 'v1589171042/e9acjtafwf1ndlnshtjb.jpg']),
-          user_id: 6,
-          category_id: 7,
+          location: 'Howick, Auckland',
+          image_url: JSON.stringify([
+            'v1589171042/t02sznw9wucqvx30bm7o.jpg',
+            'v1589171043/hakkgr9ok16epum6hwle.jpg'
+          ]),
+          user_id: 5,
+          category_id: 4,
           taken: false,
           date_taken: '12/05/2020'
         },
         {
+          id: 49,
           name: 'Vacuum',
           description: JSON.stringify([
             'Cord is broken on this vacuum, I have implemented a quick solution though but the cord will just be long all the time.',
@@ -808,20 +858,20 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
-          name: 'Olivia the Orchid',
+          id: 50,
+          name: 'Womens Nike Running Shoes, US7',
           description: JSON.stringify([
-            'Beautiful pink flowering orchid with supports for sale.',
-            'She has been well cared for and we are sad to say goodbye to Olivia the Orchid.',
-            'I\'m hoping she can find a nice new home with someone who will take care of her!',
-            'I have a few other plants to give away too so let me know if you’re are interested in those or check out my profile for my other listings.'
+            'Dont really run in these shoes anymore, please feel free to come pick them up if you think you would get better use out of them than me!',
+            'US7 womens :)'
           ]),
-          location: 'Sunshine Bay, Queenstown',
+          location: 'Pakuranga, Auckland',
           image_url: JSON.stringify([
-            'v1589186358/m1838s4pooepzlwgdcf8.jpg',
-            'v1589186356/avdw9i327obntespfm9o.jpg'
+            'v1589171044/ii7ake7vrdig2mbuwaig.jpg',
+            'v1589171044/kgklhbxuc5jrrj32kvdz.jpg',
+            'v1589171043/s7jtjul2kv0keai6yrlp.jpg'
           ]),
-          user_id: 6,
-          category_id: 3,
+          user_id: 3,
+          category_id: 1,
           taken: false,
           date_taken: '12/05/2020'
         }
