@@ -20,7 +20,8 @@ router.post('/add', (req, res) => {
     listingId
   }
   db.addComment(data)
-    .then(() => {
+    .then(id => {
+      console.log(id)
       res.status(200).json({ ok: true })
     })
     .catch(err => console.log(err.message))

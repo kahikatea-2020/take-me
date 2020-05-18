@@ -21,6 +21,7 @@ function addComment (data, db = connection) {
       user_id: data.userId,
       listing_id: data.listingId
     })
+    .then(id => console.log(id))
     .catch(err => console.log(err.message))
 }
 
