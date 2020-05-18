@@ -24,7 +24,7 @@ exports.seed = (knex) =>
         { id: 3, username: 'hamishT', first_name: 'Hamish', last_name: 'Tana', email: 'hamish@gmail.com', phone_number: '0216654287', image_url: 'v1588967348/hamishT_eiqwbd.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Newmarket, Auckland' },
         { id: 4, username: 'vibes-lache', first_name: 'Lache', last_name: 'Melvin', email: 'lache@gmail.com', phone_number: '0213526789', image_url: 'v1588967373/lache_v5blpl.png', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Mt Eden, Auckland' },
         { id: 5, username: 'p-man', first_name: 'Pat', last_name: 'Lim', email: 'pat@gmail.com', phone_number: '0213526789', image_url: 'v1588967373/pat_cevccf.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Mt Eden, Auckland' },
-        { id: 6, username: 'ElloraV', first_name: 'Ellora', last_name: 'Virtue', email: 'virtue.ellora@gmail.com', phone_number: '0226482546', image_url: 'v1588967348/ellora_ze8tgm.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Newmarket, Auckland' }
+        { id: 6, username: 'ElloraV', first_name: 'Ellora', last_name: 'Virtue', email: 'ellora@gmail.com', phone_number: '0226482546', image_url: 'v1588967348/ellora_ze8tgm.jpg', hash: '$argon2id$v=19$m=65536,t=2,p=1$W1Ve81HPpMFK934+EsYEJw$Fe3biM6runI33ZFDy9f0Gl8mNG5Lsev5f9D/IQcHcdk', location: 'Newmarket, Auckland' }
       ]))
     .then(() =>
       knex('listings').insert([
