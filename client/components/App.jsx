@@ -38,7 +38,7 @@ class App extends React.Component {
       <CloudinaryContext cloudName='takemenz'>
         <Router history={history}>
           <Route path='/' component={Navbar} />
-          <Container id='main-container' style={{ marginTop: '7em' }}>
+          <Container id='main-container' style={{ margin: '7em 2em 2em 0' }}>
             <div id='wrapper'>
               <Switch>
                 <Route exact path='/' component={Home} />

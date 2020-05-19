@@ -57,7 +57,7 @@ class Home extends React.Component {
       selectedListings = selectedListings.filter(listing => listing.categoryId === this.props.selectedCategory.id)
     }
 
-    const itemsPerPage = 16
+    const itemsPerPage = 18
     const { page } = this.state
     const totalPages = selectedListings.length / itemsPerPage
     const listingItems = selectedListings.slice(
@@ -89,7 +89,7 @@ class Home extends React.Component {
         <WaitIndicator />
         {selectedListings.length > 0
           ? <>
-            <Card.Group itemsPerRow={4} className='centered'>
+            <Card.Group className='centered'>
               {listingItems.map(item => <ListItem key={item.id} listing={item} />)}
             </Card.Group>
             <Container className='center aligned' style={{ paddingTop: '30px' }}>

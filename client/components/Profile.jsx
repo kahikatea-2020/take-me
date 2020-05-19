@@ -83,16 +83,16 @@ class Profile extends React.Component {
         }
           
         { (currentListings.length !== 0)
-          ? <Card.Group itemsPerRow={4} className='centered'>
+          ? <Card.Group  className='centered'>
               {currentListings.map(userListing => <ProfileListItem key={userListing.id} listing={userListing} current={true} history={this.props.history} authenticated={isAuthenticated() && (this.props.user.id === profile.id)}/>)}
             </Card.Group>
           : <p>This user has no current listings</p>
         }
           
         <h2 id='prev'>Previous Listings</h2>
-        <Card.Group itemsPerRow={4} className='centered'>
+        <Card.Group className='centered'>
         { (takenListings.length !== 0)
-          ? <Card.Group itemsPerRow={4} className='centered'>
+          ? <Card.Group className='centered'>
               {takenListings.map(userListing => <ProfileListItem key={userListing.id} listing={userListing} current={false} history={this.props.history} authenticated={isAuthenticated() && (this.props.user.id === profile.id)}/>)}
             </Card.Group>
         : <p>This user has no previous listings</p>
