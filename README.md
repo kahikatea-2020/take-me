@@ -4,7 +4,7 @@ This was our final project for Enspiral Dev Academy bootcamp.
 
 We utilised an agile workflow and completed the project remotely in 7 days
 
-Please check out our live website [here](http://take-me-nz.herokuapp.com/)
+Please check out our live website [here](https://take-me-nz.herokuapp.com/)
 
 Here is our demo/presentation [video](https://www.youtube.com/watch?v=OqsuW7X4HJ4)
 
