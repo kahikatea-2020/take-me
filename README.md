@@ -1,5 +1,11 @@
 # TakeMe
 
+This was our final project for Enspiral Dev Academy bootcamp.
+We utilised an agile workflow and completed the project remotely in 7 days
+Please check out our live website [take-me-nz.herokuapp.com](here)
+Here is our demo/presentation [https://www.youtube.com/watch?v=OqsuW7X4HJ4](video)
+
+
 ```sh
 npm i
 ```
