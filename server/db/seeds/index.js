@@ -24,7 +24,6 @@ exports.seed = (knex) =>
     .then(() =>
       knex('listings').insert([
         {
-          id: 1,
           name: 'Soccer Ball',
           description: JSON.stringify([
             'Moving house and we don\'t use this ball anymore.',
@@ -38,7 +37,6 @@ exports.seed = (knex) =>
           date_taken: '12/05/2020'
         },
         {
-          id: 2,
           name: 'Ladder',
           description: JSON.stringify([
             '5 step ladder.',
