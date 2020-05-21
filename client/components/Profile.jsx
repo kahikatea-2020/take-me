@@ -90,14 +90,12 @@ class Profile extends React.Component {
         }
           
         <h2 id='prev'>Previous Listings</h2>
-        <Card.Group className='centered'>
         { (takenListings.length !== 0)
           ? <Card.Group className='centered'>
               {takenListings.map(userListing => <ProfileListItem key={userListing.id} listing={userListing} current={false} history={this.props.history} authenticated={isAuthenticated() && (this.props.user.id === profile.id)}/>)}
             </Card.Group>
         : <p>This user has no previous listings</p>
         }
-        </Card.Group>
 
         <WaitIndicator />
       </>
