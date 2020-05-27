@@ -29,7 +29,7 @@ class MapLocation extends React.Component {
         >
           <Circle
             center={{ lat: this.state.lat, lng: this.state.lng }}
-            radius={800} /* radius is set in metres */
+            radius={1000} /* radius is set in metres */
             options={{
               strokeColor: '#f79421',
               strokeOpacity: 0.95,
