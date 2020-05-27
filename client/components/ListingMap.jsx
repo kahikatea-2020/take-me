@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import ReactMapGL from 'react-map-gl'
+import ReactMapGL, { Marker } from 'react-map-gl'
 
 function ListingMap () {
   const [viewport, setViewport] = useState({
@@ -13,11 +13,19 @@ function ListingMap () {
     <ReactMapGL
       {...viewport}
       mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+      mapStyle='mapbox://styles/ellorav/ckapzm89l24ph1jlpo6wdzq1q'
       onViewportChange={viewport => {
         setViewport(viewport)
       }}
     >
-        Markers here
+      <Marker
+        latitude={-36.864479}
+        longitude={174.776733}
+      >
+        <button className='marker-btn'>
+          <img src='/favicon-take-me.ico' alt='TakeMe icon as item marker' />
+        </button>
+      </Marker>
     </ReactMapGL>
   )
 }

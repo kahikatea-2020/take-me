@@ -115,6 +115,18 @@ div.singleImagePreview button {
 /* END CAROUSEL STYLING */
 
 /* START LISTING STYLING */
+
+.marker-btn {
+  background: none;
+  cursor: pointer;
+  border: none;
+}
+
+.marker-btn img {
+  width: 20px;
+  height: 20px;
+}
+
 #row-cont div.row {
   min-height: 80vh;
 }
