@@ -51,7 +51,6 @@ class App extends React.Component {
                 <Route exact path='/profile/:id' component={Profile} />
                 <Route exact path='/guidelines' component={Guidelines} />
                 <Route exact path='/about' component={About} />
-                <Route exact path='/map' component={ListingMap} />
                 <Route exact path='/edit-profile/:id' component={EditProfile} />
                 <Route exact path='*' component={Error404} />
               </Switch>

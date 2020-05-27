@@ -6,6 +6,7 @@ import { Button, Card, Grid, Image, Form } from 'semantic-ui-react'
 import Swal from 'sweetalert2'
 
 import WaitIndicator from './WaitIndicator'
+import ListingMap from './ListingMap'
 
 import { getListingById, markAsTaken } from '../api/listings'
 import { getCommentsById, addComment } from '../api/q-and-a'
@@ -190,6 +191,7 @@ class Listing extends React.Component {
                   </Card.Content>
                 </Card>
               </div>
+              <ListingMap />
               <WaitIndicator />
             </Grid.Column>
           </Grid.Row>
