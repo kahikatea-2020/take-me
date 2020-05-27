@@ -3,7 +3,7 @@ import Geocode from 'react-geocode'
 
 import { GoogleMap, withScriptjs, withGoogleMap, Circle } from 'react-google-maps'
 
-Geocode.setApiKey('AIzaSyBo31yLsQW_1lYvSa4rYMqVkGyF1H7KDBo')
+Geocode.setApiKey('AIzaSyBV7surhLxp7skAnm_8vc3s-Qr7DLftB-M')
 
 class MapLocation extends React.Component {
   state = {
@@ -12,6 +12,7 @@ class MapLocation extends React.Component {
   }
 
   render () {
+    // console.log(this.props.location)
     Geocode.fromAddress('Ellerslie, Auckland').then(
       res => {
         const { lat, lng } = res.results[0].geometry.location
@@ -24,7 +25,7 @@ class MapLocation extends React.Component {
     return (
       <>
         <GoogleMap
-          zoom={14}
+          zoom={12}
           center={{ lat: this.state.lat, lng: this.state.lng }}
         >
           <Circle
@@ -47,9 +48,9 @@ const WrappedMap = withScriptjs(withGoogleMap(MapLocation))
 
 export default function ListingMap () {
   return (
-    <div style={{ width: '100vw', height: '100vh' }}>
+    <div style={{ width: '30vw', height: '30vh' }}>
       <WrappedMap
-        googleMapURL={'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyBo31yLsQW_1lYvSa4rYMqVkGyF1H7KDBo'}
+        googleMapURL={'https://maps.googleapis.com/maps/api/js?v=3.exp&libraries=geometry,drawing,places&key=AIzaSyBV7surhLxp7skAnm_8vc3s-Qr7DLftB-M'}
         loadingElement={<div style={{ height: '100%' }}/>}
         containerElement={<div style={{ height: '100%' }}/>}
         mapElement={<div style={{ height: '100%' }}/>}
