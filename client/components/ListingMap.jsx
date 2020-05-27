@@ -7,10 +7,16 @@ function ListingMap () {
     longitude: 174.776733,
     width: '30vw',
     height: '30vh',
-    zoom: 10
+    zoom: 12
   })
   return (
-    <ReactMapGL {...viewport} mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}>
+    <ReactMapGL
+      {...viewport}
+      mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+      onViewportChange={viewport => {
+        setViewport(viewport)
+      }}
+    >
         Markers here
     </ReactMapGL>
   )
