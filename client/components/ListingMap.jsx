@@ -1,13 +1,24 @@
 import React from 'react'
 
-import { GoogleMap, withScriptjs, withGoogleMap } from 'react-google-maps'
+import { GoogleMap, withScriptjs, withGoogleMap, Circle } from 'react-google-maps'
 
 function MapLocation () {
   return (
     <GoogleMap
-      defaultZoom={16}
+      defaultZoom={14}
       defaultCenter={{ lat: -36.864480, lng: 174.776730 }}
-    />
+    >
+      <Circle
+        center={{ lat: -36.864480, lng: 174.776730 }}
+        radius={800} /* radius is set in metres */
+        options={{
+          strokeColor: '#f79421',
+          strokeOpacity: 0.95,
+          fillColor: '#f79421',
+          fillOpacity: 0.35
+        }}
+      />
+    </GoogleMap>
   )
 }
 
