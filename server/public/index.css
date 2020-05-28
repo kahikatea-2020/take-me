@@ -115,6 +115,11 @@ div.singleImagePreview button {
 /* END CAROUSEL STYLING */
 
 /* START LISTING STYLING */
+.mapboxgl-map {
+  margin-left: 4vw;
+  width: 30vw;
+  height: 30vh;
+}
 
 .marker-btn {
   background: none;

@@ -7,7 +7,7 @@ function ListingMap () {
     longitude: 174.776733,
     width: '30vw',
     height: '30vh',
-    zoom: 12
+    zoom: 11
   })
 
   return (
