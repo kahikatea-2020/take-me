@@ -21,7 +21,6 @@ import Footer from './Footer'
 import Guidelines from './Guidelines'
 import About from './About'
 import EditProfile from './EditProfile'
-import ListingMap from './ListingMap'
 
 import { getUserDetails } from '../actions/users'
 
