@@ -66,7 +66,7 @@ class About extends React.Component {
           data-aos-offset='200'
           data-aos-duration='1500'>
           <div id='testDivo'>
-            <img src='https://images.unsplash.com/photo-1568085823039-e823e87197e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80' alt=''/>
+            <img src='https://images.unsplash.com/photo-1568085823039-e823e87197e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80' alt='Garage or yard sale'/>
             <div id='aboutCardHeader'>
               <h3>If you want to clean out your closet, garage or clutter, why waste it when you can give it away?</h3>
             </div>
@@ -101,7 +101,7 @@ class About extends React.Component {
         >
           <div className='teamPics'>
             <div className='takemeTeam'>
-              <Image src='./team/lache.png' size='medium' circular />
+              <Image src='./team/lache.png' size='medium' circular alt='Lache smiling' />
               <Header as='h2' attached='top' id='teamSegment'>
               Lache Melvin
               </Header>
@@ -110,7 +110,7 @@ class About extends React.Component {
               </Segment>
             </div>
             <div className='takemeTeam'>
-              <Image src='./team/ellora.jpg' size='medium' circular />
+              <Image src='./team/ellora.jpg' size='medium' circular alt='Ellora smiling' />
               <Header as='h2' attached='top' id='teamSegment'>
               Ellora Virtue
               </Header>
@@ -119,7 +119,7 @@ class About extends React.Component {
               </Segment>
             </div>
             <div className='takemeTeam'>
-              <Image src='./team/john.jpg' size='medium' circular />
+              <Image src='./team/john.jpg' size='medium' circular alt='John smiling' />
               <Header as='h2' attached='top' id='teamSegment'>
             John Sengson
               </Header>
@@ -130,7 +130,7 @@ class About extends React.Component {
           </div>
           <div className='teamPics'>
             <div className='takemeTeam'>
-              <Image src='./team/pat.jpg' size='medium' circular />
+              <Image src='./team/pat.jpg' size='medium' circular alt='Pat smiling' />
               <Header as='h2' attached='top' id='teamSegment'>
               Pat Lim
               </Header>
@@ -139,7 +139,7 @@ class About extends React.Component {
               </Segment>
             </div>
             <div className='takemeTeam'>
-              <Image src='./team/hamish.jpg' size='medium' circular />
+              <Image src='./team/hamish.jpg' size='medium' circular alt='Hamish smiling' />
               <Header as='h2' attached='top' id='teamSegment'>
              Hamish Henare
               </Header>
@@ -148,7 +148,7 @@ class About extends React.Component {
               </Segment>
             </div>
             <div className='takemeTeam'>
-              <Image src='./team/mathias.jpg' size='medium' circular />
+              <Image src='./team/mathias.jpg' size='medium' circular alt='Mathias smiling' />
               <Header as='h2' attached='top' id='teamSegment'>
               Mathias Bast
               </Header>
