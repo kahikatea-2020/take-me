@@ -2,7 +2,9 @@ import React from 'react'
 import { List, Image, Header, Segment } from 'semantic-ui-react'
 import AOS from 'aos'
 
-AOS.init()
+AOS.init({
+  duration: 800
+})
 
 class About extends React.Component {
   render () {
@@ -32,7 +34,12 @@ class About extends React.Component {
           <p>
           This is a concept our team is promoting through creating this website. By choosing our website, and in turn choosing a pathway to sustainable living, you are also choosing to make the following positive impacts:
           </p>
-          <List id="aboutList">
+          <List
+            id="aboutList"
+            data-aos='fade-left'
+            data-aos-duration='1000'
+            data-aos-offset='250'
+          >
             <List.Item id="aboutListItem">
               <List.Header id="aboutSecHeaders">Energy conservation</List.Header>
               Using our website reduces product demand of manufacturers, thus saving energy.
@@ -56,7 +63,12 @@ class About extends React.Component {
             </List.Item>
           </List>
         </div>
-        <div className="aboutSections" id="photoCard">
+        <div
+          className="aboutSections"
+          id="photoCard"
+          data-aos='zoom-in-up'
+          data-aos-offset='200'
+          data-aos-duration='1500'>
           <div id="testDivo">
             <img src="https://images.unsplash.com/photo-1568085823039-e823e87197e3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80" alt=""/>
             <div id="aboutCardHeader">
@@ -64,7 +76,12 @@ class About extends React.Component {
             </div>
           </div>
         </div>
-        <div className="aboutSections">
+        <div
+          className="aboutSections"
+          data-aos='fade-up'
+          data-aos-offset='200'
+          data-aos-duration='700'
+        >
           <h2>Our Goal?</h2>
           <p>
           We want to reduce the amount of rubbish humans produce by encouraging people to give items another use with someone else.
@@ -79,7 +96,13 @@ class About extends React.Component {
           </p>
         </div>
         <h4 id="thanks">Thank you!</h4>
-        <div className="aboutSections" id="teamWrapper">
+        <div
+          className="aboutSections"
+          id="teamWrapper"
+          data-aos='zoom-in'
+          data-aos-offset='250'
+          data-aos-duration='1000'
+        >
           <div className="teamPics">
             <div className="takemeTeam">
               <Image src='./team/lache.png' size='medium' circular />
