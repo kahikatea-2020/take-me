@@ -11,10 +11,6 @@ class About extends React.Component {
     return (
       <>
         <div className='aboutHero'>
-          {/* <div className='aboutLogo'>
-            <h1>Welcome to</h1>
-            <img src='about logo-05.png' alt=''/>
-          </div> */}
 
           <div className='aboutHeroText'>
             <div style={{ textAlign: 'right', paddingRight: '4%' }}>
