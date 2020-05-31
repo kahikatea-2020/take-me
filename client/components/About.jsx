@@ -75,7 +75,7 @@ class About extends React.Component {
         <div
           className='aboutSections'
           data-aos='fade-up'
-          data-aos-offset='200'
+          data-aos-offset='300'
           data-aos-duration='700'
         >
           <h2>Our Goal?</h2>
