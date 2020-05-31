@@ -1,5 +1,8 @@
 import React from 'react'
 import { List, Image, Header, Segment } from 'semantic-ui-react'
+import AOS from 'aos'
+
+AOS.init()
 
 class About extends React.Component {
   render () {
@@ -24,7 +27,7 @@ class About extends React.Component {
             </p>
           </div>
         </div>
-        <div className="aboutSections">
+        <div className="aboutSections" data-aos='fade-up'>
           <h2>Reduce, reuse &amp; recycle</h2>
           <p>
           This is a concept our team is promoting through creating this website. By choosing our website, and in turn choosing a pathway to sustainable living, you are also choosing to make the following positive impacts:
