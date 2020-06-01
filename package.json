@@ -41,6 +41,7 @@
     ]
   },
   "dependencies": {
+    "@mapbox/mapbox-gl-geocoder": "^4.5.1",
     "authenticare": "^0.4.6",
     "axios": "^0.19.2",
     "cloudinary": "^1.21.0",
@@ -53,7 +54,6 @@
     "oaf-react-router": "^2.1.1",
     "pg": "^8.0.3",
     "react-map-gl": "^5.2.5",
-    "react-map-gl-geocoder": "^2.0.11",
     "react-paginate": "^6.3.2",
     "react-slick": "^0.25.2",
     "slick-carousel": "^1.8.1",

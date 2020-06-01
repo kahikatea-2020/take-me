@@ -1,14 +1,28 @@
 import React, { useState } from 'react'
 import ReactMapGL, { Marker } from 'react-map-gl'
-import Geocoder from 'react-map-gl-geocoder'
+
+import { geocode } from '../api/geocode'
 
 class Mapbox extends React.Component {
-  constructor (props) {
-    super(props)
+  constructor () {
+    super()
     this.state = {
-      latitude: -36.864479,
-      longitude: 174.776733
+      latitude: -36.867599,
+      longitude: 174.778000,
+      location: 'Newmarket, Auckland'
     }
+  }
+
+  Geocode = () => {
+    geocode(this.state.location)
+      .then(apiRes => {
+        const { lat, lng } = apiRes.items[0].position
+        this.setState({
+          latitude: lat,
+          longitude: lng,
+          location: this.state.location
+        })
+      })
   }
 
   ListingMap = () => {
@@ -19,7 +33,6 @@ class Mapbox extends React.Component {
       height: '30vh',
       zoom: 11
     })
-
     return (
       <ReactMapGL
         {...viewport}
