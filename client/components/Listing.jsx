@@ -253,7 +253,7 @@ const mapStateToProps = state => {
   return {
     user: state.user,
     error: state.error,
-    location: state.listings.location
+    location: state.listing.location
   }
 }
 
