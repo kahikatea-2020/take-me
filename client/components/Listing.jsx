@@ -23,7 +23,7 @@ class Listing extends React.Component {
     comments: [],
     newComment: '',
     taken: false,
-    date_taken: ''
+    date_taken: '',
   }
 
   componentDidMount() {
@@ -107,39 +107,39 @@ class Listing extends React.Component {
 
     return (
       <>
-      <Grid columns={2} divided>
-        <Grid.Row id='row-target'>
-          <Grid.Column stretched className='listing-images'>
-            {(this.state.imageUrl[0] !== undefined) &&
-              <div className='slick-carousel'>
-                <Slider className='slick-image' {...settings}>
-                  {this.state.imageUrl.map((url, idx) => (
-                    <img
-                      key={idx}
-                      className='slick-image'
-                      src={`https://res.cloudinary.com/takemenz/image/upload/${url}`}
-                      alt={listing.name}
-                    />
-                  ))}
-                </Slider>
-              </div>
-            }
-          </Grid.Column>
-          <Grid.Column stretched className='listing-details'>
-            <div className='listing-description'>
-              {(isAuthenticated() && (this.props.user.id === listing.userId)) && 
-                <div className='column'>
-                  <Button id='update' style={{ maxHeight: '5vh', maxWidth: '50%' }} as={Link} to={`/update-listing/${listing.id}`} className='update-listing' basic color='blue'>
-                    Update Listing
+        <Grid columns={2} divided>
+          <Grid.Row id='row-target'>
+            <Grid.Column stretched className='listing-images'>
+              {(this.state.imageUrl[0] !== undefined) &&
+                <div className='slick-carousel'>
+                  <Slider className='slick-image' {...settings}>
+                    {this.state.imageUrl.map((url, idx) => (
+                      <img
+                        key={idx}
+                        className='slick-image'
+                        src={`https://res.cloudinary.com/takemenz/image/upload/${url}`}
+                        alt={listing.name}
+                      />
+                    ))}
+                  </Slider>
+                </div>
+              }
+            </Grid.Column>
+            <Grid.Column stretched className='listing-details'>
+              <div className='listing-description'>
+                {(isAuthenticated() && (this.props.user.id === listing.userId)) &&
+                  <div className='column'>
+                    <Button id='update' style={{ maxHeight: '5vh', maxWidth: '50%' }} as={Link} to={`/update-listing/${listing.id}`} className='update-listing' basic color='blue'>
+                      Update Listing
                   </Button>
-                  {!this.state.taken &&
-                    <Button name={listing.id} onClick={() => Swal.fire({
-                      title: 'Are you sure?',
-                      text: 'You cannot undo this.',
-                      icon: 'warning',
-                      confirmButtonText: 'Yes, mark as taken',
-                      cancelButtonText: 'No, keep it listed',
-                      showCancelButton: true
+                    {!this.state.taken &&
+                      <Button name={listing.id} onClick={() => Swal.fire({
+                        title: 'Are you sure?',
+                        text: 'You cannot undo this.',
+                        icon: 'warning',
+                        confirmButtonText: 'Yes, mark as taken',
+                        cancelButtonText: 'No, keep it listed',
+                        showCancelButton: true
                       }).then((result) => {
                         if (result.value) {
                           this.handleTaken()
@@ -154,49 +154,52 @@ class Listing extends React.Component {
                             text: 'Your listing is still active',
                             icon: 'error'
                           })
-                        }})} basic color='blue'>
-                    Mark as Taken
+                        }
+                      })} basic color='blue'>
+                        Mark as Taken
                   </Button>
-                  }
-                </div>
-              }
-              <h1>{listing.name}</h1>
-              <h4>Location: {listing.location}</h4>
-              {this.state.description.map(sentence => <p key={sentence.substr(0, 10)}>{sentence}</p>)}
-            </div>
-            <div className='contact-info'>
-              <Card>
-                <Card.Content>
-                  <Image
-                    circular
-                    floated='right'
-                    src={`https://res.cloudinary.com/takemenz/image/upload/${listing.userImage}`}
-                  />
-                  <Card.Content id='contact-deetz'>
-                    <Card.Header>Contact {listing.userFirstName}</Card.Header>
-                    <Card.Meta>
-                      Phone: {listing.userPhoneNumber}
-                    </Card.Meta>
+                    }
+                  </div>
+                }
+                <h1>{listing.name}</h1>
+                <h4>Location: {listing.location}</h4>
+                {this.state.description.map(sentence => <p key={sentence.substr(0, 10)}>{sentence}</p>)}
+              </div>
+              <div className='contact-info'>
+                <Card>
+                  <Card.Content>
+                    <Image
+                      circular
+                      floated='right'
+                      src={`https://res.cloudinary.com/takemenz/image/upload/${listing.userImage}`}
+                    />
+                    <Card.Content id='contact-deetz'>
+                      <Card.Header>Contact {listing.userFirstName}</Card.Header>
+                      <Card.Meta>
+                        Phone: {listing.userPhoneNumber}
+                      </Card.Meta>
+                    </Card.Content>
                   </Card.Content>
-                </Card.Content>
-                <Card.Content extra>
-                  <div className='ui-two-buttons'>
-                    <Button id='email'>
-                      <a href={`mailto:${listing.userEmail}?subject=#${listing.id}:%20${this.state.emailSubject}`}>Email</a>
-                    </Button>
-                    <Button id='profile' as={Link} to={`/profile/${listing.userId}`}>
-                      View Profile
+                  <Card.Content extra>
+                    <div className='ui-two-buttons'>
+                      <Button id='email'>
+                        <a href={`mailto:${listing.userEmail}?subject=#${listing.id}:%20${this.state.emailSubject}`}>Email</a>
+                      </Button>
+                      <Button id='profile' as={Link} to={`/profile/${listing.userId}`}>
+                        View Profile
                     </Button>
                     </div>
                   </Card.Content>
                 </Card>
               </div>
-              <Mapbox />
+              {this.props.location &&
+                <Mapbox location={this.props.location} />
+              }
               <WaitIndicator />
             </Grid.Column>
           </Grid.Row>
         </Grid>
-        
+
         {(this.state.comments.length > 0) &&
           <div className='questions-and-answers'>
             {this.state.comments.map(comment => (
@@ -214,13 +217,13 @@ class Listing extends React.Component {
             ))}
           </div>
         }
-        {isAuthenticated() 
+        {isAuthenticated()
           ? <Form id='q-a-form'>
             {(this.props.user.id === listing.userId)
-            ? (this.state.comments.length > 0)
-              ? <label>Reply or add a comment</label>
-              : <label>Add a comment</label>
-            : <label>Ask a question</label>
+              ? (this.state.comments.length > 0)
+                ? <label>Reply or add a comment</label>
+                : <label>Add a comment</label>
+              : <label>Ask a question</label>
             }
             <Form.Input
               onChange={this.updateField}
@@ -236,7 +239,7 @@ class Listing extends React.Component {
               type='submit'
               onClick={this.submitHandler}
             >
-            Submit
+              Submit
             </Form.Button>
           </Form>
           : <h4><em><Link to='/login'>Log in</Link> to ask a question</em></h4>
@@ -249,7 +252,8 @@ class Listing extends React.Component {
 const mapStateToProps = state => {
   return {
     user: state.user,
-    error: state.error
+    error: state.error,
+    location: state.listings.location
   }
 }
 

@@ -5,17 +5,17 @@ import WaitIndicator from './WaitIndicator'
 import { geocode } from '../api/geocode'
 
 class Mapbox extends React.Component {
-  constructor () {
-    super()
+  constructor (props) {
+    super(props)
     this.state = {
       latitude: null,
       longitude: null,
-      location: 'St Heliers, Auckland'
+      location: ''
     }
   }
 
   componentDidMount () {
-    geocode(this.state.location)
+    geocode(this.props.location)
       .then(apiRes => {
         const { lat, lng } = apiRes.items[0].position
         this.setState({
