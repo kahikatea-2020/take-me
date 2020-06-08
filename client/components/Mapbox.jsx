@@ -14,7 +14,7 @@ class Mapbox extends React.Component {
     }
   }
 
-  componentDidMount () {
+  componentDidUpdate () {
     geocode(this.props.location)
       .then(apiRes => {
         const { lat, lng } = apiRes.items[0].position
