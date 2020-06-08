@@ -16,4 +16,5 @@ test('getListing adds the correct listing to the state', () => {
 
   const newState = listingReducer(currentState, action)
   expect(newState).toHaveLength(1)
+  expect(newState[0].name).toBe('Barbie Doll')
 })
