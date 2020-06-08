@@ -30,7 +30,7 @@ class Listing extends React.Component {
     this.props.dispatch(getListingsPending())
     getListingById(this.props.match.params.id)
       .then(listing => {
-        this.props.dispatch(getListingSuccess())
+        this.props.dispatch(getListingSuccess(listing))
         if (listing === undefined) {
           this.props.history.push(`/404`)
         } else {

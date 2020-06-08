@@ -20,9 +20,10 @@ export function getListingsSuccess (listings) {
   }
 }
 
-export function getListingSuccess () {
+export function getListingSuccess (listing) {
   return {
-    type: GET_LISTING_SUCCESS
+    type: GET_LISTING_SUCCESS,
+    listing
   }
 }
 
