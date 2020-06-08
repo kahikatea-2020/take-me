@@ -1,19 +1,20 @@
 import React, { useState } from 'react'
 import ReactMapGL, { Marker } from 'react-map-gl'
 
+import WaitIndicator from './WaitIndicator'
 import { geocode } from '../api/geocode'
 
 class Mapbox extends React.Component {
   constructor () {
     super()
     this.state = {
-      latitude: -36.867599,
-      longitude: 174.778000,
-      location: 'Newmarket, Auckland'
+      latitude: null,
+      longitude: null,
+      location: 'St Heliers, Auckland'
     }
   }
 
-  Geocode = () => {
+  componentDidMount () {
     geocode(this.state.location)
       .then(apiRes => {
         const { lat, lng } = apiRes.items[0].position
@@ -55,9 +56,15 @@ class Mapbox extends React.Component {
   }
 
   render () {
-    return (
-      <this.ListingMap />
-    )
+    if (this.state.latitude && this.state.longitude) {
+      return (
+        <this.ListingMap />
+      )
+    } else {
+      return (
+        <WaitIndicator />
+      )
+    }
   }
 }
 
