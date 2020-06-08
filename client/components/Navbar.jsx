@@ -12,7 +12,6 @@ const fontStyle = {
   fontSize: '16px'
 }
 
-
 class Navbar extends React.Component {
   
   render() {
