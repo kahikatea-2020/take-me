@@ -37,7 +37,7 @@ class Mapbox extends React.Component {
     return (
       <ReactMapGL
         {...viewport}
-        mapboxApiAccessToken={process.env.REACT_APP_MAPBOX_TOKEN}
+        mapboxApiAccessToken={process.env.MAPBOX_TOKEN}
         mapStyle='mapbox://styles/ellorav/ckapzm89l24ph1jlpo6wdzq1q'
         onViewportChange={viewport => {
           setViewport(viewport)
