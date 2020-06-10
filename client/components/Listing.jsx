@@ -6,6 +6,7 @@ import { Button, Card, Grid, Image, Form } from 'semantic-ui-react'
 import Swal from 'sweetalert2'
 
 import WaitIndicator from './WaitIndicator'
+import Mapbox from './Mapbox'
 
 import { getListingById, markAsTaken } from '../api/listings'
 import { getCommentsById, addComment } from '../api/q-and-a'
@@ -191,7 +192,10 @@ class Listing extends React.Component {
                   </Card.Content>
                 </Card>
               </div>
-              <WaitIndicator />
+              {this.props.location
+              ? <Mapbox location={this.props.location} />
+              : <WaitIndicator />
+              }
             </Grid.Column>
           </Grid.Row>
         </Grid>
