@@ -1,5 +1,6 @@
 const path = require('path')
 const Dotenv = require('dotenv-webpack')
+const webpack = require('webpack')
 
 module.exports = {
   entry: './client/index.js',
@@ -19,7 +20,12 @@ module.exports = {
     extensions: ['.js', '.jsx']
   },
   plugins: [
-    new Dotenv()
+    new Dotenv(),
+    new webpack.DefinePlugin({
+      'process.env': {
+        MAPBOX_TOKEN: JSON.stringify(process.env.MAPBOX_TOKEN)
+      }
+    })
   ],
   devtool: 'source-map',
   devServer: {
