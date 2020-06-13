@@ -32,7 +32,8 @@ class Mapbox extends React.Component {
       longitude: this.state.longitude,
       width: '30vw',
       height: '30vh',
-      zoom: 11
+      zoom: 10,
+      maxZoom: 13
     })
     return (
       <ReactMapGL
